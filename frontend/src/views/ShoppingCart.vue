@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import MyTest from '../components/MyTest.vue'
+import TheWelcome from '../stores/TheWelcome.vue'
 import MyFooter from '../components/MyFooter.vue'
 
 // function say(message) {
@@ -25,6 +26,8 @@ import MyFooter from '../components/MyFooter.vue'
     <button @click="warn('form cannot ooo', $event)">submit</button> -->
     <!-- <button @click="(event) => warn('form oooooo', event)">
     submit</button> -->
+
+    <TheWelcome/>
   </div>
   <MyFooter />
 </template>

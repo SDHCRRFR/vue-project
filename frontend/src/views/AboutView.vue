@@ -1,24 +1,58 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
-  <MyFooterVue />
-</template>
-
 <script setup>
 import MyFooterVue from '../components/MyFooter.vue'
 </script>
+        
+
 
 <style scoped>
-@media (min-width: 1324px) {
   .about {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    min-height: 100vh;
+    text-align: left;
+    min-height: 80vh;
     padding-top: 100px;
-    background: goldenrod;
     justify-content: center;
     align-items: center;
   }
-}
-</style>
+
+  .contact_container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 65vh;
+    opacity: 0.7;
+    background: url(../../public/background-crimson.jpeg) 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  .faq{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    min-height: 25vh;
+    background: white;
+    justify-content: center;
+  }
+  </style>
+  <template>
+    <div class="about">
+      <h1>Nous sommes là pour vous aider !</h1>
+      <div class="contact_container">
+        <h2>Contactez-nous</h2>
+        <div class="faq">
+          <h3>Foire aux questions</h3>
+          <p>Réponses rapides aux questions les plus fréquentes (Mon compte, Mes réservations…)</p>
+          <button type="button">Accéder à la FAQ</button>
+        </div>
+        <p>Vous ne trouvez pas ce que vous cherchez ? Vous pouvez nous envoyer un e-mail.</p>
+        <a href="#">contact@tabledecoeur.fr</a>
+      </div>
+    </div>
+    <MyFooterVue />
+  </template>
