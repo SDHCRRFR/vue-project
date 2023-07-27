@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import TheWelcome from '../stores/TheWelcome.vue'
 import MyFooter from '../components/MyFooter.vue'
 
@@ -26,7 +26,6 @@ import MyFooter from '../components/MyFooter.vue'
     <button @click="warn('form cannot ooo', $event)">submit</button> -->
     <!-- <button @click="(event) => warn('form oooooo', event)">
     submit</button> -->
-
   </div>
   <MyFooter />
 </template>
