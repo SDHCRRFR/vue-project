@@ -5,173 +5,171 @@ export default {
       products: [
         {
           id: 13,
-          description: "Patek philipe",
+          description: 'Patek philipe',
           price: 182,
-          img: "../public/resto-I.jpeg",
+          img: '../public/resto-I.jpeg'
         },
         {
           id: 14,
-          description: "Lacoste",
+          description: 'Lacoste',
           price: 523,
-          img: "../public/resto-II.jpeg",
+          img: '../public/resto-II.jpeg'
         },
         {
           id: 15,
-          description: "Versace",
+          description: 'Versace',
           price: 837,
-          img: "../public/resto-III.jpeg",
+          img: '../public/resto-III.jpeg'
         },
         {
           id: 16,
-          description: "Gucci",
+          description: 'Gucci',
           price: 140,
-          img: "../public/resto-IIII.jpeg",
+          img: '../public/resto-IIII.jpeg'
         },
         {
           id: 17,
-          description: "Prada",
+          description: 'Prada',
           price: 387,
-          img: "../public/resto-v.webp",
+          img: '../public/resto-v.webp'
         },
         {
           id: 18,
-          description: "Swarovskii",
+          description: 'Swarovskii',
           price: 299,
-          img: "../public/resto-IIII.jpeg",
+          img: '../public/resto-IIII.jpeg'
         },
         {
           id: 19,
-          description: "Dior",
+          description: 'Dior',
           price: 150,
-          img: "../public/resto-III.jpeg",
+          img: '../public/resto-III.jpeg'
         },
         {
           id: 20,
-          description: "Mesh Genova",
+          description: 'Mesh Genova',
           price: 621,
-          img: "../public/resto-II.jpeg",
+          img: '../public/resto-II.jpeg'
         },
         {
           id: 1,
-          description: "Quarz Luxe",
+          description: 'Quarz Luxe',
           price: 12,
-          img: "../public/resto-I.jpeg",
+          img: '../public/resto-I.jpeg'
         },
         {
           id: 2,
-          description: "Curren Business",
+          description: 'Curren Business',
           price: 20,
-          img: "../public/resto-IIII.jpeg",
+          img: '../public/resto-IIII.jpeg'
         },
         {
           id: 3,
-          description: "Curren Sport",
+          description: 'Curren Sport',
           price: 5,
-          img: "../public/resto-v.webp",
+          img: '../public/resto-v.webp'
         },
         {
           id: 4,
-          description: "Jaragar Racing",
+          description: 'Jaragar Racing',
           price: 8,
-          img: "../public/jaragar-racing.JPG",
+          img: '../public/jaragar-racing.JPG'
         },
         {
           id: 5,
-          description: "Liges Hommes",
+          description: 'Liges Hommes',
           price: 3,
-          img: "../public/liges-hommes.JPG",
+          img: '../public/liges-hommes.JPG'
         },
         {
           id: 6,
-          description: "Maserati Mechanical",
+          description: 'Maserati Mechanical',
           price: 65,
-          img: "../public/maserati-mechanical.JPG",
+          img: '../public/maserati-mechanical.JPG'
         },
         {
           id: 7,
-          description: "Montre Mecanique",
+          description: 'Montre Mecanique',
           price: 25,
-          img: "../public/montre-mecanique.JPG",
+          img: '../public/montre-mecanique.JPG'
         },
         {
           id: 8,
-          description: "Brand Designer",
+          description: 'Brand Designer',
           price: 28,
-          img: "../public/brand-designer.JPG",
+          img: '../public/brand-designer.JPG'
         },
         {
           id: 9,
-          description: "Relogio Masculino",
+          description: 'Relogio Masculino',
           price: 4,
-          img: "../public/relogio-masculino.JPG",
+          img: '../public/relogio-masculino.JPG'
         },
         {
           id: 10,
-          description: "Tissot Multifunction",
+          description: 'Tissot Multifunction',
           price: 29,
-          img: "../public/tissot-multifunction.JPG",
+          img: '../public/tissot-multifunction.JPG'
         },
         {
           id: 11,
-          description: "Audemars Piguet",
+          description: 'Audemars Piguet',
           price: 870,
-          img: "../public/audemars-piguet.jpg",
+          img: '../public/audemars-piguet.jpg'
         },
         {
           id: 12,
-          description: "Rolex",
+          description: 'Rolex',
           price: 660,
-          img: "../public/rolex.jpg",
-        },
+          img: '../public/rolex.jpg'
+        }
       ],
-      searchKey: "",
+      searchKey: '',
       liked: [],
-      cart: [],
-    };
+      cart: []
+    }
   },
   computed: {
     filteredList() {
       return this.products.filter((product) => {
-        return product.description
-          .toLowerCase()
-          .includes(this.searchKey.toLowerCase());
-      });
+        return product.description.toLowerCase().includes(this.searchKey.toLowerCase())
+      })
     },
     getLikeCookie() {
-      let cookieValue = JSON.parse($cookies.get("like"));
-      cookieValue == null ? (this.liked = []) : (this.liked = cookieValue);
+      let cookieValue = JSON.parse($cookies.get('like'))
+      cookieValue == null ? (this.liked = []) : (this.liked = cookieValue)
     },
     cartTotalAmount() {
-      let total = 0;
+      let total = 0
       for (let item in this.cart) {
-        total = total + this.cart[item].quantity * this.cart[item].price;
+        total = total + this.cart[item].quantity * this.cart[item].price
       }
       // this.cart.forEach((item) => {
       //   total += item.price;
       // });
-      return total;
+      return total
     },
     itemTotalAmount() {
-      let itemTotal = 0;
+      let itemTotal = 0
       for (let item in this.cart) {
-        itemTotal = itemTotal + this.cart[item].quantity;
+        itemTotal = itemTotal + this.cart[item].quantity
       }
-      return itemTotal;
-    },
+      return itemTotal
+    }
   },
   methods: {
-    setLikeCookie() {
-      document.addEventListener("input", () => {
-        setTimeout(() => {
-          $cookies.set("like", JSON.stringify(this.liked));
-        }, 300);
-      });
-    },
+    // setLikeCookie() {
+    //   document.addEventListener('input', () => {
+    //     setTimeout(() => {
+    //       $cookies.set('like', JSON.stringify(this.liked))
+    //     }, 300)
+    //   })
+    // },
     addToCart(product) {
       // si il est déja dans le tableau
       for (let i = 0; i < this.cart.length; i++) {
         if (this.cart[i].id === product.id) {
-          return this.cart[i].quantity++;
+          return this.cart[i].quantity++
         }
       }
       this.cart.push({
@@ -179,35 +177,33 @@ export default {
         img: product.img,
         description: product.description,
         price: product.price,
-        quantity: 1,
-      });
+        quantity: 1
+      })
     },
     cartPlusOne(product) {
-      product.quantity = product.quantity + 1;
+      product.quantity = product.quantity + 1
     },
     cartMinusOne(product, id) {
-      debugger;
+      debugger
       if (product.quantity == 1) {
-        this.cartRemoveItem(product.id);
+        this.cartRemoveItem(product.id)
       } else {
-        product.quantity = product.quantity - 1;
+        product.quantity = product.quantity - 1
       }
     },
     cartRemoveItem(id) {
-      const indexOfProductToRemove = this.cart.findIndex(
-        (product) => product.id === id
-      );
+      const indexOfProductToRemove = this.cart.findIndex((product) => product.id === id)
       if (indexOfProductToRemove !== -1) {
-        this.cart.splice(indexOfProductToRemove, 1);
+        this.cart.splice(indexOfProductToRemove, 1)
       }
       // this.$delete(this.cart, id)
-    },
-  },
+    }
+  }
   // à chaque lancement de page récupère les cookies et injecte les a like
   // mounted: () => {
   //     this.getLikeCookie;
   // }
-};
+}
 </script>
 
 <template>
@@ -228,11 +224,7 @@ export default {
     <!-- cards display -->
     <div class="card-cart-container">
       <div class="card-container">
-        <div
-          v-for="product in filteredList"
-          class="card"
-          v-bind:key="product.id"
-        >
+        <div v-for="product in filteredList" class="card" v-bind:key="product.id">
           <div class="image-container">
             <img v-bind:src="product.img" alt="" v-bind:id="products" />
           </div>
@@ -322,7 +314,7 @@ export default {
 </template>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 /* .home-container {
   padding-top: 100px;
 } */
@@ -345,12 +337,16 @@ export default {
 }
 
 .home-container #search {
-  margin: 1rem 1rem 2rem 0;
+  margin: 1rem 73rem 2rem 0;
   height: 2.4rem;
   padding: 0 0.5rem;
   border-radius: 5px;
   transition: 0.4s ease;
   border: 2px solid rgba(51, 51, 51, 0.835);
+}
+
+#search {
+  width: 300px;
 }
 
 button {
@@ -462,41 +458,20 @@ img {
   /* width: 400px; */
 }
 
-.home-container
-  .card-cart-container
-  .card-container
-  .card
-  .card-icons
-  .fa-heart:hover {
+.home-container .card-cart-container .card-container .card .card-icons .fa-heart:hover {
   color: rgba(251, 38, 38, 0.5);
 }
 
-.home-container
-  .card-cart-container
-  .card-container
-  .card
-  .card-icons
-  .fa-shopping-cart {
+.home-container .card-cart-container .card-container .card .card-icons .fa-shopping-cart {
   font-size: 16px;
   color: #2eb7eb;
 }
 
-.home-container
-  .card-cart-container
-  .card-container
-  .card
-  .card-icons
-  .fa-shopping-cart:hover {
+.home-container .card-cart-container .card-container .card .card-icons .fa-shopping-cart:hover {
   filter: brightness(125%);
 }
 
-.home-container
-  .card-cart-container
-  .card-container
-  .card
-  .card-icons
-  .like-container
-  input {
+.home-container .card-cart-container .card-container .card .card-icons .like-container input {
   display: none;
 }
 
@@ -570,11 +545,11 @@ img {
   display: grid;
   grid-template-columns: 50px 1fr;
   grid-template-rows: 60% 40%;
-  grid-template-areas: "a b" "a c";
+  grid-template-areas: 'a b' 'a c';
 }
 
 .home-container .shopping-cart .item-group .item:after {
-  content: "";
+  content: '';
   position: absolute;
   height: 1px;
   width: 100%;
@@ -652,23 +627,11 @@ img {
   margin-left: 10px;
 }
 
-.home-container
-  .shopping-cart
-  .item-group
-  .item
-  .item-quantity
-  .cart-icons
-  button {
+.home-container .shopping-cart .item-group .item .item-quantity .cart-icons button {
   transform: scaleY(0);
 }
 
-.home-container
-  .shopping-cart
-  .item-group
-  .item
-  .item-quantity
-  .cart-icons
-  button:nth-child(1) {
+.home-container .shopping-cart .item-group .item .item-quantity .cart-icons button:nth-child(1) {
   animation: icon 0.5s ease forwards;
   animation-delay: 0.2s;
 }
@@ -679,13 +642,7 @@ img {
   }
 }
 
-.home-container
-  .shopping-cart
-  .item-group
-  .item
-  .item-quantity
-  .cart-icons
-  button:nth-child(2) {
+.home-container .shopping-cart .item-group .item .item-quantity .cart-icons button:nth-child(2) {
   animation: icon 0.5s ease forwards;
   animation-delay: 0.4s;
 }
@@ -696,13 +653,7 @@ img {
   }
 }
 
-.home-container
-  .shopping-cart
-  .item-group
-  .item
-  .item-quantity
-  .cart-icons
-  button:nth-child(3) {
+.home-container .shopping-cart .item-group .item .item-quantity .cart-icons button:nth-child(3) {
   animation: icon 0.5s ease forwards;
   animation-delay: 0.6s;
 }
@@ -723,13 +674,7 @@ img {
   transition: 0.3s ease;
 }
 
-.home-container
-  .shopping-cart
-  .item-group
-  .item
-  .item-quantity
-  .cart-icons
-  i:hover {
+.home-container .shopping-cart .item-group .item .item-quantity .cart-icons i:hover {
   background: #222;
   color: #2eb7eb;
 }
