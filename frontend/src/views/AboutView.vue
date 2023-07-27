@@ -1,44 +1,8 @@
 <script setup>
+import Subscribe from '../components/Subscribe.vue'
 import MyFooterVue from '../components/MyFooter.vue'
 </script>
 
-<style scoped>
-.about {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  text-align: left;
-  min-height: 80vh;
-  padding-top: 100px;
-  justify-content: center;
-  align-items: center;
-}
-
-.contact_container {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 65vh;
-  opacity: 0.7;
-  background: url(../../public/background-crimson.jpeg) 0 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-}
-
-.faq {
-  width: 35%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  min-height: 25vh;
-  background: white;
-  justify-content: center;
-}
-</style>
 <template>
   <div class="about">
     <h1>Nous sommes là pour vous aider !</h1>
@@ -46,7 +10,7 @@ import MyFooterVue from '../components/MyFooter.vue'
       <h2>Contactez-nous</h2>
       <div class="faq">
         <div class="ic">
-          <i class="fa-solid fa-message-lines" style="color: #008040;"></i>
+          <i class="fas fa-comments"></i>
         </div>
         <div class="afq">
           <h3>Foire aux questions</h3>
@@ -54,9 +18,114 @@ import MyFooterVue from '../components/MyFooter.vue'
           <button type="button">Accéder à la FAQ</button>
         </div>
       </div>
-      <p>Vous ne trouvez pas ce que vous cherchez ? Vous pouvez nous envoyer un e-mail.</p>
-      <a href="#">contact@tabledecoeur.fr</a>
+      <p class="contact_paragraphe">
+        Vous ne trouvez pas ce que vous cherchez ? Vous pouvez nous envoyer un e-mail. <br /><a
+          href="#"
+          >contact@tabledecoeur.fr</a
+        >
+      </p>
     </div>
   </div>
+  <Subscribe />
   <MyFooterVue />
 </template>
+
+<style scoped>
+.about {
+  /* background: gainsboro; */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  min-height: 100vh;
+  /* padding-top: 100px; */
+  justify-content: center;
+  align-items: center;
+}
+
+.contact_container {
+  display: flex;
+  align-items: center;
+  /* text-align: left; */
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 70vh;
+  background: url(../../public/photo-ethnique.jpg) 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+h2 {
+  justify-content: flex-start;
+  text-align: start;
+  margin-right: 50%;
+}
+
+.faq {
+  width: 40%;
+  margin-right: 20%;
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  border-radius: 20px;
+  min-height: 25vh;
+  background: white;
+  justify-content: center;
+}
+
+p {
+  font-size: 18px;
+}
+
+h1 {
+  margin-right: 500px;
+  font-weight: 800;
+  font-size: 25px;
+  /* font-family: Impact, sans-serif; */
+}
+
+h2 {
+  color: white;
+}
+
+.contact_paragraphe {
+  color: white;
+  margin-right: 20%;
+}
+
+a {
+  text-decoration: none;
+  color: goldenrod;
+}
+
+button {
+  width: 200px;
+  height: 5vh;
+  border: 1px solid black;
+  background: white;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+button:hover {
+  background: black;
+  color: white;
+}
+
+.ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  border-radius: 50%;
+  background: gainsboro;
+  height: 50px;
+}
+</style>
