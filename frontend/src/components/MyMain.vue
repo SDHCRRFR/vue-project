@@ -1,7 +1,26 @@
 <template>
   <div class="my-main">
-    <div class="my-img" v-for="item in images" :key="item">
-      <img v-bind:src="item.img" alt="" />
+    <div class="my-img">
+      <div class="container_tm">
+        <img src="../../public/resto-I.jpeg" alt="" />
+        <router-link to="/wish-list">
+          <h2>Impact</h2>
+        </router-link>
+      </div>
+      <div class="container_tm">
+        <img src="../../public/resto-IIII.jpeg" alt="" />
+        <router-link to="/shopping-cart">
+          <h2>Restaurant</h2>
+        </router-link>
+      </div>
+      <div class="container_tm">
+        <img src="../../public/ensemble.jpeg" alt="" />
+        <router-link to="/faire-un-don">
+          <h2>Don</h2>
+        </router-link>
+
+      </div>
+
     </div>
   </div>
 </template>
@@ -10,23 +29,7 @@
 export default {
   data: function () {
     return {
-      images: [
-        {
-          id: 1,
-          img: '../../public/resto-IIII.jpeg',
-          name: 'restoI'
-        },
-        {
-          id: 2,
-          img: '../../public/resto-II.jpeg',
-          name: 'restoII'
-        },
-        {
-          id: 3,
-          img: '../../public/resto-i.jpeg',
-          name: 'restoIII'
-        }
-      ]
+
     }
   }
 }
@@ -40,13 +43,15 @@ export default {
   align-items: center;
   flex-direction: row;
   justify-content: center;
+  margin-bottom: 50px;
 }
 
 .my-main .my-img {
   flex-direction: row;
 }
+
 .my-img {
-  /* width: 50vw; */
+  width: 100%;
   /* background: pink; */
   height: 60vh;
   padding: 0px 30px 0px 30px;
@@ -66,12 +71,17 @@ img {
   border-radius: 50%;
 }
 
-.text_link {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  text-align: center;
+.container_tm{
   align-items: center;
-  width: 100%;
+  text-align: center;
+  flex-direction: columns;
+  height: 60vh;
+  width: 80%;
 }
+
+h2 {
+  text-decoration: none;
+  color: black;
+}
+
 </style>
