@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MyTest from '../components/MyTest.vue'
+import TheWelcome from '../stores/TheWelcome.vue'
 import MyFooter from '../components/MyFooter.vue'
 
 // function say(message) {
@@ -17,14 +17,16 @@ import MyFooter from '../components/MyFooter.vue'
 
 <template>
   <div class="shopping-cart">
+    <TheWelcome />
     <!-- slot -->
-    <MyTest> Aller aller y'a rien n'as voir ici mon pote !. </MyTest>
+    <!-- <MyTest> Aller aller y'a rien n'as voir ici mon pote !. </MyTest> -->
     <!-- slot -->
 
     <!-- <button @click="say">Hello</button>
     <button @click="warn('form cannot ooo', $event)">submit</button> -->
     <!-- <button @click="(event) => warn('form oooooo', event)">
     submit</button> -->
+
   </div>
   <MyFooter />
 </template>

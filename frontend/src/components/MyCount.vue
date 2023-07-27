@@ -122,7 +122,7 @@ h1 {
 }
 
 .container {
-  width: 38vmin;
+  width: 60vmin;
   height: 38vmin;
   align-items: center;
   text-align: center;
