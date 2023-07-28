@@ -7,11 +7,6 @@ const router = express.Router();
 app.use(router);
 
 app.use('/api/restaurant', restaurantRouter);
-
-// app.get('/wish-list', (req, res) => {
-//     const data = ["my very", "first", "message"];
-//     res.send(data);
-// });
  
 
 app.listen(port, () => console.log('app running baby'));
