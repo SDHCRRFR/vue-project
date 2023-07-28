@@ -4,19 +4,14 @@
       <h1>Faire un don</h1>
       <p>Cliquez ici si vous êtes une entreprise || Cliquez ici si vous êtes une association</p>
     </div>
-    
-    
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style scoped>
-
 .don_container {
   width: 100%;
   height: 100vh;
@@ -35,6 +30,4 @@ export default {
   align-items: center;
   background: pink;
 }
-
-
 </style>

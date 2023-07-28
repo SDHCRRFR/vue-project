@@ -18,9 +18,7 @@
         <router-link to="/faire-un-don">
           <h2>Don</h2>
         </router-link>
-
       </div>
-
     </div>
   </div>
 </template>
@@ -28,9 +26,7 @@
 <script>
 export default {
   data: function () {
-    return {
-
-    }
+    return {}
   }
 }
 </script>
@@ -71,7 +67,7 @@ img {
   border-radius: 50%;
 }
 
-.container_tm{
+.container_tm {
   align-items: center;
   text-align: center;
   flex-direction: columns;
@@ -83,5 +79,4 @@ h2 {
   text-decoration: none;
   color: black;
 }
-
 </style>

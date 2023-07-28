@@ -73,55 +73,55 @@ export default {
           id: 4,
           description: 'Jaragar Racing',
           price: 8,
-          img: '../public/jaragar-racing.JPG'
+          img: '../public/resto-III.jpeg'
         },
         {
           id: 5,
           description: 'Liges Hommes',
           price: 3,
-          img: '../public/liges-hommes.JPG'
+          img: '../public/resto-II.jpeg'
         },
         {
           id: 6,
           description: 'Maserati Mechanical',
           price: 65,
-          img: '../public/maserati-mechanical.JPG'
+          img: '../public/resto-I.jpeg'
         },
         {
           id: 7,
           description: 'Montre Mecanique',
           price: 25,
-          img: '../public/montre-mecanique.JPG'
+          img: '../public/resto-III.jpeg'
         },
         {
           id: 8,
           description: 'Brand Designer',
           price: 28,
-          img: '../public/brand-designer.JPG'
+          img: '../public/resto-II.jpeg'
         },
         {
           id: 9,
           description: 'Relogio Masculino',
           price: 4,
-          img: '../public/relogio-masculino.JPG'
+          img: '../public/resto-IIII.jpeg'
         },
         {
           id: 10,
           description: 'Tissot Multifunction',
           price: 29,
-          img: '../public/tissot-multifunction.JPG'
+          img: '../public/resto-I.jpeg'
         },
         {
           id: 11,
           description: 'Audemars Piguet',
           price: 870,
-          img: '../public/audemars-piguet.jpg'
+          img: '../public/resto-II.jpeg'
         },
         {
           id: 12,
           description: 'Rolex',
           price: 660,
-          img: '../public/rolex.jpg'
+          img: '../public/resto-III.jpeg'
         }
       ],
       searchKey: '',

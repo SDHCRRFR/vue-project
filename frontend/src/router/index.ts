@@ -33,7 +33,7 @@ const router = createRouter({
       path: '/faire-un-don',
       name: 'FaireUnDon',
       component: () => import('../views/FaireUnDon.vue')
-    },
+    }
   ]
 })
 
