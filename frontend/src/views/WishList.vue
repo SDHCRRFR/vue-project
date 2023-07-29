@@ -1,6 +1,10 @@
 <template>
   <div class="user-settings">
-    <div class="user">
+    <AlertBox>
+  Click me! <!-- slot content -->
+  <slot></slot>
+    </AlertBox>
+    <!-- <div class="user">
       <div class="demo">
         <button
           v-for="(_, tab) in tabs"
@@ -12,33 +16,34 @@
         </button>
         <component :is="tabs[currentTab]" class="tab"></component>
       </div>
-    </div>
+    </div> -->
   </div>
   <MyFooter />
 </template>
 
 <script setup>
-import Homes from '../components/Homes.vue'
-import Posts from '../components/Posts.vue'
-import Archive from '../components/Archive.vue'
-import { ref } from 'vue'
+import MyTest from '../stores/MyTest.vue'
+// import Homes from '../components/Homes.vue'
+// import Posts from '../components/Posts.vue'
+// import Archive from '../components/Archive.vue'
+// import { ref } from 'vue'
 import MyFooter from '../components/MyFooter.vue'
 
-const data = [
-  {
-    id: 1,
-    items: 'bateau',
-    price: 11900
-  }
-]
+// const data = [
+//   {
+//     id: 1,
+//     items: 'bateau',
+//     price: 11900
+//   }
+// ]
 
-const currentTab = ref('Homes')
+// const currentTab = ref('Homes')
 
-const tabs = {
-  Homes,
-  Posts,
-  Archive
-}
+// const tabs = {
+//   Homes,
+//   Posts,
+//   Archive
+// }
 // export default {
 
 // }

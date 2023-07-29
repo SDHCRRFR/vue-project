@@ -54,6 +54,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 }
 
 img {
@@ -67,6 +68,9 @@ img {
   width: 95%;
   min-height: 30vh;
   border: 1px solid rgb(233, 233, 233);
+  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
 }
 
 .subscribe_txt {
@@ -82,9 +86,16 @@ button {
   border: 1px solid black;
   width: 200px;
   height: 5vh;
+  cursor: pointer;
 }
+
+button:hover {
+  color: white;
+  background: black;
+}
+
 .credential {
-  padding-top: 100px;
+  padding-top: 50px;
   font-size: 12px;
   font-weight: 300;
   width: 95%;
