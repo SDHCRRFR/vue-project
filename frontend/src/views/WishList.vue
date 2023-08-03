@@ -1,52 +1,16 @@
 <template>
   <div class="user-settings">
-    <AlertBox>
-  Click me! <!-- slot content -->
-  <slot></slot>
-    </AlertBox>
-    <!-- <div class="user">
-      <div class="demo">
-        <button
-          v-for="(_, tab) in tabs"
-          :key="tab"
-          :class="['tab-button', { active: currentTab === tab }]"
-          @click="currentTab = tab"
-        >
-          {{ tab }}
-        </button>
-        <component :is="tabs[currentTab]" class="tab"></component>
-      </div>
-    </div> -->
+    <!-- {{ aff }} -->
   </div>
   <MyFooter />
 </template>
 
 <script setup>
-import MyTest from '../stores/MyTest.vue'
-// import Homes from '../components/Homes.vue'
-// import Posts from '../components/Posts.vue'
-// import Archive from '../components/Archive.vue'
-// import { ref } from 'vue'
+import { useTasksStore } from '../stores/tasks'
 import MyFooter from '../components/MyFooter.vue'
 
-// const data = [
-//   {
-//     id: 1,
-//     items: 'bateau',
-//     price: 11900
-//   }
-// ]
-
-// const currentTab = ref('Homes')
-
-// const tabs = {
-//   Homes,
-//   Posts,
-//   Archive
-// }
-// export default {
-
-// }
+const tasksStore = useTasksStore()
+console.log(tasksStore)
 </script>
 
 <style scoped>

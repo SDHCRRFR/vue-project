@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import MyHeader from '../components/MyHeader.vue'
 import MyMain from '../components/MyMain.vue'
 import { ref } from 'vue'

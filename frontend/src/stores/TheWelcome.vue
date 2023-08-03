@@ -378,7 +378,7 @@ button {
   position: relative;
   box-shadow: 0 0px 6px rgba(51, 51, 51, 0.15);
   transition: 0.2s ease;
-  width: 202px;
+  width: 350px;
 }
 
 @media screen and (max-width: 600px) {

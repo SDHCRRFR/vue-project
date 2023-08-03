@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {}
 </script>
 
@@ -54,7 +54,6 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }
 
 img {

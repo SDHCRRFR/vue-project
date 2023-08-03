@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import TheWelcome from '../stores/TheWelcome.vue'
 import MyFooter from '../components/MyFooter.vue'
 
