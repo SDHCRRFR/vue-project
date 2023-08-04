@@ -1,8 +1,9 @@
 <template>
   <div class="user-settings">
     <AlertBox>
-  Click me! <!-- slot content -->
-  <slot></slot>
+      Click me!
+      <!-- slot content -->
+      <slot></slot>
     </AlertBox>
     <!-- <div class="user">
       <div class="demo">

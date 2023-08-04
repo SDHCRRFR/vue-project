@@ -9,7 +9,7 @@
         <h2>Mon don</h2>
       </div>
       <div v-for="item in cards" :key="item.id" class="container_img">
-        <img v-bind:src="item.img" alt="" v-bind:id="cards">
+        <img v-bind:src="item.img" alt="" v-bind:id="cards" />
       </div>
       <div class="card_txt" v-for="item in cards" :key="item.id">
         <span>{{ item.date_creation }}</span>
@@ -25,13 +25,12 @@ export default {
   data: () => {
     return {
       cards: [
-        { 
-        id: 1,
-        img: '../../photo-ethnique.jpg',
-        date_creation: ('12/03/23'),
-        title: ('Merci pour vor votre contribution')
-      }
-
+        {
+          id: 1,
+          img: '../../photo-ethnique.jpg',
+          date_creation: '12/03/23',
+          title: 'Merci pour vor votre contribution'
+        }
       ]
     }
   }
@@ -60,7 +59,6 @@ export default {
   background: white;
   border-radius: 20px 20px 0px 0px;
   /* border-bottom: 20px solid black; */
- 
 }
 
 .mon_don {

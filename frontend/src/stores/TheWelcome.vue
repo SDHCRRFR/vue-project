@@ -309,8 +309,8 @@ export default {
         </div>
       </transition-group>
     </div>
+    <transition name="cart-anim"></transition>
   </div>
-  <transition name="cart-anim"></transition>
 </template>
 
 <style scoped>

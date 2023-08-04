@@ -2,7 +2,7 @@
   <!-- <div class="maps"> -->
   <GoogleMap
     :api-key="apikey"
-    style="width: 90%; height: 800px"
+    style="width: 90%; height: 600px"
     :center="{ lat: lat, lng: lng }"
     :zoom="15"
   >
