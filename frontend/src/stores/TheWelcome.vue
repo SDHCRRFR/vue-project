@@ -429,7 +429,7 @@ button {
 }
 
 .home-container .card-cart-container .card-container .card .card-text span {
-  background: #2eb7eb;
+  background: crimson;
   font-weight: bold;
   padding: 4px 6px;
   color: white;

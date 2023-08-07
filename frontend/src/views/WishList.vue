@@ -1,104 +1,173 @@
 <template>
   <div class="user-settings">
-    <AlertBox>
-      Click me!
-      <!-- slot content -->
-      <slot></slot>
-    </AlertBox>
-    <!-- <div class="user">
-      <div class="demo">
-        <button
-          v-for="(_, tab) in tabs"
-          :key="tab"
-          :class="['tab-button', { active: currentTab === tab }]"
-          @click="currentTab = tab"
-        >
-          {{ tab }}
-        </button>
-        <component :is="tabs[currentTab]" class="tab"></component>
+    <div class="container_img">
+      <img src="../../public/background-crimson.jpeg" alt="" />
+    </div>
+
+    <h2>Sélection table de coeur</h2>
+
+    <div class="container">
+      <div class="container_card">
+        <div class="container_box">
+          <!-- ici image -->
+        </div>
+        <h2>profitez de 15$ de réduction</h2>
+        <p>
+          Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur pay
+        </p>
+        <h3>j'utilise le code</h3>
       </div>
-    </div> -->
+
+      <div class="container_card">
+        <div class="container_box">
+          <!-- ici -->
+        </div>
+        <h2>profitez de 15$ de réduction</h2>
+        <p>
+          Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur pay
+        </p>
+        <h3>j'utilise le code</h3>
+      </div>
+
+      <div class="container_card">
+        <div class="container_box">
+          <!-- ici -->
+        </div>
+        <h2>profitez de 15$ de réduction</h2>
+        <p>
+          Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur pay
+        </p>
+        <h3>j'utilise le code</h3>
+      </div>
+    </div>
+    <hr>
+    <div class="card_cd">
+      <div class="my_pic">
+        <img src="../../public/background-resto.png" alt="">
+      </div>
+      <div class="cd_card">
+        <h4>Découvrez les nouvelles</h4>
+        <h5>Cartes cadeaux Table de coeur</h5>
+        <p>8.000 restaurants avec 1 seule carte cadeau</p>
+        <button type="submit">Acceder</button>
+      </div>
+    </div>
+    <hr>
   </div>
+
   <MyFooter />
 </template>
 
 <script setup>
 import MyTest from '../stores/MyTest.vue'
-// import Homes from '../components/Homes.vue'
-// import Posts from '../components/Posts.vue'
-// import Archive from '../components/Archive.vue'
-// import { ref } from 'vue'
 import MyFooter from '../components/MyFooter.vue'
-
-// const data = [
-//   {
-//     id: 1,
-//     items: 'bateau',
-//     price: 11900
-//   }
-// ]
-
-// const currentTab = ref('Homes')
-
-// const tabs = {
-//   Homes,
-//   Posts,
-//   Archive
-// }
-// export default {
-
-// }
 </script>
 
 <style scoped>
 .user-settings {
-  padding-bottom: 260px;
-  text-align: center;
-  height: 80vh;
+  padding-top: 100px;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 100px;
-  justify-content: center;
+  border-radius: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.container_img {
+  width: 80%;
+  border-radius: 20px;
+}
+
+.container {
+  width: 80%;
+  min-height: 30vh;
+  padding: 10px;
+  /* border: 1px solid black; */
+  gap: 45px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
-.user {
-  width: 90%;
-  height: 90vh;
-}
-
-.demo {
-  font-family: sans-serif;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 20px 30px;
-  margin-top: 1em;
-  height: 100vh;
-  margin-bottom: 40px;
-  user-select: none;
-  overflow-x: auto;
-}
-
-.tab-button {
-  padding: 6px 10px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  background: #f0f0f0;
-  margin-bottom: -1px;
-  margin-right: -1px;
-}
-.tab-button:hover {
-  background: #e0e0e0;
-}
-.tab-button.active {
-  background: #e0e0e0;
-}
-.tab {
-  border: 1px solid #ccc;
+.container_card {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
-  height: 80vh;
+  /* gap: 15px;  */
+  /* border: 1px solid black; */
+  text-align: left;
+}
+
+.card_cd {
+  width: 80%;
+  height: 40vh;
+  display: flex;
+  padding: 30px;
+  flex-direction: row;
+  border-radius: 20px;
+}
+
+
+.container_card:hover {
+  border: 1px solid gainsboro;
+  border-radius: 20px;
+}
+
+
+.container_box {
+  background: url(../../public/legume.jpeg) 0 0;
+  background-size: cover;
+  overflow: hidden;
+  width: 100%;
+  height: 250px;
+}
+
+.cd_card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+  gap: 10px;
+}
+
+.cd_card > button{
+  width: 250px;
+  padding: 10px;
+  background: green;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 10px;
+  color: white;
+  font-size: 13px;
+}
+
+hr {
+  width: 80%;
+  border: 1px solid gainsboro;
+  
+}
+
+.cd_card > button:hover{
+  background: white;
+  /* border: none; */
+  color: black;
+}
+
+.my_pic{
+  width: 100%;
+}
+
+img {
+  width: 100%;
+  border-radius: 20px;
+  height: 40vh;
+}
+
+h3 {
+  color: green;
+  cursor: pointer;
 }
 </style>

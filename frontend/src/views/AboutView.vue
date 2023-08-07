@@ -51,7 +51,7 @@ import MyFooterVue from '../components/MyFooter.vue'
   flex-direction: column;
   width: 100%;
   height: 70vh;
-  background: url(../../public/photo-ethnique.jpg) 0 0;
+  background: url(../../public/background-crimson.jpeg) 0 0;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;

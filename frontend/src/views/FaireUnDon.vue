@@ -8,14 +8,7 @@
       <div class="mon_don">
         <h2>Mon don</h2>
       </div>
-      <div v-for="item in cards" :key="item.id" class="container_img">
-        <img v-bind:src="item.img" alt="" v-bind:id="cards" />
-      </div>
-      <div class="card_txt" v-for="item in cards" :key="item.id">
-        <span>{{ item.date_creation }}</span>
-        <h3>{{ item.title }}</h3>
-        <button>Faire un don</button>
-      </div>
+      
     </div>
   </div>
 </template>
