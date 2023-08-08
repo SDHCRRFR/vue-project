@@ -1,6 +1,6 @@
 <script setup>
-import TheWelcome from '../stores/TheWelcome.vue'
-import MyFooter from '../components/MyFooter.vue'
+import TheWelcome from '../../stores/TheWelcome.vue'
+import MyFooter from '../../components/MyFooter.vue'
 
 // function say(message) {
 //   alert(message)

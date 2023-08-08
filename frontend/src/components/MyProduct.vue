@@ -116,65 +116,7 @@ img {
   padding: 10px;
   gap: 10px;
 }
-.component #search:focus {
-  outline: none;
-  border: 2px solid #2eb7eb;
-}
 
-.component .card-cart-container {
-  display: flex;
-}
-.card-cart-container .card-container .card:hover {
-  transform: scale(1.04);
-}
-
-.component .card-cart-container .card-container .card:hover img {
-  transform: scale(1.08);
-}
-
-.component .card-cart-container .card-container .card:hover .card-text {
-  opacity: 1;
-  bottom: 2.3rem;
-}
-
-.component .card-cart-container .card-container .card .img-container {
-  overflow: hidden;
-}
-
-.component .card-cart-container .card-container .card .img-container img {
-  height: 210px;
-  transition: 0.4s ease;
-}
-
-.home-container .card-cart-container .card-container .card .card-text h3 {
-  font-size: 1.2rem;
-  padding-right: 4px;
-}
-
-.home-container .card-cart-container .card-container .card .card-text span {
-  background: #2eb7eb;
-  font-weight: bold;
-  padding: 4px 6px;
-  color: white;
-  border-radius: 4px;
-}
-
-.home-container .card-cart-container .card-container .card .card-icons {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 40px;
-}
-
-.home-container .card-cart-container .card-container .card .card-icons i {
-  padding: 3px 5px;
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-.home-container .card-cart-container .card-container .card .card-icons i:hover {
-  animation: scaler 0.8s infinite linear;
-}
 
 .card {
   display: flex;
@@ -186,6 +128,12 @@ img {
   background: gainsboro;
   padding: 10px;
   border-bottom: 18px solid black;
+
+}
+
+.card:hover {
+  animation: scaler 0.8s infinite linear;
+  transition: 0.2s ease;
 }
 
 .card-text {

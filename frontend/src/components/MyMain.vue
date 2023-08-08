@@ -10,7 +10,7 @@
       <div class="container_tm">
         <img src="../../public/resto-IIII.jpeg" alt="" />
         <router-link to="/shopping-cart">
-          <h2>Restaurant</h2>
+          <h2>Nos-Restaurant</h2>
         </router-link>
       </div>
       <div class="container_tm">
