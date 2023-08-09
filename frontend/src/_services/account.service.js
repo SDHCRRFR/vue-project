@@ -2,28 +2,26 @@
 
 import Axios from './caller.service'
 
-
-
 let login = (credentials) => {
-    return Axios.post('/auth/login', credentials)
+  return Axios.post('/auth/login', credentials)
 }
 
 let logout = () => {
-    localStorage.removeItem('token')
+  localStorage.removeItem('token')
 }
 
 let saveToken = (token) => {
-    localStorage.setItem('token', token)
+  localStorage.setItem('token', token)
 }
 
 let isLogged = () => {
-    let token = localStorage.getItem('token')
-    return !!token
+  let token = localStorage.getItem('token')
+  return !!token
 }
 
 export const accountService = {
-    login,
-    logout,
-    saveToken,
-    isLogged
+  login,
+  logout,
+  saveToken,
+  isLogged
 }

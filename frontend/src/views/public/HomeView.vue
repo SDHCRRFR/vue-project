@@ -62,7 +62,7 @@ span {
   width: 100%;
   display: flex;
   align-items: center;
-  padding-top: 70px;
+  padding-top: 88px;
   /* margin: 0; */
   flex-direction: column;
   justify-content: center;

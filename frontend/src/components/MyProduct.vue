@@ -117,7 +117,6 @@ img {
   gap: 10px;
 }
 
-
 .card {
   display: flex;
   flex-direction: column;
@@ -128,7 +127,6 @@ img {
   background: gainsboro;
   padding: 10px;
   border-bottom: 18px solid black;
-
 }
 
 .card:hover {

@@ -1,51 +1,46 @@
 <template>
-     <nav>
-    <div class="nav-container">
-      <div id="logo">
-        <router-link to="/">
-          <img src="../src/assets/logosaid.svg" alt="logo" />
-        </router-link>
+    <nav>
+      <div class="nav-container">
+        <div id="logo">
+          <router-link to="/">
+            <img src="../../src/assets/logosaid.svg" alt="logo" />
+          </router-link>
+        </div>
+        <ul id="icons">
+          <li>
+            <router-link to="/wish-list">
+              <i class="fas fa-heart"></i>
+              <span id="nav-not"></span>
+            </router-link>
+          </li>
+  
+          <li>
+            <router-link to="/shopping-cart">
+              <i class="fa-solid fa-utensils"></i>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/about">
+              <i class="fas fa-address-card"></i>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/login">
+              <i class="far fa-user"></i>
+            </router-link>
+          </li>
+        </ul>
       </div>
-      <ul id="icons">
-        <li>
-          <router-link to="/wish-list">
-            <i class="fas fa-heart"></i>
-            <span id="nav-not"></span>
-          </router-link>
-        </li>
-
-        <li>
-          <router-link to="/shopping-cart">
-            <i class="fa-solid fa-utensils"></i>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/about">
-            <i class="fas fa-address-card"></i>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/login">
-            <i class="far fa-user"></i>
-          </router-link>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    </nav>
 </template>
 
 <script>
 export default {
-    name: 'PublicNav'
+  name: 'PublicNav'
 }
 </script>
 
 <style scoped>
-    /* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
 
 ul,
 li {
@@ -58,20 +53,19 @@ a:visited {
 }
 
 nav {
-  padding: 0.8rem 2.4rem;
+  padding: 0rem 2.4rem;
   background: rgba(255, 255, 255, 0.97);
   position: fixed;
-  width: 99%;
+  width: 100%;
   z-index: 2;
   box-shadow: 0 2px 4px -3px rgba(51, 51, 51, 0.2);
 }
 
 nav .nav-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   max-width: 1450px;
-  margin: 0 auto;
 }
 
 nav .nav-container #logo {
@@ -118,5 +112,4 @@ nav .nav-container #icons i {
 nav .nav-container #icons i:hover {
   color: rgba(34, 34, 34, 0.65);
 }
-
 </style>
