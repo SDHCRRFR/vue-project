@@ -8,7 +8,6 @@
       <div class="mon_don">
         <h2>Mon don</h2>
       </div>
-      
     </div>
   </div>
 </template>

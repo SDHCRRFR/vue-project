@@ -1,12 +1,12 @@
 <script setup>
-import MyHeader from '../components/MyHeader.vue'
-import MyMain from '../components/MyMain.vue'
+import MyHeader from '@/components/MyHeader.vue'
+import MyMain from '@/components/MyMain.vue'
 import { ref } from 'vue'
-import MyProduct from '../views/MyProduct.vue'
-import GoogleMaps from '../components/GoogleMaps.vue'
-import MyCount from '../components/MyCount.vue'
-import Impact from '../components/Impact.vue'
-import MyFooter from '../components/MyFooter.vue'
+import MyProduct from '@/components/MyProduct.vue'
+import GoogleMaps from '@/components/GoogleMaps.vue'
+import MyCount from '@/components/MyCount.vue'
+import Impact from '@/components/Impact.vue'
+import MyFooter from '@/components/MyFooter.vue'
 
 const check = "Et si c'était vous ?"
 const show = ref(true)
