@@ -6,15 +6,21 @@
     </div>
     <div class="container_don">
       <div class="mon_don">
-        <h2>Mon don</h2>
+        <h2>
+          Mon don <span>{{ id }}</span>
+        </h2>
+        <div></div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+// import { log } from 'console'
 export default {
-  data: () => {
+  name: 'FaireUnDon',
+  props: ['id'],
+  data() {
     return {
       cards: [
         {
@@ -23,9 +29,17 @@ export default {
           date_creation: '12/03/23',
           title: 'Merci pour vor votre contribution'
         }
-      ]
+      ],
     }
   }
+  // mounted(){
+  //   console.log(this.$route.params.id)
+  //   this.test = this.$route.params.id
+  // },
+  // updated(){
+  //   console.log(this.$route.params.id)
+  //   this.test = this.$route.params.id
+  // }
 }
 </script>
 
@@ -48,7 +62,7 @@ export default {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  background: white;
+  background: gainsboro;
   border-radius: 20px 20px 0px 0px;
   /* border-bottom: 20px solid black; */
 }
