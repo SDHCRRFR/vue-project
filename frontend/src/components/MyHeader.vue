@@ -49,7 +49,7 @@ export default {
 .container_img {
   background: url(../../public/background-resto.png) 0 0 no-repeat;
   width: 90%;
-  height: 88vh;
+  height: 87vh;
   border-radius: 20px 20px 20px 20px;
   background-size: cover;
   overflow: hidden;

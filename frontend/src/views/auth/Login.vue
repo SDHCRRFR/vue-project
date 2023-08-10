@@ -20,17 +20,17 @@
           <button type="submit" class="button">Connexion</button>
         </div>
         <div class="sub">
-          <a href=""> crée un compte ? </a>
-          <a href=""> mot de passe oublié ? </a>
+          <a href="">crée un compte ?</a>
+          <a href="">mot de passe oublié ?</a>
         </div>
       </form>
     </div>
-    <MyFooter/>
+    <MyFooter />
   </div>
 </template>
 
 <script>
-import { accountService } from '@/_services'
+// import { accountService } from '@/_services'
 import MyFooter from '../../components/MyFooter.vue'
 
 export default {
@@ -48,12 +48,16 @@ export default {
   },
   methods: {
     login() {
-      accountService
-        .login(this.user)
-        .then((res) => {
-          console.log(res)
-        })
-        .catch((err) => console.log(err))
+      console.log('stop form')
+      console.log(this.user.login)
+      // accountService
+        // .login(this.user)
+        // .then((res) => {
+        //   console.log(res)
+        // })
+        // .catch((err) => console.log(err))
+
+        // ==========================================>
 
       //     fetch('http://localhost:8888/login', {
       //         headers: {
@@ -139,6 +143,11 @@ form {
   border-radius: 6px;
   border: 1px solid black;
   cursor: pointer;
+}
+
+.button:hover{
+  background: black;
+  color: white;
 }
 
 hr {

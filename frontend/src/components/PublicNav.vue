@@ -1,37 +1,37 @@
 <template>
-    <nav>
-      <div class="nav-container">
-        <div id="logo">
-          <router-link to="/">
-            <img src="../../src/assets/logosaid.svg" alt="logo" />
-          </router-link>
-        </div>
-        <ul id="icons">
-          <li>
-            <router-link to="/wish-list">
-              <i class="fas fa-heart"></i>
-              <span id="nav-not"></span>
-            </router-link>
-          </li>
-  
-          <li>
-            <router-link to="/shopping-cart">
-              <i class="fa-solid fa-utensils"></i>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/about">
-              <i class="fas fa-address-card"></i>
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/login">
-              <i class="far fa-user"></i>
-            </router-link>
-          </li>
-        </ul>
+  <nav>
+    <div class="nav-container">
+      <div id="logo">
+        <router-link to="/">
+          <img src="../../src/assets/logosaid.svg" alt="logo" />
+        </router-link>
       </div>
-    </nav>
+      <ul id="icons">
+        <li>
+          <router-link to="/wish-list">
+            <i class="fas fa-heart"></i>
+            <span id="nav-not"></span>
+          </router-link>
+        </li>
+
+        <li>
+          <router-link to="/shopping-cart">
+            <i class="fa-solid fa-utensils"></i>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/about">
+            <i class="fas fa-address-card"></i>
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/login">
+            <i class="far fa-user"></i>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -41,7 +41,6 @@ export default {
 </script>
 
 <style scoped>
-
 ul,
 li {
   list-style: none;
