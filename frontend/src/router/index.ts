@@ -41,6 +41,11 @@ const router = createRouter({
           props: true
         },
         {
+          path: 'user/index/:id(\\d+)',
+          name: 'user-index',
+          component: Admin.UserIndex,
+        },
+        {
           path: 'user/don/:id(\\d+)',
           name: 'user-fait-un-don',
           component: Admin.FaireUnDon,
