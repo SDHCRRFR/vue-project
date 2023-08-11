@@ -8,7 +8,7 @@
       </div>
       <ul id="icons">
         <li>
-          <router-link to="/admin/user/wish-list">
+          <router-link to="/admin/user/wishlist">
             <i class="fas fa-heart"></i>
             <span id="nav-not"></span>
           </router-link>
@@ -30,7 +30,7 @@
         </li>
         <li>
           <!-- <router-link @click="logout()"> -->
-            <i class="fa-solid fa-arrow-right-from-bracket" @click="logout()"></i>
+          <i class="fa-solid fa-arrow-right-from-bracket" @click="logout()"></i>
           <!-- </router-link> -->
         </li>
       </ul>
@@ -43,11 +43,11 @@ import { accountService } from '@/_services'
 export default {
   name: 'AdminHeader',
   methods: {
-    logout(){
+    logout() {
       accountService.logout()
       this.$router.push('/')
     }
-  },
+  }
 }
 </script>
 
@@ -66,7 +66,7 @@ nav {
   padding: 0rem 2.4rem;
   background: rgba(255, 255, 255, 0.97);
   position: fixed;
-  width: 100%;
+  width: 95%;
   z-index: 2;
   box-shadow: 0 2px 4px -3px rgba(51, 51, 51, 0.2);
 }

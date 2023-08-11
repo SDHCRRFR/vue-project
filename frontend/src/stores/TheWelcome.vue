@@ -209,13 +209,16 @@ export default {
 <template>
   <div class="home-container" id="home">
     <!-- search display -->
-    <input
-      v-model="searchKey"
-      type="search"
-      id="search"
-      placeholder="Recherchez..."
-      autocomplete="off"
-    />
+    <header>
+      <input
+        v-model="searchKey"
+        type="search"
+        id="search"
+        placeholder="Recherchez..."
+        autocomplete="off"
+      />
+
+    </header>
     <span v-if="searchKey && filteredList.length >= 1">
       {{ filteredList.length }} résultat
       <span v-if="filteredList.length >= 2">s</span>
@@ -279,7 +282,7 @@ export default {
 
               <div class="item-description">
                 <h4>{{ product.description }}</h4>
-                <p>{{ product.price }}</p>
+                <p>{{ product.price }}$</p>
               </div>
 
               <div class="item-quantity">
@@ -320,7 +323,7 @@ export default {
 } */
 
 .home-container {
-  max-width: 1350px;
+  max-width: 100%;
   margin: 0 auto;
   padding-left: 2.4rem;
 }

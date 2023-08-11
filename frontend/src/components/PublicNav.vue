@@ -8,7 +8,7 @@
       </div>
       <ul id="icons">
         <li>
-          <router-link to="/wish-list">
+          <router-link to="/wishlist">
             <i class="fas fa-heart"></i>
             <span id="nav-not"></span>
           </router-link>
@@ -55,7 +55,7 @@ nav {
   padding: 0rem 2.4rem;
   background: rgba(255, 255, 255, 0.97);
   position: fixed;
-  width: 100%;
+  width: 95%;
   z-index: 2;
   box-shadow: 0 2px 4px -3px rgba(51, 51, 51, 0.2);
 }
