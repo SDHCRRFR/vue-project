@@ -94,10 +94,6 @@ h1 {
   align-items: center;
   justify-content: center;
   background: gainsboro;
-  /* background: url(../../public/photo-ethnique.jpg) 0 0 no-repeat; */
-  /* background-position: center; */
-  /* background-size: cover;
-  overflow: hidden; */
 }
 
 .login {
