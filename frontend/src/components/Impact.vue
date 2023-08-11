@@ -21,7 +21,7 @@
         voluptatem eveniet recusandae officiis. Veniam, illo omnis corrupti dolores magnam.
       </p>
 
-      <h3><i class="fa-solid fa-fish fa-beat" style="color: #ff0000"></i> eweeeee mon pote</h3>
+      <h3><i class="fa-solid fa-fish fa-beat" style="color: #ff0000"></i> lorem ipsum dolor, sit amet</h3>
     </div>
   </div>
 </template>

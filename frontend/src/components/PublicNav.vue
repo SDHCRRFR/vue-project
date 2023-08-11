@@ -8,7 +8,7 @@
       </div>
       <ul id="icons">
         <li>
-          <router-link to="/admin/user/wishlist">
+          <router-link to="/wish-list">
             <i class="fas fa-heart"></i>
             <span id="nav-not"></span>
           </router-link>
