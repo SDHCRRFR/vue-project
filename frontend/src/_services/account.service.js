@@ -1,5 +1,4 @@
-// importation des modules nécessaire
-
+// importation des modules nécessaires */
 import Axios from './caller.service'
 
 let login = (credentials) => {

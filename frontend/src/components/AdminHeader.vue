@@ -1,32 +1,32 @@
-<template lang="">
+<template>
   <nav>
     <div class="nav-container">
       <div id="logo">
-        <router-link to="/">
+        <router-link to="/admin/dashboard">
           <img src="../../src/assets/logosaid.svg" alt="logo" />
         </router-link>
       </div>
       <ul id="icons">
         <li>
-          <router-link to="/wish-list">
+          <router-link to="/admin/user/wish-list">
             <i class="fas fa-heart"></i>
             <span id="nav-not"></span>
           </router-link>
         </li>
 
         <li>
-          <router-link to="/shopping-cart">
+          <router-link to="/admin/user/shop/12">
             <i class="fa-solid fa-utensils"></i>
           </router-link>
         </li>
 
         <li>
-          <router-link to="/about">
+          <router-link to="/admin/user/don/12">
             <i class="fas fa-address-card"></i>
           </router-link>
         </li>
         <li>
-          <router-link to="/shopping-cart"> <i class="fa-solid fa-gear"></i> </router-link>
+          <router-link to="admin/user/shop/13"> <i class="fa-solid fa-gear"></i> </router-link>
         </li>
         <li>
           <router-link to="/login">

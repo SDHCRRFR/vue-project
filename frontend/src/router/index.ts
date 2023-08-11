@@ -9,6 +9,7 @@ import Login from '@/views/auth/Login.vue'
 import { authGuard } from '@/_helpers/auth-guard'
 // =============================================================)->
 import NotFound from '@/views/NotFound.vue'
+
 // localStorage.setItem('token', 'marcel')
 
 const router = createRouter({
@@ -33,8 +34,18 @@ const router = createRouter({
       component: Admin.AdminLayout,
       children: [
         { path: 'dashboard', name: 'dashboard', component: Admin.Dashboard },
-        { path: 'user/shop/:id(\\d+)', name: 'user-shopping', component: Admin.UserShopping, props: true },
-        { path: 'user/don/:id(\\d+)', name: 'user-fait-un-don', component: Admin.FaireUnDon, props: true },
+        {
+          path: 'user/shop/:id(\\d+)',
+          name: 'user-shopping',
+          component: Admin.UserShopping,
+          props: true
+        },
+        {
+          path: 'user/don/:id(\\d+)',
+          name: 'user-fait-un-don',
+          component: Admin.FaireUnDon,
+          props: true
+        },
         { path: 'user/wishlist', name: 'user-wishlist', component: Admin.WishList }
       ]
     },
@@ -43,10 +54,9 @@ const router = createRouter({
   ]
 })
 
-
 // vérouillage de la partie admin (tooken)
 router.beforeEach((to, from, next) => {
-  if(to.matched[0].name == 'admin'){
+  if (to.matched[0].name == 'admin') {
     console.log('pas de token pas dadmin')
     authGuard()
   }

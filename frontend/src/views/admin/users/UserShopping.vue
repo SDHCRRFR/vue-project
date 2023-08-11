@@ -1,6 +1,8 @@
 <template>
   <div class="user_shop">
-    <h1>user shop <span>user: {{ id }}</span></h1>
+    <h1>
+      user shop <span>user: {{ id }}</span>
+    </h1>
   </div>
 </template>
 <script>
@@ -8,9 +10,7 @@ export default {
   name: 'UserShopping',
   props: ['id'],
   data() {
-    return {
-      
-    }
+    return {}
   }
   // mounted() {
   //   console.log(this.$route.params.id)
@@ -26,6 +26,4 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-
-
 </style>

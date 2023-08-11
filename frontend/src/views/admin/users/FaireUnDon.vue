@@ -29,7 +29,7 @@ export default {
           date_creation: '12/03/23',
           title: 'Merci pour vor votre contribution'
         }
-      ],
+      ]
     }
   }
   // mounted(){
