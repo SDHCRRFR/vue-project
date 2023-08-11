@@ -1,38 +1,34 @@
 <template lang="">
-    <div class="user_index">
-        <h1>{{ title }}</h1>
-    </div>
+  <div class="user_index">
+    <h1>{{ title }}</h1>
+  </div>
 </template>
-
 
 <script>
 import { userService } from '@/_services'
 export default {
-    name: 'UserIndex',
-    data(){
-        return {
-            title: ('User Index')
-        }
-    },
-    mounted(){
-        userService.getAllUsers()
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+  name: 'UserIndex',
+  data() {
+    return {
+      title: 'User Index'
     }
-    
+  },
+  mounted() {
+    userService
+      .getAllUsers()
+      .then((res) => console.log(res.data.data))
+      .catch((err) => console.log(err))
+  }
 }
 </script>
 
-
 <style>
-.user_index{
-    width: 100%;
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+.user_index {
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-    
 </style>

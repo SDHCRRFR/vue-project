@@ -43,7 +43,7 @@ const router = createRouter({
         {
           path: 'user/index/:id(\\d+)',
           name: 'user-index',
-          component: Admin.UserIndex,
+          component: Admin.UserIndex
         },
         {
           path: 'user/don/:id(\\d+)',

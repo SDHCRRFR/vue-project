@@ -29,9 +29,9 @@
           <router-link to="admin/user/shop/13"> <i class="fa-solid fa-gear"></i> </router-link>
         </li>
         <li>
-          <router-link to="/login">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </router-link>
+          <!-- <router-link @click="logout()"> -->
+            <i class="fa-solid fa-arrow-right-from-bracket" @click="logout()"></i>
+          <!-- </router-link> -->
         </li>
       </ul>
     </div>
@@ -39,8 +39,15 @@
 </template>
 
 <script>
+import { accountService } from '@/_services'
 export default {
-  name: 'AdminHeader'
+  name: 'AdminHeader',
+  methods: {
+    logout(){
+      accountService.logout()
+      this.$router.push('/')
+    }
+  },
 }
 </script>
 

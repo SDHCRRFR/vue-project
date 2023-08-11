@@ -2,9 +2,9 @@
 import Axios from './caller.service'
 
 let getAllUsers = () => {
-    return Axios.get('/users')
+  return Axios.get('/users')
 }
 
 export const userService = {
-    getAllUsers
+  getAllUsers
 }

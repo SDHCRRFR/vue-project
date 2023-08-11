@@ -6,16 +6,22 @@ const Axios = axios.create({
   baseURL: 'http://localhost:8888'
 })
 
-Axios.interceptors.request.use((request) => {
-  console.log(request)
-  let token = accountService.getToken()
+// Interceptor pour les injection de token
+Axios.interceptors.request.use(request => {
 
-  if (token) {
-    request.headers.Authorization = 'Bearer' + token
+  // Si connecté on ajoute le token dans l'entête
+  if (accountService.isLogged()) {
+    request.headers.Authorization = 'Bearer'+ accountService.getToken()
   }
-  console.log(request)
 
   return request
+})
+
+// Interceptor des réponses de l'API
+Axios.interceptors.request.use(response => {
+  return response
+}, error => {
+      console.log(error.response.status)
 })
 
 export default Axios

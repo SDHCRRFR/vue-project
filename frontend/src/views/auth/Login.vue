@@ -48,8 +48,9 @@ export default {
   },
   methods: {
     login() {
-      accountService.login(this.user)
-        .then(res => {
+      accountService
+        .login(this.user)
+        .then((res) => {
           accountService.savetoken(res.data.access_token)
           this.$router.push('/admin/dashboard')
         })
