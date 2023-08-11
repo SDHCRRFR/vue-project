@@ -6,6 +6,7 @@
 
 
 <script>
+import { userService } from '@/_services'
 export default {
     name: 'UserIndex',
     data(){
@@ -14,7 +15,9 @@ export default {
         }
     },
     mounted(){
-        
+        userService.getAllUsers()
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
     
 }
@@ -28,6 +31,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
 }
     
