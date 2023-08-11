@@ -14,7 +14,6 @@
 
         <div class="card-text">
           <h3>{{ product.description }}</h3>
-          <span>{{ product.price }} €</span>
         </div>
 
         <!-- rajout ici -->
@@ -48,21 +47,18 @@ export default {
         {
           id: 1,
           description: 'Le baobab',
-          price: 3.99,
           img: '../../public/resto-I.jpeg',
           promo: 30
         },
         {
           id: 2,
           description: 'Le baobab',
-          price: 3.99,
           img: '../../public/resto-II.jpeg',
           promo: 25
         },
         {
           id: 3,
           description: 'Le baobab',
-          price: 3.99,
           img: '../../public/resto-III.jpeg',
           promo: 20
         }
@@ -136,9 +132,8 @@ img {
 
 .card-text {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 80%;
 }
 

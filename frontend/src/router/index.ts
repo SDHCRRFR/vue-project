@@ -46,7 +46,7 @@ const router = createRouter({
           component: Admin.FaireUnDon,
           props: true
         },
-        { path: 'user/wishlist', name: 'user-wishlist', component: Admin.WishList }
+        { path: '/admin/user/wishlist', name: 'user-wishlist', component: Admin.WishList }
       ]
     },
     { path: '/login', name: 'Login', component: Login },
