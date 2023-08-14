@@ -1,6 +1,6 @@
 <template>
   <div class="logout">
-    <img src="../../assets/logosaid.svg" alt="" enter-class="image" />
+    <img src="../../assets/logosaid.svg" class="image" width="100px" />
     <div class="block_logout">
       <h1>Are you sure you want to sign out?</h1>
       <button type="submit">Sign Out</button>
@@ -19,6 +19,10 @@ export default {
   width: 100px;
 }
 
+img {
+  width: 100px;
+}
+
 .logout {
   width: 100%;
   min-height: 90vh;
@@ -26,15 +30,15 @@ export default {
   background: gainsboro;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
-
 
 .block_logout {
   width: 30%;
   height: 30vh;
   display: flex;
   flex-direction: column;
+  border-radius: 20px;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
