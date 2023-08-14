@@ -10,7 +10,7 @@ import { authGuard } from '@/_helpers/auth-guard'
 // =============================================================)->
 import NotFound from '@/views/NotFound.vue'
 
-localStorage.setItem('token', 'marcel')
+// localStorage.setItem('token', 'marcel')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,18 +40,15 @@ const router = createRouter({
           component: Admin.UserShopping,
           props: true
         },
-        {
-          path: 'user/index/:id(\\d+)',
-          name: 'user-index',
-          component: Admin.UserIndex
-        },
+        { path: 'user/index/:id(\\d+)', name: 'user-index', component: Admin.UserIndex },
         {
           path: 'user/don/:id(\\d+)',
           name: 'user-fait-un-don',
           component: Admin.FaireUnDon,
           props: true
         },
-        { path: '/admin/user/wishlist', name: 'user-wishlist', component: Admin.WishList }
+        { path: '/admin/user/wishlist', name: 'user-wishlist', component: Admin.WishList },
+        { path: 'logout', name: 'logout', component: Admin.Logout }
       ]
     },
     { path: '/login', name: 'Login', component: Login },

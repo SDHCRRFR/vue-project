@@ -1,5 +1,5 @@
 <script setup>
-import TheWelcome from '../../stores/TheWelcome.vue'
+import UserShp from '../../stores/UserShp.vue'
 import MyFooter from '../../components/MyFooter.vue'
 
 // function say(message) {
@@ -17,7 +17,7 @@ import MyFooter from '../../components/MyFooter.vue'
 
 <template>
   <div class="shopping-cart">
-    <TheWelcome />
+    <UserShp />
     <!-- slot -->
     <!-- <MyTest> Aller aller y'a rien n'as voir ici mon pote !. </MyTest> -->
     <!-- slot -->
