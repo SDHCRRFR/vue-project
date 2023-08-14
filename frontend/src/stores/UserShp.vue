@@ -1,5 +1,6 @@
 <script>
 export default {
+  name: 'UserShp',
   data: () => {
     return {
       products: [
@@ -217,11 +218,21 @@ export default {
         placeholder="Recherchez..."
         autocomplete="off"
       />
+      <span v-if="searchKey && filteredList.length >= 1">
+        {{ filteredList.length }} résultat
+        <span v-if="filteredList.length >= 2">s</span>
+      </span>
+
+      <nav>
+        <ul>
+          <router-link to="/">
+            <button type="submit" class="button_router">Type</button>
+          </router-link>
+          <button type="submit" class="button_router">Type</button>
+          <button type="submit" class="button_router">Type</button>
+        </ul>
+      </nav>
     </header>
-    <span v-if="searchKey && filteredList.length >= 1">
-      {{ filteredList.length }} résultat
-      <span v-if="filteredList.length >= 2">s</span>
-    </span>
 
     <!-- cards display -->
     <div class="card-cart-container">
@@ -333,13 +344,46 @@ export default {
   }
 }
 
+header {
+  width: 80vw;
+
+  /* background: gold; */
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+nav {
+  width: 100%;
+  /* background: gainsboro; */
+}
+
+ul {
+  width: 50%;
+  display: flex;
+  text-decoration: none;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.button_router {
+  width: 100px;
+  background: black;
+  padding: 5px;
+  border-radius: 10px;
+  color: white;
+}
+
 .home-container h1 {
   padding-left: 0;
   padding-top: 100px;
 }
 
 .home-container #search {
-  margin: 1rem 73rem 2rem 0;
+  /* margin: 1rem 73rem 2rem 0; */
   height: 2.4rem;
   padding: 0 0.5rem;
   border-radius: 5px;
