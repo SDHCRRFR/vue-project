@@ -1,16 +1,24 @@
 <template>
   <div class="logout">
-    <img src="../../assets/logosaid.svg" alt="" enter-class="image" />
+    <img src="../../assets/logosaid.svg" class="image" />
     <div class="block_logout">
       <h1>Are you sure you want to sign out?</h1>
-      <button type="submit">Sign Out</button>
+      <button type="submit" @click="logout()">Sign Out</button>
     </div>
   </div>
 </template>
 
 <script>
+import { accountService } from '@/_services'
+
 export default {
-  name: 'Logout'
+  name: 'Logout',
+  methods: {
+    logout() {
+      accountService.logout()
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 
@@ -23,17 +31,36 @@ export default {
   width: 100%;
   min-height: 90vh;
   display: flex;
-  background: gainsboro;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+button {
+  width: 300px;
+  font-size: 15px;
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: white;
+  color: black;
+  border: 1px solid black;
+}
 
 .block_logout {
-  width: 30%;
-  height: 30vh;
+  width: 25%;
+  height: 25vh;
   display: flex;
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  gap: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
