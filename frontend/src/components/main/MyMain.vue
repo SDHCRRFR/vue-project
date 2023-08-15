@@ -2,19 +2,19 @@
   <div class="my-main">
     <div class="my-img">
       <div class="container_tm">
-        <img src="../../public/resto-I.jpeg" alt="" />
+        <img src="../../../public/resto-I.jpeg" alt="" />
         <router-link to="/wish-list">
           <h2>Impact</h2>
         </router-link>
       </div>
       <div class="container_tm">
-        <img src="../../public/resto-IIII.jpeg" alt="" />
+        <img src="../../../public/resto-IIII.jpeg" alt="" />
         <router-link to="/shopping-cart">
           <h2>Nos-Restaurant</h2>
         </router-link>
       </div>
       <div class="container_tm">
-        <img src="../../public/ensemble.jpeg" alt="" />
+        <img src="../../../public/ensemble.jpeg" alt="" />
         <router-link to="/faire-un-don">
           <h2>Don</h2>
         </router-link>

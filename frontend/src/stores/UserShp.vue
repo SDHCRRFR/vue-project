@@ -226,7 +226,8 @@ export default {
       <nav>
         <ul>
           <router-link to="/">
-            <button type="submit" class="button_router">Type</button>
+            <i class="fa-light fa-arrow-down-arrow-up"></i
+            ><button type="submit" class="button_router">Type</button>
           </router-link>
           <button type="submit" class="button_router">Type</button>
           <button type="submit" class="button_router">Type</button>

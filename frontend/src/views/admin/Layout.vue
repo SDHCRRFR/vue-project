@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import AdminHeader from '@/components/AdminHeader.vue'
+import AdminHeader from '@/components/header/AdminHeader.vue'
 export default {
   name: 'AdminLayout',
   components: {

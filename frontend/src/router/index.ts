@@ -10,7 +10,7 @@ import { authGuard } from '@/_helpers/auth-guard'
 // =============================================================)->
 import NotFound from '@/views/NotFound.vue'
 
-localStorage.setItem('token', 'marcel')
+// localStorage.setItem('token', 'marcel')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -49,7 +49,6 @@ const router = createRouter({
 // vérouillage de la partie admin (tooken)
 router.beforeEach((to, from, next) => {
   if (to.matched[0].name == 'admin') {
-    console.log('pas de token pas dadmin')
     authGuard()
   }
   next()

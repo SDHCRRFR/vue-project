@@ -2,35 +2,31 @@
   <nav>
     <div class="nav-container">
       <div id="logo">
-        <router-link to="/admin/dashboard">
-          <img src="../../src/assets/logosaid.svg" alt="logo" />
+        <router-link to="/">
+          <img src="../../assets/logosaid.svg" alt="logo" />
         </router-link>
       </div>
       <ul id="icons">
         <li>
-          <router-link to="/admin/user/wishlist">
+          <router-link to="/wishlist">
             <i class="fas fa-heart"></i>
             <span id="nav-not"></span>
           </router-link>
         </li>
 
         <li>
-          <router-link to="/admin/user/shop/12">
+          <router-link to="/shopping-cart">
             <i class="fa-solid fa-utensils"></i>
           </router-link>
         </li>
-
         <li>
-          <router-link to="/admin/user/don/12">
+          <router-link to="/about">
             <i class="fas fa-address-card"></i>
           </router-link>
         </li>
         <li>
-          <router-link to="/admin/user/shop/13"> <i class="fa-solid fa-gear"></i> </router-link>
-        </li>
-        <li>
-          <router-link to="/admin/logout">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <router-link to="/login">
+            <i class="far fa-user"></i>
           </router-link>
         </li>
       </ul>
@@ -39,9 +35,8 @@
 </template>
 
 <script>
-// import { accountService } from '@/_services'
 export default {
-  name: 'AdminHeader'
+  name: 'PublicNav'
 }
 </script>
 

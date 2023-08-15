@@ -1,10 +1,10 @@
 <script setup>
-import MyHeader from '@/components/MyHeader.vue'
-import MyMain from '@/components/MyMain.vue'
+import MyHeader from '@/components/header/MyHeader.vue'
+import MyMain from '@/components/main/MyMain.vue'
 import { ref } from 'vue'
 import MyProduct from '@/components/MyProduct.vue'
-import GoogleMaps from '@/components/GoogleMaps.vue'
-import MyCount from '@/components/MyCount.vue'
+import GoogleMaps from '@/components/map/GoogleMaps.vue'
+import MyCount from '@/components/counter/MyCount.vue'
 import Impact from '@/components/Impact.vue'
 import MyFooter from '@/components/MyFooter.vue'
 

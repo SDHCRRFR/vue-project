@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import PublicNav from '@/components/PublicNav.vue'
+import PublicNav from '@/components/header/PublicNav.vue'
 export default {
   name: 'PublicLayout',
   components: {
