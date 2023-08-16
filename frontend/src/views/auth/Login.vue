@@ -31,7 +31,7 @@
 
 <script>
 import { accountService } from '@/_services'
-import MyFooter from '../../components/MyFooter.vue'
+import MyFooter from '../../components/footer/MyFooter.vue'
 
 export default {
   name: 'Login',

@@ -60,7 +60,7 @@
 
 <script setup>
 import MyTest from '../../../stores/MyTest.vue'
-import MyFooter from '../../../components/MyFooter.vue'
+import MyFooter from '../../../components/footer/MyFooter.vue'
 </script>
 
 <style scoped>

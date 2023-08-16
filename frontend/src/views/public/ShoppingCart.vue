@@ -1,6 +1,6 @@
 <script setup>
 import UserShp from '../../stores/UserShp.vue'
-import MyFooter from '../../components/MyFooter.vue'
+import MyFooter from '../../components/footer/MyFooter.vue'
 
 // function say(message) {
 //   alert(message)

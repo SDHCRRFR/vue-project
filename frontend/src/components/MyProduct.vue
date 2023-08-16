@@ -103,6 +103,7 @@ button {
 .image-container {
   display: flex;
   width: 100%;
+  align-items: center;
   min-height: 30vh;
   flex-direction: column;
   padding: 10px;

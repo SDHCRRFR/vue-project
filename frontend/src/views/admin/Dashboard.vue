@@ -6,7 +6,7 @@ import MyProduct from '@/components/MyProduct.vue'
 import GoogleMaps from '@/components/map/GoogleMaps.vue'
 import MyCount from '@/components/counter/MyCount.vue'
 import Impact from '@/components/Impact.vue'
-import MyFooter from '@/components/MyFooter.vue'
+import MyFooter from '@/components/footer/MyFooter.vue'
 
 const check = "Et si c'était vous ?"
 const show = ref(true)

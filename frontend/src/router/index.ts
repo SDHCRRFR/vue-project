@@ -34,9 +34,19 @@ const router = createRouter({
       component: Admin.AdminLayout,
       children: [
         { path: 'dashboard', name: 'dashboard', component: Admin.Dashboard },
-        { path: 'user/shop/:id(\\d+)', name: 'user-shopping', component: Admin.UserShopping, props: true },
+        {
+          path: 'user/shop/:id(\\d+)',
+          name: 'user-shopping',
+          component: Admin.UserShopping,
+          props: true
+        },
         { path: 'user/index/:id(\\d+)', name: 'user-index', component: Admin.UserIndex },
-        { path: 'user/don/:id(\\d+)', name: 'user-fait-un-don', component: Admin.FaireUnDon, props: true },
+        {
+          path: 'user/don/:id(\\d+)',
+          name: 'user-fait-un-don',
+          component: Admin.FaireUnDon,
+          props: true
+        },
         { path: '/admin/user/wishlist', name: 'user-wishlist', component: Admin.WishList },
         { path: '/admin/logout', name: 'logout', component: Admin.Logout }
       ]
