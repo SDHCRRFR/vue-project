@@ -1,14 +1,15 @@
 <template>
   <div class="public_wishlist">
-    <div class="carousel">
-      <div class="carousel-inner"></div>
-    </div>
+    <carousel :slides="slides"></carousel>
   </div>
 </template>
 
 <script>
+import Carousel from '../../components/carousel/Carousel.vue'
+
 export default {
   name: 'WishList',
+  components: { Carousel },
   data: () => ({
     slides: [
       '../../../public/resto-III.jpeg',
