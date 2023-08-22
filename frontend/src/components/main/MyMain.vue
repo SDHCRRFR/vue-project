@@ -36,6 +36,7 @@ export default {
   width: 100%;
   min-height: 50vh;
   display: flex;
+  font-family: 'Poppins', sans-serif;
   align-items: center;
   flex-direction: row;
   justify-content: center;

@@ -1,22 +1,25 @@
 <template lang="">
-  <div class="carousel-item" v-for="slide in slides" :key="slide">
-    <img v-bind:src="slide" />
+  <div v-show="visibleSlide === index" class="carousel-item">
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
   name: 'CarouselItem',
-  props: ['slide']
+  props: ['visibleSlide', 'index'],
+  data() {
+    return {}
+  }
 }
 </script>
 
 <style scoped>
-.carousel-item {
+/* .carousel-item {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-}
+} */
 </style>

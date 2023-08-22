@@ -18,19 +18,6 @@
 
         <!-- rajout ici -->
 
-        <div class="card-icons">
-          <div class="like-container">
-            <label v-bind:for="product.id">
-              <i class="fas fa-heart"></i>
-            </label>
-          </div>
-
-          <div class="add-to-cart">
-            <button v-on:click="addToCart(product)">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-        </div>
       </div>
 
       <!-- no result message -->
@@ -46,21 +33,15 @@ export default {
       products: [
         {
           id: 1,
-          description: 'Le baobab',
-          img: '../../public/resto-I.jpeg',
-          promo: 30
+          img: '../../public/resto-I.jpeg'
         },
         {
           id: 2,
-          description: 'Le baobab',
-          img: '../../public/resto-II.jpeg',
-          promo: 25
+          img: '../../public/resto-II.jpeg'
         },
         {
           id: 3,
-          description: 'Le baobab',
-          img: '../../public/resto-III.jpeg',
-          promo: 20
+          img: '../../public/resto-III.jpeg'
         }
       ]
     }
@@ -120,7 +101,7 @@ img {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 20px;
   background: gainsboro;
   padding: 10px;
   border-bottom: 18px solid black;
@@ -138,13 +119,6 @@ img {
   width: 80%;
 }
 
-.card-icons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: 80%;
-}
 .card-container {
   display: flex;
   flex-direction: row;
@@ -162,7 +136,7 @@ span {
 
 img {
   height: 250px;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 20px;
   /* width: 400px; */
 }
 </style>

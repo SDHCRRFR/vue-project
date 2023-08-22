@@ -51,6 +51,7 @@ export default {
   width: 90%;
   height: 87vh;
   border-radius: 20px 20px 20px 20px;
+  font-family: 'Poppins', sans-serif;
   background-size: cover;
   overflow: hidden;
   display: flex;

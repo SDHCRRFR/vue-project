@@ -28,7 +28,7 @@ export default {
 }
 
 const increment = () => {
-  console.log('salut in est a 1700px')
+  // console.log('salut in est a 1700px')
   let valueDisplays = document.querySelectorAll('.num')
   let interval = 4000
 

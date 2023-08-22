@@ -1,36 +1,47 @@
 <template lang="">
   <div class="carousel">
-    <div class="carousel-inner">
-      <carousel-item 
-          v-for="(slide, index) in slides"
-          :slide="slide"
-          :key="`item-${index}`">
-      </carousel-item>
-    </div>
+    <slot></slot>
+
+    <button class="next">Next</button>
+    <button class="prev">Prev</button>
   </div>
 </template>
 
 <script>
-import CarouselItem from './CarouselItem.vue';
-
 export default {
-  props: ['slides'],
-  components: { CarouselItem }
+  data: () => ({})
 }
 </script>
 
 <style scoped>
 .carousel {
-  display: flex;
-  justify-content: center;
-}
-
-.carousel-inner {
   position: relative;
-  width: 900px;
-  height: 400px;
+  width: 600px;
+  height: 350px;
   overflow: hidden;
 }
 
+button {
+  position: relative;
+  width: 50px;
+  height: 40px;
+  top: calc(50% - 20px);
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+  color: #fff;
+}
 
+button:active,
+button:hover {
+  outline: none;
+  cursor: pointer;
+}
+
+.next {
+  right: 0;
+}
+
+.prev {
+  left: 0;
+}
 </style>

@@ -15,7 +15,10 @@ const show = ref(true)
 <template>
   <div class="home-view">
     <!-- my component -->
-    <MyHeader />
+    <div class="head">
+      <img src="../../../public/cryptokicks.png" class="ethnica" alt="">
+    </div>
+    <!-- <MyHeader /> -->
     <!-- end -->
 
     <hr class="transition_hr" @mouseover="show = !show" />
@@ -45,6 +48,12 @@ const show = ref(true)
 </template>
 
 <style scoped>
+
+.ethnica {
+  width: 1300px;
+  min-height: 90vh;
+}
+
 h4,
 h5,
 span {
