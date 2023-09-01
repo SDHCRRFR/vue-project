@@ -4,7 +4,11 @@
     <div class="card-container">
       <div v-for="product in products" class="card" v-bind:key="product.id">
         <div class="image-container">
+          <h3>{{ product.titre }}</h3>
           <img v-bind:src="product.img" alt="" v-bind:id="products" />
+          <p>
+            Vnez découvrir nos saveurs, avec comme ambition la chaleur humaine au coeur de la table.
+          </p>
         </div>
 
         <!-- rajout ici -->
@@ -17,7 +21,6 @@
         </div>
 
         <!-- rajout ici -->
-
       </div>
 
       <!-- no result message -->
@@ -33,14 +36,17 @@ export default {
       products: [
         {
           id: 1,
+          titre: 'Montreuil',
           img: '../../public/resto-I.jpeg'
         },
         {
           id: 2,
+          titre: 'Aulnay-Sous-Bois',
           img: '../../public/resto-II.jpeg'
         },
         {
           id: 3,
+          titre: 'Le Bourget',
           img: '../../public/resto-III.jpeg'
         }
       ]
@@ -87,7 +93,7 @@ button {
   align-items: center;
   min-height: 30vh;
   flex-direction: column;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 img {
@@ -105,6 +111,7 @@ img {
   background: gainsboro;
   padding: 10px;
   border-bottom: 18px solid black;
+  max-height: 55vh;
 }
 
 .card:hover {

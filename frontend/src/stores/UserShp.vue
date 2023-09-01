@@ -8,126 +8,148 @@ export default {
           id: 13,
           description: 'Patek philipe',
           price: 182,
-          img: '../public/resto-I.jpeg'
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 14,
           description: 'Lacoste',
           price: 523,
-          img: '../public/resto-II.jpeg'
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 15,
           description: 'Versace',
           price: 837,
-          img: '../public/resto-III.jpeg'
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 16,
           description: 'Gucci',
           price: 140,
-          img: '../public/resto-IIII.jpeg'
+          img: '../public/resto-IIII.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 17,
           description: 'Prada',
           price: 387,
-          img: '../public/resto-v.webp'
+          img: '../public/resto-v.webp',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 18,
           description: 'Swarovskii',
           price: 299,
-          img: '../public/resto-IIII.jpeg'
+          img: '../public/resto-IIII.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 19,
           description: 'Dior',
           price: 150,
-          img: '../public/resto-III.jpeg'
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 20,
           description: 'Mesh Genova',
           price: 621,
-          img: '../public/resto-II.jpeg'
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 1,
           description: 'Quarz Luxe',
           price: 12,
-          img: '../public/resto-I.jpeg'
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 2,
           description: 'Curren Business',
           price: 20,
-          img: '../public/resto-IIII.jpeg'
+          img: '../public/resto-IIII.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 3,
           description: 'Curren Sport',
           price: 5,
-          img: '../public/resto-v.webp'
+          img: '../public/resto-v.webp',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 4,
           description: 'Jaragar Racing',
           price: 8,
-          img: '../public/resto-III.jpeg'
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 5,
           description: 'Liges Hommes',
           price: 3,
-          img: '../public/resto-II.jpeg'
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 6,
           description: 'Maserati Mechanical',
           price: 65,
-          img: '../public/resto-I.jpeg'
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 7,
           description: 'Montre Mecanique',
           price: 25,
-          img: '../public/resto-III.jpeg'
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 8,
           description: 'Brand Designer',
           price: 28,
-          img: '../public/resto-II.jpeg'
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 9,
           description: 'Relogio Masculino',
           price: 4,
-          img: '../public/resto-IIII.jpeg'
+          img: '../public/resto-IIII.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 10,
           description: 'Tissot Multifunction',
           price: 29,
-          img: '../public/resto-I.jpeg'
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 11,
           description: 'Audemars Piguet',
           price: 870,
-          img: '../public/resto-II.jpeg'
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 12,
           description: 'Rolex',
           price: 660,
-          img: '../public/resto-III.jpeg'
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         }
       ],
       searchKey: '',
       liked: [],
-      cart: []
+      cart: [],
+      accroche:
+        'Une journée dans la ville Lumière à préparer ? Envie de tester un nouveau resto dans votre quartier ? La capitale compte des milliers dadresses gourmandes. Pour vous aider à trouver la vôtre, découvrez les meilleurs restaurants parisiens, du bistro aux plus belles tables gastronomiques. Chic !'
     }
   },
   computed: {
@@ -222,17 +244,6 @@ export default {
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
       </span>
-
-      <nav>
-        <ul>
-          <router-link to="/">
-            <i class="fa-light fa-arrow-down-arrow-up"></i
-            ><button type="submit" class="button_router">Type</button>
-          </router-link>
-          <button type="submit" class="button_router">Type</button>
-          <button type="submit" class="button_router">Type</button>
-        </ul>
-      </nav>
     </header>
 
     <!-- cards display -->
@@ -247,7 +258,7 @@ export default {
             <h3>{{ product.description }}</h3>
             <span>{{ product.price }}€</span>
           </div>
-
+          <p>{{ product.address }}</p>
           <div class="card-icons">
             <div class="like-container">
               <input
@@ -324,6 +335,8 @@ export default {
       </transition-group>
     </div>
     <transition name="cart-anim"></transition>
+
+    <p>{{ accroche }}</p>
   </div>
 </template>
 
@@ -347,7 +360,6 @@ export default {
 
 header {
   width: 80vw;
-
   /* background: gold; */
   flex-direction: row;
   display: flex;
@@ -357,26 +369,21 @@ header {
   padding: 20px;
 }
 
-nav {
-  width: 100%;
-  /* background: gainsboro; */
-}
-
-ul {
+/* ul {
   width: 50%;
   display: flex;
   text-decoration: none;
   justify-content: space-between;
   flex-direction: row;
-}
+} */
 
-.button_router {
+/* .button_router {
   width: 100px;
   background: black;
   padding: 5px;
   border-radius: 10px;
   color: white;
-}
+} */
 
 .home-container h1 {
   padding-left: 0;
@@ -403,6 +410,10 @@ button {
   cursor: pointer;
 }
 
+p {
+  padding-bottom: 15px;
+}
+
 .home-container #search:focus {
   outline: none;
   border: 2px solid #2eb7eb;
@@ -418,7 +429,7 @@ button {
 }
 
 .home-container .card-cart-container .card-container .card {
-  margin: 0.4rem 1rem 0.4rem 0;
+  margin: 0.4rem 1rem 0.4rem 20px;
   background: white;
   border-radius: 4px;
   overflow: hidden;
