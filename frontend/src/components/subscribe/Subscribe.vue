@@ -9,7 +9,7 @@
         <div class="subscribe_txt">
           <h2>Inscrivez votre restaurant</h2>
           <p>Donnez-nous plus de détails, et nous vous contacterons le plus rapidement possible.</p>
-          <button type="button">Voir plus d'information</button>
+          <button type="submit" @click="Subscribe()">Voir plus d'information</button>
         </div>
       </div>
       <p class="credential">
@@ -28,7 +28,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'Subscribe',
+    methods: {
+      Subscribe() {
+        this.$router.push('/management')
+      }
+    }
+}
 </script>
 
 <style scoped>
