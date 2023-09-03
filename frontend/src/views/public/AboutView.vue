@@ -1,6 +1,6 @@
 <script setup>
-import Subscribe from '../../components/subscribe/Subscribe.vue'
-import MyFooterVue from '../../components/footer/MyFooter.vue'
+import Subscribe from '@/components/subscribe/Subscribe.vue'
+import MyFooterVue from '@/components/footer/MyFooter.vue'
 </script>
 
 <template>

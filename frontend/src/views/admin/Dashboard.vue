@@ -2,10 +2,10 @@
 import MyHeader from '@/components/header/MyHeader.vue'
 import MyMain from '@/components/main/MyMain.vue'
 import { ref } from 'vue'
-import MyProduct from '@/components/MyProduct.vue'
+import MyProduct from '@/components/products/MyProduct.vue'
 import GoogleMaps from '@/components/map/GoogleMaps.vue'
 import MyCount from '@/components/counter/MyCount.vue'
-import Impact from '@/components/Impact.vue'
+import Impact from '@/components/impact/Impact.vue'
 import MyFooter from '@/components/footer/MyFooter.vue'
 
 const check = "Et si c'était vous ?"
@@ -16,7 +16,7 @@ const show = ref(true)
   <div class="home-view">
     <!-- my component -->
     <div class="head">
-      <img src="../../../public/cryptokicks.png" class="ethnica" alt="">
+      <img src="../../../public/cryptokicks.png" class="ethnica" alt="" />
     </div>
     <!-- <MyHeader /> -->
     <!-- end -->
@@ -48,7 +48,6 @@ const show = ref(true)
 </template>
 
 <style scoped>
-
 .ethnica {
   width: 1300px;
   min-height: 90vh;
