@@ -1,45 +1,61 @@
 <template>
-    <div class="management">
-        <nav>
-            <div class="nav-container">
-                <div id="logo">
-                    <router-link to="/">
-                        <img src="../assets/logosaid.svg" alt="logo" />
-                    </router-link>
-                </div>
-            </div>
-        </nav>
-        <div class="manage_container">
-            <h1>Inscrivez votre restaurant sur Table de coeur</h1>
-            <div class="manage_block">
-                <div class="block_I">
-                    <p>Augmentez vos revenus, dotez-vous d’une meilleure visibilité et fidélisez vos clients en rejoignant
-                        nos 60 000 restaurants partenaires déjà réservables sur TheFork, la première plateforme de recherche
-                        et de réservation de restaurants en Europe et en Australie.</p>
-                    <p>
-                        Testez TheFork Manager, notre logiciel de réservation et de gestion de tables, sans engagement de
-                        durée. Visibilité et inscription gratuite. Facturation à l'utilisation : les commissions sont basées
-                        sur le nombre de couverts réservés et honorés.</p>
+  <div class="management">
+    <nav>
+      <div class="nav-container">
+        <div id="logo">
+          <router-link to="/">
+            <img src="../assets/logosaid.svg" alt="logo" />
+          </router-link>
+        </div>
+      </div>
+    </nav>
+    <div class="manage_container">
+      <h1>Inscrivez votre restaurant sur Table de coeur</h1>
+      <div class="manage_block">
+        <div class="block_I">
+          <p>
+            Augmentez vos revenus, dotez-vous d’une meilleure visibilité et fidélisez vos clients en
+            rejoignant nos 60 000 restaurants partenaires déjà réservables sur TheFork, la première
+            plateforme de recherche et de réservation de restaurants en Europe et en Australie.
+          </p>
+          <p>
+            Testez TheFork Manager, notre logiciel de réservation et de gestion de tables, sans
+            engagement de durée. Visibilité et inscription gratuite. Facturation à l'utilisation :
+            les commissions sont basées sur le nombre de couverts réservés et honorés.
+          </p>
 
-                    <img src="../../public/resto-II.jpeg" class="images" alt="">
-                </div>
-                <div class="block_II">
-                    <form action="submit"></form>
-                </div>
+          <img src="../../public/resto-II.jpeg" class="images" alt="" />
+        </div>
+        <div class="block_II">
+          <form @submit.prevent="inscription" action="submit">
+            <div class="formGroup">
+              <label for="restaurant_email">Addresse e-mail</label>
+              <input type="text" id="restaurant_email" v-model="restaurant.email" />
             </div>
-        </div>
-        <div class="advantage">
-            <h2>{{ accroche }}</h2>
-        </div>
-        <div class="box" v-for="item in items" :key="item">
-            <div class="boxx">
-                <img v-bind:src="item.img" alt="">
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.desc }}</p>
+            <hr />
+            <div class="formGroup">
+              <label for="restaurant_number">Numéro de tel</label>
+              <input type="text" id="restaurant_password" v-model="restaurant.password" />
             </div>
-
+            <hr />
+            <div class="formGroup">
+              <button type="submit" class="button">Envoyez</button>
+            </div>
+          </form>
         </div>
-        <footer>
+      </div>
+    </div>
+    <div class="advantage">
+      <h2>{{ accroche }}</h2>
+    </div>
+    <div class="box">
+      <div class="boxx" v-for="item in items" :key="item">
+        <img v-bind:src="item.img" alt="" />
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.desc }}</p>
+      </div>
+    </div>
+    <footer>
       <ul class="social_icon">
         <li>
           <a href="#"><ion-icon name="logo-facebook" size="large"></ion-icon></a>
@@ -62,139 +78,140 @@
       </ul>
       <p>ipsum dolor sit amet consectetur || consectetur adipisicing elit.</p>
     </footer>
-    </div>
+  </div>
 </template>
 
 <script>
-
 export default {
-    name: 'Management',
-    data: () => {
-        return {
-            accroche: ('Ce que vous pouvez attendre de TheFork'),
-            items: [
-                {
-                    img: '../../public/icon-expert.webp',
-                    title: ('Obtenez plus de visibilité en ligne'),
-                    desc: ('TheFork Manager est la première plate-forme de recherche et de réservation de restaurants, disponible dans 12 pays ! Vous pouvez dès maintenant vous doter gratuitement d’une page personnalisée affichable sur tous les appareils.')
-                },
-                {
-                    img: '../../public/icon-ghost.webp',
-                    title: ('Augmentez votre taux doccupation'),
-                    desc: ('Un modèle de gestion gagnant-gagnant sans aucun risque pour votre restaurant. Proposez des offres spéciales ou participez au programme de fidélité YUMS et aux festivals pour augmenter vos réservations en saison creuse.')
-                },
-                {
-                    img: '../../public/icon-table.webp',
-                    title: ('Luttez contre les no-shows'),
-                    desc: ('Réduisez le nombre des no-shows à l’aide des outils de TheFork tels que les emails de confirmation automatiques et les SMS, le score de fiabilité des clients et la prise d’empreinte de carte de crédit.')
-                },
-                {
-                    img: '../../public/icon-visibility.webp',
-                    title: ('Faites appel aux experts du secteur'),
-                    desc: ('Les équipes de TheFork collaborent avec 60000 restaurants depuis plus de 12 ans afin de les aider à développer leur activité via des formations gratuites, des prestations de conseil assurées par des experts, et un support client 7 jours sur 7.')
-                },
-            ]
+  name: 'Management',
+  data: () => {
+    return {
+      accroche: 'Ce que vous pouvez attendre de Table de coeur',
+      items: [
+        {
+          img: '../../public/icon-expert.webp',
+          title: 'Obtenez plus de `<br>` visibilité en ligne',
+          desc: 'Table de coeur Manager est la première plate-forme de recherche et de réservation de restaurants, disponible dans 12 pays ! Vous pouvez dès maintenant vous doter gratuitement d’une page personnalisée affichable sur tous les appareils.'
+        },
+        {
+          img: '../../public/icon-ghost.webp',
+          title: 'Augmentez votre taux doccupation',
+          desc: 'Un modèle de gestion gagnant-gagnant sans aucun risque pour votre restaurant. Proposez des offres spéciales ou participez au programme de fidélité YUMS et aux festivals pour augmenter vos réservations en saison creuse.'
+        },
+        {
+          img: '../../public/icon-table.webp',
+          title: 'Luttez contre les no-shows',
+          desc: 'Réduisez le nombre des no-shows à l’aide des outils de Table de coeur tels que les emails de confirmation automatiques et les SMS, le score de fiabilité des clients et la prise d’empreinte de carte de crédit.'
+        },
+        {
+          img: '../../public/icon-visibility.webp',
+          title: 'Faites appel aux experts du secteur',
+          desc: 'Les équipes de Table de coeur collaborent avec 60000 restaurants depuis plus de 12 ans afin de les aider à développer leur activité via des formations gratuites, des prestations de conseil assurées par des experts, et un support client 7 jours sur 7.'
         }
+      ],
+      restaurant: {
+        email: '',
+        number: ''
+      }
     }
+  }
 }
 </script>
 
 <style scoped>
 .management {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .manage_container {
-    width: 80%;
-    height: 80vh;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-
+  width: 80%;
+  height: 80vh;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
 }
 
 p {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .manage_block {
-    min-height: 50vh;
-    display: flex;
-    flex-direction: row;
-    /* align-items: center; */
-
+  min-height: 50vh;
+  display: flex;
+  flex-direction: row;
 }
 
 .block_I {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
 }
 
 .block_II {
-    background: pink;
-    width: 100%;
+  background: pink;
+  width: 100%;
 }
 
 nav {
-    padding: 0rem 2.4rem;
-    background: rgba(255, 255, 255, 0.97);
-    position: fixed;
-    width: 95%;
-    z-index: 2;
-    box-shadow: 0 2px 4px -3px rgba(51, 51, 51, 0.2);
+  padding: 0rem 2.4rem;
+  background: rgba(255, 255, 255, 0.97);
+  position: fixed;
+  width: 95%;
+  z-index: 2;
+  box-shadow: 0 2px 4px -3px rgba(51, 51, 51, 0.2);
 }
 
 nav .nav-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 1450px;
-    height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1450px;
+  height: 10vh;
 }
 
 .advantage {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 200px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200px;
 }
 
 h2 {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 nav .nav-container #logo {
-    height: 32px;
-    width: 66%;
+  height: 32px;
+  width: 66%;
 }
 
 .box {
-    display: flex;
-    width: 80%;
-    flex-direction: row;
+  display: flex;
+  width: 80%;
+  gap: 15px;
+  padding: 10px;
+  flex-direction: row;
 }
 
 .boxx {
-    /* width: 80%; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .images {
-    width: 400px;
+  width: 400px;
 }
 
 nav .nav-container #logo img {
-    height: 100%;
+  height: 100%;
 }
 
 footer {
@@ -249,5 +266,73 @@ footer p {
   margin-top: 15px;
   margin-bottom: 10px;
   font-size: 1.1em;
+}
+
+.formGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.log {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(57, 57, 57);
+}
+
+.login {
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  background: url(../../../public/ensemble.jpeg) 0 0 no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  padding-bottom: 100px;
+  margin-bottom: 100px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-position-y: center;
+  overflow: hidden;
+}
+
+.sub {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+form {
+  width: 400px;
+  background: whitesmoke;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.button {
+  width: 100%;
+  height: 4vh;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: black;
+  color: white;
+}
+
+hr {
+  border: 1px solid black;
 }
 </style>

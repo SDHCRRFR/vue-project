@@ -1,5 +1,5 @@
 <script setup>
-import MyHeader from '@/components/header/MyHeader.vue'
+import HeaderDashboard from '@/components/header/HeaderDashboard.vue'
 import MyMain from '@/components/main/MyMain.vue'
 import { ref } from 'vue'
 import MyProduct from '@/components/products/MyProduct.vue'
@@ -15,12 +15,7 @@ const show = ref(true)
 <template>
   <div class="home-view">
     <!-- my component -->
-    <div class="head">
-      <img src="../../../public/cryptokicks.png" class="ethnica" alt="" />
-    </div>
-    <!-- <MyHeader /> -->
-    <!-- end -->
-
+    <HeaderDashboard />
     <hr class="transition_hr" @mouseover="show = !show" />
     <Transition name="slide-fade">
       <div v-if="show" class="home">

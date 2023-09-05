@@ -5,11 +5,7 @@
     <slot />
   </div>
 </template>
-<!-- <script>
-export default {
 
-}
-</script> -->
 <style scoped>
 .alert-box {
   color: #666;

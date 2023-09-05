@@ -32,13 +32,11 @@ import MyFooterVue from '@/components/footer/MyFooter.vue'
 
 <style scoped>
 .about {
-  /* background: gainsboro; */
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: left;
   min-height: 100vh;
-  /* padding-top: 100px; */
   justify-content: center;
   align-items: center;
 }
@@ -46,7 +44,6 @@ import MyFooterVue from '@/components/footer/MyFooter.vue'
 .contact_container {
   display: flex;
   align-items: center;
-  /* text-align: left; */
   justify-content: center;
   flex-direction: column;
   width: 100%;
@@ -86,7 +83,6 @@ h1 {
   margin-right: 500px;
   font-weight: 800;
   font-size: 25px;
-  /* font-family: Impact, sans-serif; */
 }
 
 h2 {

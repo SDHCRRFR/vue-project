@@ -1,13 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+//
 import * as Public from '@/views/public'
 import * as Admin from '@/views/admin'
 // ========================================================)->
 import Management from '@/views/Management.vue'
-// ========================================================)->
 import Login from '@/views/auth/Login.vue'
-// ========================================)>
 import { authGuard } from '@/_helpers/auth-guard'
-// =============================================================)->
 import NotFound from '@/views/NotFound.vue'
 
 localStorage.setItem('token', 'marcel')

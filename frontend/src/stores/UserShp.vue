@@ -342,9 +342,6 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-/* .home-container {
-  padding-top: 100px;
-} */
 
 .home-container {
   max-width: 100%;
@@ -360,7 +357,6 @@ export default {
 
 header {
   width: 80vw;
-  /* background: gold; */
   flex-direction: row;
   display: flex;
   align-items: center;
@@ -369,29 +365,12 @@ header {
   padding: 20px;
 }
 
-/* ul {
-  width: 50%;
-  display: flex;
-  text-decoration: none;
-  justify-content: space-between;
-  flex-direction: row;
-} */
-
-/* .button_router {
-  width: 100px;
-  background: black;
-  padding: 5px;
-  border-radius: 10px;
-  color: white;
-} */
-
 .home-container h1 {
   padding-left: 0;
   padding-top: 100px;
 }
 
 .home-container #search {
-  /* margin: 1rem 73rem 2rem 0; */
   height: 2.4rem;
   padding: 0 0.5rem;
   border-radius: 5px;
@@ -471,10 +450,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* padding: 0.3rem 0.8rem; */
   position: absolute;
   bottom: 1rem;
-  /* opacity: 0; */
   transition: 0.6s;
   width: 100%;
   height: 75px;
@@ -513,7 +490,6 @@ p {
 
 img {
   height: 250px;
-  /* width: 400px; */
 }
 
 .home-container .card-cart-container .card-container .card .card-icons .fa-heart:hover {
@@ -576,7 +552,6 @@ img {
   min-width: 400px;
   box-shadow: 0 1px 6px rgba(51, 51, 51, 0.25);
   height: 100%;
-  /* margin: -8rem 2.4rem 0 0; */
 }
 
 .home-container .shopping-cart h2 {
@@ -587,7 +562,6 @@ img {
 
 .home-container .shopping-cart .item-group {
   max-height: 400px;
-  /* overflow-y: scroll; */
   overflow-x: hidden;
   padding-right: 6px;
 }

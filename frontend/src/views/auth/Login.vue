@@ -38,20 +38,14 @@
         </div>
       </form>
     </div>
-    <MyFooter />
   </div>
 </template>
 
 <script>
 import { accountService } from '@/_services'
 
-import MyFooter from '@/components/footer/MyFooter.vue'
-
 export default {
   name: 'Login',
-  components: {
-    MyFooter
-  },
   data() {
     return {
       user: {

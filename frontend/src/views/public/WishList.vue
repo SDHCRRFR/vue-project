@@ -31,8 +31,4 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
-/* img {
-  width: 300px;
-} */
 </style>

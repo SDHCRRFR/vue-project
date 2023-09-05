@@ -61,10 +61,8 @@ span {
 .home-view {
   width: 100%;
   display: flex;
-  font-family: 'Poppins', sans-serif;
   align-items: center;
   padding-top: 83px;
-  /* margin: 0; */
   flex-direction: column;
   justify-content: center;
   min-height: 80vh;

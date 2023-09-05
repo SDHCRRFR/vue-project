@@ -30,11 +30,11 @@
 <script>
 export default {
   name: 'Subscribe',
-    methods: {
-      Subscribe() {
-        this.$router.push('/management')
-      }
+  methods: {
+    Subscribe() {
+      this.$router.push('/management')
     }
+  }
 }
 </script>
 

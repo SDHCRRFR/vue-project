@@ -26,28 +26,20 @@
 
 <script>
 export default {
-  // el: '#home-view',
+  name: 'HeaderDashboard',
   data: function () {
     return {
       accroche: 'Ayez du coeur',
-      title: 'Table de Coeur',
       searchKey: '',
       products: []
-    }
-  },
-  computed: {
-    filteredList() {
-      return this.products.filter((product) => {
-        return product.description.toLowerCase().includes(this.searchKey.toLowerCase())
-      })
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .container_img {
-  background: url(../../public/background-resto.png) 0 0 no-repeat;
+  background: url(../../public/resto-IIII.jpeg) 0 0 no-repeat;
   width: 90%;
   height: 87vh;
   border-radius: 20px 20px 20px 20px;
@@ -58,6 +50,7 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
+
 #search {
   width: 600px;
   font-size: 20px;
@@ -66,6 +59,7 @@ export default {
   height: 6vh;
   border-radius: 10px;
 }
+
 .search {
   margin-left: 50px;
 }
@@ -136,12 +130,14 @@ h2::after {
     content: 'Table de coeur |';
   }
 }
+
 h2 {
   font-size: 90px;
   color: white;
   margin: 0;
   padding: 0;
 }
+
 hgroup {
   padding-bottom: 10px;
   padding-left: 40px;
