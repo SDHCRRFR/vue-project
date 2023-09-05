@@ -1,13 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+//
 import * as Public from '@/views/public'
 import * as Admin from '@/views/admin'
 // ========================================================)->
-import FaireUnDon from '@/views/admin/users/FaireUnDon.vue'
-// ========================================================)->
+import Management from '@/views/Management.vue'
 import Login from '@/views/auth/Login.vue'
-// ========================================)>
 import { authGuard } from '@/_helpers/auth-guard'
-// =============================================================)->
 import NotFound from '@/views/NotFound.vue'
 
 localStorage.setItem('token', 'marcel')
@@ -24,7 +22,7 @@ const router = createRouter({
         { path: '/wishlist', component: Public.WishList, name: 'WishList' },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') },
-        { path: '/faire-un-don', name: 'FaireUnDon', component: FaireUnDon }
+        { path: '/faire-un-don', name: 'FaireUnDon', component: Public.FaireUnDon }
       ]
     },
     {
@@ -52,7 +50,8 @@ const router = createRouter({
       ]
     },
     { path: '/login', name: 'Login', component: Login },
-    { path: '/:pathMatch(.*)*', component: NotFound }
+    { path: '/:pathMatch(.*)*', component: NotFound },
+    { path: '/management', name: 'Management', component: Management }
   ]
 })
 

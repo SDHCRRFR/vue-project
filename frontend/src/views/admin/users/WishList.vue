@@ -85,7 +85,6 @@ import MyFooter from '../../../components/footer/MyFooter.vue'
   width: 80%;
   min-height: 30vh;
   padding: 10px;
-  /* border: 1px solid black; */
   gap: 45px;
   display: flex;
   flex-direction: row;
@@ -151,7 +150,6 @@ hr {
 
 .cd_card > button:hover {
   background: white;
-  /* border: none; */
   color: black;
 }
 
