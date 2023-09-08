@@ -26,23 +26,7 @@
 
           <img src="../../public/resto-II.jpeg" class="images" alt="" />
         </div>
-        <div class="block_II">
-          <form @submit.prevent="inscription" action="submit">
-            <div class="formGroup">
-              <label for="restaurant_email">Addresse e-mail</label>
-              <input type="text" id="restaurant_email" v-model="restaurant.email" />
-            </div>
-            <hr />
-            <div class="formGroup">
-              <label for="restaurant_number">Numéro de tel</label>
-              <input type="text" id="restaurant_password" v-model="restaurant.password" />
-            </div>
-            <hr />
-            <div class="formGroup">
-              <button type="submit" class="button">Envoyez</button>
-            </div>
-          </form>
-        </div>
+        <div class="block_II"></div>
       </div>
     </div>
     <div class="advantage">
@@ -178,7 +162,7 @@ nav .nav-container {
   width: 80%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   padding-top: 200px;
 }
 

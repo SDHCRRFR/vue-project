@@ -1,42 +1,44 @@
 <template>
-  <nav>
-    <div class="nav-container">
-      <div id="logo">
-        <router-link to="/">
-          <img src="../../assets/logosaid.svg" alt="logo" />
-        </router-link>
-      </div>
-      <ul id="icons">
-        <li>
+  <div class="connect_">
+    <nav>
+      <div class="nav-container">
+        <div id="logo">
           <router-link to="/">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <img src="../../assets/logosaid.svg" alt="logo" />
           </router-link>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="log">
-    <div class="login">
-      <h1>Connexion</h1>
-      <form @submit.prevent="login">
-        <div class="formGroup">
-          <label for="user_email">Addresse e-mail</label>
-          <input type="text" id="user_email" v-model="user.email" />
         </div>
-        <hr />
-        <div class="formGroup">
-          <label for="user_password">Mot de passe</label>
-          <input type="text" id="user_password" v-model="user.password" />
-        </div>
-        <hr />
-        <div class="formGroup">
-          <button type="submit" class="button">Connexion</button>
-        </div>
-        <div class="sub">
-          <a href="">crée un compte ?</a>
-          <a href="">mot de passe oublié ?</a>
-        </div>
-      </form>
+        <ul id="icons">
+          <li>
+            <router-link to="/">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="log">
+      <div class="login">
+        <h1>Connexion</h1>
+        <form @submit.prevent="login">
+          <div class="formGroup">
+            <label for="user_email">Addresse e-mail</label>
+            <input type="text" id="user_email" v-model="user.email" />
+          </div>
+          <hr />
+          <div class="formGroup">
+            <label for="user_password">Mot de passe</label>
+            <input type="text" id="user_password" v-model="user.password" />
+          </div>
+          <hr />
+          <div class="formGroup">
+            <button type="submit" class="button">Connexion</button>
+          </div>
+          <div class="sub">
+            <a href="">crée un compte ?</a>
+            <a href="">mot de passe oublié ?</a>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>

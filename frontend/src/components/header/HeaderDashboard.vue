@@ -66,7 +66,7 @@ export default {
 
 h2::after {
   content: '';
-  animation: slide 1s linear infinite;
+  animation: slide 3s linear infinite;
 }
 
 @keyframes slide {
