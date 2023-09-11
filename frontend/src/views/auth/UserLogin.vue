@@ -47,7 +47,7 @@
 import { accountService } from '@/_services'
 
 export default {
-  name: 'Login',
+  name: 'UserLogin',
   data() {
     return {
       user: {

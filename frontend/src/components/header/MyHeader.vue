@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 .container_img {
   background: url(../../public/background-resto.png) 0 0 no-repeat;
   width: 90%;

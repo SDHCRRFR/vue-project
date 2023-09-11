@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: 'Subscribe',
+  name: 'SubscribeRestaurant',
   methods: {
     Subscribe() {
       this.$router.push('/management')

@@ -7,7 +7,7 @@
     <div class="container_don">
       <div class="mon_don">
         <h2>
-          Mon don <span>{{ id }}</span>
+          Mercii beaucoup de participé vous êtes le <span>{{ id }} aujourd'hui</span>
         </h2>
         <div></div>
       </div>
@@ -52,18 +52,18 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  background: url(../../public/legume.jpeg);
+  /* background: url(../../public/legume.jpeg); */
 }
 
 .container_don {
   width: 30%;
-  height: 80vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
   background: gainsboro;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 20px 20px 20px 20px;
 }
 
 .mon_don {

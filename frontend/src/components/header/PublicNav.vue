@@ -7,12 +7,12 @@
         </router-link>
       </div>
       <ul id="icons">
-        <li>
+        <!-- <li>
           <router-link to="/wishlist">
             <i class="fas fa-heart"></i>
             <span id="nav-not"></span>
           </router-link>
-        </li>
+        </li> -->
 
         <li>
           <router-link to="/shopping-cart">
