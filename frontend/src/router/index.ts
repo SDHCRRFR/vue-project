@@ -3,8 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import * as Public from '@/views/public'
 import * as Admin from '@/views/admin'
 // ========================================================)->
-import Management from '@/views/Management.vue'
-import Login from '@/views/auth/Login.vue'
+import ManagementStore from '@/views/ManagementStore.vue'
+import UserLogin from '@/views/auth/UserLogin.vue'
 import { authGuard } from '@/_helpers/auth-guard'
 import NotFound from '@/views/NotFound.vue'
 
@@ -19,7 +19,6 @@ const router = createRouter({
       component: Public.PublicLayout,
       children: [
         { path: '/', name: 'home', component: Public.HomeView },
-        { path: '/wishlist', component: Public.WishList, name: 'WishList' },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') },
         { path: '/faire-un-don', name: 'FaireUnDon', component: Public.FaireUnDon }
@@ -31,7 +30,7 @@ const router = createRouter({
       // beforeEnter: authGuard,
       component: Admin.AdminLayout,
       children: [
-        { path: 'dashboard', name: 'dashboard', component: Admin.Dashboard },
+        { path: 'dashboard', name: 'UserDashboard', component: Admin.UserDashboard },
         {
           path: 'user/shop/:id(\\d+)',
           name: 'user-shopping',
@@ -46,12 +45,12 @@ const router = createRouter({
           props: true
         },
         { path: '/admin/user/wishlist', name: 'user-wishlist', component: Admin.WishList },
-        { path: '/admin/logout', name: 'logout', component: Admin.Logout }
+        { path: '/admin/logout', name: 'UserLogout', component: Admin.UserLogout }
       ]
     },
-    { path: '/login', name: 'Login', component: Login },
-    { path: '/:pathMatch(.*)*', component: NotFound },
-    { path: '/management', name: 'Management', component: Management }
+    { path: '/login', name: 'UserLogin', component: UserLogin },
+    { path: '/management', name: 'ManagementStore', component: ManagementStore },
+    { path: '/:pathMatch(.*)*', component: NotFound }
   ]
 })
 

@@ -135,10 +135,10 @@ export default {
         return product.description.toLowerCase().includes(this.searchKey.toLowerCase())
       })
     },
-    getLikeCookie() {
-      let cookieValue = JSON.parse($cookies.get('like'))
-      cookieValue == null ? (this.liked = []) : (this.liked = cookieValue)
-    },
+    // getLikeCookie() {
+    //   let cookieValue = JSON.parse($cookies.get('like'))
+    //   cookieValue == null ? (this.liked = []) : (this.liked = cookieValue)
+    // },
     cartTotalAmount() {
       let total = 0
       for (let item in this.cart) {
@@ -183,8 +183,8 @@ export default {
     cartPlusOne(product) {
       product.quantity = product.quantity + 1
     },
-    cartMinusOne(product, id) {
-      debugger
+    cartMinusOne(product) {
+      // debugger
       if (product.quantity == 1) {
         this.cartRemoveItem(product.id)
       } else {

@@ -67,14 +67,14 @@
 
 <script>
 export default {
-  name: 'Management',
+  name: 'ManagementStore',
   data: () => {
     return {
       accroche: 'Ce que vous pouvez attendre de Table de coeur',
       items: [
         {
           img: '../../public/icon-expert.webp',
-          title: 'Obtenez plus de `<br>` visibilité en ligne',
+          title: 'Obtenez plus de visibilité en ligne',
           desc: 'Table de coeur Manager est la première plate-forme de recherche et de réservation de restaurants, disponible dans 12 pays ! Vous pouvez dès maintenant vous doter gratuitement d’une page personnalisée affichable sur tous les appareils.'
         },
         {
@@ -163,7 +163,7 @@ nav .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding-top: 200px;
+  padding-top: 280px;
 }
 
 h2 {
@@ -178,7 +178,7 @@ nav .nav-container #logo {
 .box {
   display: flex;
   width: 80%;
-  gap: 15px;
+  /* gap: 15px; */
   padding: 10px;
   flex-direction: row;
 }

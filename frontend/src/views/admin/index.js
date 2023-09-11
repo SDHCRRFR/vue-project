@@ -1,10 +1,10 @@
 import AdminLayout from './Layout.vue'
-import Dashboard from './Dashboard.vue'
+import UserDashboard from './UserDashboard.vue'
 
 import WishList from './users/WishList.vue'
 import FaireUnDon from './users/FaireUnDon.vue'
 import UserShopping from './users/UserShopping.vue'
 import UserIndex from './users/UserIndex.vue'
-import Logout from './Logout.vue'
+import UserLogout from './UserLogout.vue'
 
-export { AdminLayout, Dashboard, WishList, FaireUnDon, UserIndex, UserShopping, Logout }
+export { AdminLayout, UserDashboard, WishList, FaireUnDon, UserIndex, UserShopping, UserLogout }

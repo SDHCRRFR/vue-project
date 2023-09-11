@@ -12,7 +12,7 @@
 import { accountService } from '@/_services'
 
 export default {
-  name: 'Logout',
+  name: 'UserLogout',
   methods: {
     logout() {
       accountService.logout()
