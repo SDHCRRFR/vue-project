@@ -2,7 +2,7 @@
 /*** Import des module nécessaires */
 const bcrypt = require('bcrypt')
 
-const DB = require('../db.config')
+const DB = require('../db.config.js')
 const User = DB.User
 
 /**********************************/

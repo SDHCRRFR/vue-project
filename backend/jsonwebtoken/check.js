@@ -1,6 +1,6 @@
 /***********************************/
 /*** Import des module nécessaires */
-const jwt = require('jsonwebtoken')
+import jwt from 'jsonwebtoken'
 
 /*************************/
 /*** Extraction du token */

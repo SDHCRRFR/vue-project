@@ -4,7 +4,7 @@
 const crypt = require ('crypt')
 const jwt = require('jsonwebtoken')
 
-const DB = require('../db.config')
+const DB = require('../db.config.js')
 const User = DB.User
 
 
