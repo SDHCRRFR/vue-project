@@ -39,13 +39,33 @@
         <p>{{ item.desc }}</p>
       </div>
     </div>
+    <div class="review">
+      <hr />
+      <div class="content_rev">
+        <div class="rev_composition">
+          <h3>Envie d'en savoir + ?</h3>
+          <iframe
+            width="560"
+            height="360"
+            src="https://www.youtube.com/embed/QLUewSJQ3l8"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+      <h4>Vous souhaitez attirez plus de clients dans votrr restaurants ?</h4>
+      <p>associez vous a Table de coeur dès aujourd'hui et vous pouvez annulez à tout moment.</p>
+      <button type="button">Commencez</button>
+    </div>
     <footer>
       <ul class="social_icon">
         <li>
           <a href="#"><ion-icon name="logo-facebook" size="large"></ion-icon></a>
         </li>
         <li>
-          <a href="#"><ion-icon name="logo-twitter" size="large">snapchat</ion-icon></a>
+          <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
         </li>
         <li>
           <a href="#"><ion-icon name="logo-snapchat" size="large"></ion-icon></a>
@@ -198,6 +218,49 @@ nav .nav-container #logo img {
   height: 100%;
 }
 
+.review {
+  width: 90%;
+  min-height: 59vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+}
+.content_rev {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  align-items: center;
+  height: 40vh;
+  background: gray;
+}
+
+button {
+  width: 150px;
+  height: 30px;
+  padding: 3px;
+  border-radius: 10px;
+  border: none;
+  background: rgb(0, 101, 0);
+  color: white;
+}
+
+.rev_composition {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+  align-items: center;
+  height: 40vh;
+  background: gray;
+}
+
+h4 {
+  font-size: 40px;
+}
+
 footer {
   position: relative;
   width: 90%;
@@ -252,12 +315,6 @@ footer p {
   font-size: 1.1em;
 }
 
-.formGroup {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
 .log {
   width: 100%;
   min-height: 100vh;
@@ -285,6 +342,11 @@ footer p {
   overflow: hidden;
 }
 
+h3 {
+  font-size: 35px;
+  text-align: center;
+}
+
 .sub {
   display: flex;
   flex-direction: row;
@@ -293,30 +355,8 @@ footer p {
   width: 100%;
 }
 
-form {
-  width: 400px;
-  background: whitesmoke;
-  margin: 0 auto;
-  border: 1px solid black;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.button {
-  width: 100%;
-  height: 4vh;
-  background: white;
-  border-radius: 6px;
-  border: 1px solid black;
-  cursor: pointer;
-}
-
-.button:hover {
-  background: black;
-  color: white;
-}
-
 hr {
-  border: 1px solid black;
+  width: 100%;
+  border: 2px solid gainsboro;
 }
 </style>
