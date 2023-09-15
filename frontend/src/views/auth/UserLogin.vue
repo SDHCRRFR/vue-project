@@ -24,12 +24,10 @@
             <label for="user_email">Addresse e-mail</label>
             <input type="text" id="user_email" v-model="user.email" />
           </div>
-          <hr />
           <div class="formGroup">
             <label for="user_password">Mot de passe</label>
             <input type="text" id="user_password" v-model="user.password" />
           </div>
-          <hr />
           <div class="formGroup">
             <button type="submit" class="button">Connexion</button>
           </div>
@@ -66,21 +64,21 @@ export default {
         })
         .catch((err) => console.log(err))
       // ==========================================>
-      // fetch('http://localhost:8888/auth/login', {
-      //   headers: {
-      //     Accept: 'application/json',
-      //     'Content-Type': 'application/json'
-      //   },
-      //   method: 'POST',
-      //   body: JSON.stringify(this.user)
-      // })
-      //   .then((blob) => blob.json())
-      //   .then((data) => {
-      //     console.log(data)
-      //     localStorage.setItem('token', data.access_token)
-      //     this.$router.push('/admin/dashboard')
-      //   })
-      //   .catch((err) => console.log(err))
+      fetch('http://localhost:5173/auth/login', {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(this.user)
+      })
+        .then((blob) => blob.json())
+        .then((data) => {
+          console.log(data)
+          localStorage.setItem('token', data.access_token)
+          this.$router.push('/admin/dashboard')
+        })
+        .catch((err) => console.log(err))
     }
   }
 }
@@ -183,9 +181,9 @@ nav .nav-container #icons i:hover {
   width: 70%;
   height: 100vh;
   display: flex;
-  background: url(../../../public/ensemble.jpeg) 0 0 no-repeat;
+  /* background: url(../../../public/ensemble.jpeg) 0 0 no-repeat;
   background-size: cover;
-  overflow: hidden;
+  overflow: hidden; */
   padding-bottom: 100px;
   margin-bottom: 100px;
   flex-direction: column;
@@ -224,9 +222,5 @@ form {
 .button:hover {
   background: black;
   color: white;
-}
-
-hr {
-  border: 1px solid black;
 }
 </style>

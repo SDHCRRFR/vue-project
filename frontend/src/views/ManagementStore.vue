@@ -157,7 +157,10 @@ p {
 }
 
 .block_II {
-  background: pink;
+  background: url(../../public/resto-III.jpeg) 0 0 no-repeat;
+  background-position: center;
+  overflow: hidden;
+  background-size: cover;
   width: 100%;
 }
 
