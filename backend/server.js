@@ -8,8 +8,8 @@ import restaurantRouter from "./routes/restaurant.js";
 const app = express();
 const port = 3000;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 
 const router = express.Router();
 app.use(router);
