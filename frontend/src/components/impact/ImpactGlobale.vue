@@ -80,8 +80,8 @@ window.addEventListener('scroll', function () {
   /* border: 1px solid black; */
   justify-content: center;
   /* background: #21242b; */
-  /* border-bottom: 20px solid pink; */
-  border-radius: 20px;
+  border-bottom: 10px solid pink;
+  /* border-radius: 20px; */
   margin-bottom: 100px;
 }
 

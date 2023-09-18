@@ -10,26 +10,20 @@
             Vnez découvrir nos saveurs, avec comme ambition la chaleur humaine au coeur de la table.
           </p>
         </div>
-
-        <!-- rajout ici -->
         <div class="sale">
           <h4>Les réduc {{ product.promo }} %</h4>
         </div>
-
         <div class="card-text">
           <h3>{{ product.description }}</h3>
         </div>
-
-        <!-- rajout ici -->
       </div>
-
-      <!-- no result message -->
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'MyProduct',
   data: () => {
     return {
       title: 'Notre séléction',
@@ -108,9 +102,9 @@ img {
   align-items: center;
   gap: 10px;
   border-radius: 20px;
-  background: gainsboro;
+  /* background: gainsboro; */
   padding: 10px;
-  border-bottom: 18px solid black;
+  /* border-bottom: 18px solid black; */
   max-height: 55vh;
 }
 
