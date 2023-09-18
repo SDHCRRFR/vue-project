@@ -1,6 +1,8 @@
 <script>
+import SubscribeRestaurant from '../components/subscribe/SubscribeRestaurant.vue'
 export default {
-  name: 'UserShp',
+  name: 'PublicShp',
+  components: {SubscribeRestaurant},
   data: () => {
     return {
       products: [
@@ -103,6 +105,153 @@ export default {
           address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
+          id: 6,
+          description: 'Maserati Mechanical',
+          price: 65,
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 7,
+          description: 'Montre Mecanique',
+          price: 25,
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 8,
+          description: 'Brand Designer',
+          price: 28,
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 9,
+          description: 'Relogio Masculino',
+          price: 4,
+          img: '../public/resto-IIII.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 10,
+          description: 'Tissot Multifunction',
+          price: 29,
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 11,
+          description: 'Audemars Piguet',
+          price: 870,
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 13,
+          description: 'Patek philipe',
+          price: 182,
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 14,
+          description: 'Lacoste',
+          price: 523,
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 15,
+          description: 'Versace',
+          price: 837,
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 16,
+          description: 'Gucci',
+          price: 140,
+          img: '../public/resto-IIII.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 17,
+          description: 'Prada',
+          price: 387,
+          img: '../public/resto-v.webp',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 18,
+          description: 'Swarovskii',
+          price: 299,
+          img: '../public/resto-IIII.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 19,
+          description: 'Dior',
+          price: 150,
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 20,
+          description: 'Mesh Genova',
+          price: 621,
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 1,
+          description: 'Quarz Luxe',
+          price: 12,
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 2,
+          description: 'Curren Business',
+          price: 20,
+          img: '../public/resto-IIII.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 3,
+          description: 'Curren Sport',
+          price: 5,
+          img: '../public/resto-v.webp',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 4,
+          description: 'Jaragar Racing',
+          price: 8,
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 5,
+          description: 'Liges Hommes',
+          price: 3,
+          img: '../public/resto-II.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 6,
+          description: 'Maserati Mechanical',
+          price: 65,
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 6,
+          description: 'Maserati Mechanical',
+          price: 65,
+          img: '../public/resto-I.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
           id: 7,
           description: 'Montre Mecanique',
           price: 25,
@@ -143,13 +292,18 @@ export default {
           price: 660,
           img: '../public/resto-III.jpeg',
           address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
+        },
+        {
+          id: 12,
+          description: 'Rolex',
+          price: 660,
+          img: '../public/resto-III.jpeg',
+          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         }
       ],
       searchKey: '',
       liked: [],
-      cart: [],
-      accroche:
-        'Une journée dans la ville Lumière à préparer ? Envie de tester un nouveau resto dans votre quartier ? La capitale compte des milliers dadresses gourmandes. Pour vous aider à trouver la vôtre, découvrez les meilleurs restaurants parisiens, du bistro aux plus belles tables gastronomiques. Chic !'
+      cart: []
     }
   },
   computed: {
@@ -335,8 +489,19 @@ export default {
       </transition-group>
     </div>
     <transition name="cart-anim"></transition>
-
-    <p>{{ accroche }}</p>
+    <div class="management">
+      <div class="management_contain">
+        <h5>A propos de Table de Coeur</h5>
+        <p class="pp">Vous adorez dénicher de nouveaux restaurants tendance à Paris, mais vous appréciez aussi les brunchs entre amis le dimanche à Bordeaux ou les dîners en amoureux à Lille ? Vous pensez que rien ne vaut un bon resto italien mais vous aimez sortir de la routine avec un restaurant japonais ou indien ? Alors, venez découvrir les meilleures tables du moment sur Table de coeur, parmi une sélection de plus de 60 000 adresses dans le monde entier.</p>
+  
+        <p class="pp">Tous les jours, retrouvez des promotions allant jusqu’à -50% sur la carte. De quoi se faire plaisir sans se ruiner ! Table de coeur est le moyen le plus rapide, disponible 24h/24, pour trouver un bon plan resto près de chez vous, ou une expérience culinaire partout ailleurs. Laissez-vous guider par plus de 20 millions d’avis vérifiés de notre communauté et partagez les vôtres. Seuls les clients ayant honoré leur réservation peuvent déposer un avis et poster leurs photos de plats.</p>
+  
+        <p class="pp">
+          Pour toutes les envies et toutes les occasions, réservez votre restaurant gratuitement en 3 clics avec confirmation immédiate.
+        </p>
+      </div>
+      <SubscribeRestaurant/>
+    </div>
   </div>
 </template>
 
@@ -787,4 +952,33 @@ img {
     transform: scale(1);
   }
 }
+
+.management {
+  padding-top: 100px;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.management_contain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  float: left;
+  width: 70%;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+.pp {
+  font-size: 18px;
+}
+
+
 </style>

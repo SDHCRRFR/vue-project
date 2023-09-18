@@ -1,31 +1,11 @@
 <script setup>
-import UserShp from '@/stores/UserShp.vue'
+import PublicShp from '@/stores/PublicShp.vue'
 import MyFooter from '@/components/footer/MyFooter.vue'
-
-// function say(message) {
-//   alert(message)
-// }
-
-// function warn(message, event) {
-//   // quand on a pas accès aux enevements natives
-//   if (event) {
-//     event.preventDefault()
-//   }
-//   alert(message)
-// }
 </script>
 
 <template>
   <div class="shopping-cart">
-    <UserShp />
-    <!-- slot -->
-    <!-- <MyTest> Aller aller y'a rien n'as voir ici mon pote !. </MyTest> -->
-    <!-- slot -->
-
-    <!-- <button @click="say">Hello</button>
-    <button @click="warn('form cannot ooo', $event)">submit</button> -->
-    <!-- <button @click="(event) => warn('form oooooo', event)">
-    submit</button> -->
+    <PublicShp />
   </div>
   <MyFooter />
 </template>
