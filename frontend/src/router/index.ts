@@ -8,7 +8,7 @@ import UserLogin from '@/views/auth/UserLogin.vue'
 import { authGuard } from '@/_helpers/auth-guard'
 import NotFound from '@/views/NotFound.vue'
 
-// localStorage.setItem('token', 'marcel')
+localStorage.setItem('token', 'marcel')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
