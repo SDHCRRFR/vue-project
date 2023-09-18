@@ -5,6 +5,7 @@ import * as Admin from '@/views/admin'
 // ========================================================)->
 import ManagementStore from '@/views/ManagementStore.vue'
 import UserLogin from '@/views/auth/UserLogin.vue'
+import SignUp from '@/views/auth/SignUp.vue'
 import { authGuard } from '@/_helpers/auth-guard'
 import NotFound from '@/views/NotFound.vue'
 
@@ -49,6 +50,7 @@ const router = createRouter({
       ]
     },
     { path: '/login', name: 'UserLogin', component: UserLogin },
+    { path: '/signup', name: 'SignUp', component: SignUp },
     { path: '/management', name: 'ManagementStore', component: ManagementStore },
     { path: '/:pathMatch(.*)*', component: NotFound }
   ]

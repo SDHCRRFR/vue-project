@@ -9,7 +9,6 @@ import MyFooter from '@/components/footer/MyFooter.vue'
   </div>
   <MyFooter />
 </template>
-
 <style scoped>
 .shopping-cart {
   text-align: center;
