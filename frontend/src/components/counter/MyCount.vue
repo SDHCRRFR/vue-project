@@ -28,7 +28,6 @@ export default {
 }
 
 const increment = () => {
-  // console.log('salut in est a 1700px')
   let valueDisplays = document.querySelectorAll('.num')
   let interval = 4000
 
@@ -47,7 +46,6 @@ const increment = () => {
 }
 
 window.addEventListener('scroll', function () {
-  // console.log(window.scrollY)
   const scrollPosition = window.scrollY
   const targetPosition = 1700
 
@@ -87,7 +85,6 @@ button {
   display: flex;
   align-items: center;
   text-align: center;
-  /* margin: 55px; */
   flex-direction: column;
   padding: 30px;
   gap: 55px;
@@ -161,7 +158,6 @@ h3 {
   width: 80vw;
   display: flex;
   border-radius: 30px;
-  /* padding-bottom: 100px; */
   align-items: center;
   text-align: center;
   justify-content: flex-start;
@@ -207,16 +203,13 @@ h3 {
 
 .other {
   width: 90vw;
-  /* background: url(../../public/photo-ethnique.jpg) 0 0 no-repeat; */
   border-radius: 10px;
-  /* background-size: cover; */
   overflow: hidden;
   min-height: 60vh;
   display: flex;
   padding: 10px;
   gap: 10px;
   flex-direction: row;
-  /* background: pink; */
   align-items: center;
   justify-content: center;
 }

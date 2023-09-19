@@ -26,7 +26,6 @@
 
 <script>
 export default {
-  // el: '#home-view',
   data: function () {
     return {
       accroche: 'Ayez du coeur',

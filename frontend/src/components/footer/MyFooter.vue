@@ -149,6 +149,5 @@ footer .wave#wave4 {
   align-items: center;
   justify-content: center;
   display: flex;
-  /* height: 50vh; */
 }
 </style>

@@ -168,22 +168,18 @@ nav .nav-container #icons i:hover {
 
 .log {
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   padding-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgb(57, 57, 57);
 }
 
 .login {
   width: 70%;
   height: 100vh;
   display: flex;
-  /* background: url(../../../public/ensemble.jpeg) 0 0 no-repeat;
-  background-size: cover;
-  overflow: hidden; */
   padding-bottom: 100px;
   margin-bottom: 100px;
   flex-direction: column;

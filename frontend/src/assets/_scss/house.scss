@@ -3,160 +3,156 @@ $color-roof: #a6cfff;
 $colo-ledge: #79aaff;
 $blue: skyblue;
 $color-window-left: #65ebff;
-// $color-window-right: #71fbff;
-// $color-window: linear-gradient(
-//   to right,
-//   $color-window-left,
-//   $color-window-left 49.9%,
-//   $color-window-right 50%,
-//   $color-window-right
-// );
-// $color-shadow: #e1eaff;
-// $duration: 500ms;
-// $delay: 70ms;
-// $easing: cubic-bezier(0.1, 0, 0.3, 1);
+$color-window-right: #71fbff;
+$color-window: linear-gradient(
+  to right,
+  $color-window-left,
+  $color-window-left 49.9%,
+  $color-window-right 50%,
+  $color-window-right
+);
+$color-shadow: #e1eaff;
+$duration: 500ms;
+$delay: 70ms;
+$easing: cubic-bezier(0.1, 0, 0.3, 1);
 
-// $parts: (
-//   6: (
-//     wings: 425px,
-//     front: 150px
-//   ),
-//   5: (
-//     wings: 355px,
-//     front: 150px
-//   ),
-//   4: (
-//     wings: 300px,
-//     front: 125px
-//   ),
-//   3: (
-//     wings: 240px,
-//     front: 150px
-//   )
-// );
+$parts: (
+  6: (
+    wings: 425px,
+    front: 150px
+  ),
+  5: (
+    wings: 355px,
+    front: 150px
+  ),
+  4: (
+    wings: 300px,
+    front: 125px
+  ),
+  3: (
+    wings: 240px,
+    front: 150px
+  )
+);
 
-// @each $rooms, $dimensions in $parts {
-//   [data-rooms='#{$rooms}'] {
-//     @each $part, $width in $dimensions {
-//       .house-#{$part} {
-//         width: $width;
-//         // left: calc(50% - #{$width / 2});
-//         // math.div($width, 2)
-//         //  or
-//         //  calc($width / 2)
-//       }
-//       #{--#{$part}-width}: $width;
-//     }
-//   }
-// }
+@each $rooms, $dimensions in $parts {
+  [data-rooms='#{$rooms}'] {
+    @each $part, $width in $dimensions {
+      .house-#{$part} {
+        width: $width;
+      }
+      #{--#{$part}-width}: $width;
+    }
+  }
+}
 
-// .house {
-//   height: 225px;
-//   width: 520px;
-// }
+.house {
+  height: 225px;
+  width: 520px;
+}
 
-// // House label part 1
+// House label part 1
 
-// .house-label {
-//   text-transform: uppercase;
-//   font-weight: bold;
-//   padding-left: calc(20px + 1ch);
-//   font-size: 25px;
-//   color: $color-primary;
-//   margin: 30px 0 5px;
-//   font-family: Arial Bold, Helvetica, sans-serif;
-//   &:before,
-//   &:after {
-//     position: absolute;
-//     text-align: right;
-//     left: 0;
-//     top: 0;
-//     padding: 0 0.5ch;
-//     will-change: transform;
-//   }
+.house-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-left: calc(20px + 1ch);
+  font-size: 25px;
+  color: $color-primary;
+  margin: 30px 0 5px;
+  font-family: Arial Bold, Helvetica, sans-serif;
+  &:before,
+  &:after {
+    position: absolute;
+    text-align: right;
+    left: 0;
+    top: 0;
+    padding: 0 0.5ch;
+    will-change: transform;
+  }
 
-//   &:before {
-//     content: attr(data-prev-rooms);
-//   }
+  &:before {
+    content: attr(data-prev-rooms);
+  }
 
-//   &:before {
-//     content: attr(data-prev-rooms);
-//   }
+  &:before {
+    content: attr(data-prev-rooms);
+  }
 
-//   &:after {
-//     content: attr(data-rooms);
-//   }
+  &:after {
+    content: attr(data-rooms);
+  }
 
-//   // House Label Part 2
-//   @for $i from 6 through 3 {
-//     &[data-rooms='#{$i}'][data-rooms-delta^='-'] {
-//       &:before {
-//         animation: prev-label-up-#{$i} $duration $easing both;
-//       }
-//       &:after {
-//         animation: label-up-#{$i} $duration * 2 $easing both;
-//       }
-//     }
+  // House Label Part 2
+  @for $i from 6 through 3 {
+    &[data-rooms='#{$i}'][data-rooms-delta^='-'] {
+      &:before {
+        animation: prev-label-up-#{$i} $duration $easing both;
+      }
+      &:after {
+        animation: label-up-#{$i} $duration * 2 $easing both;
+      }
+    }
 
-//     &[data-rooms='#{$i}']:not([data-rooms-delta^='-']) {
-//       &:before {
-//         animation: prev-label-down-#{$i} $duration $delay $delay $easing both;
-//       }
-//       &:after {
-//         animation: label-down-#{$i} $duration * 2 $delay $easing both;
-//       }
-//     }
+    &[data-rooms='#{$i}']:not([data-rooms-delta^='-']) {
+      &:before {
+        animation: prev-label-down-#{$i} $duration $delay $delay $easing both;
+      }
+      &:after {
+        animation: label-down-#{$i} $duration * 2 $delay $easing both;
+      }
+    }
 
-//     // House Label Part 3
-//     @keyframes prev-label-up-#{$i} {
-//       from {
-//         transform: translateY(0);
-//         opacity: 1;
-//       }
-//       to {
-//         transform: translateY(-100%) scale(1.5);
-//         opacity: 0;
-//       }
-//     }
-//     @keyframes prev-label-down-#{$i} {
-//       from {
-//         transform: translateY(0);
-//         opacity: 1;
-//       }
-//       to {
-//         transform: translateY(100%) scale(1.5);
-//         opacity: 0;
-//       }
-//     }
+    // House Label Part 3
+    @keyframes prev-label-up-#{$i} {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100%) scale(1.5);
+        opacity: 0;
+      }
+    }
+    @keyframes prev-label-down-#{$i} {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(100%) scale(1.5);
+        opacity: 0;
+      }
+    }
 
-//     @keyframes label-up-#{$i} {
-//       from {
-//         transform: translateY(100%);
-//         opacity: 0;
-//       }
-//       50% {
-//         transform: translateY(0) scale(1.5);
-//         opacity: 1;
-//       }
-//       to {
-//         transform: translateY(0);
-//         opacity: 1;
-//       }
-//     }
+    @keyframes label-up-#{$i} {
+      from {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(0) scale(1.5);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
 
-//     @keyframes label-down-#{$i} {
-//       from {
-//         transform: translateY(-100%);
-//         opacity: 0;
-//       }
-//       50% {
-//         transform: translateY(0) scale(1.5);
-//         opacity: 1;
-//       }
-//       to {
-//         transform: translateY(0);
-//         opacity: 1;
-//       }
-//     }
-//   }
-// }
+    @keyframes label-down-#{$i} {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(0) scale(1.5);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+}
