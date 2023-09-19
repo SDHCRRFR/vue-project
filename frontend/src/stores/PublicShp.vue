@@ -2,7 +2,7 @@
 import SubscribeRestaurant from '../components/subscribe/SubscribeRestaurant.vue'
 export default {
   name: 'PublicShp',
-  components: {SubscribeRestaurant},
+  components: { SubscribeRestaurant },
   data: () => {
     return {
       products: [
@@ -492,15 +492,29 @@ export default {
     <div class="management">
       <div class="management_contain">
         <h5>A propos de Table de Coeur</h5>
-        <p class="pp">Vous adorez dénicher de nouveaux restaurants tendance à Paris, mais vous appréciez aussi les brunchs entre amis le dimanche à Bordeaux ou les dîners en amoureux à Lille ? Vous pensez que rien ne vaut un bon resto italien mais vous aimez sortir de la routine avec un restaurant japonais ou indien ? Alors, venez découvrir les meilleures tables du moment sur Table de coeur, parmi une sélection de plus de 60 000 adresses dans le monde entier.</p>
-  
-        <p class="pp">Tous les jours, retrouvez des promotions allant jusqu’à -50% sur la carte. De quoi se faire plaisir sans se ruiner ! Table de coeur est le moyen le plus rapide, disponible 24h/24, pour trouver un bon plan resto près de chez vous, ou une expérience culinaire partout ailleurs. Laissez-vous guider par plus de 20 millions d’avis vérifiés de notre communauté et partagez les vôtres. Seuls les clients ayant honoré leur réservation peuvent déposer un avis et poster leurs photos de plats.</p>
-  
         <p class="pp">
-          Pour toutes les envies et toutes les occasions, réservez votre restaurant gratuitement en 3 clics avec confirmation immédiate.
+          Vous adorez dénicher de nouveaux restaurants tendance à Paris, mais vous appréciez aussi
+          les brunchs entre amis le dimanche à Bordeaux ou les dîners en amoureux à Lille ? Vous
+          pensez que rien ne vaut un bon resto italien mais vous aimez sortir de la routine avec un
+          restaurant japonais ou indien ? Alors, venez découvrir les meilleures tables du moment sur
+          Table de coeur, parmi une sélection de plus de 60 000 adresses dans le monde entier.
+        </p>
+
+        <p class="pp">
+          Tous les jours, retrouvez des promotions allant jusqu’à -50% sur la carte. De quoi se
+          faire plaisir sans se ruiner ! Table de coeur est le moyen le plus rapide, disponible
+          24h/24, pour trouver un bon plan resto près de chez vous, ou une expérience culinaire
+          partout ailleurs. Laissez-vous guider par plus de 20 millions d’avis vérifiés de notre
+          communauté et partagez les vôtres. Seuls les clients ayant honoré leur réservation peuvent
+          déposer un avis et poster leurs photos de plats.
+        </p>
+
+        <p class="pp">
+          Pour toutes les envies et toutes les occasions, réservez votre restaurant gratuitement en
+          3 clics avec confirmation immédiate.
         </p>
       </div>
-      <SubscribeRestaurant/>
+      <SubscribeRestaurant />
     </div>
   </div>
 </template>
@@ -979,6 +993,4 @@ h5 {
 .pp {
   font-size: 18px;
 }
-
-
 </style>

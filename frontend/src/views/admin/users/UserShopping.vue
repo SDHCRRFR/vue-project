@@ -76,13 +76,13 @@
 </script>
 
 <style scoped lang="scss">
-@import './house.scss';
+// @import './house.scss';
 
 .user_shop {
   width: 100%;
   height: 90vh;
 }
-h1 {
-  color: $blue;
-}
+// h1 {
+//   color: $blue;
+// }
 </style>
