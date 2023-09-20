@@ -32,7 +32,9 @@
             <button type="submit" class="button">Connexion</button>
           </div>
           <div class="sub">
-            <a href="">crée un compte ?</a>
+            <router-link to="/signup">
+              <a href="">crée un compte ?</a>
+            </router-link>
             <a href="">mot de passe oublié ?</a>
           </div>
         </form>
@@ -42,7 +44,7 @@
 </template>
 
 <script>
-import { accountService } from '@/_services'
+// import { accountService } from '@/_services'
 
 export default {
   name: 'UserLogin',
@@ -53,34 +55,34 @@ export default {
         password: ''
       }
     }
-  },
-  methods: {
-    login() {
-      accountService
-        .login(this.user)
-        .then((res) => {
-          accountService.savetoken(res.data.access_token)
-          this.$router.push('/admin/dashboard')
-        })
-        .catch((err) => console.log(err))
-      // ==========================================>
-      fetch('http://localhost:5173/auth/login', {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify(this.user)
-      })
-        .then((blob) => blob.json())
-        .then((data) => {
-          console.log(data)
-          localStorage.setItem('token', data.access_token)
-          this.$router.push('/admin/dashboard')
-        })
-        .catch((err) => console.log(err))
-    }
   }
+  // methods: {
+  //   login() {
+  //     accountService
+  //       .login(this.user)
+  //       .then((res) => {
+  //         accountService.savetoken(res.data.access_token)
+  //         this.$router.push('/admin/dashboard')
+  //       })
+  //       .catch((err) => console.log(err))
+  //     // ==========================================>
+  //     fetch('http://localhost:5173/auth/login', {
+  //       headers: {
+  //         Accept: 'application/json',
+  //         'Content-Type': 'application/json'
+  //       },
+  //       method: 'POST',
+  //       body: JSON.stringify(this.user)
+  //     })
+  //       .then((blob) => blob.json())
+  //       .then((data) => {
+  //         console.log(data)
+  //         localStorage.setItem('token', data.access_token)
+  //         this.$router.push('/admin/dashboard')
+  //       })
+  //       .catch((err) => console.log(err))
+  //   }
+  // }
 }
 </script>
 

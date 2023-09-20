@@ -5,6 +5,7 @@ import * as Admin from '@/views/admin'
 // ========================================================)->
 import ManagementStore from '@/views/ManagementStore.vue'
 import UserLogin from '@/views/auth/UserLogin.vue'
+import SignUp from '../views/auth/SignUp.vue'
 import { authGuard } from '@/_helpers/auth-guard'
 import NotFound from '@/views/NotFound.vue'
 
@@ -20,7 +21,7 @@ const router = createRouter({
       children: [
         { path: '/', name: 'home', component: Public.HomeView },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
-        { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') },
+        { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },
     {
@@ -36,7 +37,12 @@ const router = createRouter({
           component: Admin.UserShopping,
           props: true
         },
-        { path: 'user/index/:id(\\d+)', name: 'user-index', component: Admin.UserIndex },
+        {
+          path: 'user/index/:id(\\d+)',
+          name: 'user-index',
+          component: Admin.UserIndex,
+          props: true
+        },
         {
           path: 'user/don/:id(\\d+)',
           name: 'user-fait-un-don',
@@ -48,6 +54,7 @@ const router = createRouter({
       ]
     },
     { path: '/login', name: 'UserLogin', component: UserLogin },
+    { path: '/signup', name: 'SignUp', component: SignUp },
     { path: '/management', name: 'ManagementStore', component: ManagementStore },
     { path: '/:pathMatch(.*)*', component: NotFound }
   ]

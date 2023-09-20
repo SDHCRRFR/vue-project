@@ -32,33 +32,31 @@
 export default {
   component: {
     name: 'impact'
-  },
-  data: () => {
-    return {}
   }
 }
 
 const increment = () => {
-  console.log('salut in est a 1700px')
   let valueDisplays = document.querySelectorAll('.num')
-  let interval = 4000
+  let interval = 1000
 
   valueDisplays.forEach((valueDisplay) => {
     let startValue = 10
-    let endValue = parseInt(valueDisplay.getAttribute('data-val'))
-    let duration = Math.floor(interval / endValue)
-    let counter = setInterval(function () {
-      startValue += 1
-      valueDisplay.textContent = startValue
-      if (startValue == endValue) {
-        clearInterval(counter)
-      }
-    }, duration)
+    let dataVal = valueDisplay.getAttribute('data-val')
+    if (dataVal !== null) {
+      let endValue = parseInt('data-val')
+      let duration = Math.floor(interval / endValue)
+      let counter = setInterval(function () {
+        startValue += 1
+        valueDisplay.textContent = '' + startValue
+        if (startValue == endValue) {
+          clearInterval(counter)
+        }
+      }, duration)
+    }
   })
 }
 
 window.addEventListener('scroll', function () {
-  // console.log(window.scrollY)
   const scrollPosition = window.scrollY
   const targetPosition = 1700
 
@@ -76,7 +74,7 @@ window.addEventListener('scroll', function () {
   text-align: center;
   flex-direction: row;
   display: flex;
-  padding: 10px;
+  padding: 60px;
   justify-content: center;
   border-bottom: 10px solid pink;
   margin-bottom: 100px;
@@ -94,7 +92,6 @@ iframe {
   width: 100%;
   border-radius: 10px;
   display: flex;
-  /* min-height: 60vh; */
   padding: 10px;
   flex-direction: column;
   align-items: center;
