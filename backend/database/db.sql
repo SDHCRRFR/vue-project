@@ -67,18 +67,15 @@ INSERT INTO tabledecoeur.type_restaurant VALUES
 (NULL, 'mexicain'),
 (NULL, 'américain'),
 (NULL, 'indien'),
-(NULL, 'japonais');
+(NULL, 'japonais'),
 
 
 INSERT INTO tabledecoeur.restaurant VALUES
 (NULL, 'Le Baobab', 'auguste renoir aulnay', '0605704453', 'logo.jpeg', '48.9898; 48.2899',  '<h3> Entrée <h3/> <p> kebab </p>', 1 ),
 
-(NULL, 'O cercle Pizza, évêque', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 2 ),
+(NULL, 'O cercle Pizza', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 2 ),
 
-(NULL, 'O cercle Pizza, évêque', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 3 ),
-(NULL, 'O cercle Pizza, évêque', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 4 ),
-(NULL, 'O cercle Pizza, évêque', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 5 ),
-(NULL, 'O cercle Pizza, évêque', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 6 ),
-(NULL, 'O cercle Pizza, évêque', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 7 ),
-(NULL, 'O cercle Pizza, évêque', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 8 ),
-(NULL, 'delarte', 'traverse des rosier 13014', '0699765487', 'logo.png', '41.9898; 48.5555',  '<h3> Entrée <h3/> <p> salade </p>', 2 );
+(NULL, 'Nabab', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 3 ),
+
+(NULL, 'O Tacos', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 4 ),
+
