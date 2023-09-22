@@ -22,7 +22,7 @@ const router = createRouter({
       children: [
         { path: '/', name: 'home', component: Public.HomeView },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
-        { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') },
+        { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },
     { path: '/login', name: 'UserLogin', component: Auth.UserLogin },

@@ -10,7 +10,7 @@
       <h2 class="content"></h2>
     </hgroup>
     <!-- search display -->
-    <input
+    <!-- <input
       v-model="searchKey"
       type="search"
       id="search"
@@ -20,7 +20,7 @@
     />
     <span v-if="searchKey && filteredList.length >= 1">
       {{ filteredList.length }} résultat <span v-if="filteredList.length >= 2">s</span></span
-    >
+    > -->
   </div>
 </template>
 

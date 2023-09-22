@@ -19,30 +19,30 @@
     <div class="container_box">
       <h1>Inscription</h1>
       <form>
-          <div class="formGroup">
-            <label for="user_name">votre nom</label>
-            <input type="text" id="user_email" />
-          </div>
-          <hr>
-          <div class="formGroup">
-            <label for="user_email">votre adresse email</label>
-            <input type="text" id="user_email" />
-          </div>
-          <hr>
-          <div class="formGroup">
-            <label for="user_password">Choisissez un mot de passe</label>
-            <input type="text" id="user_password" />
-          </div>
-          <hr>
-          <div class="formGroup">
-            <button type="submit" class="button">Ce connecté</button>
-          </div>
-          <div class="sub">
-            <router-link to="/login">
-              <button type="button" class="create_account">dêja un compte ?</button>
-            </router-link>
-          </div>
-        </form>
+        <div class="formGroup">
+          <label for="user_name">votre nom</label>
+          <input type="text" id="user_email" />
+        </div>
+        <hr />
+        <div class="formGroup">
+          <label for="user_email">votre adresse email</label>
+          <input type="text" id="user_email" />
+        </div>
+        <hr />
+        <div class="formGroup">
+          <label for="user_password">Choisissez un mot de passe</label>
+          <input type="text" id="user_password" />
+        </div>
+        <hr />
+        <div class="formGroup">
+          <button type="submit" class="button">Ce connecté</button>
+        </div>
+        <div class="sub">
+          <router-link to="/login">
+            <button type="button" class="create_account">dêja un compte ?</button>
+          </router-link>
+        </div>
+      </form>
     </div>
   </div>
 </template>
@@ -78,7 +78,6 @@ h1 {
   background: url(../../../public/legume.jpeg) 0 0 no-repeat;
   overflow: hidden;
   background-size: cover;
-
 }
 
 nav {
@@ -152,7 +151,9 @@ nav .nav-container #icons i:hover {
   margin-bottom: 8px;
 }
 
-label {color: white;}
+label {
+  color: white;
+}
 
 .sub {
   align-items: center;

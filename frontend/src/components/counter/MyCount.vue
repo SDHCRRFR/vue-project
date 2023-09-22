@@ -1,17 +1,15 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" id="impact">
     <div class="container">
       <span class="num" data-val="999">000</span>
       <span class="people">M+</span>
       <p>Personnes vivants sous le seuil de pauvreté en millions</p>
     </div>
-
     <div class="container">
       <span class="num" data-val="999">000</span>
       <span class="people">M+</span>
       <p>Valeur commerciale estimée en euros par ans en million</p>
     </div>
-
     <div class="container">
       <span class="num" data-val="999">000</span>
       <span class="people">M+</span>

@@ -10,17 +10,17 @@
       <h2 class="content"></h2>
     </hgroup>
     <!-- search display -->
-    <input
+    <!-- <input
       v-model="searchKey"
       type="search"
       id="search"
       placeholder="Que recherchez vous ?"
       autocomplete="on"
       class="search"
-    />
-    <span v-if="searchKey && filteredList.length >= 1">
+    /> -->
+    <!-- <span v-if="searchKey && filteredList.length >= 1">
       {{ filteredList.length }} résultat <span v-if="filteredList.length >= 2">s</span></span
-    >
+    > -->
   </div>
 </template>
 
@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .container_img {
-  background: url(../../public/resto-IIII.jpeg) 0 0 no-repeat;
+  background: url(../../public/resto-IIII.jpeg) no-repeat fixed;
   width: 90%;
   height: 87vh;
   border-radius: 20px 20px 20px 20px;
@@ -51,18 +51,18 @@ export default {
   justify-content: center;
 }
 
-#search {
+/* #search {
   width: 600px;
   font-size: 20px;
   padding-left: 30px;
   border: none;
   height: 6vh;
   border-radius: 10px;
-}
+} */
 
-.search {
+/* .search {
   margin-left: 50px;
-}
+} */
 
 h2::after {
   content: '';

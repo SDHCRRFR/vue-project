@@ -18,27 +18,27 @@
     </nav>
     <div class="log">
       <!-- <div class="login"> -->
-        <h1>Connexion</h1>
-        <form @submit.prevent="login">
-          <div class="formGroup">
-            <label for="user_email">Addresse e-mail</label>
-            <input type="text" id="user_email" v-model="user.email" />
-          </div>
-          <hr>
-          <div class="formGroup">
-            <label for="user_password">Mot de passe</label>
-            <input type="text" id="user_password" v-model="user.password" />
-          </div>
-          <hr>
-          <div class="formGroup">
-            <button type="submit" class="button">Connexion</button>
-          </div>
-          <div class="sub">
-            <router-link to="/signup">
-              <button type="button" class="create_account">crée un compte ?</button>
-            </router-link>
-          </div>
-        </form>
+      <h1>Connexion</h1>
+      <form @submit.prevent="login">
+        <div class="formGroup">
+          <label for="user_email">Addresse e-mail</label>
+          <input type="text" id="user_email" v-model="user.email" />
+        </div>
+        <hr />
+        <div class="formGroup">
+          <label for="user_password">Mot de passe</label>
+          <input type="text" id="user_password" v-model="user.password" />
+        </div>
+        <hr />
+        <div class="formGroup">
+          <button type="submit" class="button">Connexion</button>
+        </div>
+        <div class="sub">
+          <router-link to="/signup">
+            <button type="button" class="create_account">crée un compte ?</button>
+          </router-link>
+        </div>
+      </form>
       <!-- </div> -->
     </div>
   </div>
@@ -196,7 +196,9 @@ nav .nav-container #icons i:hover {
   overflow: hidden;
 } */
 
-label {color: white;}
+label {
+  color: white;
+}
 
 .sub {
   align-items: center;

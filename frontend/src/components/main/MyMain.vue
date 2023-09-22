@@ -3,9 +3,9 @@
     <div class="my-img">
       <div class="container_tm">
         <img src="../../../public/resto-I.jpeg" alt="" />
-        <router-link to="/wish-list">
+        <a href="#impact">
           <h2>Impact</h2>
-        </router-link>
+        </a>
       </div>
       <div class="container_tm">
         <img src="../../../public/resto-IIII.jpeg" alt="" />

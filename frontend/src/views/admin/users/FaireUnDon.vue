@@ -7,7 +7,7 @@
     <div class="container_don">
       <div class="mon_don">
         <h2>
-          Mercii beaucoup de participé vous êtes le <span>{{ id }} aujourd'hui</span>
+          Mercii beaucoup de participé vous êtes le n°<span>{{ id }} aujourd'hui</span>
         </h2>
         <div></div>
       </div>
