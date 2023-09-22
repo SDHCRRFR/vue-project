@@ -17,8 +17,32 @@
       </div>
     </nav>
     <div class="container_box">
-        <h1>Sign Up</h1>
-
+      <h1>Inscription</h1>
+      <form>
+          <div class="formGroup">
+            <label for="user_name">votre nom</label>
+            <input type="text" id="user_email" />
+          </div>
+          <hr>
+          <div class="formGroup">
+            <label for="user_email">votre adresse email</label>
+            <input type="text" id="user_email" />
+          </div>
+          <hr>
+          <div class="formGroup">
+            <label for="user_password">Choisissez un mot de passe</label>
+            <input type="text" id="user_password" />
+          </div>
+          <hr>
+          <div class="formGroup">
+            <button type="submit" class="button">Ce connecté</button>
+          </div>
+          <div class="sub">
+            <router-link to="/login">
+              <button type="button" class="create_account">dêja un compte ?</button>
+            </router-link>
+          </div>
+        </form>
     </div>
   </div>
 </template>
@@ -39,10 +63,22 @@ export default {
   /* justify-content: center; */
 }
 
+h1 {
+  color: white;
+}
+
 .container_box {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
+  min-height: 98vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* height: 80vh; */
+  align-items: center;
+  justify-content: center;
+  background: url(../../../public/legume.jpeg) 0 0 no-repeat;
+  overflow: hidden;
+  background-size: cover;
+
 }
 
 nav {
@@ -103,11 +139,59 @@ nav .nav-container #icons i {
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 nav .nav-container #icons i:hover {
   color: rgba(34, 34, 34, 0.65);
 }
 
+.formGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+label {color: white;}
+
+.sub {
+  align-items: center;
+  width: 100%;
+}
+.create_account {
+  width: 100%;
+  border-radius: 6px;
+  height: 4vh;
+  border: none;
+  background: green;
+  color: white;
+}
+
+.create_account:hover {
+  background: white;
+  color: black;
+}
+
+form {
+  width: 400px;
+  background: rgba(245, 245, 245, 0.493);
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.button {
+  width: 100%;
+  height: 4vh;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: black;
+  color: white;
+}
 </style>

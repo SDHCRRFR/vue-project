@@ -2,10 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 //
 import * as Public from '@/views/public'
 import * as Admin from '@/views/admin'
+import * as Auth from '@/views/auth'
 // ========================================================)->
 import ManagementStore from '@/views/ManagementStore.vue'
-import UserLogin from '@/views/auth/UserLogin.vue'
-import SignUp from '../views/auth/SignUp.vue'
+// import UserLogin from '@/views/auth/UserLogin.vue'
+// import SignUp from '../views/auth/SignUp.vue'
 import { authGuard } from '@/_helpers/auth-guard'
 import NotFound from '@/views/NotFound.vue'
 
@@ -21,9 +22,11 @@ const router = createRouter({
       children: [
         { path: '/', name: 'home', component: Public.HomeView },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
-        { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
+        { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') },
       ]
     },
+    { path: '/login', name: 'UserLogin', component: Auth.UserLogin },
+    { path: '/signup', name: 'SignUp', component: Auth.SignUp },
     {
       path: '/admin',
       name: 'admin',
@@ -53,8 +56,6 @@ const router = createRouter({
         { path: '/admin/logout', name: 'UserLogout', component: Admin.UserLogout }
       ]
     },
-    { path: '/login', name: 'UserLogin', component: UserLogin },
-    { path: '/signup', name: 'SignUp', component: SignUp },
     { path: '/management', name: 'ManagementStore', component: ManagementStore },
     { path: '/:pathMatch(.*)*', component: NotFound }
   ]

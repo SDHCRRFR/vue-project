@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 .container_img {
-  background: url(../../public/background-resto.png) 0 0 no-repeat;
+  background: url(../../public/background-resto.png) no-repeat fixed;
   width: 90%;
   height: 87vh;
   border-radius: 20px 20px 20px 20px;

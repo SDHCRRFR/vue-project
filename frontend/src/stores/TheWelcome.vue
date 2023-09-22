@@ -181,7 +181,7 @@ export default {
       })
     },
     cartPlusOne(product) {
-      product.quantity = product.quantity + 1
+      product.quantity = product.quantity++
     },
     cartMinusOne(product) {
       // debugger

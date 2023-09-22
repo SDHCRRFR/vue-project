@@ -21,7 +21,7 @@ import MyFooterVue from '@/components/footer/MyFooter.vue'
       <p class="contact_paragraphe">
         Vous ne trouvez pas ce que vous cherchez ? Vous pouvez nous envoyer un e-mail. <br /><a
           href="#"
-          >contact@tabledecoeur.fr</a
+          >houdjadji_said@carrefour.com</a
         >
       </p>
     </div>

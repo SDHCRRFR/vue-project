@@ -17,28 +17,29 @@
       </div>
     </nav>
     <div class="log">
-      <div class="login">
+      <!-- <div class="login"> -->
         <h1>Connexion</h1>
         <form @submit.prevent="login">
           <div class="formGroup">
             <label for="user_email">Addresse e-mail</label>
             <input type="text" id="user_email" v-model="user.email" />
           </div>
+          <hr>
           <div class="formGroup">
             <label for="user_password">Mot de passe</label>
             <input type="text" id="user_password" v-model="user.password" />
           </div>
+          <hr>
           <div class="formGroup">
             <button type="submit" class="button">Connexion</button>
           </div>
           <div class="sub">
             <router-link to="/signup">
-              <a href="">crée un compte ?</a>
+              <button type="button" class="create_account">crée un compte ?</button>
             </router-link>
-            <a href="">mot de passe oublié ?</a>
           </div>
         </form>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -170,17 +171,21 @@ nav .nav-container #icons i:hover {
 
 .log {
   width: 100%;
-  min-height: 80vh;
+  padding-top: 50px;
+  min-height: 86vh;
   padding-top: 80px;
+  background: url(../../../public/background-crimson.jpeg) 0 0 no-repeat;
+  background-size: cover;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.login {
+/* .login {
   width: 70%;
-  height: 100vh;
+  height: 59vh;
   display: flex;
   padding-bottom: 100px;
   margin-bottom: 100px;
@@ -189,19 +194,32 @@ nav .nav-container #icons i:hover {
   justify-content: center;
   background-position-y: center;
   overflow: hidden;
-}
+} */
+
+label {color: white;}
 
 .sub {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
+.create_account {
+  width: 100%;
+  border-radius: 6px;
+  height: 4vh;
+  border: none;
+  background: green;
+  color: white;
+}
+
+.create_account:hover {
+  background: white;
+  color: black;
+}
+
 form {
   width: 400px;
-  background: whitesmoke;
+  background: rgba(245, 245, 245, 0.493);
   margin: 0 auto;
   border: 1px solid black;
   padding: 20px;
