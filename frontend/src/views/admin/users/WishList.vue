@@ -1,7 +1,10 @@
 <template>
   <div class="user-settings">
     <div class="container_img">
-      <img src="../../../../public/background-crimson.jpeg" alt="" />
+      <div class="carousel-inner">
+        <Carousel :slides="slides"/>
+      </div>
+      <!-- <img src="../../../../public/background-crimson.jpeg" alt="" /> -->
     </div>
 
     <h2>Sélection table de coeur</h2>
@@ -53,14 +56,26 @@
       </div>
     </div>
     <hr />
+    <MyFooter />
   </div>
-
-  <MyFooter />
 </template>
 
-<script setup>
-// import MyTest from '../../../stores/MyTest.vue'
+<script>
+import Carousel from '../../../components/carousel/Carousel.vue'
 import MyFooter from '../../../components/footer/MyFooter.vue'
+
+export default {
+  name: 'WishList',
+  component: { Carousel, MyFooter },
+  data: () => ({
+    slides: [
+      '../../../../public/resto-I.jpeg',
+      '../../../../public/resto-II.jpeg',
+      '../../../../public/resto-III.jpeg',
+      '../../../../public/resto-IIII.jpeg'
+    ]
+  })
+}
 </script>
 
 <style scoped>
