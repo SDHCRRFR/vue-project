@@ -1,21 +1,15 @@
 <template lang="">
-  <div class="carousel-item" v-show="currentSlide === index">
-    <img :src="slide" />
+  <div v-show="visibleSlide === index" class="carousel-slide">
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['slide', 'currentSlide', 'index']
+  props: ['visibleSlide', 'index']
 }
 </script>
 
 <style scoped>
-.carousel-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+
 </style>

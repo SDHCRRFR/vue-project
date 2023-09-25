@@ -1,11 +1,21 @@
 <template>
   <div class="user-settings">
-    <div class="container_img">
+    <!-- <div class="container_img"> -->
       <div class="carousel-inner">
-        <Carousel :slides="slides"/>
+        <carousel @next="next"
+                  @prev="prev"
+        >
+          <carousel-slide v-for="(slide, index) in slides"
+                                 :key="slide"
+                                 :index="index"
+                                 :visibleSlide="visibleSlide"
+                                 >
+            <img :src="slide"/>
+          </carousel-slide>
+        </carousel>
       </div>
       <!-- <img src="../../../../public/background-crimson.jpeg" alt="" /> -->
-    </div>
+    <!-- </div> -->
 
     <h2>Sélection table de coeur</h2>
 
@@ -62,19 +72,48 @@
 
 <script>
 import Carousel from '../../../components/carousel/Carousel.vue'
+import CarouselSlide from '../../../components/carousel/CarouselSlide.vue'
 import MyFooter from '../../../components/footer/MyFooter.vue'
 
 export default {
   name: 'WishList',
-  component: { Carousel, MyFooter },
   data: () => ({
     slides: [
       '../../../../public/resto-I.jpeg',
       '../../../../public/resto-II.jpeg',
       '../../../../public/resto-III.jpeg',
-      '../../../../public/resto-IIII.jpeg'
-    ]
-  })
+      '../../../../public/resto-IIII.jpeg',
+      '../../../../public/resto-v.webp'
+    ],
+    visibleSlide: 0,
+  }
+  ),
+  computed: {
+      slidesLen() {
+        return this.slides.length;
+      }
+  },
+  methods: {
+      next() {
+          if(this.visibleSlide >= this.slides.length - 1) {
+            this.visibleSlide = 0;
+          }else {
+            this.visibleSlide++;
+          }
+      },
+      prev() {
+        if(this.visibleSlide <= 0) {
+            this.visibleSlide = this.slidesLen - 1;
+          }else {
+            this.visibleSlide--;
+          }
+      }
+  },
+  component: {
+       Carousel, 
+       CarouselSlide, 
+       MyFooter 
+      }
 }
 </script>
 
@@ -91,9 +130,9 @@ export default {
   margin-bottom: 150px;
 }
 
-.container_img {
-  width: 80%;
-  border-radius: 20px;
+.carousel-inner {
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -114,6 +153,11 @@ h4 {
 .container_card {
   padding: 10px;
   text-align: left;
+}
+
+img {
+  width: 500px;
+  height: 250px;
 }
 
 .card_cd {
@@ -171,13 +215,6 @@ hr {
 .my_pic {
   width: 100%;
 }
-
-img {
-  width: 100%;
-  border-radius: 20px;
-  height: 40vh;
-}
-
 h3 {
   color: green;
   cursor: pointer;
