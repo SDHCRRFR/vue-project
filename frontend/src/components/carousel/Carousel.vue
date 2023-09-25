@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .carousel {
   position: relative;
   width: 600px;

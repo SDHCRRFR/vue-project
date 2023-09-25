@@ -4,7 +4,7 @@ export default {
     return {
       products: [
         {
-          id: 13,
+          id: 1,
           description: 'Patek philipe',
           price: 182,
           img: '../public/resto-I.jpeg'
@@ -52,15 +52,15 @@ export default {
           img: '../public/resto-II.jpeg'
         },
         {
-          id: 1,
+          id: 21,
           description: 'Quarz Luxe',
           price: 12,
           img: '../public/resto-I.jpeg'
         },
         {
-          id: 2,
+          id: 22,
           description: 'Curren Business',
-          price: 20,
+          price: 23,
           img: '../public/resto-IIII.jpeg'
         },
         {

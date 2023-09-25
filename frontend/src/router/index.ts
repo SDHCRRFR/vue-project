@@ -67,4 +67,12 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
+router.beforeEach((to, from, next) => {
+  // Défilement de la page vers le haut à chaque changement de route
+  window.scrollTo(0, 0)
+  next()
+})
+
 export default router
+
+
