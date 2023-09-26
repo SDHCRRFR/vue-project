@@ -25,15 +25,16 @@ import MyFooterVue from '@/components/footer/MyFooter.vue'
         >
       </p>
     </div>
+    <Subscribe />
+    <MyFooterVue />
   </div>
-  <Subscribe />
-  <MyFooterVue />
 </template>
 
 <style scoped>
 .about {
   display: flex;
   flex-direction: column;
+  padding-top: 100px;
   width: 100%;
   text-align: left;
   min-height: 100vh;

@@ -1,10 +1,10 @@
 <template>
   <div class="user-settings">
     <!-- <div class="container_img"> -->
-      <div class="carousel-inner">
-       <Carousel/>
-      </div>
-      <!-- <img src="../../../../public/background-crimson.jpeg" alt="" /> -->
+    <div class="carousel-inner">
+      <Carousel />
+    </div>
+    <!-- <img src="../../../../public/background-crimson.jpeg" alt="" /> -->
     <!-- </div> -->
 
     <h2>Sélection table de coeur</h2>
@@ -67,9 +67,9 @@ import MyFooter from '../../../components/footer/MyFooter.vue'
 export default {
   name: 'WishList',
   component: {
-       Carousel, 
-       MyFooter 
-      }
+    Carousel,
+    MyFooter
+  }
 }
 </script>
 

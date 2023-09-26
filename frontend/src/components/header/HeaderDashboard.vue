@@ -9,18 +9,6 @@
       </h1>
       <h2 class="content"></h2>
     </hgroup>
-    <!-- search display -->
-    <!-- <input
-      v-model="searchKey"
-      type="search"
-      id="search"
-      placeholder="Que recherchez vous ?"
-      autocomplete="on"
-      class="search"
-    /> -->
-    <!-- <span v-if="searchKey && filteredList.length >= 1">
-      {{ filteredList.length }} résultat <span v-if="filteredList.length >= 2">s</span></span
-    > -->
   </div>
 </template>
 
@@ -29,10 +17,26 @@ export default {
   name: 'HeaderDashboard',
   data: function () {
     return {
-      accroche: 'Ayez du coeur',
-      searchKey: '',
-      products: []
+      accroche: 'Ayez du coeur'
     }
+  },
+  beforeCreate() {
+    console.log('Je ne suis pas encore  créé')
+  },
+  created() {
+    console.log('Je suis créé !')
+  },
+  beforeMount() {
+    console.log('Je vais bientôt être monté sur le DOM!')
+  },
+  mounted() {
+    console.log('Je suis monté sur le DOM!')
+  },
+  beforeDestroy() {
+    console.log('Je suis sur le point de disparaître du DOM !')
+  },
+  destroyed() {
+    console.log('Je suis supprimé')
   }
 }
 </script>

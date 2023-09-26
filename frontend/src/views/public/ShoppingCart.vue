@@ -6,8 +6,8 @@ import MyFooter from '@/components/footer/MyFooter.vue'
 <template>
   <div class="shopping-cart">
     <PublicShp />
+    <MyFooter />
   </div>
-  <MyFooter />
 </template>
 
 <style scoped>

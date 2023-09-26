@@ -77,7 +77,7 @@ window.addEventListener('scroll', function () {
   padding: 60px;
   justify-content: center;
   border-bottom: 10px solid pink;
-  margin-bottom: 100px;
+  margin-bottom: -30px;
 }
 
 iframe {

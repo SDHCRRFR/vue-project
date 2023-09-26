@@ -6,15 +6,17 @@ import MyProduct from '@/components/products/MyProduct.vue'
 import GoogleMaps from '@/components/map/GoogleMaps.vue'
 import MyCount from '@/components/counter/MyCount.vue'
 import Impact from '@/components/impact/ImpactGlobale.vue'
+import SubscribeRestaurant from '@/components/subscribe/SubscribeRestaurant.vue'
 import MyFooter from '@/components/footer/MyFooter.vue'
 
 const check = "Et si c'était vous ?"
 const show = ref(true)
+
 </script>
 
 <template>
   <div class="home-view">
-    <!-- my component -->
+
     <HeaderDashboard />
     <hr class="transition_hr" @mouseover="show = !show" />
     <Transition name="slide-fade">
@@ -29,17 +31,17 @@ const show = ref(true)
     </Transition>
 
     <MyMain />
+    <div class="component">
+      <!--  -->
+      <MyProduct />
+      <!--  -->
+      <GoogleMaps />
+      <MyCount />
+      <Impact />
+    </div>
+    <SubscribeRestaurant/>
+    <MyFooter />
   </div>
-  <div class="component">
-    <!--  -->
-    <MyProduct />
-    <!--  -->
-    <GoogleMaps />
-    <MyCount />
-    <Impact />
-  </div>
-
-  <MyFooter />
 </template>
 
 <style scoped>

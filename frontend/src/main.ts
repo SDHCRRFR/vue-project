@@ -11,4 +11,4 @@ app.use(createPinia())
 app.use(router)
 app.use(Vue3Geolocation)
 app.mount('#app')
-app.use(VueCarousel);
+app.use(VueCarousel)

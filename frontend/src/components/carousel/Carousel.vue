@@ -15,25 +15,23 @@
 
 <script>
 // import { ref } from 'vue';
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, Slide } from 'vue-carousel'
 
 export default {
   components: {
     Carousel,
-    Slide,
+    Slide
   },
   data() {
     return {
       items: [
         { title: 'Slide 1', description: 'Description de la diapositive 1' },
         { title: 'Slide 2', description: 'Description de la diapositive 2' },
-        { title: 'Slide 3', description: 'Description de la diapositive 3' },
+        { title: 'Slide 3', description: 'Description de la diapositive 3' }
       ]
-
     }
-
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
@@ -62,5 +60,4 @@ button:active, button:hover {
 }.prev {
   left: 0;
 } */
-
 </style>

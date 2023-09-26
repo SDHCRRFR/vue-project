@@ -42,6 +42,7 @@ export default {
 .subscribe {
   width: 100%;
   height: 70vh;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -9,18 +9,6 @@
       </h1>
       <h2 class="content"></h2>
     </hgroup>
-    <!-- search display -->
-    <!-- <input
-      v-model="searchKey"
-      type="search"
-      id="search"
-      placeholder="Que recherchez vous ?"
-      autocomplete="on"
-      class="search"
-    />
-    <span v-if="searchKey && filteredList.length >= 1">
-      {{ filteredList.length }} résultat <span v-if="filteredList.length >= 2">s</span></span
-    > -->
   </div>
 </template>
 
@@ -28,7 +16,7 @@
 export default {
   data: function () {
     return {
-      accroche: 'Ayez du coeur oooo',
+      accroche: 'Ayez du coeur',
       title: 'Table de Coeur',
       searchKey: '',
       products: []
