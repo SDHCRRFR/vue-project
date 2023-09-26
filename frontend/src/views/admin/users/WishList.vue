@@ -2,17 +2,7 @@
   <div class="user-settings">
     <!-- <div class="container_img"> -->
       <div class="carousel-inner">
-        <carousel @next="next"
-                  @prev="prev"
-        >
-          <carousel-slide v-for="(slide, index) in slides"
-                                 :key="slide"
-                                 :index="index"
-                                 :visibleSlide="visibleSlide"
-                                 >
-            <img :src="slide"/>
-          </carousel-slide>
-        </carousel>
+       <Carousel/>
       </div>
       <!-- <img src="../../../../public/background-crimson.jpeg" alt="" /> -->
     <!-- </div> -->
@@ -72,46 +62,12 @@
 
 <script>
 import Carousel from '../../../components/carousel/Carousel.vue'
-import CarouselSlide from '../../../components/carousel/CarouselSlide.vue'
 import MyFooter from '../../../components/footer/MyFooter.vue'
 
 export default {
   name: 'WishList',
-  data: () => ({
-    slides: [
-      '../../../../public/resto-I.jpeg',
-      '../../../../public/resto-II.jpeg',
-      '../../../../public/resto-III.jpeg',
-      '../../../../public/resto-IIII.jpeg',
-      '../../../../public/resto-v.webp'
-    ],
-    visibleSlide: 0,
-  }
-  ),
-  computed: {
-      slidesLen() {
-        return this.slides.length;
-      }
-  },
-  methods: {
-      next() {
-          if(this.visibleSlide >= this.slides.length - 1) {
-            this.visibleSlide = 0;
-          }else {
-            this.visibleSlide++;
-          }
-      },
-      prev() {
-        if(this.visibleSlide <= 0) {
-            this.visibleSlide = this.slidesLen - 1;
-          }else {
-            this.visibleSlide--;
-          }
-      }
-  },
   component: {
        Carousel, 
-       CarouselSlide, 
        MyFooter 
       }
 }

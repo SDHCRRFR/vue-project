@@ -10,115 +10,115 @@ export default {
           img: '../public/resto-I.jpeg'
         },
         {
-          id: 14,
+          id: 2,
           description: 'Lacoste',
           price: 523,
           img: '../public/resto-II.jpeg'
         },
         {
-          id: 15,
+          id: 3,
           description: 'Versace',
           price: 837,
           img: '../public/resto-III.jpeg'
         },
         {
-          id: 16,
+          id: 4,
           description: 'Gucci',
           price: 140,
           img: '../public/resto-IIII.jpeg'
         },
         {
-          id: 17,
+          id: 5,
           description: 'Prada',
           price: 387,
           img: '../public/resto-v.webp'
         },
         {
-          id: 18,
+          id: 6,
           description: 'Swarovskii',
           price: 299,
           img: '../public/resto-IIII.jpeg'
         },
         {
-          id: 19,
+          id: 7,
           description: 'Dior',
           price: 150,
           img: '../public/resto-III.jpeg'
         },
         {
-          id: 20,
+          id: 8,
           description: 'Mesh Genova',
           price: 621,
           img: '../public/resto-II.jpeg'
         },
         {
-          id: 21,
+          id: 9,
           description: 'Quarz Luxe',
           price: 12,
           img: '../public/resto-I.jpeg'
         },
         {
-          id: 22,
+          id: 10,
           description: 'Curren Business',
           price: 23,
           img: '../public/resto-IIII.jpeg'
         },
         {
-          id: 3,
+          id: 11,
           description: 'Curren Sport',
           price: 5,
           img: '../public/resto-v.webp'
         },
         {
-          id: 4,
+          id: 12,
           description: 'Jaragar Racing',
           price: 8,
           img: '../public/resto-III.jpeg'
         },
         {
-          id: 5,
+          id: 13,
           description: 'Liges Hommes',
           price: 3,
           img: '../public/resto-II.jpeg'
         },
         {
-          id: 6,
+          id: 14,
           description: 'Maserati Mechanical',
           price: 65,
           img: '../public/resto-I.jpeg'
         },
         {
-          id: 7,
+          id: 15,
           description: 'Montre Mecanique',
           price: 25,
           img: '../public/resto-III.jpeg'
         },
         {
-          id: 8,
+          id: 16,
           description: 'Brand Designer',
           price: 28,
           img: '../public/resto-II.jpeg'
         },
         {
-          id: 9,
+          id: 17,
           description: 'Relogio Masculino',
           price: 4,
           img: '../public/resto-IIII.jpeg'
         },
         {
-          id: 10,
+          id: 18,
           description: 'Tissot Multifunction',
           price: 29,
           img: '../public/resto-I.jpeg'
         },
         {
-          id: 11,
+          id: 19,
           description: 'Audemars Piguet',
           price: 870,
           img: '../public/resto-II.jpeg'
         },
         {
-          id: 12,
+          id: 20,
           description: 'Rolex',
           price: 660,
           img: '../public/resto-III.jpeg'

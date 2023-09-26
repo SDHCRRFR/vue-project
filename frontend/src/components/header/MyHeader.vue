@@ -28,7 +28,7 @@
 export default {
   data: function () {
     return {
-      accroche: 'Ayez du coeur',
+      accroche: 'Ayez du coeur oooo',
       title: 'Table de Coeur',
       searchKey: '',
       products: []

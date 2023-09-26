@@ -14,34 +14,29 @@ const show = ref(true)
 
 <template>
   <div class="home-view">
-    <!-- my component -->
     <MyHeader />
-    <!-- end -->
-
     <hr class="transition_hr" @mouseover="show = !show" />
     <Transition name="slide-fade">
       <div v-if="show" class="home">
         <h1 :style="{ color: 'black' }">{{ check }}</h1>
-
         <span>
           <hr class="two_hr" />
           <hr class="one_hr" />
         </span>
       </div>
     </Transition>
-
     <MyMain />
+    <div class="component">
+      <!--  -->
+      <MyProduct />
+      <!--  -->
+      <GoogleMaps />
+      <MyCount />
+      <Impact />
+      
+    </div>
+    <MyFooter />
   </div>
-  <div class="component">
-    <!--  -->
-    <MyProduct />
-    <!--  -->
-    <GoogleMaps />
-    <MyCount />
-    <Impact />
-  </div>
-
-  <MyFooter />
 </template>
 
 <style scoped>
