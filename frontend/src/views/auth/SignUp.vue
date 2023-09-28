@@ -8,16 +8,15 @@
           </router-link>
         </div>
         <ul id="icons">
-          <li>
-            <router-link to="/">
-              <i class="fa-solid fa-arrow-right-from-bracket"></i>
-            </router-link>
-          </li>
+          <router-link to="/">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </router-link>
         </ul>
       </div>
     </nav>
     <div class="container_box">
-      <h1>Inscription</h1>
+      <!-- <h1>Inscription</h1> -->
+      <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
       <form>
         <div class="formGroup">
           <label for="user_name">votre nom</label>
@@ -35,7 +34,7 @@
         </div>
         <hr />
         <div class="formGroup">
-          <button type="submit" class="button">Ce connecté</button>
+          <button type="submit" class="button">Ce connecter</button>
         </div>
         <div class="sub">
           <router-link to="/login">
@@ -75,7 +74,7 @@ h1 {
   /* height: 80vh; */
   align-items: center;
   justify-content: center;
-  background: url(../../../public/legume.jpeg) 0 0 no-repeat;
+  background: url(../../../public/resto-I.jpeg) 0 0 no-repeat;
   overflow: hidden;
   background-size: cover;
 }
@@ -137,10 +136,6 @@ nav .nav-container #icons i {
   cursor: pointer;
 }
 
-li {
-  list-style: none;
-}
-
 nav .nav-container #icons i:hover {
   color: rgba(34, 34, 34, 0.65);
 }
@@ -194,5 +189,10 @@ form {
 .button:hover {
   background: black;
   color: white;
+}
+
+.pics {
+  width: 250px;
+  height: 200px;
 }
 </style>

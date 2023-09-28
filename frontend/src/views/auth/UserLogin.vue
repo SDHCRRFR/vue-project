@@ -17,8 +17,7 @@
       </div>
     </nav>
     <div class="log">
-      <!-- <div class="login"> -->
-      <h1>Connexion</h1>
+      <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
       <form @submit.prevent="login">
         <div class="formGroup">
           <label for="user_email">Addresse e-mail</label>
@@ -31,15 +30,14 @@
         </div>
         <hr />
         <div class="formGroup">
-          <button type="submit" class="button">Connexion</button>
+          <button type="submit" class="button">Connexion<i class="fa-solid fa-lock"></i></button>
         </div>
         <div class="sub">
           <router-link to="/signup">
-            <button type="button" class="create_account">crée un compte ?</button>
+            <button type="button" class="create_account">Vous avez pas encore de compte ?</button>
           </router-link>
         </div>
       </form>
-      <!-- </div> -->
     </div>
   </div>
 </template>
@@ -174,27 +172,15 @@ nav .nav-container #icons i:hover {
   padding-top: 50px;
   min-height: 86vh;
   padding-top: 80px;
-  background: url(../../../public/background-crimson.jpeg) 0 0 no-repeat;
+  background: url(../../../public/resto-IIII.jpeg) 0 0 no-repeat;
   background-size: cover;
+  /* background: rgb(53, 53, 53); */
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-/* .login {
-  width: 70%;
-  height: 59vh;
-  display: flex;
-  padding-bottom: 100px;
-  margin-bottom: 100px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-position-y: center;
-  overflow: hidden;
-} */
 
 label {
   color: white;
@@ -240,5 +226,10 @@ form {
 .button:hover {
   background: black;
   color: white;
+}
+
+.pics {
+  width: 250px;
+  height: 200px;
 }
 </style>

@@ -1,12 +1,5 @@
 <template>
   <div class="user-settings">
-    <!-- <div class="container_img"> -->
-    <div class="carousel-inner">
-      <Carousel />
-    </div>
-    <!-- <img src="../../../../public/background-crimson.jpeg" alt="" /> -->
-    <!-- </div> -->
-
     <h2>Sélection table de coeur</h2>
 
     <div class="container">
@@ -56,18 +49,19 @@
       </div>
     </div>
     <hr />
+    <SubscribeRestaurant />
     <MyFooter />
   </div>
 </template>
 
 <script>
-import Carousel from '../../../components/carousel/Carousel.vue'
+import SubscribeRestaurant from '@/components/subscribe/SubscribeRestaurant.vue'
 import MyFooter from '../../../components/footer/MyFooter.vue'
 
 export default {
   name: 'WishList',
   component: {
-    Carousel,
+    SubscribeRestaurant,
     MyFooter
   }
 }
@@ -84,11 +78,6 @@ export default {
   align-items: center;
   text-align: center;
   margin-bottom: 150px;
-}
-
-.carousel-inner {
-  display: flex;
-  justify-content: center;
 }
 
 .container {

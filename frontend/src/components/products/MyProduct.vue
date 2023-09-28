@@ -87,7 +87,6 @@ button {
   align-items: center;
   min-height: 30vh;
   flex-direction: column;
-  /* padding: 10px; */
 }
 
 img {
@@ -102,9 +101,8 @@ img {
   align-items: center;
   gap: 10px;
   border-radius: 20px;
-  /* background: gainsboro; */
   padding: 10px;
-  /* border-bottom: 18px solid black; */
+  border: 1px solid black;
   max-height: 55vh;
 }
 

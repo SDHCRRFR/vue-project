@@ -11,12 +11,10 @@ import MyFooter from '@/components/footer/MyFooter.vue'
 
 const check = "Et si c'était vous ?"
 const show = ref(true)
-
 </script>
 
 <template>
   <div class="home-view">
-
     <HeaderDashboard />
     <hr class="transition_hr" @mouseover="show = !show" />
     <Transition name="slide-fade">
@@ -39,7 +37,7 @@ const show = ref(true)
       <MyCount />
       <Impact />
     </div>
-    <SubscribeRestaurant/>
+    <SubscribeRestaurant />
     <MyFooter />
   </div>
 </template>
