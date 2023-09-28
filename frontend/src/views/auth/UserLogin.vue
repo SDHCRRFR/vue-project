@@ -16,28 +16,50 @@
         </ul>
       </div>
     </nav>
-    <div class="log">
-      <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
-      <form @submit.prevent="login">
-        <div class="formGroup">
-          <label for="user_email">Addresse e-mail</label>
-          <input type="text" id="user_email" v-model="user.email" />
-        </div>
-        <hr />
-        <div class="formGroup">
-          <label for="user_password">Mot de passe</label>
-          <input type="text" id="user_password" v-model="user.password" />
-        </div>
-        <hr />
-        <div class="formGroup">
-          <button type="submit" class="button">Connexion<i class="fa-solid fa-lock"></i></button>
-        </div>
-        <div class="sub">
-          <router-link to="/signup">
-            <button type="button" class="create_account">Vous avez pas encore de compte ?</button>
-          </router-link>
-        </div>
-      </form>
+
+    <div class="user_login">
+      <div class="wrapper">
+        <form @submit.prevent="login">
+          <div class="box_logo">
+            <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
+          </div>
+          <!-- <form @submit.prevent="login"> -->
+          <div class="input_box">
+            <input
+              type="text"
+              id="user_email"
+              placeholder="Nom d'utilisateur"
+              v-model="user.email"
+              required
+            />
+            <i class="fa-solid fa-user"></i>
+          </div>
+
+          <div class="input_box">
+            <input
+              type="password"
+              id="user_password"
+              placeholder="Mot de passe"
+              v-model="user.password"
+              required
+            />
+            <i class="fa-solid fa-lock"></i>
+          </div>
+
+          <div class="remember_forgot">
+            <label><input type="checkbox" />Remember me</label>
+            <a href="#">Forgot password</a>
+          </div>
+          <button type="submit" class="button">Connexion</button>
+
+          <div class="register_link">
+            <p>
+              Vous avez pas encore de compte ?
+              <router-link to="/signup"><a>s'inscrire</a></router-link>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
@@ -160,76 +182,110 @@ nav .nav-container #icons i {
 nav .nav-container #icons i:hover {
   color: rgba(34, 34, 34, 0.65);
 }
-
-.formGroup {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
+.pics {
+  width: 100px;
 }
 
-.log {
+.box_logo {
   width: 100%;
-  padding-top: 50px;
-  min-height: 86vh;
-  padding-top: 80px;
-  background: url(../../../public/resto-IIII.jpeg) 0 0 no-repeat;
-  background-size: cover;
-  /* background: rgb(53, 53, 53); */
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-label {
-  color: white;
-}
-
-.sub {
+.user_login {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  width: 100%;
+  min-height: 100vh;
+  /* background: seagreen; */
+  background: url(../../../public/everyone.jpeg) 0 0 no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
 
-.create_account {
-  width: 100%;
-  border-radius: 6px;
-  height: 4vh;
-  border: none;
-  background: green;
+.wrapper {
+  width: 450px;
+  background: rgba(156, 154, 156, 0.567);
   color: white;
-}
-
-.create_account:hover {
-  background: white;
-  color: black;
-}
-
-form {
-  width: 400px;
-  background: rgba(245, 245, 245, 0.493);
-  margin: 0 auto;
-  border: 1px solid black;
-  padding: 20px;
   border-radius: 10px;
+  padding: 30px 40px;
 }
 
-.button {
+.wrapper .input_box {
   width: 100%;
-  height: 4vh;
-  background: white;
-  border-radius: 6px;
-  border: 1px solid black;
+  position: relative;
+  height: 30px;
+  margin: 30px 0;
+}
+
+.input_box input {
+  width: 93%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 40px;
+  padding: 10px 20px 10px 10px;
+}
+
+.input_box input::placeholder {
+  color: #fff;
+}
+
+.input_box i {
+  position: absolute;
+  right: 20px;
+  top: 80%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.wrapper .remember_forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14.5px;
+  margin: 0px 0 15px;
+}
+
+.remember_forgot label input {
+  accent-color: #fff;
+  margin-right: 3px;
+}
+
+.remember_forgot a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.remember_forgot a:hover {
+  text-decoration: underline;
+}
+
+.wrapper .button {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
 }
 
-.button:hover {
-  background: black;
-  color: white;
+.register_link {
+  font-size: 14.5px;
+  text-align: center;
+  margin-top: 20px;
 }
 
-.pics {
-  width: 250px;
-  height: 200px;
+.register_link p a:hover {
+  text-decoration: underline;
 }
 </style>
