@@ -15,12 +15,10 @@
       </div>
     </nav>
     <div class="container_box">
-      <!-- <h1>Inscription</h1> -->
-      <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
       <form>
+        <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
         <div class="formGroup">
-          <label for="user_name">votre nom</label>
-          <input type="text" id="user_email" />
+          <input type="text" id="user_email" placeholder="Votre email" />
         </div>
         <hr />
         <div class="formGroup">

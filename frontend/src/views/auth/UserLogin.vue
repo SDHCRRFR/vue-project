@@ -224,7 +224,7 @@ nav .nav-container #icons i:hover {
   height: 100%;
   background: transparent;
   border: none;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.91);
   outline: none;
   font-size: 16px;
   color: #fff;
