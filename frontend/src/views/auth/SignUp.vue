@@ -23,17 +23,23 @@
           <div class="input_box">
             <input type="text" id="user_name" placeholder="Votre nom" required />
 
-            <input
-              type="text"
-              id="user_name"
-              placeholder="Votre prénom"
-              required />
+            <input type="text" id="user_name" placeholder="Votre prénom" required />
           </div>
 
           <div class="box_mail_pass">
-            <input type="text" id="user_email" placeholder="Votre mail" required>
-            <input type="password" id="user_password" placeholder="Veuillez saisir un mot de passe" required>
-            <input type="password" id="user_password" placeholder="confirmez le mot de passe" required>
+            <input type="text" id="user_email" placeholder="Votre mail" required />
+            <input
+              type="password"
+              id="user_password"
+              placeholder="Veuillez saisir un mot de passe"
+              required
+            />
+            <input
+              type="password"
+              id="user_password"
+              placeholder="confirmez le mot de passe"
+              required
+            />
           </div>
 
           <button type="submit" class="button">S'inscrire</button>
@@ -57,7 +63,6 @@ export default {
 </script>
 
 <style scoped>
-
 h1 {
   color: white;
 }

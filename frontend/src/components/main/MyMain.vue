@@ -1,19 +1,19 @@
 <template>
   <div class="my-main">
     <div class="my-img">
-      <div class="container_tm">
+      <div class="animated fadeInLeft">
         <img src="../../../public/resto-I.jpeg" alt="" />
         <a href="#impact">
           <h2>Impact</h2>
         </a>
       </div>
-      <div class="container_tm">
+      <div class="animated fadeInTop">
         <img src="../../../public/resto-IIII.jpeg" alt="" />
         <router-link to="/shopping-cart">
           <h2>Nos-Restaurant</h2>
         </router-link>
       </div>
-      <div class="container_tm">
+      <div class="animated fadeInRight">
         <img src="../../../public/ensemble.jpeg" alt="" />
         <router-link to="/faire-un-don">
           <h2>Don</h2>
@@ -49,7 +49,6 @@ export default {
 
 .my-img {
   width: 100%;
-  /* background: pink; */
   height: 60vh;
   padding: 0px 30px 0px 30px;
   gap: 50px;
@@ -57,7 +56,6 @@ export default {
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-  /* flex-wrap: wrap; */
 }
 
 img {
@@ -68,7 +66,12 @@ img {
   border-radius: 50%;
 }
 
-.container_tm {
+h2 {
+  text-decoration: none;
+  color: black;
+}
+
+.animated {
   align-items: center;
   text-align: center;
   flex-direction: columns;
@@ -76,8 +79,91 @@ img {
   width: 80%;
 }
 
-h2 {
-  text-decoration: none;
-  color: black;
+.fadeInLeft {
+  -webkit-animation: fadeInLeft 5.2s both;
+  -moz-animation: fadeInLeft 5.2s both;
+  -o-animation: fadeInLeft 5.2s both;
+  animation: fadeInLeft 5.2s both;
 }
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+
+@-moz-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -moz-transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -moz-transform: translateX(0);
+  }
+}
+
+@-o-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -o-transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    -o-transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInTop {
+  -webkit-animation: fadeInTop 5.2s both;
+  -moz-animation: fadeInTop 5.2s both;
+  -o-animation: fadeInTop 5.2s both;
+  animation: fadeInTop 5.2s both;
+}
+
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadeInRight {
+  -webkit-animation: fadeInRight 5.2s both;
+  -moz-animation: fadeInRight 5.2s both;
+  -o-animation: fadeInRight 5.2s both;
+  animation: fadeInRight 5.2s both;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
 </style>
