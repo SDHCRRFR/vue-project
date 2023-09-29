@@ -198,7 +198,6 @@ nav .nav-container #icons i:hover {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  /* background: seagreen; */
   background: url(../../../public/everyone.jpeg) 0 0 no-repeat;
   background-size: cover;
   overflow: hidden;
