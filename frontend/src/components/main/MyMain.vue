@@ -43,6 +43,10 @@ export default {
   margin-bottom: 50px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .my-main .my-img {
   flex-direction: row;
 }
