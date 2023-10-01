@@ -76,7 +76,7 @@ window.addEventListener('scroll', function () {
   display: flex;
   padding: 60px;
   justify-content: center;
-  border-bottom: 10px solid pink;
+  border-bottom: 2px solid pink;
   margin-bottom: -30px;
 }
 

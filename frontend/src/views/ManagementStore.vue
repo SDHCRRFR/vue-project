@@ -26,7 +26,26 @@
 
           <img src="../../public/resto-II.jpeg" class="images" alt="" />
         </div>
-        <div class="block_II"></div>
+        <div class="block_II">
+          <form @submit.prevent="submitForm">
+    <div>
+      <input type="text" id="firstName" placeholder="Prénom" v-model="firstName" required />
+    </div>
+    <div>
+      <input type="text" id="lastName" placeholder="Nom" v-model="lastName" required />
+    </div>
+    <div>
+      <input type="email" id="email" placeholder="Adresse e-mail" v-model="email" required />
+    </div>
+    <div>
+      <input type="tel" id="phone" placeholder="Numéro de téléphone" v-model="phone" required />
+    </div>
+    <div>
+      <textarea id="address" v-model="address" placeholder="Votre Adresse" required></textarea>
+    </div>
+    <button type="submit">Envoyer</button>
+  </form>
+        </div>
       </div>
     </div>
     <div class="advantage">
@@ -41,23 +60,7 @@
     </div>
     <div class="review">
       <hr />
-      <div class="content_rev">
-        <div class="rev_composition">
-          <h3>Envie d'en savoir + ?</h3>
-          <iframe
-            width="560"
-            height="360"
-            src="https://www.youtube.com/embed/QLUewSJQ3l8"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-      <h4>Vous souhaitez attirez plus de clients dans votrr restaurants ?</h4>
-      <p>associez vous a Table de coeur dès aujourd'hui et vous pouvez annulez à tout moment.</p>
-      <button type="button">Commencez</button>
+      <button type="num"></button>
     </div>
     <footer>
       <ul class="social_icon">
@@ -113,12 +116,25 @@ export default {
           desc: 'Les équipes de Table de coeur collaborent avec 60000 restaurants depuis plus de 12 ans afin de les aider à développer leur activité via des formations gratuites, des prestations de conseil assurées par des experts, et un support client 7 jours sur 7.'
         }
       ],
-      restaurant: {
-        email: '',
-        number: ''
-      }
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      address: '',
     }
-  }
+  },
+  methods: {
+    submitForm() {
+      // Vous pouvez ici envoyer les données du formulaire à un serveur, les traiter localement, etc.
+      console.log({
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        phone: this.phone,
+        address: this.address,
+      });
+    },
+  },
 }
 </script>
 
@@ -138,6 +154,19 @@ export default {
   display: flex;
   flex-direction: column;
 }
+.button {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
 
 p {
   font-size: 25px;
@@ -147,6 +176,19 @@ p {
   min-height: 50vh;
   display: flex;
   flex-direction: row;
+}
+
+input {
+  width: 96%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.91);
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 40px;
+  padding: 10px 10px 10px 5px;
 }
 
 .block_I {

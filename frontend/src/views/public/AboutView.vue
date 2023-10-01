@@ -49,7 +49,7 @@ import MyFooterVue from '@/components/footer/MyFooter.vue'
   flex-direction: column;
   width: 100%;
   height: 70vh;
-  background: url(../../public/background-crimson.jpeg) 0 0;
+  background: url(../../public/nourriture_salade.jpeg) 0 0;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;

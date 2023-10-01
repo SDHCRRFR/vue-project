@@ -109,6 +109,11 @@ export default {
 
 .card:hover {
   border: 1px solid gainsboro;
+  transform: scale(1.04);
+}
+
+.card:hover img {
+  transform: scale(1.08);
 }
 
 img {
