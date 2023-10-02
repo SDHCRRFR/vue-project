@@ -28,23 +28,40 @@
         </div>
         <div class="block_II">
           <form @submit.prevent="submitForm">
-    <div>
-      <input type="text" id="firstName" placeholder="Prénom" v-model="firstName" required />
-    </div>
-    <div>
-      <input type="text" id="lastName" placeholder="Nom" v-model="lastName" required />
-    </div>
-    <div>
-      <input type="email" id="email" placeholder="Adresse e-mail" v-model="email" required />
-    </div>
-    <div>
-      <input type="tel" id="phone" placeholder="Numéro de téléphone" v-model="phone" required />
-    </div>
-    <div>
-      <textarea id="address" v-model="address" placeholder="Votre Adresse" required></textarea>
-    </div>
-    <button type="submit">Envoyer</button>
-  </form>
+            <div>
+              <input type="text" id="firstName" placeholder="Prénom" v-model="firstName" required />
+            </div>
+            <div>
+              <input type="text" id="lastName" placeholder="Nom" v-model="lastName" required />
+            </div>
+            <div>
+              <input
+                type="email"
+                id="email"
+                placeholder="Adresse e-mail"
+                v-model="email"
+                required
+              />
+            </div>
+            <div>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="Numéro de téléphone"
+                v-model="phone"
+                required
+              />
+            </div>
+            <div>
+              <textarea
+                id="address"
+                v-model="address"
+                placeholder="Votre Adresse"
+                required
+              ></textarea>
+            </div>
+            <button type="submit">Envoyer</button>
+          </form>
         </div>
       </div>
     </div>
@@ -120,7 +137,7 @@ export default {
       lastName: '',
       email: '',
       phone: '',
-      address: '',
+      address: ''
     }
   },
   methods: {
@@ -131,10 +148,10 @@ export default {
         lastName: this.lastName,
         email: this.email,
         phone: this.phone,
-        address: this.address,
-      });
-    },
-  },
+        address: this.address
+      })
+    }
+  }
 }
 </script>
 

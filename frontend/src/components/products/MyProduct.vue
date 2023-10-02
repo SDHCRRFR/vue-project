@@ -39,7 +39,7 @@ export default {
         },
         {
           id: 1,
-          img: '../../../public/nourriture_salade.jpeg',
+          img: '../../../public/resto-II.jpeg',
           type: 'Francais . terrasse',
           name: 'Top Chef Le Bistrot',
           like: 9.8,
@@ -48,7 +48,7 @@ export default {
         },
         {
           id: 1,
-          img: '../../../public/nourriture_salade.jpeg',
+          img: '../../../public/resto-III.jpeg',
           type: 'Francais . terrasse',
           name: 'Top Chef Le Bistrot',
           like: 9.8,
@@ -57,7 +57,7 @@ export default {
         },
         {
           id: 1,
-          img: '../../../public/nourriture_salade.jpeg',
+          img: '../../../public/resto-IIII.jpeg',
           type: 'Francais . terrasse',
           name: 'Top Chef Le Bistrot',
           like: 9.8,
@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style scoped>
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
