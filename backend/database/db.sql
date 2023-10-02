@@ -13,9 +13,10 @@ CREATE TABLE tabledecoeur.role (
 -- Table : user
 CREATE TABLE tabledecoeur.user (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
-    ville VARCHAR(200) NOT NULL,
     date_creation DATE NOT NULL,
     role_id INT UNSIGNED,
     FOREIGN KEY(role_id) REFERENCES tabledecoeur.role(id)
@@ -65,17 +66,40 @@ INSERT INTO tabledecoeur.type_restaurant VALUES
 (NULL, 'Maoré'),
 (NULL, 'africain'),
 (NULL, 'mexicain'),
-(NULL, 'américain'),
 (NULL, 'indien'),
-(NULL, 'japonais'),
+(NULL, 'japonais');
+
+
+-- INSERT INTO tabledecoeur.restaurant VALUES
+-- (NULL, 'Le Baobab', 'auguste renoir aulnay', '0605704453', 'logo.jpeg', '48.9898; 48.2899',  '<h3> Entrée <h3/> <p> kebab </p>', 1 ),
+
+-- (NULL, 'O cercle Pizza', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 2 ),
+
+-- (NULL, 'Nabab', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 3 ),
+
+-- (NULL, 'O Tacos', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 4 );
+
 
 
 INSERT INTO tabledecoeur.restaurant VALUES
-(NULL, 'Le Baobab', 'auguste renoir aulnay', '0605704453', 'logo.jpeg', '48.9898; 48.2899',  '<h3> Entrée <h3/> <p> kebab </p>', 1 ),
-
-(NULL, 'O cercle Pizza', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 2 ),
-
-(NULL, 'Nabab', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 3 ),
-
-(NULL, 'O Tacos', '0675676765', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 4 ),
-
+    (
+        NULL,
+        'Le Baobab',
+        'auguste renoir aulnay',
+        '0605704453',
+        'logo.jpeg',
+        '48.9898; 48.2899',
+        '<h3> Entrée <h3/> <p> kebab </p>',
+        1
+    ),
+     (
+        NULL,
+        'O cercle Pizza',
+        'paris',
+        '0605704453',
+        'logo.jpeg',
+        '48.7677; 55.27676',
+        '<h3> Entrée <h3/> <p> kebab </p>',
+        1
+    )
+;

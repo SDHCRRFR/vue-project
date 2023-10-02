@@ -27,41 +27,7 @@
           <img src="../../public/resto-II.jpeg" class="images" alt="" />
         </div>
         <div class="block_II">
-          <form @submit.prevent="submitForm">
-            <div>
-              <input type="text" id="firstName" placeholder="Prénom" v-model="firstName" required />
-            </div>
-            <div>
-              <input type="text" id="lastName" placeholder="Nom" v-model="lastName" required />
-            </div>
-            <div>
-              <input
-                type="email"
-                id="email"
-                placeholder="Adresse e-mail"
-                v-model="email"
-                required
-              />
-            </div>
-            <div>
-              <input
-                type="tel"
-                id="phone"
-                placeholder="Numéro de téléphone"
-                v-model="phone"
-                required
-              />
-            </div>
-            <div>
-              <textarea
-                id="address"
-                v-model="address"
-                placeholder="Votre Adresse"
-                required
-              ></textarea>
-            </div>
-            <button type="submit">Envoyer</button>
-          </form>
+          <FormRegistration />
         </div>
       </div>
     </div>
@@ -106,6 +72,8 @@
 </template>
 
 <script>
+import FormRegistration from '@/components/FormRegistration.vue'
+
 export default {
   name: 'ManagementStore',
   data: () => {
@@ -151,6 +119,9 @@ export default {
         address: this.address
       })
     }
+  },
+  components: {
+    FormRegistration
   }
 }
 </script>
@@ -216,10 +187,7 @@ input {
 }
 
 .block_II {
-  background: url(../../public/resto-III.jpeg) 0 0 no-repeat;
-  background-position: center;
-  overflow: hidden;
-  background-size: cover;
+  background: rgb(130, 106, 251);
   width: 100%;
 }
 

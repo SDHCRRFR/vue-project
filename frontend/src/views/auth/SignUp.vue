@@ -16,22 +16,23 @@
     </nav>
     <div class="user_login">
       <div class="wrapper">
-        <form>
+        <form @submit.prevent="register">
           <div class="box_logo">
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
           </div>
           <div class="input_box">
-            <input type="text" id="user_name" placeholder="Votre nom" required />
+            <input type="text" id="user_name" placeholder="Votre nom" name="nom" required />
 
-            <input type="text" id="user_name" placeholder="Votre prénom" required />
+            <input type="text" id="user_name" placeholder="Votre prénom" name="prenom" required />
           </div>
 
           <div class="box_mail_pass">
-            <input type="text" id="user_email" placeholder="Votre mail" required />
+            <input type="text" id="user_email" placeholder="Votre mail" name="email" required />
             <input
               type="password"
               id="user_password"
               placeholder="Veuillez saisir un mot de passe"
+              name="password"
               required
             />
             <input
@@ -58,7 +59,22 @@
 
 <script>
 export default {
-  name: 'SignUp'
+  name: 'SignUp',
+  methods: {
+    register(e) {
+      const formData = Object.fromEntries(new FormData(e.target))
+      const requestInfos = new Request('http://localhost:3000/api/user/register', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      fetch(requestInfos)
+        .then((data) => data.json())
+        .then((data) => console.log(data.message))
+    }
+  }
 }
 </script>
 
@@ -229,6 +245,11 @@ form {
   font-size: 16px;
   color: #333;
   font-weight: 600;
+}
+
+.button:hover {
+  background: black;
+  color: white;
 }
 
 .register_link {

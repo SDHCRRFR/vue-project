@@ -425,7 +425,7 @@ export default {
               />
 
               <label v-bind:for="product.id">
-                <i class="fas fa-heart"></i>
+                <!-- <i class="fas fa-heart"></i> -->
               </label>
             </div>
 
