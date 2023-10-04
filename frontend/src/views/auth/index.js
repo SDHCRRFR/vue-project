@@ -1,4 +1,4 @@
 import SignUp from './SignUp.vue'
-import UserLogin from './UserLogin.vue'
+// import UserLogin from './UserLogin.vue'
 
-export { SignUp, UserLogin }
+export { SignUp }

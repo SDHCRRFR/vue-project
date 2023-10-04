@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { accountService } from '@/_services'
+// import { accountService } from '@/_services'
 
 export default {
   name: 'UserLogout',

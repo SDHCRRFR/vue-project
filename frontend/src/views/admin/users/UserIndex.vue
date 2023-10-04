@@ -5,19 +5,13 @@
 </template>
 
 <script>
-import { userService } from '@/_services'
+// import { userService } from '@/_services'
 export default {
   name: 'UserIndex',
   data() {
     return {
       title: 'User Index'
     }
-  },
-  mounted() {
-    userService
-      .getAllUsers()
-      .then((res) => console.log(res.data.data))
-      .catch((err) => console.log(err))
   }
 }
 </script>
