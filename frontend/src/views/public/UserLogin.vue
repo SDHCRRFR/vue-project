@@ -6,7 +6,6 @@
           <div class="box_logo">
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
           </div>
-          <!-- <form @submit.prevent="login"> -->
           <div class="input_box">
             <input
               type="text"
@@ -38,7 +37,7 @@
           <div class="register_link">
             <p>
               Vous avez pas encore de compte ?
-              <router-link to="/signup"><a>s'inscrire</a></router-link>
+              <router-link to="/signup"><a class="link">s'inscrire</a></router-link>
             </p>
           </div>
         </form>
@@ -109,6 +108,10 @@ a:visited {
   width: 100px;
 }
 
+.link {
+  color: white;
+}
+
 .box_logo {
   width: 100%;
   display: flex;
@@ -120,7 +123,7 @@ a:visited {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 98vh;
+  min-height: 100vh;
   background: url(../../../public/nourriture_salade.jpeg) 0 0 no-repeat;
   background-size: cover;
   overflow: hidden;

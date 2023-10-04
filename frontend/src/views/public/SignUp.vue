@@ -34,7 +34,7 @@
           <div class="register_link">
             <p>
               Vous avez pas dêja un compte ?
-              <router-link to="/login"><a>Me connecté</a></router-link>
+              <router-link to="/login"><a class="link">Me connecté</a></router-link>
             </p>
           </div>
         </form>
@@ -84,8 +84,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
-  min-height: 90vh;
+  min-height: 100vh;
   background: url(../../../public/nourriture_salade.jpeg) 0 0 no-repeat;
   background-size: cover;
   overflow: hidden;
@@ -97,6 +96,11 @@ h1 {
   color: white;
   border-radius: 10px;
   padding: 10px 40px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
 }
 
 .wrapper .input_box {
