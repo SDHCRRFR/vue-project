@@ -101,5 +101,25 @@ INSERT INTO tabledecoeur.restaurant VALUES
         '48.7677; 55.27676',
         '<h3> Entrée <h3/> <p> kebab </p>',
         1
-    )
+    ),
+     (
+        NULL,
+        'O cercle Pizza',
+        'paris',
+        '0605704453',
+        'logo.jpeg',
+        '48.7677; 55.27676',
+        '<h3> Entrée <h3/> <p> kebab </p>',
+        2
+    ),
+     (
+        NULL,
+        'O cercle Pizza',
+        'paris',
+        '0605704453',
+        'logo.jpeg',
+        '48.7677; 55.27676',
+        '<h3> Entrée <h3/> <p> kebab </p>',
+        2
+    ),
 ;
