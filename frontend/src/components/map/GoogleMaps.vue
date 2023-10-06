@@ -8,9 +8,9 @@
   >
     <Marker :options="{ position: { lat: lat, lng: lng } }" />
     <Marker :options="{ position: { lat: lat + 0.001, lng: lng }, label }" />
-    <Marker :options="{ position: { lat: lat + 0.004, lng: lng }, label }" />
-    <Marker :options="{ position: { lat: lat + 0.002, lng: lng }, label }" />
-    <Marker :options="{ position: { lat: lat + 0.003, lng: lng }, label }" />
+    <Marker :options="{ position: { lat: lat + 0.019, lng: lng }, label }" />
+    <Marker :options="{ position: { lat: lat + 0.011, lng: lng }, label }" />
+    <Marker :options="{ position: { lat: lat + 0.015, lng: lng }, label }" />
   </GoogleMap>
   <!-- </div> -->
 </template>

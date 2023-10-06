@@ -204,6 +204,11 @@ a:visited {
   font-weight: 600;
 }
 
+.wrapper .button:hover {
+  background: black;
+  color: white;
+}
+
 .register_link {
   font-size: 14.5px;
   text-align: center;

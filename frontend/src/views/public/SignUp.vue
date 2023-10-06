@@ -8,8 +8,6 @@
           </div>
           <div class="input_box">
             <input type="text" id="user_name" placeholder="Votre nom" name="nom" required />
-
-            <input type="text" id="user_name" placeholder="Votre prénom" name="prenom" required />
           </div>
 
           <div class="box_mail_pass">
@@ -30,7 +28,11 @@
           </div>
 
           <button type="submit" class="button">S'inscrire</button>
-
+          <div class="icon">
+            <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-snapchat" size="large"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
+          </div>
           <div class="register_link">
             <p>
               Vous avez pas dêja un compte ?
@@ -80,6 +82,18 @@ h1 {
   justify-content: center;
 }
 
+.icon {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon a {
+  text-decoration: none;
+  color: white;
+}
+
 .user_login {
   display: flex;
   justify-content: center;
@@ -95,7 +109,7 @@ h1 {
   background: rgba(156, 154, 156, 0.567);
   color: white;
   border-radius: 10px;
-  padding: 10px 40px;
+  padding: 0px 40px;
 }
 
 .link {
@@ -117,10 +131,10 @@ h1 {
   border: none;
   border: 2px solid rgba(255, 255, 255, 0.91);
   outline: none;
-  font-size: 16px;
+  font-size: 18px;
   color: #fff;
   border-radius: 40px;
-  padding: 10px 10px 10px 5px;
+  padding: 10px 10px 10px 15px;
 }
 
 .box_mail_pass {
@@ -145,10 +159,10 @@ form {
   /* border: none; */
   border: 2px solid rgba(255, 255, 255, 0.91);
   outline: none;
-  font-size: 16px;
+  font-size: 18px;
   color: #fff;
   border-radius: 40px;
-  padding: 10px 10px 10px 5px;
+  padding: 10px 10px 10px 10px;
 }
 
 .input_box input::placeholder {

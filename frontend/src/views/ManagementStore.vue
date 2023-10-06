@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import FormRegistration from '@/components/FormRegistration.vue'
+import FormRegistration from '@/components/formulaire/FormRegistration.vue'
 
 export default {
   name: 'ManagementStore',
@@ -187,7 +187,6 @@ input {
 }
 
 .block_II {
-  background: rgb(130, 106, 251);
   width: 100%;
 }
 

@@ -1,6 +1,6 @@
 <template lang="">
   <section class="form_registration">
-    <h2>Rormulaire d'inscription</h2>
+    <h2>Formulaire d'inscription</h2>
     <form action="#" class="form">
       <div class="input_box">
         <label>Nom complet</label>
@@ -38,6 +38,10 @@
           </div>
         </div>
       </div>
+      <div class="input_box">
+        <label>Adresse</label>
+        <input type="text" placeholder="Veuillez indiquez votre addresse s'il vous plaît" required />
+      </div>
     </form>
   </section>
 </template>
@@ -55,7 +59,7 @@ export default {
   background: #fff;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 0 15px;
+  box-shadow: 0 0 4px;
 }
 
 .form_registration h2 {
@@ -84,7 +88,7 @@ export default {
   width: 95%;
   font-size: 1rem;
   margin-top: 8px;
-  color: #707070;
+  color: #676767;
   outline: none;
   border: 1px solid #ddd;
   border-radius: 6px;
