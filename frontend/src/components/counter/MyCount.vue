@@ -97,15 +97,6 @@ h1 {
   text-align: center;
   font-weight: 900 bold;
 }
-
-.contenu {
-  width: 100%;
-  min-height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .wrapper {
   text-align: center;
   justify-content: space-evenly;
@@ -117,8 +108,8 @@ h1 {
 }
 
 .container {
-  width: 60vmin;
-  height: 38vmin;
+  width: 58vmin;
+  height: 36vmin;
   align-items: center;
   text-align: center;
   display: flex;

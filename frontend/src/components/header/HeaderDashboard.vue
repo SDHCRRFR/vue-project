@@ -32,10 +32,10 @@ export default {
   mounted() {
     console.log('Je suis monté sur le DOM!')
   },
-  beforeDestroy() {
+  beforeUnmount() {
     console.log('Je suis sur le point de disparaître du DOM !')
   },
-  destroyed() {
+  unmounted() {
     console.log('Je suis supprimé')
   }
 }

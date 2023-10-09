@@ -15,7 +15,7 @@
       </div>
       <div class="animated fadeInRight">
         <img src="../../../public/ensemble.jpeg" alt="" />
-        <router-link to="/faire-un-don">
+        <router-link to="user/don/">
           <h2>Don</h2>
         </router-link>
       </div>
@@ -23,13 +23,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  data: function () {
-    return {}
-  }
-}
-</script>
+<!-- <script>
+
+</script> -->
 
 <style scoped>
 .my-main {

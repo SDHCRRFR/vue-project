@@ -8,21 +8,21 @@ export default {
       products: [
         {
           id: 1,
-          description: 'Patek philipe',
+          description: 'Resto-I',
           price: 182,
           img: '../public/resto-I.jpeg',
           address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 2,
-          description: 'Lacoste',
+          description: 'Resto-II',
           price: 523,
           img: '../public/resto-II.jpeg',
           address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
         {
           id: 3,
-          description: 'Versace',
+          description: 'Resto-III',
           price: 837,
           img: '../public/resto-III.jpeg',
           address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
