@@ -19,20 +19,18 @@
           <i class="fa-solid fa-clock"></i><span>27</span>
           <p class="day">Jours restant</p>
         </div>
-        <hr>
+        <hr />
         <div class="people">
           <i class="fa-solid fa-user"></i><span>51368</span>
           <p class="person">participation</p>
         </div>
       </div>
-      <input type="submit" placeholder="JE FAIS UN DON">
-      <input type="submit">
+      <button type="submit">JE FAIS UN DON</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-
 export default {
   name: 'FaireUnDon',
   props: ['id'],
@@ -73,7 +71,7 @@ export default {
   justify-content: start;
 }
 
-input {
+button {
   width: 70%;
   height: 30px;
   background: green;
@@ -82,7 +80,7 @@ input {
   color: white;
 }
 
-input:hover {
+button:hover {
   background: black;
   color: white;
 }
@@ -95,8 +93,10 @@ input:hover {
   color: black;
 }
 
-hr {border: 1px solid black;
-height: 50px;}
+hr {
+  border: 1px solid gainsboro;
+  height: 75px;
+}
 
 .days {
   width: 70%;
@@ -105,12 +105,11 @@ height: 50px;}
   justify-content: space-around;
   display: flex;
   flex-direction: row;
-
 }
 
 .container_don {
   width: 25%;
-  min-height: 55vh;
+  min-height: 50vh;
   display: flex;
   /* padding: 10px; */
   gap: 15px;
