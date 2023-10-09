@@ -40,7 +40,11 @@
       </div>
       <div class="input_box">
         <label>Adresse</label>
-        <input type="text" placeholder="Veuillez indiquez votre addresse s'il vous plaît" required />
+        <input
+          type="text"
+          placeholder="Veuillez indiquez votre addresse s'il vous plaît"
+          required
+        />
       </div>
     </form>
   </section>

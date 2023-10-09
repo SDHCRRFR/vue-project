@@ -8,9 +8,6 @@
           </div>
           <div class="input_box">
             <input type="text" id="user_name" placeholder="Votre nom" name="nom" required />
-          </div>
-
-          <div class="box_mail_pass">
             <input type="text" id="user_email" placeholder="Votre mail" name="email" required />
             <input
               type="password"
@@ -26,12 +23,12 @@
               required
             />
           </div>
-
           <button type="submit" class="button">S'inscrire</button>
           <div class="icon">
             <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
             <a href="#"><ion-icon name="logo-snapchat" size="large"></ion-icon></a>
             <a href="#"><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
+            <a href="#"><i class="fa-brands fa-square-instagram fa-2xl"></i></a>
           </div>
           <div class="register_link">
             <p>
@@ -82,11 +79,22 @@ h1 {
   justify-content: center;
 }
 
+.input_box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 20vh;
+  padding: 0px;
+  gap: 7px;
+}
+
 .icon {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .icon a {
@@ -105,11 +113,12 @@ h1 {
 }
 
 .wrapper {
-  width: 450px;
+  width: 400px;
   background: rgba(156, 154, 156, 0.567);
   color: white;
   border-radius: 10px;
   padding: 0px 40px;
+  margin-top: 100px;
 }
 
 .link {
@@ -117,12 +126,12 @@ h1 {
   text-decoration: none;
 }
 
-.wrapper .input_box {
+/* .wrapper .input_box {
   width: 100%;
   height: 10px;
   margin: 20px 0;
   display: flex;
-}
+} */
 
 .input_box input {
   width: 96%;
@@ -147,7 +156,7 @@ h1 {
 }
 
 form {
-  gap: 40px;
+  gap: 42px;
   display: flex;
   flex-direction: column;
 }
@@ -198,7 +207,6 @@ form {
 .register_link {
   font-size: 14.5px;
   text-align: center;
-  margin-top: 20px;
 }
 
 .register_link p a:hover {

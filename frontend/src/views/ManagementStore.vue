@@ -36,14 +36,36 @@
     </div>
     <div class="box">
       <div class="boxx" v-for="item in items" :key="item">
-        <img v-bind:src="item.img" alt="" />
+        <img v-bind:src="item.img" alt="" class="mypics" />
         <h3>{{ item.title }}</h3>
-        <p>{{ item.desc }}</p>
+        <p class="paragraphe">{{ item.desc }}</p>
       </div>
     </div>
     <div class="review">
-      <hr />
-      <button type="num"></button>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda optio laborum
+        repellat beatae temporibus! Voluptates ipsa reprehenderit hic nihil provident accusamus rem
+        exercitationem quos vel. Doloribus necessitatibus ad quasi? Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Dolorum quas dignissimos expedita eum vero harum, iste quod
+        pariatur deleniti suscipit qui earum nihil sunt sit sequi inventore error quasi maxime!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi rem cupiditate quaerat
+        libero alias nisi optio natus sint atque exercitationem molestias dignissimos iure dolorum,
+        repellat quis aliquam quod accusantium dicta. Distinctio, hic possimus tenetur totam, ipsa
+        aspernatur nisi aperiam blanditiis fugit repudiandae et laboriosam aliquid laborum rerum ut
+        quibusdam unde praesentium autem nemo. Harum, amet? Voluptatibus deleniti velit vero
+        ducimus. Perferendis sed voluptas, quos, repellendus delectus natus fugit earum soluta
+        temporibus molestiae qui cupiditate ut cum dolorem reiciendis dolorum magni ducimus
+        voluptatibus facilis rem? Culpa, magnam? Est hic repudiandae aut. Atque alias voluptates
+        error nostrum, laborum, blanditiis reiciendis nemo assumenda cumque tenetur beatae autem
+        libero repellendus dolorum ea numquam quam aperiam perferendis quas, incidunt laboriosam
+        corporis? Placeat deserunt fugit exercitationem. Velit in ut excepturi error. Exercitationem
+        autem nisi minus earum, in, obcaecati provident excepturi ex eligendi optio eveniet cumque
+        veniam quis iure repudiandae delectus quod doloribus! Commodi suscipit Et nostrum numquam
+        unde exercitationem, ducimus eius a quidem, at aliquam hic enim, officiis cum consequuntur
+        id animi excepturi quam facilis blanditiis praesentium asperiores quibusdam nam architecto.
+        Velit, facere blanditiis. Perferendis esse fuga in debitis excepturi deserunt libero natus
+        maiores voluptate eveniet quo non, soluta porro nobis velit voluptas incidunt temporibus.
+      </p>
     </div>
     <footer>
       <ul class="social_icon">
@@ -83,7 +105,7 @@ export default {
         {
           img: '../../public/icon-expert.webp',
           title: 'Obtenez plus de visibilité en ligne',
-          desc: 'Table de coeur Manager est la première plate-forme de recherche et de réservation de restaurants, disponible dans 12 pays ! Vous pouvez dès maintenant vous doter gratuitement d’une page personnalisée affichable sur tous les appareils.'
+          desc: 'Table de coeur Manager est la première plate-forme de recherche et de réservation de restaurants, disponible dans 12 pays ! Vous pouvez dès maintenant vous doter gratuitement d’une page personnalisée affichable sur tous.'
         },
         {
           img: '../../public/icon-ghost.webp',
@@ -93,7 +115,7 @@ export default {
         {
           img: '../../public/icon-table.webp',
           title: 'Luttez contre les no-shows',
-          desc: 'Réduisez le nombre des no-shows à l’aide des outils de Table de coeur tels que les emails de confirmation automatiques et les SMS, le score de fiabilité des clients et la prise d’empreinte de carte de crédit.'
+          desc: 'Réduisez le nombre des no-shows à l’aide des outils de Table de coeur tels que les emails de confirmation automatiques et les SMS, le score de fiabilité des clients et la prise d’empreinte de carte'
         },
         {
           img: '../../public/icon-visibility.webp',
@@ -160,10 +182,20 @@ p {
   font-size: 25px;
 }
 
+.paragraphe {
+  font-size: 20px;
+  font-weight: 300;
+}
+
 .manage_block {
   min-height: 50vh;
   display: flex;
   flex-direction: row;
+}
+
+.mypics {
+  height: 100px;
+  /* width: 250px; */
 }
 
 input {
@@ -249,9 +281,7 @@ nav .nav-container #logo img {
 
 .review {
   width: 90%;
-  min-height: 59vh;
-  display: flex;
-  flex-direction: column;
+  min-height: 50vh;
   align-items: center;
   justify-content: center;
   margin: 30px;
@@ -372,8 +402,9 @@ footer p {
 }
 
 h3 {
-  font-size: 35px;
+  font-size: 30px;
   text-align: center;
+  font-weight: 600;
 }
 
 .sub {

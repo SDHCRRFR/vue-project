@@ -7,16 +7,32 @@
     <div class="container_don">
       <div class="mon_don">
         <h2>
-          Mercii beaucoup de participé vous êtes le n°<span>{{ id }} aujourd'hui</span>
+          Mercii beaucoup vous êtes le n°<span>{{ id }} aujourd'hui</span>
         </h2>
-        <div></div>
       </div>
+      <div class="the_don">
+        <h2>1 999 873 122 $</h2>
+        <h3>Collectés</h3>
+      </div>
+      <div class="days">
+        <div class="time">
+          <i class="fa-solid fa-clock"></i><span>27</span>
+          <p class="day">Jours restant</p>
+        </div>
+        <hr>
+        <div class="people">
+          <i class="fa-solid fa-user"></i><span>51368</span>
+          <p class="person">participation</p>
+        </div>
+      </div>
+      <input type="submit" placeholder="JE FAIS UN DON">
+      <input type="submit">
     </div>
   </div>
 </template>
 
 <script lang="ts">
-// import { log } from 'console'
+
 export default {
   name: 'FaireUnDon',
   props: ['id'],
@@ -46,24 +62,64 @@ export default {
 <style scoped>
 .don_container {
   width: 100%;
-  height: 100vh;
+  height: 86vh;
   padding-top: 100px;
   display: flex;
+  background: url(../../../../public/resto-II.jpeg) 0 0 no-repeat;
+  background-size: cover;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  /* background: url(../../public/legume.jpeg); */
+}
+
+input {
+  width: 70%;
+  height: 30px;
+  background: green;
+  border: none;
+  border-radius: 15px;
+  color: white;
+}
+
+input:hover {
+  background: black;
+  color: white;
+}
+
+.person {
+  color: black;
+}
+
+.day {
+  color: black;
+}
+
+hr {border: 1px solid black;
+height: 50px;}
+
+.days {
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+
 }
 
 .container_don {
-  width: 30%;
-  min-height: 60vh;
+  width: 25%;
+  min-height: 55vh;
   display: flex;
+  /* padding: 10px; */
+  gap: 15px;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  background: gainsboro;
+  background: #fff;
   border-radius: 20px 20px 20px 20px;
+  box-shadow: 0 0 10px;
 }
 
 .mon_don {
@@ -84,7 +140,15 @@ export default {
   text-align: center;
   align-items: center;
   margin-bottom: 30px;
-  background: rgb(255, 52, 214);
+  background: pink;
+}
+
+.the_don {
+  width: 100%;
+  /* display: flex;
+  flex-direction: column; */
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
