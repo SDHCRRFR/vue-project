@@ -123,7 +123,7 @@ export default {
       ]
     }
   },
-  name: 'WishList',
+  nameII: 'WishList',
   component: {
     SubscribeRestaurant,
     MyFooter

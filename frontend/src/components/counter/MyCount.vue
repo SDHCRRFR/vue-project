@@ -117,8 +117,10 @@ h1 {
   justify-content: space-around;
   font-size: 16px;
   border-radius: 0.5em;
-  background: #21242b;
-  border-bottom: 10px solid pink;
+  background: url(../../../public/login.jpeg) 0 0 no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  border-bottom: 10px solid black;
   box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);

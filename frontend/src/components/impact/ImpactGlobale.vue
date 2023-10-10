@@ -35,35 +35,35 @@ export default {
   }
 }
 
-// const increment = () => {
-//   let valueDisplays = document.querySelectorAll('.num')
-//   let interval = 1000
+const increment = () => {
+  let valueDisplays = document.querySelectorAll('.num')
+  let interval = 1000
 
-//   valueDisplays.forEach((valueDisplay) => {
-//     let startValue = 10
-//     let dataVal = valueDisplay.getAttribute('data-val')
-//     if (dataVal !== null) {
-//       let endValue = parseInt('data-val')
-//       let duration = Math.floor(interval / endValue)
-//       let counter = setInterval(function () {
-//         startValue += 1
-//         valueDisplay.textContent = '' + startValue
-//         if (startValue == endValue) {
-//           clearInterval(counter)
-//         }
-//       }, duration)
-//     }
-//   })
-// }
+  valueDisplays.forEach((valueDisplay) => {
+    let startValue = 10
+    let dataVal = valueDisplay.getAttribute('data-val')
+    if (dataVal !== null) {
+      let endValue = parseInt('data-val')
+      let duration = Math.floor(interval / endValue)
+      let counter = setInterval(function () {
+        startValue += 1
+        valueDisplay.textContent = '' + startValue
+        if (startValue == endValue) {
+          clearInterval(counter)
+        }
+      }, duration)
+    }
+  })
+}
 
-// window.addEventListener('scroll', function () {
-//   const scrollPosition = window.scrollY
-//   const targetPosition = 1700
+window.addEventListener('scroll', function () {
+  const scrollPosition = window.scrollY
+  const targetPosition = 1700
 
-//   if (scrollPosition >= targetPosition) {
-//     increment()
-//   }
-// })
+  if (scrollPosition >= targetPosition) {
+    increment()
+  }
+})
 </script>
 
 <style lang="css" scoped>
@@ -74,7 +74,6 @@ export default {
   text-align: center;
   flex-direction: row;
   display: flex;
-  /* padding: 60px; */
   justify-content: center;
   margin-bottom: -30px;
 }
@@ -97,7 +96,7 @@ iframe {
   align-items: center;
   justify-content: center;
   text-align: center;
-  border-bottom: 1px solid pink;
+  border-bottom: 10px solid black;
 }
 
 .txt_impact {

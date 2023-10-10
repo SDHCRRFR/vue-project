@@ -7,19 +7,28 @@
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
           </div>
           <div class="input_box">
-            <input type="text" id="user_name" placeholder="Votre nom" name="nom" required />
-            <input type="text" id="user_email" placeholder="Votre mail" name="email" required />
             <input
-              type="password"
-              id="user_password"
-              placeholder="Veuillez saisir un mot de passe"
-              name="password"
+              type="text"
+              id="user_name"
+              placeholder="Votre nom"
+              v-model="user.name"
+              name="nom"
+              required
+            />
+            <input
+              type="text"
+              id="user_email"
+              placeholder="Votre mail"
+              v-model="user.email"
+              name="email"
               required
             />
             <input
               type="password"
               id="user_password"
-              placeholder="confirmez le mot de passe"
+              placeholder="Veuillez saisir un mot de passe"
+              v-model="user.password"
+              name="password"
               required
             />
           </div>
@@ -32,7 +41,7 @@
           </div>
           <div class="register_link">
             <p>
-              Vous avez pas dêja un compte ?
+              Vous n'avez pas encore de compte ?
               <router-link to="/login"><a class="link">Me connecté</a></router-link>
             </p>
           </div>
@@ -43,22 +52,44 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
+
 export default {
   name: 'SignUp',
-  methods: {
-    register(e) {
-      const formData = Object.fromEntries(new FormData(e.target))
-      const requestInfos = new Request('http://localhost:3000/api/user/register', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      fetch(requestInfos)
-        .then((data) => data.json())
-        .then((data) => console.log(data.message))
+  setup() {
+    return { v$: useVuelidate() }
+  },
+  data: () => ({
+    user: {
+      name: '',
+      password: '',
+      contact: {
+        email: ''
+      }
     }
+  }),
+  validations() {
+    return {
+      name: { required }, // Matches this.firstName
+      password: { required }, // Matches this.password
+      contact: {
+        email: { required, email } // Matches this.contact.email
+      }
+    }
+  },
+  register(e) {
+    const formData = Object.fromEntries(new FormData(e.target))
+    const requestInfos = new Request('http://localhost:3000/api/user/register', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    fetch(requestInfos)
+      .then((data) => data.json())
+      .then((data) => console.log(data.message))
   }
 }
 </script>

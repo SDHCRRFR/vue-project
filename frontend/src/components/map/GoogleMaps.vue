@@ -1,27 +1,23 @@
 <template>
-  <!-- <div class="maps"> -->
   <GoogleMap
     :api-key="apikey"
     style="width: 90%; height: 600px"
     :center="{ lat: lat, lng: lng }"
     :zoom="15"
   >
-    <Marker :options="{ position: { lat: lat, lng: lng } }" />
-    <Marker :options="{ position: { lat: lat + 0.001, lng: lng }, label }" />
-    <Marker :options="{ position: { lat: lat + 0.019, lng: lng }, label }" />
-    <Marker :options="{ position: { lat: lat + 0.011, lng: lng }, label }" />
-    <Marker :options="{ position: { lat: lat + 0.015, lng: lng }, label }" />
+    <!-- <Marker :options="{ position: { lat: lat, lng: lng } }"></Marker> -->
+    <!--<Marker :options="{ position: { lat: lat + 0.001, lng: lng }, label }"></Marker>-->
   </GoogleMap>
-  <!-- </div> -->
 </template>
 
 <script>
-import { GoogleMap, Marker } from 'vue3-google-map'
+import { GoogleMap } from 'vue3-google-map'
+// import { GoogleMap, Marker } from 'vue3-google-map'
 
 export default {
   components: {
-    GoogleMap,
-    Marker
+    GoogleMap
+    // Marker
   },
 
   data() {

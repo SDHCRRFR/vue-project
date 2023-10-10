@@ -93,6 +93,7 @@ export default {
 }
 
 .container_card {
+  border: 1px solid gainsboro;
   width: 100%;
   display: flex;
   flex-direction: row;
