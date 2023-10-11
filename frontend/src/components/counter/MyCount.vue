@@ -132,6 +132,8 @@ span.num {
   place-items: center;
   font-weight: 600;
   font-size: 3em;
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 0.75);
+
 }
 
 p {

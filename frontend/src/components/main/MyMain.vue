@@ -2,20 +2,20 @@
   <div class="my-main">
     <div class="my-img">
       <div class="animated fadeInLeft">
-        <img src="../../../public/resto-I.jpeg" alt="" />
         <a href="#impact">
+        <img src="../../../public/resto-I.jpeg" alt="" />
           <h2>Impact</h2>
         </a>
       </div>
       <div class="animated fadeInTop">
-        <img src="../../../public/resto-IIII.jpeg" alt="" />
         <router-link to="/shopping-cart">
+        <img src="../../../public/resto-IIII.jpeg" alt="" />
           <h2>Nos-Restaurant</h2>
         </router-link>
       </div>
       <div class="animated fadeInRight">
-        <img src="../../../public/ensemble.jpeg" alt="" />
         <router-link to="user/don/">
+        <img src="../../../public/ensemble.jpeg" alt="" />
           <h2>Don</h2>
         </router-link>
       </div>
