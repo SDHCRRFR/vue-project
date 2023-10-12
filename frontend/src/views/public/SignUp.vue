@@ -2,37 +2,28 @@
   <div class="container_sign">
     <div class="user_login">
       <div class="wrapper">
-        <form @submit.prevent="register">
+        <form @submit.prevent="submitForm">
           <div class="box_logo">
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
           </div>
+
           <div class="input_box">
-            <input
-              type="text"
-              id="user_name"
-              placeholder="Votre nom"
-              v-model="user.name"
-              name="nom"
-              required
-            />
-            <input
-              type="text"
-              id="user_email"
-              placeholder="Votre mail"
-              v-model="user.email"
-              name="email"
-              required
-            />
-            <input
-              type="password"
-              id="user_password"
-              placeholder="Veuillez saisir un mot de passe"
-              v-model="user.password"
-              name="password"
-              required
-            />
+           
+            <input type="text" id="user_name" placeholder="Votre nom" v-model="v$.name.$model" name="nom" @blur="v$.name.$touch" />
+              <span v-for="error of v$.name.$errors" :key="error.$uid"> {{ error.$message }} </span>
+          
+
+            <input type="text" id="user_email" placeholder="Votre mail" v-model="v$.contact.email.$model" name="email" />
+              <span v-for="error of v$.contact.email.$errors" :key="error.$uid"> {{ error.$message }} </span>
+
+            <input type="password" id="user_password" placeholder="Veuillez saisir un mot de passe" v-model="v$.password.$model" name="password" />
+            <span v-for="error of v$.password.$errors" :key="error.$uid"> {{ error.$message }} </span>
+
+            <button type="submit" @click="hashPassword()" class="button">S'inscrire</button>
+
           </div>
-          <button type="submit" class="button">S'inscrire</button>
+
+
           <div class="icon">
             <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
             <a href="#"><ion-icon name="logo-snapchat" size="large"></ion-icon></a>
@@ -52,34 +43,57 @@
 </template>
 
 <script>
-import { useVuelidate } from '@vuelidate/core'
-import { required, email } from '@vuelidate/validators'
+import { useVuelidate } from '@vuelidate/core';
+import { required, email, minLength } from '@vuelidate/validators';
+import bcrypt from 'bcryptjs';
 
 export default {
   name: 'SignUp',
-  setup() {
+  setup () {
     return { v$: useVuelidate() }
   },
-  data: () => ({
-    user: {
+  data () {
+    return {
       name: '',
-      password: '',
       contact: {
         email: ''
-      }
-    }
-  }),
-  validations() {
-    return {
-      name: { required }, // Matches this.firstName
-      password: { required }, // Matches this.password
-      contact: {
-        email: { required, email } // Matches this.contact.email
-      }
+      },
+      password: '',
     }
   },
-  register(e) {
-    const formData = Object.fromEntries(new FormData(e.target))
+  validations () {
+    return {
+      name: {
+        required,
+        minLengthValue: minLength(10),
+        $autoDirty: true,
+        $lazy: true,
+      }, // Matches this.firstName
+      contact: {
+        email: { 
+          required, 
+          email 
+        } // Matches this.contact.email
+      },
+      password: { 
+        required,
+        minLengthValue: minLength(5),
+        $autoDirty: true,
+        $lazy: true,
+      }, // Matches this.lastName
+
+    }
+  },
+  methods: {
+    async submitForm() {
+      const isFormCorrect = await this.v$.$validate()
+  
+      if (isFormCorrect) {
+        this.register()
+      }
+    },
+    register(e) {
+      const formData = Object.fromEntries(new FormData(e.target))
     const requestInfos = new Request('http://localhost:3000/api/user/register', {
       method: 'post',
       headers: {
@@ -90,8 +104,26 @@ export default {
     fetch(requestInfos)
       .then((data) => data.json())
       .then((data) => console.log(data.message))
-  }
+    },
+  async hashPassword() {
+      if (!this.$v.password.$invalid) {
+        const saltRounds = 10; // Niveau de salage, vous pouvez ajuster selon vos besoins
+        this.hashedPassword = await bcrypt.hash(this.password, saltRounds);
+      }
+    },
+    async submitForm() {
+      await this.hashPassword(); // Hachez le mot de passe avant de le soumettre
+      // Ensuite, envoyez le mot de passe haché au serveur pour le stocker en base de données
+      const userData = {
+        name: this.v$.name.$model,
+        email: this.v$.contact.email.$model,
+        hashedPassword: this.hashedPassword, // Utilisez le mot de passe haché
+      };
+    },
+  },
 }
+
+
 </script>
 
 <style scoped>
@@ -156,14 +188,6 @@ h1 {
   color: white;
   text-decoration: none;
 }
-
-/* .wrapper .input_box {
-  width: 100%;
-  height: 10px;
-  margin: 20px 0;
-  display: flex;
-} */
-
 .input_box input {
   width: 96%;
   height: 100%;
@@ -192,11 +216,22 @@ form {
   flex-direction: column;
 }
 
+span {
+  width: 90%;
+  border-radius: 10px;
+  background: crimson;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  height: 2vh;
+}
+
 .box_mail_pass input {
   width: 96%;
   height: 100%;
   background: transparent;
-  /* border: none; */
   border: 2px solid rgba(255, 255, 255, 0.91);
   outline: none;
   font-size: 18px;

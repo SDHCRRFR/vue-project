@@ -1,8 +1,7 @@
-<template lang="">
+<template>
     <div class="container">
         <h1>Paris</h1>
         <div class="caroussel">
-            <img src="../../public/ressource.png" alt="">
         </div>
         
     </div>
@@ -20,19 +19,23 @@ export default {
         width: 100%;
         min-height: 100vh;
         display: flex;
+        text-align: left;
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
         /* justify-content: center; */
 
+    }
+
+    h1 {
+        margin-left: 100px;
     }
 
     .caroussel {
         width: 100%;
         height: 50vh;
-    }
-
-    img {
-        width: 100%;
+        background: url(../../public/background-crimson.jpeg) 0 0 no-repeat;
+        background-size: cover;
+        overflow: hidden;
     }
 
 
