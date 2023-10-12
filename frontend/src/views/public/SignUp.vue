@@ -2,27 +2,46 @@
   <div class="container_sign">
     <div class="user_login">
       <div class="wrapper">
+
         <form @submit.prevent="submitForm">
           <div class="box_logo">
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
           </div>
-
           <div class="input_box">
-           
-            <input type="text" id="user_name" placeholder="Votre nom" v-model="v$.name.$model" name="nom" @blur="v$.name.$touch" />
-              <span v-for="error of v$.name.$errors" :key="error.$uid"> {{ error.$message }} </span>
-          
+            <input
+              type="text"
+              id="user_name"
+              placeholder="Votre nom"
+              v-model="v$.name.$model"
+              name="nom"
+              @blur="v$.name.$touch"
+            />
+            <span v-for="error of v$.name.$errors" :key="error.$uid"> {{ error.$message }} </span>
 
-            <input type="text" id="user_email" placeholder="Votre mail" v-model="v$.contact.email.$model" name="email" />
-              <span v-for="error of v$.contact.email.$errors" :key="error.$uid"> {{ error.$message }} </span>
+            <input
+              type="text"
+              id="user_email"
+              placeholder="Votre mail"
+              v-model="v$.contact.email.$model"
+              name="email"
+            />
+            <span v-for="error of v$.contact.email.$errors" :key="error.$uid">
+              {{ error.$message }}
+            </span>
 
-            <input type="password" id="user_password" placeholder="Veuillez saisir un mot de passe" v-model="v$.password.$model" name="password" />
-            <span v-for="error of v$.password.$errors" :key="error.$uid"> {{ error.$message }} </span>
-
-            <button type="submit" @click="hashPassword()" class="button">S'inscrire</button>
+            <input
+              type="password"
+              id="user_password"
+              placeholder="Veuillez saisir un mot de passe"
+              v-model="v$.password.$model"
+              name="password"
+            />
+            <span v-for="error of v$.password.$errors" :key="error.$uid">
+              {{ error.$message }}
+            </span>
 
           </div>
-
+          <button type="submit" @click="hashPassword()" class="button">S'inscrire</button>
 
           <div class="icon">
             <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
@@ -43,87 +62,84 @@
 </template>
 
 <script>
-import { useVuelidate } from '@vuelidate/core';
-import { required, email, minLength } from '@vuelidate/validators';
-import bcrypt from 'bcryptjs';
+import { useVuelidate } from '@vuelidate/core'
+import { required, email, minLength } from '@vuelidate/validators'
+import bcrypt from 'bcryptjs'
 
 export default {
   name: 'SignUp',
-  setup () {
+  setup() {
     return { v$: useVuelidate() }
   },
-  data () {
+  data() {
     return {
       name: '',
       contact: {
         email: ''
       },
-      password: '',
+      password: ''
     }
   },
-  validations () {
+  validations() {
     return {
       name: {
         required,
         minLengthValue: minLength(10),
         $autoDirty: true,
-        $lazy: true,
+        $lazy: true
       }, // Matches this.firstName
       contact: {
-        email: { 
-          required, 
-          email 
+        email: {
+          required,
+          email
         } // Matches this.contact.email
       },
-      password: { 
+      password: {
         required,
         minLengthValue: minLength(5),
         $autoDirty: true,
-        $lazy: true,
-      }, // Matches this.lastName
-
+        $lazy: true
+      } // Matches this.lastName
     }
   },
   methods: {
     async submitForm() {
       const isFormCorrect = await this.v$.$validate()
-  
+
       if (isFormCorrect) {
         this.register()
       }
     },
     register(e) {
       const formData = Object.fromEntries(new FormData(e.target))
-    const requestInfos = new Request('http://localhost:3000/api/user/register', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    fetch(requestInfos)
-      .then((data) => data.json())
-      .then((data) => console.log(data.message))
+      const requestInfos = new Request('http://localhost:3000/api/user/register', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      fetch(requestInfos)
+        .then((data) => data.json())
+        .then((data) => console.log(data.message))
     },
-  async hashPassword() {
+    async hashPassword() {
       if (!this.$v.password.$invalid) {
-        const saltRounds = 10; // Niveau de salage, vous pouvez ajuster selon vos besoins
-        this.hashedPassword = await bcrypt.hash(this.password, saltRounds);
+        const saltRounds = 10 // Niveau de salage, vous pouvez ajuster selon vos besoins
+        this.hashedPassword = await bcrypt.hash(this.password, saltRounds)
       }
     },
     async submitForm() {
-      await this.hashPassword(); // Hachez le mot de passe avant de le soumettre
+      await this.hashPassword() // Hachez le mot de passe avant de le soumettre
       // Ensuite, envoyez le mot de passe haché au serveur pour le stocker en base de données
       const userData = {
         name: this.v$.name.$model,
         email: this.v$.contact.email.$model,
-        hashedPassword: this.hashedPassword, // Utilisez le mot de passe haché
-      };
-    },
-  },
+        hashedPassword: this.hashedPassword // Utilisez le mot de passe haché
+      }
+    }
+  }
 }
-
-
 </script>
 
 <style scoped>
