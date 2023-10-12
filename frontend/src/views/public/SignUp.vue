@@ -2,8 +2,7 @@
   <div class="container_sign">
     <div class="user_login">
       <div class="wrapper">
-
-        <form @submit.prevent="submitForm">
+        <form @submit.prevent="submitForm()" name="submitForm">
           <div class="box_logo">
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
           </div>
@@ -36,12 +35,9 @@
               v-model="v$.password.$model"
               name="password"
             />
-            <span v-for="error of v$.password.$errors" :key="error.$uid">
-              {{ error.$message }}
-            </span>
-
+            <span v-for="error of v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
           </div>
-          <button type="submit" @click="hashPassword()" class="button">S'inscrire</button>
+          <button type="submit" @click="submitForm()" class="button">S'inscrire</button>
 
           <div class="icon">
             <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
@@ -124,7 +120,7 @@ export default {
         .then((data) => console.log(data.message))
     },
     async hashPassword() {
-      if (!this.$v.password.$invalid) {
+      if (!this.password.$invalid) {
         const saltRounds = 10 // Niveau de salage, vous pouvez ajuster selon vos besoins
         this.hashedPassword = await bcrypt.hash(this.password, saltRounds)
       }

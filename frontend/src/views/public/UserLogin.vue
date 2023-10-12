@@ -10,7 +10,7 @@
             <input
               type="text"
               id="user_email"
-              placeholder="Nom d'utilisateur"
+              placeholder="Votre email"
               v-model="user.email"
               required
             />
@@ -58,35 +58,67 @@ export default {
         password: ''
       }
     }
+  },
+  methods: {
+    login() {
+      // Vous pouvez ajouter ici la logique d'envoi des données au serveur
+      // Créez un objet FormData pour envoyer les données au serveur
+      const formData = new FormData()
+      formData.append('email', this.user.email)
+      formData.append('password', this.user.password)
+
+      // Configuration de la requête Fetch
+      const requestInfo = {
+        method: 'POST',
+        body: formData
+      }
+
+      // Envoyez la requête au serveur
+      fetch('/api/register', requestInfo)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Échec de la requête.')
+          }
+          return response.json()
+        })
+        .then((data) => {
+          // Traitez la réponse du serveur
+          // data contiendra la réponse du serveur si elle est au format JSON
+          console.log('Réponse du serveur :', data)
+          // Redirigez l'utilisateur ou effectuez d'autres actions ici
+        })
+        .catch((error) => {
+          // Gérez les erreurs
+          console.error('Erreur mon pote :', error)
+          // Affichez un message d'erreur à l'utilisateur si nécessaire
+        })
+    }
+    //       accountService
+    //         .login(this.user)
+    //         .then((res) => {
+    //           accountService.savetoken(res.data.access_token)
+    //           this.$router.push('/admin/dashboard')
+    //         })
+    //         .catch((err) => console.log(err))
+    //       // ==========================================>
+    //       fetch('http://localhost:5173/auth/login', {
+    //         headers: {
+    //           Accept: 'application/json',
+    //           'Content-Type': 'application/json'
+    //         },
+    //         method: 'POST',
+    //         body: JSON.stringify(this.user)
+    //       })
+    //         .then((blob) => blob.json())
+    //         .then((data) => {
+    //           console.log(data)
+    //           localStorage.setItem('token', data.access_token)
+    //           this.$router.push('/admin/dashboard')
+    //         })
+    //         .catch((err) => console.log(err))
+    //     }
+    // }
   }
-  // methods: {
-  //   login() {
-  //       accountService
-  //         .login(this.user)
-  //         .then((res) => {
-  //           accountService.savetoken(res.data.access_token)
-  //           this.$router.push('/admin/dashboard')
-  //         })
-  //         .catch((err) => console.log(err))
-  //       // ==========================================>
-  //       fetch('http://localhost:5173/auth/login', {
-  //         headers: {
-  //           Accept: 'application/json',
-  //           'Content-Type': 'application/json'
-  //         },
-  //         method: 'POST',
-  //         body: JSON.stringify(this.user)
-  //       })
-  //         .then((blob) => blob.json())
-  //         .then((data) => {
-  //           console.log(data)
-  //           localStorage.setItem('token', data.access_token)
-  //           this.$router.push('/admin/dashboard')
-  //         })
-  //         .catch((err) => console.log(err))
-  //     }
-  //   },
-  // }
 }
 </script>
 
