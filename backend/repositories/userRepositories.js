@@ -8,7 +8,6 @@ const createRegister = async(data) => {
         VALUE(
             NULL,
             :nom,
-            :prenom,
             :email,
             :password,
             NOW(),

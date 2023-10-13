@@ -1,3 +1,5 @@
+/******************************* */
+// Import des modules nécessaire 
 import { createRegister } from "../repositories/userRepositories.js";
 
 const register = async(req, res) => {

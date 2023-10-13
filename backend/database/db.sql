@@ -14,7 +14,7 @@ CREATE TABLE tabledecoeur.role (
 CREATE TABLE tabledecoeur.user (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
-    prenom VARCHAR(100) NOT NULL,
+    -- prenom VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
     date_creation DATE NOT NULL,
@@ -82,44 +82,7 @@ INSERT INTO tabledecoeur.type_restaurant VALUES
 
 
 INSERT INTO tabledecoeur.restaurant VALUES
-    (
-        NULL,
-        'Le Baobab',
-        'auguste renoir aulnay',
-        '0605704453',
-        'logo.jpeg',
-        '48.9898; 48.2899',
-        '<h3> Entrée <h3/> <p> kebab </p>',
-        1
-    ),
-     (
-        NULL,
-        'O cercle Pizza',
-        'paris',
-        '0605704453',
-        'logo.jpeg',
-        '48.7677; 55.27676',
-        '<h3> Entrée <h3/> <p> kebab </p>',
-        1
-    ),
-     (
-        NULL,
-        'O cercle Pizza',
-        'paris',
-        '0605704453',
-        'logo.jpeg',
-        '48.7677; 55.27676',
-        '<h3> Entrée <h3/> <p> kebab </p>',
-        2
-    ),
-     (
-        NULL,
-        'O cercle Pizza',
-        'paris',
-        '0605704453',
-        'logo.jpeg',
-        '48.7677; 55.27676',
-        '<h3> Entrée <h3/> <p> kebab </p>',
-        2
-    ),
-;
+     ( NULL, 'O cercle Pizza', 'paris', '0605704453', 'logo.jpeg', '48.9898; 48.2899', '<h3> Entrée <h3/> <p> kebab </p>', 1 ),
+     ( NULL, 'O cercle Pizza', 'paris', '0605704453', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 1 ),
+     ( NULL, 'O cercle Pizza', 'paris', '0605704453', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 3 ),
+     ( NULL, 'O cercle Pizza', 'paris', '0605704453', 'logo.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> kebab </p>', 4 ),;
