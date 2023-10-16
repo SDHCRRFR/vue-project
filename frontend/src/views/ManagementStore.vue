@@ -42,30 +42,11 @@
       </div>
     </div>
     <div class="review">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab assumenda optio laborum
-        repellat beatae temporibus! Voluptates ipsa reprehenderit hic nihil provident accusamus rem
-        exercitationem quos vel. Doloribus necessitatibus ad quasi? Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Dolorum quas dignissimos expedita eum vero harum, iste quod
-        pariatur deleniti suscipit qui earum nihil sunt sit sequi inventore error quasi maxime!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi rem cupiditate quaerat
-        libero alias nisi optio natus sint atque exercitationem molestias dignissimos iure dolorum,
-        repellat quis aliquam quod accusantium dicta. Distinctio, hic possimus tenetur totam, ipsa
-        aspernatur nisi aperiam blanditiis fugit repudiandae et laboriosam aliquid laborum rerum ut
-        quibusdam unde praesentium autem nemo. Harum, amet? Voluptatibus deleniti velit vero
-        ducimus. Perferendis sed voluptas, quos, repellendus delectus natus fugit earum soluta
-        temporibus molestiae qui cupiditate ut cum dolorem reiciendis dolorum magni ducimus
-        voluptatibus facilis rem? Culpa, magnam? Est hic repudiandae aut. Atque alias voluptates
-        error nostrum, laborum, blanditiis reiciendis nemo assumenda cumque tenetur beatae autem
-        libero repellendus dolorum ea numquam quam aperiam perferendis quas, incidunt laboriosam
-        corporis? Placeat deserunt fugit exercitationem. Velit in ut excepturi error. Exercitationem
-        autem nisi minus earum, in, obcaecati provident excepturi ex eligendi optio eveniet cumque
-        veniam quis iure repudiandae delectus quod doloribus! Commodi suscipit Et nostrum numquam
-        unde exercitationem, ducimus eius a quidem, at aliquam hic enim, officiis cum consequuntur
-        id animi excepturi quam facilis blanditiis praesentium asperiores quibusdam nam architecto.
-        Velit, facere blanditiis. Perferendis esse fuga in debitis excepturi deserunt libero natus
-        maiores voluptate eveniet quo non, soluta porro nobis velit voluptas incidunt temporibus.
-      </p>
+     <h3>Vous souhaitez attirer plus de clients dans votre restaurant ?</h3>
+     <p>Associez-vous à Table de coeur dès aujourd'hui : c'est simple et vous pouvez annuler à tout moment !</p>
+     <router-link to="/management/help">
+       <button class="my_button">Commencez</button>
+     </router-link>
     </div>
     <footer>
       <ul class="social_icon">
@@ -157,26 +138,31 @@ export default {
   align-items: center;
 }
 
+.my_button {
+  width: 200px;
+  height: 40px;
+}
+
+.my_button:hover{
+  background: rgba(0, 182, 0, 0.947);
+}
+
+.review {
+  width: 80%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .manage_container {
   width: 80%;
-  height: 80vh;
+  height: 90vh;
   margin-top: 100px;
   display: flex;
   flex-direction: column;
 }
-.button {
-  width: 100%;
-  height: 45px;
-  background: #fff;
-  border: none;
-  outline: none;
-  border-radius: 40px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  font-size: 16px;
-  color: #333;
-  font-weight: 600;
-}
+
 
 p {
   font-size: 25px;

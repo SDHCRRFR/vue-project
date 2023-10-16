@@ -4,6 +4,7 @@ import * as Public from '@/views/public'
 import * as Admin from '@/views/admin'
 // ========================================================)->
 import ManagementStore from '@/views/ManagementStore.vue'
+import ManagementHelp from '@/views/public/ManagementHelp.vue'
 import RestaurantId from '@/views/RestaurantId.vue'
 import { authGuard } from '@/_helpers/auth-guard'
 import NotFound from '@/views/NotFound.vue'
@@ -50,6 +51,7 @@ const router = createRouter({
       ]
     },
     { path: '/management', name: 'ManagementStore', component: ManagementStore },
+    { path: '/management/help', name: 'ManagementHelp', component: ManagementHelp },
     { path: '/restaurant/:id(\\d+)', name: 'RestaurantId', component: RestaurantId },
     { path: '/:pathMatch(.*)*', component: NotFound }
   ]
