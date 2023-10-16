@@ -55,19 +55,6 @@ export default {
   justify-content: center;
 }
 
-/* #search {
-  width: 600px;
-  font-size: 20px;
-  padding-left: 30px;
-  border: none;
-  height: 6vh;
-  border-radius: 10px;
-} */
-
-/* .search {
-  margin-left: 50px;
-} */
-
 h2::after {
   content: '';
   animation: slide 3s linear infinite;

@@ -111,7 +111,6 @@ hr {
   width: 25%;
   min-height: 50vh;
   display: flex;
-  /* padding: 10px; */
   gap: 15px;
   flex-direction: column;
   text-align: center;
@@ -144,8 +143,6 @@ hr {
 
 .the_don {
   width: 100%;
-  /* display: flex;
-  flex-direction: column; */
   align-items: center;
   justify-content: center;
 }

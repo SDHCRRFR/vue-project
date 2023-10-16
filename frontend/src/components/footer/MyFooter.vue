@@ -7,7 +7,6 @@
         <div class="wave" id="wave3"></div>
         <div class="wave" id="wave4"></div>
       </div>
-      <!-- <p>{{ footerText }}</p> -->
       <ul class="social_icon">
         <li>
           <a href="#"><ion-icon name="logo-facebook" size="large"></ion-icon></a>

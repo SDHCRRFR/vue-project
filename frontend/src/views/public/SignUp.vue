@@ -60,7 +60,6 @@
 <script>
 import { useVuelidate } from '@vuelidate/core'
 import { required, email, minLength } from '@vuelidate/validators'
-import bcrypt from 'bcryptjs'
 
 export default {
   name: 'SignUp',
@@ -118,21 +117,6 @@ export default {
       fetch(requestInfos)
         .then((data) => data.json())
         .then((data) => console.log(data.message))
-    },
-    async hashPassword() {
-      if (!this.password.$invalid) {
-        const saltRounds = 10 // Niveau de salage, vous pouvez ajuster selon vos besoins
-        this.hashedPassword = await bcrypt.hash(this.password, saltRounds)
-      }
-    },
-    async submitForm() {
-      await this.hashPassword() // Hachez le mot de passe avant de le soumettre
-      // Ensuite, envoyez le mot de passe haché au serveur pour le stocker en base de données
-      const userData = {
-        name: this.v$.name.$model,
-        email: this.v$.contact.email.$model,
-        hashedPassword: this.hashedPassword // Utilisez le mot de passe haché
-      }
     }
   }
 }
