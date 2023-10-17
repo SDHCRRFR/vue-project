@@ -1,56 +1,53 @@
 <template>
-    <div class="management">
-        <nav>
-            <div class="nav-container">
-                <div id="logo_container">
-                    <router-link to="/">
-                        <img src="../../assets/logosaid.svg" alt="logo" class="logo" />
-                    </router-link>
-                </div>
-            </div>
-        </nav>
-        <div class="help">
-            <FormulaireInfo />
+  <div class="management">
+    <nav>
+      <div class="nav-container">
+        <div id="logo_container">
+          <router-link to="/">
+            <img src="../../assets/logosaid.svg" alt="logo" class="logo" />
+          </router-link>
         </div>
+      </div>
+    </nav>
+    <div class="help">
+      <FormulaireInfo />
     </div>
+  </div>
 </template>
 <script>
-import FormulaireInfo from '@/components/formulaire/FormulaireInfo.vue';
+import FormulaireInfo from '@/components/formulaire/FormulaireInfo.vue'
 
 export default {
-    name: 'ManagementHelp',
-    components: {
-        FormulaireInfo
-    }
-
+  name: 'ManagementHelp',
+  components: {
+    FormulaireInfo
+  }
 }
 </script>
 <style scoped>
-
 .management {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .help {
-    width: 90%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 80px;
-
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
 }
 
 .logo {
-    width: 50px;
+  width: 50px;
 }
 
 #logo_container {
-    width: 80%;
+  width: 80%;
 }
 
 nav {
@@ -69,5 +66,4 @@ nav .nav-container {
   max-width: 1450px;
   height: 10vh;
 }
-
 </style>

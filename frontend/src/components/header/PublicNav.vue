@@ -46,7 +46,7 @@ a:visited {
 
 nav {
   padding: 0rem 2.4rem;
-  background: rgba(255, 255, 255, 0.97);
+  background: #fff;
   position: fixed;
   width: 95%;
   z-index: 2;

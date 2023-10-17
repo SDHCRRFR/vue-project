@@ -75,7 +75,7 @@ window.addEventListener('scroll', function () {
   flex-direction: row;
   display: flex;
   justify-content: center;
-  margin-bottom: -30px;
+  margin-bottom: 60px;
 }
 
 iframe {

@@ -42,11 +42,14 @@
       </div>
     </div>
     <div class="review">
-     <h3>Vous souhaitez attirer plus de clients dans votre restaurant ?</h3>
-     <p>Associez-vous à Table de coeur dès aujourd'hui : c'est simple et vous pouvez annuler à tout moment !</p>
-     <router-link to="/management/help">
-       <button class="my_button">Commencez</button>
-     </router-link>
+      <h3>Vous souhaitez attirer plus de clients dans votre restaurant ?</h3>
+      <p>
+        Associez-vous à Table de coeur dès aujourd'hui : c'est simple et vous pouvez annuler à tout
+        moment !
+      </p>
+      <router-link to="/management/help">
+        <button class="my_button">Commencez</button>
+      </router-link>
     </div>
     <footer>
       <ul class="social_icon">
@@ -143,7 +146,7 @@ export default {
   height: 40px;
 }
 
-.my_button:hover{
+.my_button:hover {
   background: rgba(0, 182, 0, 0.947);
 }
 
@@ -162,7 +165,6 @@ export default {
   display: flex;
   flex-direction: column;
 }
-
 
 p {
   font-size: 25px;

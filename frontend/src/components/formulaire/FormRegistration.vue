@@ -44,7 +44,6 @@
         <div class="column">
           <input type="text" placeholder="Veuillez indiquez votre addresse" required />
           <input type="text" placeholder="Veuillez indiquez votre addresse line 2" required />
-
         </div>
 
         <div class="column">
