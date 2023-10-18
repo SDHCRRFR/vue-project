@@ -93,31 +93,7 @@ export default {
           // Affichez un message d'erreur à l'utilisateur si nécessaire
         })
     }
-    //       accountService
-    //         .login(this.user)
-    //         .then((res) => {
-    //           accountService.savetoken(res.data.access_token)
-    //           this.$router.push('/admin/dashboard')
-    //         })
-    //         .catch((err) => console.log(err))
-    //       // ==========================================>
-    //       fetch('http://localhost:5173/auth/login', {
-    //         headers: {
-    //           Accept: 'application/json',
-    //           'Content-Type': 'application/json'
-    //         },
-    //         method: 'POST',
-    //         body: JSON.stringify(this.user)
-    //       })
-    //         .then((blob) => blob.json())
-    //         .then((data) => {
-    //           console.log(data)
-    //           localStorage.setItem('token', data.access_token)
-    //           this.$router.push('/admin/dashboard')
-    //         })
-    //         .catch((err) => console.log(err))
-    //     }
-    // }
+    
   }
 }
 </script>

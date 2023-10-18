@@ -105,21 +105,41 @@ export default {
         this.register()
       }
     },
-    register(e) {
-      const formData = Object.fromEntries(new FormData(e.target))
-      const requestInfos = new Request('http://localhost:3000/api/user/register', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      fetch(requestInfos)
-        .then((data) => data.json())
-        .then((data) => console.log(data.message))
-    }
+    register() {
+    const formData = {
+      nom: this.name,
+      email: this.contact.email,
+      password: this.password
+    };
+
+    const requestInfos = new Request('http://localhost:3000/api/user/register', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    fetch(requestInfos)
+      .then((data) => data.json())
+      .then((data) => console.log(data.message))
+      .catch((error) => console.error(error));
   }
 }
+    // register(e) {
+    //   const formData = Object.fromEntries(new FormData(e.target))
+    //   const requestInfos = new Request('http://localhost:3000/api/user/register', {
+    //     method: 'post',
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(formData)
+    //   })
+    //   fetch(requestInfos)
+    //     .then((data) => data.json())
+    //     .then((data) => console.log(data.message))
+    // }
+  }
 </script>
 
 <style scoped>

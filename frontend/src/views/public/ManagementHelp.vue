@@ -3,7 +3,7 @@
     <nav>
       <div class="nav-container">
         <div id="logo_container">
-          <router-link to="/">
+          <router-link to="/management">
             <img src="../../assets/logosaid.svg" alt="logo" class="logo" />
           </router-link>
         </div>

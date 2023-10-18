@@ -17,30 +17,26 @@
       <div class="input_box">
         <input type="text" placeholder="Entrez votre mail" required />
       </div>
-     <div class="column">
+      <div class="column">
         <div class="input_box">
           <input type="text" placeholder="Entrez votre numéro" required />
         </div>
-     </div>
-    <div class="remember_forgot">
-        <label><input type="checkbox"/></label>
+      </div>
+      <div class="remember_forgot">
+        <label><input type="checkbox" /></label>
         <p>En cliquant sur "Suivant" j'accepte la Politique de confidentialité de TheFork.</p>
-     </div>
-     <button type="submit">Envoyez</button>
+      </div>
+      <button type="submit">Envoyez</button>
     </form>
-    <img src="../../../public/nourriture_salade_o.jpeg" alt="" />
+    <img src="../../../public/photo-ethnique.jpg" alt="" />
   </div>
 </template>
 
-
 <script>
-
 export default {
   name: 'FormulaireInfo'
-
 }
 </script>
-
 
 <style scoped>
 .formulaire_info {
@@ -60,22 +56,25 @@ export default {
 }
 
 button {
-    width: 340px;
-    height: 30px;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    margin-left: 47%;
-    background: rgba(0, 101, 30, 0.563);
-    cursor: pointer;
+  margin-top: 30px;
+  width: 330px;
+  height: 35px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  margin-left: 52%;
+  transition: all 1.5s ease-in-out;
+  background: rgba(0, 101, 30, 0.563);
+  cursor: pointer;
 }
 
 button:hover {
-    background: greenyellow;
+  background: rgba(0, 101, 30, 0.748);
 }
 
 h1 {
-  font-size: 70px;
+  font-size: 65px;
+  font-weight: 900;
 }
 
 img {
@@ -95,7 +94,7 @@ img {
 
 .remember_forgot {
   display: flex;
-  width: 100%;
+  width: 90%;
   justify-content: space-around;
   align-items: center;
   font-size: 20px;
