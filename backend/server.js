@@ -4,22 +4,26 @@ import express from "express";
 import restaurantRouter from "./routes/restaurant.js";
 import userRouter from "./routes/user.js";
 import cors from 'cors';
-import bodyParser from 'bodyParser'
+import bodyParser from 'body-parser'
 
-// const bodyParser = require('body-parser');
+
+/*****************************/
+/*** Initialisation de l'API */
+const app = express();
+const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/api/login', (req, res) => {
+app.post('/api/login', async (req, res) => {
   // Récupérez les données du formulaire
   const { email, password } = req.body;
 
-  // Vous pouvez maintenant vérifier ces données par rapport à celles stockées dans votre base de données
+  // Je peut maintenant vérifier ces données par rapport à celles stockées dans ma base de données
   // Par exemple, en utilisant une base de données MongoDB :
   const user = await user.findOne({ email });
 
-  // Vérifiez si le mot de passe correspond, vous pouvez utiliser une bibliothèque de hachage comme Bcrypt
+  // Je vérifie si le mot de passe correspond, j'ai utiliser une bibliothèque de hachage qui s'appelle argon2
   const isPasswordMatch = await argon2d.compare(password, user.password);
 
   // Si les informations de connexion sont correctes, renvoyez une réponse JSON
@@ -30,14 +34,6 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-
-/*****************************/
-/*** Initialisation de l'API */
-const app = express();
-const port = 3000;
-
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
 
 const router = express.Router();
 app.use(router);

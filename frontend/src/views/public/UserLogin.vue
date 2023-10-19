@@ -93,7 +93,6 @@ export default {
           // Affichez un message d'erreur à l'utilisateur si nécessaire
         })
     }
-    
   }
 }
 </script>

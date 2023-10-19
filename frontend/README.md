@@ -17,7 +17,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
     2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-## Customize configuration
+# Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
@@ -27,32 +27,32 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
-## Prettier code formatter Setup
+### Prettier code formatter Setup
 
 ```sh
 npm run format
 ```
 
-### Compile and Hot-Reload for Development
+#### Compile and Hot-Reload for Development
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+##### Type-Check, Compile and Minify for Production
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+###### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
 ```
     
 ### 1  Validation du formulaire d'inscription : 
-       Je doit ajouter une validation côté client pour m'assurer que les données saisies dans le formulaire sont correctes avant de les envoyer au serveur. Je peut utiliser des bibliothèques comme VeeValidate ou créer ma propre logique de validation.
+       Je doit ajouter une validation côté client pour m'assurer que les données saisies dans le formulaire sont correctes avant de les envoyer au serveur. Je peut utiliser des bibliothèques comme VeeValidate ou créer ma propre logique de validation. 
 
 ### 2  Gestion des mots de passe : 
        M'assurez de stocker les mots de passe des utilisateurs de manière sécurisée en les hachant avant de les stocker en base de données.Je peut utiliser des bibliothèques comme bcrypt pour cela.

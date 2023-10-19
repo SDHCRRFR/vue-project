@@ -1,8 +1,8 @@
 import connect from "../services/db.js";
 
-const createRegister = async(data) => {
-    console.log(data);
-    const myrequete = `
+const createRegister = async (data) => {
+  console.log(data);
+  const myrequete = `
         INSERT INTO
             tabledecoeur.user
         VALUE(
@@ -15,12 +15,24 @@ const createRegister = async(data) => {
         );
     `;
 
-    try {
-        const [result] = await connect.execute(myrequete, data);
-        return result;
-    } catch (error) {
-        return error;
-    }
-}
+  try {
+    const [result] = await connect.execute(myrequete, data);
+    return result;
+  } catch (error) {
+    return error;
+  }
+};
 
-export {createRegister};
+const checkLoginCredentials = async (email) => {
+  const query = "SELECT * FROM user WHERE email = ?";
+  const [rows] = await connect.execute(query, [email]);
+
+  if (rows.length > 0) {
+    return rows[0];
+  } else {
+    return null;
+  }
+};
+
+export { createRegister };
+export { checkLoginCredentials };
