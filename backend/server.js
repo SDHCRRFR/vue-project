@@ -4,6 +4,31 @@ import express from "express";
 import restaurantRouter from "./routes/restaurant.js";
 import userRouter from "./routes/user.js";
 import cors from 'cors';
+import bodyParser from 'bodyParser'
+
+// const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.post('/api/login', (req, res) => {
+  // Récupérez les données du formulaire
+  const { email, password } = req.body;
+
+  // Vous pouvez maintenant vérifier ces données par rapport à celles stockées dans votre base de données
+  // Par exemple, en utilisant une base de données MongoDB :
+  const user = await user.findOne({ email });
+
+  // Vérifiez si le mot de passe correspond, vous pouvez utiliser une bibliothèque de hachage comme Bcrypt
+  const isPasswordMatch = await argon2d.compare(password, user.password);
+
+  // Si les informations de connexion sont correctes, renvoyez une réponse JSON
+  if (isPasswordMatch) {
+    res.json({ message: 'Connexion réussie' });
+  } else {
+    res.status(401).json({ message: 'Échec de la connexion' });
+  }
+});
 
 
 /*****************************/
