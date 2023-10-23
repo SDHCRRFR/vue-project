@@ -5,7 +5,6 @@ import * as Admin from '@/views/admin'
 // ========================================================)->
 import ManagementStore from '@/views/ManagementStore.vue'
 import ManagementHelp from '@/views/public/ManagementHelp.vue'
-import RestaurantId from '@/views/RestaurantId.vue'
 import { authGuard } from '@/_helpers/auth-guard'
 import NotFound from '@/views/NotFound.vue'
 
@@ -21,6 +20,7 @@ const router = createRouter({
       children: [
         { path: '/', name: 'home', component: Public.HomeView },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
+        { path: '/restaurant/:id(\\d+)', name: 'RestaurantId', component: Public.RestaurantId },
         { path: '/login', name: 'user-login', component: Public.UserLogin },
         { path: '/signup', name: 'SignUp', component: Public.SignUp },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
@@ -33,18 +33,8 @@ const router = createRouter({
       component: Admin.AdminLayout,
       children: [
         { path: 'dashboard', name: 'UserDashboard', component: Admin.UserDashboard },
-        {
-          path: 'user/shop/:id(\\d+)',
-          name: 'user-shopping',
-          component: Admin.UserShopping,
-          props: true
-        },
-        {
-          path: 'user/index/:id(\\d+)',
-          name: 'user-index',
-          component: Admin.UserIndex,
-          props: true
-        },
+        { path: 'user/shop/:id(\\d+)', name: 'user-shopping', component: Admin.UserShopping, props: true },
+        { path: 'user/index/:id(\\d+)', name: 'user-index', component: Admin.UserIndex, props: true },
         { path: 'user/don/', name: 'user-don', component: Admin.FaireUnDon },
         { path: '/admin/user/wishlist', name: 'user-wishlist', component: Admin.WishList },
         { path: '/admin/logout', name: 'UserLogout', component: Admin.UserLogout }
@@ -52,7 +42,6 @@ const router = createRouter({
     },
     { path: '/management', name: 'ManagementStore', component: ManagementStore },
     { path: '/management/help', name: 'ManagementHelp', component: ManagementHelp },
-    { path: '/restaurant/:id(\\d+)', name: 'RestaurantId', component: RestaurantId },
     { path: '/:pathMatch(.*)*', component: NotFound }
   ]
 })

@@ -403,39 +403,45 @@ export default {
     <!-- cards display -->
     <div class="card-cart-container">
       <div class="card-container">
-        <div v-for="product in filteredList" class="card" v-bind:key="product.id">
-          <div class="image-container">
-            <img v-bind:src="product.img" alt="" v-bind:id="products" />
-          </div>
-
-          <div class="card-text">
-            <h3>{{ product.description }}</h3>
-            <span>{{ product.price }}€</span>
-          </div>
-          <p>{{ product.address }}</p>
-          <div class="card-icons">
-            <div class="like-container">
-              <input
-                type="checkbox"
-                name="checkbox"
-                v-bind:id="product.id"
-                :value="product.id"
-                v-model="liked"
-                @click="setLikeCookie()"
-              />
-
-              <label v-bind:for="product.id">
-                <!-- <i class="fas fa-heart"></i> -->
-              </label>
+        <!-- <router-link to="/restaurant/12"> -->
+          <div v-for="product in filteredList" class="card" v-bind:key="product.id">
+            <div class="image-container">
+              <img v-bind:src="product.img" alt="" v-bind:id="products" />
             </div>
+  
+            <div class="card-text">
+              <h3>{{ product.description }}</h3>
+              <span>{{ product.price }}€</span>
+            </div>
+            <p>{{ product.address }}</p>
+            <div class="card-icons">
+              <div class="like-container">
+                <input
+                  type="checkbox"
+                  name="checkbox"
+                  v-bind:id="product.id"
+                  :value="product.id"
+                  v-model="liked"
+                  @click="setLikeCookie()"
+                />
+  
+                <label v-bind:for="product.id">
+                  <!-- <i class="fas fa-heart"></i> -->
+                  <router-link to="/restaurant/12">
+                    <i class="fa-solid fa-eye"></i>
 
-            <div class="add-to-cart">
-              <button v-on:click="addToCart(product)">
-                <i class="fas fa-shopping-cart"></i>
-              </button>
+                  </router-link>
+                </label>
+              </div>
+  
+              <div class="add-to-cart">
+                <button v-on:click="addToCart(product)">
+                  <i class="fas fa-shopping-cart"></i>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        <!-- </router-link> -->
 
         <!-- no result message -->
         <div v-if="filteredList.length == []" class="no-result">
