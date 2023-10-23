@@ -6,7 +6,6 @@ import userRouter from "./routes/user.js";
 import cors from 'cors';
 import bodyParser from 'body-parser'
 
-
 /*****************************/
 /*** Initialisation de l'API */
 const app = express();
@@ -50,6 +49,16 @@ router.use(cors({
         /**** ici !  */
 
 /********************************/
+router.get('/api/restaurants', async (req, res) => {
+  try {
+    const query = 'SELECT * FROM restaurant'; // Remplacez "restaurant" par le nom de votre table
+    const restaurants = await db.query(query); // Utilisez votre module de connexion pour exécuter la requête
+    res.json({ data: restaurants });
+  } catch (error) {
+    console.error('Erreur lors de la récupération des restaurants :', error);
+    res.status(500).json({ error: 'Erreur lors de la récupération des restaurants' });
+  }
+});
 
 router.use("/api/restaurant", restaurantRouter);
 router.use("/api/user", userRouter);

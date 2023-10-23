@@ -13,13 +13,11 @@
             <span id="nav-not"></span>
           </router-link>
         </li>
-
         <li>
           <router-link to="/admin/user/shop/12">
             <i class="fa-solid fa-utensils"></i>
           </router-link>
         </li>
-
         <li>
           <router-link to="/admin/user/don/12">
             <i class="fas fa-address-card"></i>

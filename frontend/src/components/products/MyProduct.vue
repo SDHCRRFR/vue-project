@@ -11,7 +11,7 @@
             <p>{{ item.type }}</p>
             <div class="notation">
               <h2>{{ item.name }}</h2>
-              <span>{{ item.like }}</span>
+              <span>{{ item.like }} <i class="fa-solid fa-star" style="color: #ffff00;"></i></span>
             </div>
             <p>{{ item.code }}</p>
             <p>prix moyen: {{ item.price }} $</p>
@@ -32,37 +32,37 @@ export default {
           id: 1,
           img: '../../../public/nourriture_salade.jpeg',
           type: 'Francais . terrasse',
-          name: 'Top Chef Le Bistrot',
-          like: 9.8,
-          code: 92300,
-          price: 50
+          name: 'La brochette',
+          like: 7.0,
+          code: 75015,
+          price: 30
         },
         {
           id: 1,
           img: '../../../public/resto-II.jpeg',
-          type: 'Francais . terrasse',
-          name: 'Top Chef Le Bistrot',
+          type: 'Chinois . intérieur',
+          name: 'Le Bistrot',
           like: 9.8,
-          code: 92300,
+          code: 75018,
           price: 50
         },
         {
           id: 1,
           img: '../../../public/resto-III.jpeg',
-          type: 'Francais . terrasse',
-          name: 'Top Chef Le Bistrot',
-          like: 9.8,
-          code: 92300,
-          price: 50
+          type: 'Indien . terrasse',
+          name: "O'tacos",
+          like: 5.5,
+          code: 13014,
+          price: 37
         },
         {
           id: 1,
           img: '../../../public/resto-IIII.jpeg',
           type: 'Francais . terrasse',
-          name: 'Top Chef Le Bistrot',
-          like: 9.8,
+          name: 'Le Baobab',
+          like: 4.5,
           code: 92300,
-          price: 50
+          price: 25
         }
       ]
     }
@@ -71,6 +71,7 @@ export default {
 </script>
 
 <style scoped>
+
 * {
   margin: 0;
   padding: 0;
@@ -93,7 +94,6 @@ export default {
 }
 
 .container_card {
-  border: 1px solid gainsboro;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -104,7 +104,7 @@ export default {
 .card {
   width: 100%;
   display: flex;
-  padding: 10px;
+  padding: 20px;
   flex-direction: column;
 }
 
@@ -161,4 +161,5 @@ span {
     transform: translateY(0);
   }
 }
+
 </style>
