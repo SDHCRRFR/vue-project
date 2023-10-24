@@ -1,39 +1,37 @@
 <template>
   <div class="container">
-    <hr>
+    <hr />
     <h1>RESTAURANT</h1>
     <div class="container_block">
       <div class="container_txt">
         <h2>Le bistrot</h2>
-        <hr>
+        <hr />
         <div class="block">
           <i class="fa-solid fa-location-crosshairs"></i>
-          <p>Quai Gallieni, 92150 Suresnes - <strong>Métro 5 et 6</strong> </p>
+          <p>Quai Gallieni, 92150 Suresnes - <strong>Métro 5 et 6</strong></p>
         </div>
-        <hr>
+        <hr />
         <div class="block">
           <i class="fa-solid fa-utensils"></i>
           <p>Français - Terrasse</p>
         </div>
-        <hr>
+        <hr />
         <div class="block">
           <i class="fa-solid fa-euro-sign"></i>
-          <p>De 36 à 50 € </p>
+          <p>De 36 à 50 €</p>
         </div>
-        <hr>
+        <hr />
         <div class="block">
           <i class="fa-regular fa-clock"></i>
           <p>De 12h15 à 13h45 et de 19h15 à 21h45. Fermé dimanche et lundi.</p>
         </div>
-        <hr>
+        <hr />
         <div class="block">
           <i class="fa-solid fa-phone"></i>
           <p>0606767899</p>
         </div>
       </div>
-      <div class="caroussel">
-        
-      </div>
+      <div class="caroussel"></div>
     </div>
   </div>
 </template>
@@ -42,7 +40,7 @@
 // import { restaurants } from '../../stores/restaurants';
 
 export default {
-  name: 'RestaurantId',
+  name: 'RestaurantId'
   // props: [restaurants]
 }
 </script>
@@ -56,7 +54,6 @@ export default {
   align-items: center;
   text-align: left;
   flex-direction: column;
-
 }
 
 hr {

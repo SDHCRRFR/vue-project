@@ -11,7 +11,7 @@
             <p>{{ item.type }}</p>
             <div class="notation">
               <h2>{{ item.name }}</h2>
-              <span>{{ item.like }} <i class="fa-solid fa-star" style="color: #ffff00;"></i></span>
+              <span>{{ item.like }} <i class="fa-solid fa-star" style="color: #ffff00"></i></span>
             </div>
             <p>{{ item.code }}</p>
             <p>prix moyen: {{ item.price }} $</p>
@@ -71,7 +71,6 @@ export default {
 </script>
 
 <style scoped>
-
 * {
   margin: 0;
   padding: 0;
@@ -161,5 +160,4 @@ span {
     transform: translateY(0);
   }
 }
-
 </style>

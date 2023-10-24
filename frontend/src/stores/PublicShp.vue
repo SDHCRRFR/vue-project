@@ -312,18 +312,11 @@ export default {
         return product.description.toLowerCase().includes(this.searchKey.toLowerCase())
       })
     },
-    // getLikeCookie() {
-    //   let cookieValue = JSON.parse($cookies.get('like'))
-    //   cookieValue == null ? (this.liked = []) : (this.liked = cookieValue)
-    // },
     cartTotalAmount() {
       let total = 0
       for (let item in this.cart) {
         total = total + this.cart[item].quantity * this.cart[item].price
       }
-      // this.cart.forEach((item) => {
-      //   total += item.price;
-      // });
       return total
     },
     itemTotalAmount() {
@@ -335,13 +328,6 @@ export default {
     }
   },
   methods: {
-    // setLikeCookie() {
-    //   document.addEventListener('input', () => {
-    //     setTimeout(() => {
-    //       $cookies.set('like', JSON.stringify(this.liked))
-    //     }, 300)
-    //   })
-    // },
     addToCart(product) {
       // si il est déja dans le tableau
       for (let i = 0; i < this.cart.length; i++) {
@@ -373,13 +359,8 @@ export default {
       if (indexOfProductToRemove !== -1) {
         this.cart.splice(indexOfProductToRemove, 1)
       }
-      // this.$delete(this.cart, id)
     }
   }
-  // à chaque lancement de page récupère les cookies et injecte les a like
-  // mounted: () => {
-  //     this.getLikeCookie;
-  // }
 }
 </script>
 
@@ -404,43 +385,42 @@ export default {
     <div class="card-cart-container">
       <div class="card-container">
         <!-- <router-link to="/restaurant/12"> -->
-          <div v-for="product in filteredList" class="card" v-bind:key="product.id">
-            <div class="image-container">
-              <img v-bind:src="product.img" alt="" v-bind:id="products" />
-            </div>
-  
-            <div class="card-text">
-              <h3>{{ product.description }}</h3>
-              <span>{{ product.price }}€</span>
-            </div>
-            <p>{{ product.address }}</p>
-            <div class="card-icons">
-              <div class="like-container">
-                <input
-                  type="checkbox"
-                  name="checkbox"
-                  v-bind:id="product.id"
-                  :value="product.id"
-                  v-model="liked"
-                  @click="setLikeCookie()"
-                />
-  
-                <label v-bind:for="product.id">
-                  <!-- <i class="fas fa-heart"></i> -->
-                  <router-link to="/restaurant/12">
-                    <i class="fa-solid fa-eye"></i>
+        <div v-for="product in filteredList" class="card" v-bind:key="product.id">
+          <div class="image-container">
+            <img v-bind:src="product.img" alt="" v-bind:id="products" />
+          </div>
 
-                  </router-link>
-                </label>
-              </div>
-  
-              <div class="add-to-cart">
-                <button v-on:click="addToCart(product)">
-                  <i class="fas fa-shopping-cart"></i>
-                </button>
-              </div>
+          <div class="card-text">
+            <h3>{{ product.description }}</h3>
+            <span>{{ product.price }}€</span>
+          </div>
+          <p>{{ product.address }}</p>
+          <div class="card-icons">
+            <div class="like-container">
+              <input
+                type="checkbox"
+                name="checkbox"
+                v-bind:id="product.id"
+                :value="product.id"
+                v-model="liked"
+                @click="setLikeCookie()"
+              />
+
+              <label v-bind:for="product.id">
+                <!-- <i class="fas fa-heart"></i> -->
+                <router-link to="/restaurant/12">
+                  <i class="fa-solid fa-eye"></i>
+                </router-link>
+              </label>
+            </div>
+
+            <div class="add-to-cart">
+              <button v-on:click="addToCart(product)">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
             </div>
           </div>
+        </div>
         <!-- </router-link> -->
 
         <!-- no result message -->
@@ -541,7 +521,7 @@ export default {
 }
 
 header {
-  width: 80vw;
+  width: 28vw;
   flex-direction: row;
   display: flex;
   align-items: center;

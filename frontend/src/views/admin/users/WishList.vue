@@ -61,8 +61,7 @@ import MyFooter from '../../../components/footer/MyFooter.vue'
 export default {
   name: 'WishList',
   data: () => {
-    return {
-    }
+    return {}
   },
   nameII: 'WishList',
   component: {
@@ -184,6 +183,4 @@ img {
   width: 100%;
   border-radius: 5px;
 }
-
-
 </style>
