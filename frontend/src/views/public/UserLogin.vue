@@ -85,7 +85,6 @@ export default {
           // Traitez la réponse du serveur
           // data contiendra la réponse du serveur si elle est au format JSON
           console.log('Réponse du serveur :', data)
-
           // Redirigez l'utilisateur ou effectuez d'autres actions ici
         })
         .catch((error) => {

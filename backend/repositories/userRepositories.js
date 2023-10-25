@@ -1,7 +1,7 @@
 import connect from "../services/db.js";
 
 const createRegister = async (data) => {
-  console.log(data);
+  // console.log(data);
   const myrequete = `
         INSERT INTO
             tabledecoeur.user
@@ -16,16 +16,18 @@ const createRegister = async (data) => {
     `;
 
   try {
-    const [result] = await connect.execute(myrequete, data);
+    const [result] = await connect.query(myrequete, data);
+    console.log('inscription réussi');
     return result;
   } catch (error) {
+    console.log('Erreur lors de linseetion' + error);
     return error;
   }
 };
 
 const checkLoginCredentials = async (email) => {
   const query = "SELECT * FROM user WHERE email = ?";
-  const [rows] = await connect.execute(query, [email]);
+  const [rows] = await connect.query(query, [email]);
 
   if (rows.length > 0) {
     return rows[0];

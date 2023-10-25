@@ -37,8 +37,7 @@
             />
             <span v-for="error of v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
           </div>
-          <button type="submit" @click="submitForm()" class="button">S'inscrire</button>
-
+          <button type="submit" class="button">S'inscrire</button>
           <div class="icon">
             <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
             <a href="#"><ion-icon name="logo-snapchat" size="large"></ion-icon></a>

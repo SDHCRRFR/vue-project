@@ -14,7 +14,6 @@ CREATE TABLE tabledecoeur.role (
 CREATE TABLE tabledecoeur.user (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
-    -- prenom VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
     date_creation DATE NOT NULL,
