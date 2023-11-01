@@ -8,7 +8,10 @@
         <hr />
         <div class="block">
           <i class="fa-solid fa-location-crosshairs"></i>
-          <p>Quai Gallieni, 92150 Suresnes - <strong>Métro 5 et 6</strong></p>
+          <a
+            href="https://www.google.com/maps/place/Quai+Gallieni,+92150+Suresnes/@48.8704791,2.2319365,17z/data=!3m1!4b1!4m6!3m5!1s0x47e664d868b02a05:0x764ae9196d83627a!8m2!3d48.8704791!4d2.2319365!16s%2Fg%2F1tqf_n0g?entry=ttu"
+            >Quai Gallieni, 92150 Suresnes - <strong>Métro 5 et 6</strong></a
+          >
         </div>
         <hr />
         <div class="block">
@@ -28,7 +31,7 @@
         <hr />
         <div class="block">
           <i class="fa-solid fa-phone"></i>
-          <p>0606767899</p>
+          <a href="0605702732">0606767899</a>
         </div>
       </div>
       <div class="caroussel"></div>
@@ -94,11 +97,17 @@ h2 {
   gap: 50px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .caroussel {
   width: 100%;
   background: gainsboro;
-  /* background: url(../../public/resto-II.jpeg) 0 0 no-repeat;
-  background-size: cover;
-  overflow: hidden; */
 }
 </style>

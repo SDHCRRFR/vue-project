@@ -6,19 +6,21 @@
           <div class="box_logo">
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
           </div>
+
           <div class="input_box">
             <input
               type="text"
               id="user_name"
               placeholder="Votre nom"
-              v-model="v$.name.$model"
+              v-model="v$.nom.$model"
               name="nom"
-              @blur="v$.name.$touch"
+              @blur="v$.nom.$touch"
             />
-            <span v-for="error of v$.name.$errors" :key="error.$uid"> {{ error.$message }} </span>
+
+            <span v-for="error of v$.nom.$errors" :key="error.$uid"> {{ error.$message }} </span>
 
             <input
-              type="text"
+              type="email"
               id="user_email"
               placeholder="Votre mail"
               v-model="v$.contact.email.$model"
@@ -46,7 +48,7 @@
           </div>
           <div class="register_link">
             <p>
-              Vous n'avez pas encore de compte ?
+              Vous avez dêja un compte ?
               <router-link to="/login"><a class="link">Me connecté</a></router-link>
             </p>
           </div>
@@ -67,7 +69,7 @@ export default {
   },
   data() {
     return {
-      name: '',
+      nom: '',
       contact: {
         email: ''
       },
@@ -76,7 +78,7 @@ export default {
   },
   validations() {
     return {
-      name: {
+      nom: {
         required,
         minLengthValue: minLength(10),
         $autoDirty: true,
@@ -106,11 +108,11 @@ export default {
     },
     register() {
       const formData = {
-        nom: this.name,
+        nom: this.nom,
         email: this.contact.email,
         password: this.password
       }
-
+      // config de la requête fetch
       const requestInfos = new Request('http://localhost:3000/api/user/register', {
         method: 'post',
         headers: {
@@ -118,9 +120,18 @@ export default {
         },
         body: JSON.stringify(formData)
       })
+      // envoie de la reponse au serveur
       fetch(requestInfos)
         .then((data) => data.json())
-        .then((data) => console.log(data.message))
+        .then((data) => {
+          // console.log(data);
+          if (data.status === 200) {
+            this.$router.push('admin/dashboard')
+            console.log(data)
+          } else {
+            console.log('ca a merdé' + data)
+          }
+        })
         .catch((error) => console.error(error))
     }
   }
@@ -189,6 +200,7 @@ h1 {
   color: white;
   text-decoration: none;
 }
+
 .input_box input {
   width: 96%;
   height: 100%;
@@ -200,15 +212,6 @@ h1 {
   color: #fff;
   border-radius: 40px;
   padding: 10px 10px 10px 15px;
-}
-
-.box_mail_pass {
-  width: 100%;
-  height: 114px;
-  margin: -30px 0;
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
 }
 
 form {
@@ -227,18 +230,6 @@ span {
   padding: 10px;
   color: white;
   height: 2vh;
-}
-
-.box_mail_pass input {
-  width: 96%;
-  height: 100%;
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.91);
-  outline: none;
-  font-size: 18px;
-  color: #fff;
-  border-radius: 40px;
-  padding: 10px 10px 10px 10px;
 }
 
 .input_box input::placeholder {

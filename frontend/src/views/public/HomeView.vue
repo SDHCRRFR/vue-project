@@ -6,7 +6,6 @@ import MyProduct from '@/components/products/MyProduct.vue'
 import GoogleMaps from '@/components/map/GoogleMaps.vue'
 import MyCount from '@/components/counter/MyCount.vue'
 import Impact from '@/components/impact/ImpactGlobale.vue'
-import MyFooter from '@/components/footer/MyFooter.vue'
 
 const check = "Et si c'était vous ?"
 const show = ref(true)
@@ -31,7 +30,6 @@ const show = ref(true)
       <MyCount />
       <Impact />
     </div>
-    <MyFooter />
   </div>
 </template>
 

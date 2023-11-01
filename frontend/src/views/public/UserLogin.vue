@@ -2,13 +2,13 @@
   <div class="connect_">
     <div class="user_login">
       <div class="wrapper">
-        <form @submit.prevent="login">
+        <form @submit.prevent="login()">
           <div class="box_logo">
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
           </div>
           <div class="input_box">
             <input
-              type="text"
+              type="email"
               id="user_email"
               placeholder="Votre email"
               v-model="user.email"
@@ -27,13 +27,11 @@
             />
             <i class="fa-solid fa-lock"></i>
           </div>
-
           <div class="remember_forgot">
             <label><input type="checkbox" />Remember me</label>
             <a href="#">Forgot password</a>
           </div>
           <button type="submit" class="button">Connexion</button>
-
           <div class="register_link">
             <p>
               Vous avez pas encore de compte ?
@@ -47,8 +45,6 @@
 </template>
 
 <script>
-// import { accountService } from '@/_services'
-
 export default {
   name: 'UserLogin',
   data() {
@@ -61,37 +57,33 @@ export default {
   },
   methods: {
     login() {
-      // Vous pouvez ajouter ici la logique d'envoi des données au serveur
-      // Créez un objet FormData pour envoyer les données au serveur
-      const formData = new FormData()
-      formData.append('email', this.user.email)
-      formData.append('password', this.user.password)
-
-      // Configuration de la requête Fetch
-      const requestInfo = {
-        method: 'POST',
-        body: formData
+      // ici la logique d'envoi des données au serveur
+      const formData = {
+        email: this.user.email,
+        password: this.user.password
       }
+      // Configuration de la requête Fetch
+      const requestInfos = new Request('http://localhost:3000/api/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
 
       // Envoyez la requête au serveur
-      fetch('/api/register', requestInfo)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Échec de la requête.')
-          }
-          return response.json()
-        })
+      fetch(requestInfos)
+        .then((data) => data.json())
         .then((data) => {
-          // Traitez la réponse du serveur
-          // data contiendra la réponse du serveur si elle est au format JSON
-          console.log('Réponse du serveur :', data)
-          // Redirigez l'utilisateur ou effectuez d'autres actions ici
+          if (response.data === 200) {
+            // L'utilisateur est connecté avec succès, redirigez-le vers la page appropriée.
+            this.$router.push('/admin/dashboard')
+          } else {
+            // Affichez un message d'erreur approprié à l'utilisateur.
+            console.error('Échec de la connexion')
+          }
         })
-        .catch((error) => {
-          // Gérez les erreurs
-          console.error('Erreur mon pote :', error)
-          // Affichez un message d'erreur à l'utilisateur si nécessaire
-        })
+        .catch((error) => console.error(error))
     }
   }
 }

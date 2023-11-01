@@ -1,6 +1,5 @@
 <script setup>
 import Subscribe from '@/components/subscribe/SubscribeRestaurant.vue'
-import MyFooterVue from '@/components/footer/MyFooter.vue'
 </script>
 
 <template>
@@ -26,7 +25,6 @@ import MyFooterVue from '@/components/footer/MyFooter.vue'
       </p>
     </div>
     <Subscribe />
-    <MyFooterVue />
   </div>
 </template>
 

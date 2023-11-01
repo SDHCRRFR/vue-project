@@ -52,6 +52,7 @@ CREATE TABLE tabledecoeur.don (
 );
 
 -- remplir les tables
+-------------------------------------------------------------------------------------------)>
 INSERT INTO tabledecoeur.role VALUES
 (NULL, 'user'),
 (NULL, 'admin');
@@ -71,12 +72,83 @@ INSERT INTO tabledecoeur.type_restaurant VALUES
 
 
 INSERT INTO tabledecoeur.restaurant VALUES
-     ( NULL, 'O cercle Pizza', 'paris', '0605704453', 'logo.jpeg', '48.9898; 48.28996', '<h3> Entrée <h3/> <p> kebab </p>', 1 ),
-     ( NULL, 'O cercle Pizza', 'marseille', '0675704453', 'logoI.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> pizza </p>', 2 ),
-     ( NULL, 'O cercle Pizza', 'lille', '0675704453', 'logoII.jpeg', '48.7675; 55.27677', '<h3> Entrée <h3/> <p> tacos </p>', 3 ),
-     ( NULL, 'O cercle Pizza', 'nantes', '0675704453', 'logoIII.jpeg', '48.7666; 55.27675', '<h3> Entrée <h3/> <p> crêpe </p>', 4 ),
-     ( NULL, 'O cercle Pizza', 'nice', '0675704453', 'logoIIII.jpeg', '48.7679; 55.27675', '<h3> Entrée <h3/> <p> sandwich </p>', 5 ),
-     ( NULL, 'O cercle', 'monaco', '0675704453', 'logoU.jpeg', '48.7643; 55.27686', '<h3> Entrée <h3/> <p> assiette kebab </p>', 6 ),
-     ( NULL, 'O cercle Pizza', 'paris', '0675774453', 'logoIIV.jpeg', '48.7633; 55.27678', '<h3> Entrée <h3/> <p> burger </p>', 7 ),
-     ( NULL, 'O cercle Pizza', 'paris', '0615704453', 'logoIU.jpeg', '48.7611; 55.27656', '<h3> Entrée <h3/> <p> poulet </p>', 8 ),
-     ( NULL, 'O cercle Pizza', 'paris', '0699744453', 'logoIIU.jpeg', '48.1132; 55.27657', '<h3> Entrée <h3/> <p> pasta </p>', 9 ),;
+     ( NULL, 'O cercle Pizza',
+             'Suisse',
+             '0605704453', 
+             'logo.jpeg', 
+             '48.9898; 48.28996', 
+             '<h3> Entrée <h3/> <p> kebab </p>', 
+             1 
+            ),
+     ( NULL, 
+             'O Kebab', 
+             'Mandeure', 
+             '0675704453', 
+             'logoI.jpeg', 
+             '48.7677; 55.27676', 
+             '<h3> Entrée <h3/> <p> pizza </p>', 
+             2 
+            ),
+     ( NULL, 
+             'O Baobab', 
+             'Lille', 
+             '0675704453', 
+             'logoII.jpeg', 
+             '48.7675; 55.27677', 
+             '<h3> Entrée <h3/> <p> tacos </p>', 
+             3 
+            ),
+     ( NULL, 
+             'O Chicken', 
+             'Nantes', 
+             '0675704453', 
+             'logoIII.jpeg', 
+             '48.7666; 55.27675', 
+             '<h3> Entrée <h3/> <p> crêpe </p>', 
+             4 
+            ),
+     ( NULL, 
+             'O Tacos', 
+             'Nice', 
+             '0675704453', 
+             'logoIIII.jpeg', 
+             '48.7679; 55.27675', 
+             '<h3> Entrée <h3/> <p> sandwich </p>', 
+             5 
+            ),
+     ( NULL, 
+             'O Crepeway', 
+             'Monaco', 
+             '0675704453', 
+             'logoU.jpeg', 
+             '48.7643; 55.27686', 
+             '<h3> Entrée <h3/> <p> assiette kebab </p>', 
+             6 
+            ),
+     ( NULL, 
+             'O minifour', 
+             'Paris', 
+             '0675774453', 
+             'logoIIV.jpeg', 
+             '48.7633; 55.27678', 
+             '<h3> Entrée <h3/> <p> burger </p>', 
+             7 
+             ),
+     ( NULL, 
+             'O Brochetti', 
+             'Marseille', 
+             '0615704453', 
+             'logoIU.jpeg', 
+             '48.7611; 55.27656', 
+             '<h3> Entrée <h3/> <p> poulet </p>', 
+             8 
+             ),
+     ( NULL, 
+             'O Nabab', 
+             'Lyon', 
+             '0699744453', 
+             'logoIIU.jpeg', 
+             '48.1132; 55.27657', 
+             '<h3> Entrée <h3/> <p> pasta </p>', 
+             9 
+             ),;

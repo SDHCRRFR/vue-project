@@ -11,21 +11,22 @@ const register = async (req, res) => {
       password: await argon2.hash(req.body.password),
     };
     
-
     // Insérez les données de l'utilisateur dans la base de données
     const insertionResult = await createRegister(bodyHashed);
 
-    if(insertionResult.errno) {
+    if(!insertionResult.succes){
        return res.status(400).json({
        status: 400,
-       message: "Erreur mon pote"
+       message: "Erreur mon pote",
+    });
+  }else {
+    return res.status(200).json({
+      status: 200,
+      message: "Ok user create",
     });
   }
 
-  return res.status(200).json({
-    status: 200,
-    message: "Ok user create",
-  });
+
 };
 
 export { register };

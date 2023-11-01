@@ -1,12 +1,10 @@
 <script setup>
 import PublicShp from '@/stores/PublicShp.vue'
-import MyFooter from '@/components/footer/MyFooter.vue'
 </script>
 
 <template>
   <div class="shopping-cart">
     <PublicShp />
-    <MyFooter />
   </div>
 </template>
 

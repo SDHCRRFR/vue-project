@@ -1,8 +1,6 @@
 <script>
-import SubscribeRestaurant from '../components/subscribe/SubscribeRestaurant.vue'
 export default {
   name: 'PublicShp',
-  components: { SubscribeRestaurant },
   data: () => {
     return {
       products: [
@@ -500,7 +498,6 @@ export default {
           3 clics avec confirmation immédiate.
         </p>
       </div>
-      <SubscribeRestaurant />
     </div>
   </div>
 </template>
