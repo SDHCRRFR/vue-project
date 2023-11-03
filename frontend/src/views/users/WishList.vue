@@ -39,7 +39,7 @@
     <hr />
     <div class="card_cd">
       <div class="my_pic">
-        <img src="../../../../public/background-resto.png" alt="" />
+        <img src="/../../../public/background-resto.png" alt="" />
       </div>
       <div class="cd_card">
         <h4>Découvrez les nouvelles</h4>
@@ -56,7 +56,7 @@
 
 <script>
 import SubscribeRestaurant from '@/components/subscribe/SubscribeRestaurant.vue'
-import MyFooter from '../../../components/footer/MyFooter.vue'
+import MyFooter from '../../components/footer/MyFooter.vue'
 
 export default {
   name: 'WishList',

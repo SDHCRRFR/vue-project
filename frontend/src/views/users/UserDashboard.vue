@@ -43,16 +43,6 @@ const show = ref(true)
 </template>
 
 <style scoped>
-.ethnica {
-  width: 1300px;
-  min-height: 90vh;
-}
-
-h4,
-h5,
-span {
-  color: white;
-}
 
 .transition_hr {
   width: 80%;
@@ -61,6 +51,7 @@ span {
   border: none;
   border-radius: 2px;
 }
+
 .home-view {
   width: 100%;
   display: flex;
@@ -86,12 +77,6 @@ span {
   opacity: 0;
 }
 
-/* transition */
-
-h1 {
-  font-size: 50px;
-  width: 150px;
-}
 
 h3 {
   font-size: 30px;
@@ -143,6 +128,10 @@ img {
   width: 100%;
   height: 300px;
   border-radius: 20px;
+}
+h1 {
+  font-size: 50px;
+  width: 400px;
 }
 
 .component {

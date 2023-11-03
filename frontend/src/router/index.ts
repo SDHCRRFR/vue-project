@@ -1,14 +1,25 @@
 import { createRouter, createWebHistory } from 'vue-router'
-//
+
+// ==========================================================)->
+
+import AdminDashboard from '@/views/admin/AdminDashboard.vue'
 import * as Public from '@/views/public'
-import * as Admin from '@/views/admin'
-// ========================================================)->
+import * as User from '@/views/users'
+
+// ===========================================================)->
+
+import UserLogin from '@/views/public/UserLogin.vue'
+import SignUp from '@/views/public/SignUp.vue'
 import ManagementStore from '@/views/ManagementStore.vue'
 import ManagementHelp from '@/views/public/ManagementHelp.vue'
-import { authGuard } from '@/_helpers/auth-guard'
 import NotFound from '@/views/NotFound.vue'
 
+// ===============================================)->
+
+import { authGuard } from '@/_helpers/auth-guard'
 localStorage.setItem('token', 'marcel')
+
+// =============================)->
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,33 +32,31 @@ const router = createRouter({
         { path: '/', name: 'home', component: Public.HomeView },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
         { path: '/restaurant/:id(\\d+)', name: 'RestaurantId', component: Public.RestaurantId },
-        { path: '/login', name: 'user-login', component: Public.UserLogin },
-        { path: '/signup', name: 'SignUp', component: Public.SignUp },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },
+    { 
+      path: '/login', name: 'user-login', component: UserLogin
+    },
+    { 
+      path: '/signup', name: 'SignUp', component: SignUp 
+    },
+    { 
+      beforeEnter: authGuard,
+      path: '/admin/dashboard', name: 'AdminDashboard', component: AdminDashboard
+    },
     {
-      path: '/admin',
-      name: 'admin',
-      // beforeEnter: authGuard,
-      component: Admin.AdminLayout,
+      path: '/user',
+      name: 'user',
+      beforeEnter: authGuard,
+      component: User.UserLayout,
       children: [
-        { path: 'dashboard', name: 'UserDashboard', component: Admin.UserDashboard },
-        {
-          path: 'user/shop/:id(\\d+)',
-          name: 'user-shopping',
-          component: Admin.UserShopping,
-          props: true
-        },
-        {
-          path: 'user/index/:id(\\d+)',
-          name: 'user-index',
-          component: Admin.UserIndex,
-          props: true
-        },
-        { path: 'user/don/:id(\\d+)', name: 'user-don', component: Admin.FaireUnDon, props: true },
-        { path: '/admin/user/wishlist', name: 'user-wishlist', component: Admin.WishList },
-        { path: '/admin/logout', name: 'UserLogout', component: Admin.UserLogout }
+        { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
+        { path: 'user/shop/:id(\\d+)', name: 'user-shopping', component: User.UserShopping, props: true },
+        { path: 'user/index/:id(\\d+)', name: 'user-index', component: User.UserIndex, props: true },
+        { path: 'user/don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true },
+        { path: '/user/wishlist', name: 'user-wishlist', component: User.WishList },
+        { path: '/user/logout', name: 'UserLogout', component: User.UserLogout }
       ]
     },
     { path: '/management', name: 'ManagementStore', component: ManagementStore },

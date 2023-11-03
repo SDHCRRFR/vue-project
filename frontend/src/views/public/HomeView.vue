@@ -75,7 +75,7 @@ span {
 
 h1 {
   font-size: 50px;
-  width: 150px;
+  width: 400px;
 }
 
 h3 {

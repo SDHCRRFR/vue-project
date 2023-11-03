@@ -80,7 +80,7 @@ export default {
 .form_registration {
   position: relative;
   width: 100%;
-  background: rgba(172, 255, 47, 0.177);
+  background: rgb(237, 237, 237);
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 4px;
@@ -180,11 +180,11 @@ export default {
   border-radius: 6px;
   margin-top: 30px;
   transition: all 0.2s ease;
-  background-color: rgba(172, 255, 47, 0.801);
+  background-color: rgb(255, 188, 188);
 }
 
 .form button:hover {
-  background-color: rgb(172, 255, 50);
+  background-color: rgb(255, 50, 50);
 }
 
 /* Responsive */

@@ -126,7 +126,7 @@ export default {
         .then((data) => {
           // console.log(data);
           if (data.status === 200) {
-            this.$router.push('admin/dashboard')
+            this.$router.push('user/dashboard')
             console.log(data)
           } else {
             console.log('ca a merdé' + data)
