@@ -114,7 +114,7 @@ export default {
       }
       // config de la requête fetch
       const requestInfos = new Request('http://localhost:3000/api/user/register', {
-        method: 'post',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
