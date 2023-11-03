@@ -7,7 +7,7 @@
     <div class="container_don">
       <div class="mon_don">
         <h2>
-          Mercii beaucoup vous êtes le n°<span>{{ id }} aujourd'hui</span>
+          Mercii beaucoup vous êtes le # <span> {{ id }} aujourd'hui </span>
         </h2>
       </div>
       <div class="the_don">
@@ -21,7 +21,8 @@
         </div>
         <hr />
         <div class="people">
-          <i class="fa-solid fa-user"></i><span>51368</span>
+          <i class="fa-solid fa-user"></i>
+          <span>51368</span>
           <p class="person">participation</p>
         </div>
       </div>
@@ -35,25 +36,14 @@ export default {
   name: 'FaireUnDon',
   props: ['id'],
   data() {
-    return {
-      cards: [
-        {
-          id: 1,
-          img: '../../photo-ethnique.jpg',
-          date_creation: '12/03/23',
-          title: 'Merci pour vor votre contribution'
-        }
-      ]
-    }
+    return {}
+  },
+  mounted() {
+    console.log(this.$route.params.id)
+  },
+  updated() {
+    console.log(this.$route.params.id)
   }
-  // mounted(){
-  //   console.log(this.$route.params.id)
-  //   this.test = this.$route.params.id
-  // },
-  // updated(){
-  //   console.log(this.$route.params.id)
-  //   this.test = this.$route.params.id
-  // }
 }
 </script>
 

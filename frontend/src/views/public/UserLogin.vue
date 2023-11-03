@@ -75,12 +75,13 @@ export default {
       fetch(requestInfos)
         .then((data) => data.json())
         .then((data) => {
-          if (response.data === 200) {
+          // console.log(data + 'voici mes données');
+          if (data.status === 200) {
             // L'utilisateur est connecté avec succès, redirigez-le vers la page appropriée.
-            this.$router.push('/admin/dashboard')
+            this.$router.push('admin/dashboard')
           } else {
             // Affichez un message d'erreur approprié à l'utilisateur.
-            console.error('Échec de la connexion')
+            console.log('Échec de la connexion')
           }
         })
         .catch((error) => console.error(error))
