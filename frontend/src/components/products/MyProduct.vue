@@ -14,7 +14,12 @@
               <span>{{ item.like }} <i class="fa-solid fa-star" style="color: #ffff00"></i></span>
             </div>
             <p>{{ item.code }}</p>
-            <p>prix moyen: {{ item.price }} $</p>
+            <div class="price_block">
+              <p>prix moyen: {{ item.price }} $</p>
+              <router-link to="/restaurant/12">
+                  <i class="fa-solid fa-eye"></i>
+                </router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -105,6 +110,13 @@ export default {
   display: flex;
   padding: 20px;
   flex-direction: column;
+}
+
+.price_block {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card:hover {
