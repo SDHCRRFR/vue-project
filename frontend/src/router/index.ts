@@ -43,11 +43,10 @@ const router = createRouter({
       component: User.UserLayout,
       children: [
         { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
-        { path: 'user/shop/:id(\\d+)', name: 'user-shopping', component: User.UserShopping, props: true },
-        { path: 'user/index/:id(\\d+)', name: 'user-index', component: User.UserIndex, props: true },
-        { path: 'user/don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true },
-        { path: '/user/wishlist', name: 'user-wishlist', component: User.WishList },
-        { path: '/user/logout', name: 'UserLogout', component: User.UserLogout }
+        { path: 'shop/:id(\\d+)', name: 'user-shopping', component: User.UserShopping, props: true },
+        { path: 'index/:id(\\d+)', name: 'user-index', component: User.UserIndex, props: true },
+        { path: 'don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true },
+        { path: 'logout', name: 'UserLogout', component: User.UserLogout }
       ]
     },
     { path: '/management', name: 'ManagementStore', component: ManagementStore },

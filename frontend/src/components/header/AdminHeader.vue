@@ -8,18 +8,12 @@
       </div>
       <ul id="icons">
         <li>
-          <router-link to="/user/wishlist">
-            <i class="fas fa-heart"></i>
-            <span id="nav-not"></span>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="user/shop/12">
+          <router-link to="/user/shop/12">
             <i class="fa-solid fa-utensils"></i>
           </router-link>
         </li>
         <li>
-          <router-link to="user/don/12">
+          <router-link to="/user/don/12">
             <i class="fas fa-address-card"></i>
           </router-link>
         </li>
