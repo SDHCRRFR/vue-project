@@ -1,19 +1,45 @@
 <template>
-  <div class="wrapper" id="impact">
-    <div class="container">
-      <span class="num" data-val="999">000</span>
-      <span class="people">M+</span>
-      <p>Personnes vivants sous le seuil de pauvreté en millions</p>
+  <div class="count_contain">
+    <h1>PLUS D’1/3 DE LA NOURRITURE PRODUITE EST GASPILLÉE</h1>
+    <div class="story">
+      <div class="block_story">
+        <img src="../../../public/HandSprout.cf2becc6.svg" alt="" />
+        <h2>Environnemental</h2>
+        <p>
+          Le gaspillage alimentaire représente 10% des émissions de gaz à effet de serre (plus que
+          le secteur de l’aérien).
+        </p>
+      </div>
+      <div class="block_story">
+        <img src="../../../public/SadSmiley.0dc15123.svg" alt="" />
+        <h2>Social</h2>
+        <p>
+          2,5 milliards de tonnes de nourriture sont jetées chaque année, alors que 828 millions de
+          personnes ont faim chaque jour.
+        </p>
+      </div>
+      <div class="block_story">
+        <img src="../../../public/DollarBill.a8705b18.svg" alt="" />
+        <h2>Economique</h2>
+        <p>Le gaspillage alimentaire coûte 1 200 milliard de $ par an.</p>
+      </div>
     </div>
-    <div class="container">
-      <span class="num" data-val="999">000</span>
-      <span class="people">M+</span>
-      <p>Valeur commerciale estimée en euros par ans en million</p>
-    </div>
-    <div class="container">
-      <span class="num" data-val="999">000</span>
-      <span class="people">M+</span>
-      <p>10 millions de tonnes de nourriture perdues ou gaspillées.</p>
+    <div class="wrapper" id="impact">
+      <div class="container">
+        <span class="num" data-val="999">000</span>
+        <span class="people">M+</span>
+        <p>Personnes vivants sous le seuil de pauvreté en millions</p>
+      </div>
+      <div class="container">
+        <span class="num" data-val="999">000</span>
+        <span class="people">M+</span>
+        <p>Valeur commerciale estimée en euros par ans en million</p>
+      </div>
+      <div class="container">
+        <span class="num" data-val="999">000</span>
+        <span class="people">M+</span>
+        <p>10 millions de tonnes de nourriture perdues ou gaspillées.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -54,6 +80,18 @@ window.addEventListener('scroll', function () {
 </script>
 
 <style scoped>
+.count_contain {
+  width: 100%;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+img {
+  width: 200px;
+}
 .impact_txt {
   color: black;
 }
@@ -124,6 +162,30 @@ h1 {
   box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.75);
+}
+
+.story {
+  width: 80%;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  gap: 15px;
+  justify-content: center;
+}
+
+.story > .block_story > p {
+  color: black;
+}
+
+.block_story {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 span.num {

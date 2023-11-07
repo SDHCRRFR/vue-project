@@ -1,6 +1,8 @@
 <template>
   <div class="user_shop">
-    <h2>Sélection table de coeur <span>{{ id }}</span></h2>
+    <h2>
+      Sélection table de coeur <span>{{ id }}</span>
+    </h2>
     <div class="container">
       <div class="container_card">
         <div class="container_box">
@@ -34,7 +36,6 @@
         </p>
         <h3>j'utilise le code</h3>
       </div>
-
     </div>
     <hr />
     <div class="card_cd">
@@ -63,7 +64,6 @@ export default {
 </script>
 
 <style scoped lang="css">
-
 .user_shop {
   padding-top: 100px;
   width: 100%;
@@ -85,9 +85,6 @@ export default {
   flex-direction: row;
   align-items: center;
 }
-
-
-
 
 h4 {
   font-size: 25px;
@@ -178,5 +175,4 @@ img {
   width: 100%;
   border-radius: 5px;
 }
-
 </style>

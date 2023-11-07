@@ -16,7 +16,7 @@ import NotFound from '@/views/NotFound.vue'
 
 import { authGuard } from '@/_helpers/auth-guard'
 // ==============================================
-localStorage.setItem('token', 'marcel') 
+localStorage.setItem('token', 'marcel')
 // ================================================= \\ =======================================================================================================================================
 
 const router = createRouter({
@@ -35,7 +35,12 @@ const router = createRouter({
     },
     { path: '/login', name: 'user-login', component: UserLogin },
     { path: '/signup', name: 'SignUp', component: SignUp },
-    { beforeEnter: authGuard, path: '/admin/dashboard', name: 'AdminDashboard', component: AdminDashboard },
+    {
+      beforeEnter: authGuard,
+      path: '/admin/dashboard',
+      name: 'AdminDashboard',
+      component: AdminDashboard
+    },
     {
       path: '/user',
       name: 'user',
@@ -43,7 +48,12 @@ const router = createRouter({
       component: User.UserLayout,
       children: [
         { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
-        { path: 'shop/:id(\\d+)', name: 'user-shopping', component: User.UserShopping, props: true },
+        {
+          path: 'shop/:id(\\d+)',
+          name: 'user-shopping',
+          component: User.UserShopping,
+          props: true
+        },
         { path: 'index/:id(\\d+)', name: 'user-index', component: User.UserIndex, props: true },
         { path: 'don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true },
         { path: 'logout', name: 'UserLogout', component: User.UserLogout }
