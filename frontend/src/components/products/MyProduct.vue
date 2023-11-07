@@ -4,23 +4,22 @@
       <h1>Sélection Table de coeur</h1>
       <div class="container_card">
         <div class="card" v-for="item in items" v-bind:key="item.index">
-          <div class="box_img">
-            <img v-bind:src="item.img" />
-          </div>
-          <div class="box_txt">
-            <p>{{ item.type }}</p>
-            <div class="notation">
-              <h2>{{ item.name }}</h2>
-              <span>{{ item.like }} <i class="fa-solid fa-star" style="color: #ffff00"></i></span>
+          <router-link to="/restaurant/12">
+            <div class="box_img">
+              <img v-bind:src="item.img" />
             </div>
-            <p>{{ item.code }}</p>
-            <div class="price_block">
-              <p>prix moyen: {{ item.price }} $</p>
-              <router-link to="/restaurant/12">
-                  <i class="fa-solid fa-eye"></i>
-                </router-link>
+            <div class="box_txt">
+              <p>{{ item.type }}</p>
+              <div class="notation">
+                <h2>{{ item.name }}</h2>
+                <span>{{ item.like }} <i class="fa-solid fa-star" style="color: #ffff00"></i></span>
+              </div>
+              <p>{{ item.code }}</p>
+              <div class="price_block">
+                <p>prix moyen: {{ item.price }} €</p>
+              </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -122,6 +121,11 @@ export default {
 .card:hover {
   border: 1px solid gainsboro;
   transform: scale(1.04);
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 .card:hover img {

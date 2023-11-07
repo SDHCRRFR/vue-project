@@ -75,7 +75,7 @@ export default {
       fetch(requestInfos)
         .then((data) => data.json())
         .then((data) => {
-          console.log(data.status);
+          console.log(data.status)
           if (data.status === 200) {
             this.$router.push('user/dashboard')
             console.log(data)

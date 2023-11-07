@@ -43,7 +43,6 @@ const show = ref(true)
 </template>
 
 <style scoped>
-
 .transition_hr {
   width: 80%;
   height: 10px;
@@ -76,7 +75,6 @@ const show = ref(true)
   transform: translateX(1000px);
   opacity: 0;
 }
-
 
 h3 {
   font-size: 30px;

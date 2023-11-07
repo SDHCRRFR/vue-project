@@ -37,13 +37,13 @@ export default {
   props: ['id'],
   data() {
     return {}
-  },
-  mounted() {
-    console.log(this.$route.params.id)
-  },
-  updated() {
-    console.log(this.$route.params.id)
   }
+  // mounted() {
+  //   console.log(this.$route.params.id)
+  // },
+  // updated() {
+  //   console.log(this.$route.params.id)
+  // }
 }
 </script>
 

@@ -39,7 +39,7 @@
     <hr />
     <div class="card_cd">
       <div class="my_pic">
-        <img src="/../../../public/background-resto.png" alt="" />
+        <img src="../../../public/background-resto.png" alt="" />
       </div>
       <div class="cd_card">
         <h4>Découvrez les nouvelles</h4>
