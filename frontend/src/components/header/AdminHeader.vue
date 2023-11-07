@@ -14,17 +14,17 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/user/shop/12">
+          <router-link to="user/shop/12">
             <i class="fa-solid fa-utensils"></i>
           </router-link>
         </li>
         <li>
-          <router-link to="/user/don/">
+          <router-link to="user/don/12">
             <i class="fas fa-address-card"></i>
           </router-link>
         </li>
         <li>
-          <router-link to="/user/shop/13"> <i class="fa-solid fa-gear"></i> </router-link>
+          <router-link to="/user/index/13"><i class="fa-solid fa-gear"></i> </router-link>
         </li>
         <li>
           <router-link to="/user/logout">

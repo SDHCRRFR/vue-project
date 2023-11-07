@@ -1,13 +1,13 @@
 <template lang="">
   <div class="user_index">
-    <h1>{{ title }}</h1>
+    <h1>{{ title }} + {{ id }}</h1>
   </div>
 </template>
 
 <script>
-// import { userService } from '@/_services'
 export default {
   name: 'UserIndex',
+  props: ['id'],
   data() {
     return {
       title: 'User Index'
