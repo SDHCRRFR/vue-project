@@ -1,28 +1,126 @@
-<template lang="">
+
+<template>
   <div class="user_index">
-    <h1>{{ title }} + {{ id }}</h1>
+    <h1>C'est clairement la défaite</h1>
+    <div v-for="restaurant in data" :key="restaurant.id" class="container">
+      <img :src="restaurant.logo_url" alt="">
+      <h2>{{ restaurant.id }}</h2>
+      <h3>{{ restaurant.nom }}</h3>
+      <p>{{ restaurant.adresse }}</p>
+      <p>{{ restaurant.localisation }}</p>
+      <p>{{ restaurant.telephone }}</p>
+      <a>{{ restaurant.adresse }}</a>
+      <a>{{ restaurant.nom }}</a>
+      <!-- Affichez d'autres informations de la table "restaurant" selon vos besoins -->
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'UserIndex',
-  props: ['id'],
   data() {
     return {
-      title: 'User Index'
+      data: []
+    }
+  },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    fetchData() {
+      fetch('http://localhost:3000/api/restaurant', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        // body: JSON.stringify(data)
+      })
+        .then((response) => {
+          console.log(response);
+          if (!response.ok) {
+            throw new Error('Erreur lors de la récupération des données');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          this.data = data; // Assurez-vous que la structure de la réponse correspond à vos données de la table "restaurant"
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   }
 }
 </script>
 
-<style>
+
+<!-- <template>
+  <div class="user_index">
+    <h1>C'est clairement la défaite</h1>
+    <div v-for="restaurant in donnee" v-bind:key="restaurant.id" class="container">
+      <img v-bind:src="restaurant.logo_url" alt="">
+      <h2>{{ restaurant.id }}</h2>
+      <h3>{{ restaurant.nom }}</h3>
+      <p>{{ restaurant.adresse }}</p>
+      <p>{{ restaurant.localisation }}</p>
+      <p>{{ restaurant.telephone }}</p>
+      <a>{{ restaurant.adresse }}</a>
+      <a>{{ restaurant.nom }}</a>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'UserIndex',
+  data: () => {
+    return {
+      donnee: []
+    }
+  },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    fetchData() {
+      fetch('http://localhost:3000/api/restaurant')
+        .then((response) => {
+          console.log(response);
+          if (!response.ok) {
+            throw new Error('Erreur lors de la récupération des données');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          this.donnee = data; 
+          console.log(this.donnee);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }
+}
+</script> -->
+
+
+<style scoped>
 .user_index {
   width: 100%;
-  min-height: 50vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
   justify-content: center;
 }
 </style>

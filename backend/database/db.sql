@@ -151,4 +151,4 @@ INSERT INTO tabledecoeur.restaurant VALUES
              '48.1132; 55.27657', 
              '<h3> Entrée <h3/> <p> pasta </p>', 
              9 
-             ),;
+             );

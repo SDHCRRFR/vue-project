@@ -32,8 +32,8 @@
           <li><a href="#">Contact</a></li>
         </router-link>
       </ul>
-      <p>Vous souhaitez inscrire votre restaurant pour rejoindre notre mouvement ?</p>
-      <button type="submit">inscrire mon resto</button>
+      <!-- <p>Vous souhaitez inscrire votre restaurant pour rejoindre notre mouvement ?</p>
+      <button type="submit">inscrire mon resto</button> -->
     </footer>
   </div>
 </template>
@@ -97,13 +97,13 @@ footer .menu li a:hover {
   opacity: 1;
 }
 
-footer p {
+/* footer p {
   color: #fff;
   text-align: center;
   margin-top: 15px;
   margin-bottom: 10px;
   font-size: 1.1em;
-}
+} */
 
 .mon-footer {
   width: 100%;

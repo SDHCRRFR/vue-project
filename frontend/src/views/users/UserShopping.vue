@@ -1,12 +1,14 @@
 <template>
   <div class="user_shop">
+    <TheWelcome />
+  </div>
+  <!-- <div class="user_shop">
     <h2>
       Sélection table de coeur <span>{{ id }}</span>
     </h2>
     <div class="container">
       <div class="container_card">
         <div class="container_box">
-          <!-- ici image -->
         </div>
         <h2>profitez de 15% de réduction</h2>
         <p>
@@ -17,7 +19,7 @@
 
       <div class="container_card">
         <div class="container_box">
-          <!-- ici -->
+         
         </div>
         <h2>profitez de 15% de réduction</h2>
         <p>
@@ -28,7 +30,7 @@
 
       <div class="container_card">
         <div class="container_box">
-          <!-- ici -->
+         
         </div>
         <h2>profitez de 15% de réduction</h2>
         <p>
@@ -50,13 +52,16 @@
       </div>
     </div>
     <hr />
-  </div>
+    <TheWelcome/>
+    <div class="card">{{ restaurants }}</div>
+  </div> -->
 </template>
 
 <script lang="ts">
+import TheWelcome from '../../stores/TheWelcome.vue'
 export default {
   name: 'UserShopping',
-  props: ['id'],
+  components: { TheWelcome },
   data() {
     return {}
   }

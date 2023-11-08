@@ -1,0 +1,31 @@
+{
+    "restaurant": [
+        { 
+            "id": 1, "nom": "O cercle Pizza", "adresse": "Suisse", "telephone": "0605704453", "logo_url": "logo.jpeg", "localisation": "48.9898; 48.28996", "menu": "<h3> Entrée <h3/> <p> kebab </p>", "type_restaurant_id": "Français" 
+        },
+        { 
+            "id": 1, "nom": "O cercle Pizza", "adresse": "Suisse", "telephone": "0605704453", "logo_url": "logo.jpeg", "localisation": "48.9898; 48.28996", "menu": "<h3> Entrée <h3/> <p> kebab </p>", "type_restaurant_id": "Français" 
+        },
+        { 
+            "id": 1, "nom": "O cercle Pizza", "adresse": "Suisse", "telephone": "0605704453", "logo_url": "logo.jpeg", "localisation": "48.9898; 48.28996", "menu": "<h3> Entrée <h3/> <p> kebab </p>", "type_restaurant_id": "Français" 
+        },
+        { 
+            "id": 1, "nom": "O cercle Pizza", "adresse": "Suisse", "telephone": "0605704453", "logo_url": "logo.jpeg", "localisation": "48.9898; 48.28996", "menu": "<h3> Entrée <h3/> <p> kebab </p>", "type_restaurant_id": "Français" 
+        },
+        { 
+            "id": 1, "nom": "O cercle Pizza", "adresse": "Suisse", "telephone": "0605704453", "logo_url": "logo.jpeg", "localisation": "48.9898; 48.28996", "menu": "<h3> Entrée <h3/> <p> kebab </p>", "type_restaurant_id": "Français" 
+        },
+        { 
+            "id": 1, "nom": "O cercle Pizza", "adresse": "Suisse", "telephone": "0605704453", "logo_url": "logo.jpeg", "localisation": "48.9898; 48.28996", "menu": "<h3> Entrée <h3/> <p> kebab </p>", "type_restaurant_id": "Français" 
+        },
+        { 
+            "id": 1, "nom": "O cercle Pizza", "adresse": "Suisse", "telephone": "0605704453", "logo_url": "logo.jpeg", "localisation": "48.9898; 48.28996", "menu": "<h3> Entrée <h3/> <p> kebab </p>", "type_restaurant_id": "Français" 
+        },
+        { 
+            "id": 1, "nom": "O cercle Pizza", "adresse": "Suisse", "telephone": "0605704453", "logo_url": "logo.jpeg", "localisation": "48.9898; 48.28996", "menu": "<h3> Entrée <h3/> <p> kebab </p>", "type_restaurant_id": "Français" 
+        },
+        { 
+            "id": 1, "nom": "O cercle Pizza", "adresse": "Suisse", "telephone": "0605704453", "logo_url": "logo.jpeg", "localisation": "48.9898; 48.28996", "menu": "<h3> Entrée <h3/> <p> kebab </p>", "type_restaurant_id": "Français" 
+        }
+    ]
+}
