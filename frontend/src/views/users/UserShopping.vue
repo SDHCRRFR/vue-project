@@ -1,15 +1,9 @@
 <template>
   <div class="user_shop">
-    <TheWelcome />
-  </div>
-  <!-- <div class="user_shop">
-    <h2>
-      Sélection table de coeur <span>{{ id }}</span>
-    </h2>
+    <h1>Sélection table de coeur</h1>
     <div class="container">
       <div class="container_card">
-        <div class="container_box">
-        </div>
+        <div class="container_box"></div>
         <h2>profitez de 15% de réduction</h2>
         <p>
           Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur pay
@@ -18,9 +12,7 @@
       </div>
 
       <div class="container_card">
-        <div class="container_box">
-         
-        </div>
+        <div class="container_box"></div>
         <h2>profitez de 15% de réduction</h2>
         <p>
           Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur pay
@@ -29,9 +21,7 @@
       </div>
 
       <div class="container_card">
-        <div class="container_box">
-         
-        </div>
+        <div class="container_box"></div>
         <h2>profitez de 15% de réduction</h2>
         <p>
           Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur pay
@@ -40,21 +30,8 @@
       </div>
     </div>
     <hr />
-    <div class="card_cd">
-      <div class="my_pic">
-        <img src="../../../public/background-resto.png" alt="" />
-      </div>
-      <div class="cd_card">
-        <h4>Découvrez les nouvelles</h4>
-        <h5>Cartes cadeaux Table de coeur</h5>
-        <p>8.000 restaurants avec 1 seule carte cadeau</p>
-        <button type="submit">Acceder</button>
-      </div>
-    </div>
-    <hr />
-    <TheWelcome/>
-    <div class="card">{{ restaurants }}</div>
-  </div> -->
+    <TheWelcome />
+  </div>
 </template>
 
 <script lang="ts">
@@ -77,7 +54,6 @@ export default {
   flex-direction: column;
   border-radius: 20px;
   align-items: center;
-  text-align: center;
   margin-bottom: 150px;
 }
 
@@ -128,39 +104,10 @@ img {
   height: 250px;
 }
 
-.cd_card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  align-items: center;
-  gap: 10px;
+h1 {
+  margin-right: 867px;
 }
 
-.cd_card > button {
-  width: 250px;
-  padding: 10px;
-  background: green;
-  border: 1px solid black;
-  cursor: pointer;
-  border-radius: 10px;
-  color: white;
-  font-size: 13px;
-}
-
-hr {
-  width: 80%;
-  border: 1px solid gainsboro;
-}
-
-.cd_card > button:hover {
-  background: white;
-  color: black;
-}
-
-.my_pic {
-  width: 100%;
-}
 h3 {
   color: green;
   cursor: pointer;
