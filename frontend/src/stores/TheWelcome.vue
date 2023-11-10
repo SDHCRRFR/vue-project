@@ -28,7 +28,7 @@
             <h3>{{ product.nom }}</h3>
             <span>{{ product.telephone }}€</span>
           </div>
-          <p>{{ product.address }}</p>
+          <p>{{ product.adresse }}</p>
           <div class="card-icons">
             <div class="like-container">
               <input
@@ -138,7 +138,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   name: 'TheWelcome',
@@ -224,11 +223,9 @@ export default {
       }
       return itemTotal
     }
-  },
+  }
 }
 </script>
-
-
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');

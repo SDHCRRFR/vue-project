@@ -4,30 +4,6 @@
       <h1>Faire un don</h1>
       <p>Cliquez ici si vous êtes une entreprise || Cliquez ici si vous êtes une association</p>
     </div>
-    <div class="container_don">
-      <div class="mon_don">
-        <h2>
-          Mercii beaucoup vous êtes le # <span> {{ id }} aujourd'hui </span>
-        </h2>
-      </div>
-      <div class="the_don">
-        <h2>1 999 873 122 $</h2>
-        <h3>Collectés</h3>
-      </div>
-      <div class="days">
-        <div class="time">
-          <i class="fa-solid fa-clock"></i><span>27</span>
-          <p class="day">Jours restant</p>
-        </div>
-        <hr />
-        <div class="people">
-          <i class="fa-solid fa-user"></i>
-          <span>51368</span>
-          <p class="person">participation</p>
-        </div>
-      </div>
-      <button type="submit">JE FAIS UN DON</button>
-    </div>
   </div>
 </template>
 
@@ -61,64 +37,9 @@ export default {
   justify-content: start;
 }
 
-button {
-  width: 70%;
-  height: 30px;
-  background: green;
-  border: none;
-  border-radius: 15px;
-  color: white;
-}
-
-button:hover {
-  background: black;
-  color: white;
-}
-
-.person {
-  color: black;
-}
-
-.day {
-  color: black;
-}
-
 hr {
   border: 1px solid gainsboro;
   height: 75px;
-}
-
-.days {
-  width: 70%;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-around;
-  display: flex;
-  flex-direction: row;
-}
-
-.container_don {
-  width: 25%;
-  min-height: 50vh;
-  display: flex;
-  gap: 15px;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  background: #fff;
-  border-radius: 20px 20px 20px 20px;
-  box-shadow: 0 0 10px;
-}
-
-.mon_don {
-  width: 100%;
-  height: 8vh;
-  background: pink;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 10px 10px 0px 0px;
 }
 
 .don_txt {
@@ -129,12 +50,6 @@ hr {
   align-items: center;
   margin-bottom: 30px;
   background: pink;
-}
-
-.the_don {
-  width: 100%;
-  align-items: center;
-  justify-content: center;
 }
 
 h1 {
