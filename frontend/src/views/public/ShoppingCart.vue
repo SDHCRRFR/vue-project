@@ -64,12 +64,12 @@ export default {
         <!-- <router-link to="/restaurant/12"> -->
         <div v-for="product in data" class="card" v-bind:key="product.id">
           <div class="image-container">
-            <img v-bind:src="product.logo_url" alt="" v-bind:id="data" />
+            <img v-bind:src="product.img" alt="" v-bind:id="data" />
           </div>
 
           <div class="card-text">
             <h3>{{ product.nom }}</h3>
-            <span>{{ product.adresse }}</span>
+            <span>{{ product.code_postale }}</span>
           </div>
           <p>{{ product.address }}</p>
           <div class="card-icons">
