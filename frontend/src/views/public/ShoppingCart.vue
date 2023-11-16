@@ -45,7 +45,13 @@ export default {
   <div class="home-container" id="home">
     <!-- search display -->
     <header>
-      <input v-model="searchKey" type="search" id="search" placeholder="Recherchez..." autocomplete="off" />
+      <input
+        v-model="searchKey"
+        type="search"
+        id="search"
+        placeholder="Recherchez..."
+        autocomplete="off"
+      />
       <span v-if="searchKey && filteredList.length >= 1">
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
@@ -63,7 +69,7 @@ export default {
 
           <div class="card-text">
             <h3>{{ product.nom }}</h3>
-            <span>{{ product.adresse }}€</span>
+            <span>{{ product.adresse }}</span>
           </div>
           <p>{{ product.address }}</p>
           <div class="card-icons">
@@ -75,15 +81,13 @@ export default {
                 </router-link>
               </label>
             </div>
-            <div class="add-to-cart">
-            </div>
+            <div class="add-to-cart"></div>
           </div>
         </div>
         <!-- </router-link> -->
 
         <!-- no result message -->
       </div>
-
     </div>
     <transition name="cart-anim"></transition>
     <div class="management">
@@ -121,6 +125,7 @@ export default {
 .home-container {
   max-width: 100%;
   margin: 0 auto;
+  padding-top: 100px;
   padding-left: 2.4rem;
 }
 
@@ -284,7 +289,15 @@ img {
   display: none;
 }
 
-.home-container .card-cart-container .card-container .card .card-icons .like-container input:checked+label i {
+.home-container
+  .card-cart-container
+  .card-container
+  .card
+  .card-icons
+  .like-container
+  input:checked
+  + label
+  i {
   color: #fb2626;
   animation: heart 1.3s forwards ease;
 }

@@ -72,7 +72,7 @@ INSERT INTO tabledecoeur.type_restaurant VALUES
 
 
 INSERT INTO tabledecoeur.restaurant VALUES 
-     ( NULL, 'O cercle Pizza' 'Suisse' '0605704453', 'logo.jpeg', '48.9898; 48.28996', '<h3> Entrée <h3/> <p> kebab </p>', 1 ),
+     ( NULL, 'O cercle Pizza', 'Suisse', '0605704453', 'logo.jpeg', '48.9898; 48.28996', '<h3> Entrée <h3/> <p> kebab </p>', 1 ),
      ( NULL, 'O Kebab', 'Mandeure', '0675704453', 'logoI.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> pizza </p>', 2 ),
      ( NULL, 'O Baobab', 'Lille', '0675704453', 'logoII.jpeg', '48.7675; 55.27677', '<h3> Entrée <h3/> <p> tacos </p>', 3 ),
      ( NULL, 'O Chicken', 'Nantes', '0675704453', 'logoIII.jpeg', '48.7666; 55.27675', '<h3> Entrée <h3/> <p> crêpe </p>', 4 ),
@@ -83,16 +83,20 @@ INSERT INTO tabledecoeur.restaurant VALUES
      ( NULL, 'O Nabab', 'Lyon', '0699744453', 'logoIIU.jpeg', '48.1132; 55.27657', '<h3> Entrée <h3/> <p> pasta </p>', 9 ),
      ( NULL, 'Le Cap', 'Belgique', '0699747453', 'logoIIbU.jpeg', '48.1232; 45.27657', '<h3> Entrée <h3/> <p> pasta </p>', 10 ),
 
-     ( NULL, 'pizza kebab' 'Blanc-Mesnil' '0615703453', './public/resto-I.jpeg', '48.9698; 48.28995', '<h3> Entrée <h3/> <p> tacos - kebab </p>', 11 ),
-     ( NULL, 'O Kebab', 'Drancy', '0675704453', './public/resto-II.jpeg', '48.7676; 55.27676', '<h3> Entrée <h3/> <p> variétés </p>', 12 ),
+-- ==========================================================================================================================================================
+
+     ( NULL, 'pizzaKebab' 'Blanc-Mesnil' '0615703453', './public/resto-I.jpeg', '48.9698; 48.28995', '<h3> Entrée <h3/> <p> tacos - kebab </p>', 11 ),
+     ( NULL, 'TheKebab', 'Drancy', '0675704453', './public/resto-II.jpeg', '48.7676; 55.27676', '<h3> Entrée <h3/> <p> variétés </p>', 12 ),
      ( NULL, 'Snack ', 'Oparinor', '0675714453', './public/resto-III.jpeg', '48.7675; 55.27677', '<h3> Entrée <h3/> <p> tacos </p>', 13 ),
      ( NULL, 'Chicken Frieds', 'Le Bourget', '0775704453', './public/resto-IIII.jpeg', '48.7666; 55.27673', '<h3> Entrée <h3/> <p> crêpe </p>', 14 ),
      ( NULL, 'Tacos', 'La courneuve', '0675794453', './public/resto-v.webp', '48.7679; 55.27674', '<h3> Entrée <h3/> <p> sandwich </p>', 15 ),
      ( NULL, 'Crepeway', 'MontCornet', '0625704453', './public/resto-I.jpeg', '48.7653; 55.27683', '<h3> Entrée <h3/> <p> assiette kebab </p>', 16 ),
-     ( NULL, 'O minifour', 'Sarcelle', '0675574453', './public/resto-II.jpeg', '48.7633; 55.27678', '<h3> Entrée <h3/> <p> burger </p>', 17 ),
+     ( NULL, 'minifour', 'Sarcelle', '0675574453', './public/resto-II.jpeg', '48.7633; 55.27678', '<h3> Entrée <h3/> <p> burger </p>', 17 ),
      ( NULL, 'Brochette', 'Villepinte', '0615104453', './public/resto-III.jpeg', '48.7611; 55.27656', '<h3> Entrée <h3/> <p> soupe </p>', 18 ),
      ( NULL, 'Point B', 'Vert Galant', '0699747453', './public/resto-IIII.jpeg', '48.1132; 55.27659', '<h3> Entrée <h3/> <p> pasta </p>', 19 ),
      ( NULL, 'Le Cap dix', 'Sevran', '0694747453', './public/resto-v.web', '93200', '<h3> Entrée <h3/> <p> crevette </p>', 20 ),
+
+-- ==========================================================================================================================================================
 
      ( NULL, 'O cercle Pizza' 'Suisse' '0605704453', './public/resto-I.jpeg', '48.9898; 48.28996', '<h3> Entrée <h3/> <p> kebab </p>', 21 ),
      ( NULL, 'O Kebab', 'Mandeure', '0675704453', './public/resto-II.jpeg', '48.7677; 55.27676', '<h3> Entrée <h3/> <p> pizza </p>', 22 ),

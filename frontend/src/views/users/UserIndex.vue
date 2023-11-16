@@ -9,7 +9,7 @@
       <p>{{ restaurant.localisation }}</p>
       <p>{{ restaurant.telephone }}</p>
       <a>{{ restaurant.adresse }}</a>
-      <a>{{ restaurant.nom }}</a>
+      <a>{{ restaurant.type_restaurant }}</a>
     </div>
   </div>
 </template>

@@ -1,6 +1,7 @@
 /*******************************/
 /***Import des modules nécessaires */
 import express from "express";
+import typeRestaurantRouter from "./routes/typeRestaurant.js";
 import restaurantRouter from "./routes/restaurant.js";
 import userRouter from "./routes/user.js";
 import cors from 'cors';
@@ -24,6 +25,7 @@ router.use(
 );
 
 router.use("/api/restaurant", restaurantRouter);
+router.use("/api/restaurant/type", typeRestaurantRouter);
 router.use("/api/user", userRouter);
 
 app.listen(port, () => console.log("app running baby"));
