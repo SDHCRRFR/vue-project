@@ -1,6 +1,5 @@
 <template>
   <div class="my-main">
-    <div class="my-img">
       <div class="animated fadeInLeft">
         <a href="#impact">
           <img src="../../../public/resto-I.jpeg" alt="" />
@@ -19,7 +18,6 @@
           <h2>Don</h2>
         </router-link>
       </div>
-    </div>
   </div>
 </template>
 
@@ -42,6 +40,68 @@ a {
 .my-main .my-img {
   flex-direction: row;
 }
+
+
+
+@media screen and (max-width: 1024px) {
+  .my-main {
+    width: 85vw;
+  }
+
+  .animated {
+    height: 26vmin;
+    width: 26vmin;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .my-main {
+    width: 90vw;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+
+  .animated {
+    height: 30vmin;
+    width: calc(50% - 40px);
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .my-main {
+    gap: 35px;
+  }
+
+  .animated {
+    width: 100%;
+    height: 25vmin;
+    font-size: 8px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .my-img {
   width: 100%;

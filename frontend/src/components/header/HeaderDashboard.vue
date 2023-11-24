@@ -129,6 +129,14 @@ h2 {
   padding: 0;
 }
 
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 40px;
+  }
+}
+
+
+
 hgroup {
   padding-bottom: 10px;
   padding-left: 40px;
