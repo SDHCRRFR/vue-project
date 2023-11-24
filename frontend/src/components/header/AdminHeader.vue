@@ -8,7 +8,7 @@
       </div>
       <ul id="icons">
         <li>
-          <router-link to="/user/shop/12">
+          <router-link to="/user/shop">
             <i class="fa-solid fa-utensils"></i>
           </router-link>
         </li>

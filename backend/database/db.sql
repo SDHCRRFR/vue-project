@@ -77,7 +77,7 @@ INSERT INTO tabledecoeur.restaurant VALUES
      ( NULL, 'Le Baobab', '16 Rue Jean paul', '0675764453', './public/resto-III.jpeg', '93200', '<h3> Entrée <h3/> <p> tacos </p>', 3 ),
      ( NULL, 'Chicken Wings', '21 Rue Paul Dukas', '0679704453', './public/resto-IIII.jpeg', '91300', '<h3> Entrée <h3/> <p> crêpe </p>', 4 ),
      ( NULL, 'O Tacos', '21 Traverse des rosier', '0675204453', './public/resto-v.webp', '13014', '<h3> Entrée <h3/> <p> sandwich </p>', 5 ),
-     ( NULL, 'Crepeway', '45 Rue du peuple', '0675504453', './public/resto-IIIII.jpeg', '93270', '<h3> Entrée <h3/> <p> assiette kebab </p>', 6 ),
+     ( NULL, 'Crepeway', '45 Rue du peuple', '0675504453', './public/resto-IIII.jpeg', '93270', '<h3> Entrée <h3/> <p> assiette kebab </p>', 6 );
      ( NULL, 'O minifour', '31 Rue de Marseille', '0675774453', './public/resto-II.jpeg', '95200', '<h3> Entrée <h3/> <p> burger </p>', 7 ),
      ( NULL, 'O Brochetti', '06 Rue des Egalades', '0615704453', './public/resto-III.jpeg', '75018', '<h3> Entrée <h3/> <p> poulet </p>', 8 ),
      ( NULL, 'Nabab', '66 Rue des combattants', '0699744453', './public/resto-IIII.jpeg', '75012', '<h3> Entrée <h3/> <p> pasta </p>', 9 ),
@@ -85,16 +85,16 @@ INSERT INTO tabledecoeur.restaurant VALUES
 
     --  =========================================================================================================================
 
-     ( NULL, 'pizzaKebab' 'Blanc-Mesnil' '0615703453', './public/resto-I.jpeg', '48.9698; 48.28995', '<h3> Entrée <h3/> <p> tacos - kebab </p>', 11 ),
-     ( NULL, 'TheKebab', 'Drancy', '0675704453', './public/resto-II.jpeg', '48.7676; 55.27676', '<h3> Entrée <h3/> <p> variétés </p>', 12 ),
-     ( NULL, 'Snack ', 'Oparinor', '0675714453', './public/resto-III.jpeg', '48.7675; 55.27677', '<h3> Entrée <h3/> <p> tacos </p>', 13 ),
-     ( NULL, 'Chicken Frieds', 'Le Bourget', '0775704453', './public/resto-IIII.jpeg', '48.7666; 55.27673', '<h3> Entrée <h3/> <p> crêpe </p>', 14 ),
-     ( NULL, 'Tacos', 'La courneuve', '0675794453', './public/resto-v.webp', '48.7679; 55.27674', '<h3> Entrée <h3/> <p> sandwich </p>', 15 ),
-     ( NULL, 'Crepeway', 'MontCornet', '0625704453', './public/resto-I.jpeg', '48.7653; 55.27683', '<h3> Entrée <h3/> <p> assiette kebab </p>', 16 ),
-     ( NULL, 'minifour', 'Sarcelle', '0675574453', './public/resto-II.jpeg', '48.7633; 55.27678', '<h3> Entrée <h3/> <p> burger </p>', 17 ),
-     ( NULL, 'Brochette', 'Villepinte', '0615104453', './public/resto-III.jpeg', '48.7611; 55.27656', '<h3> Entrée <h3/> <p> soupe </p>', 18 ),
-     ( NULL, 'Point B', 'Vert Galant', '0699747453', './public/resto-IIII.jpeg', '48.1132; 55.27659', '<h3> Entrée <h3/> <p> pasta </p>', 19 ),
-     ( NULL, 'Le Cap dix', 'Sevran', '0694747453', './public/resto-v.web', '93200', '<h3> Entrée <h3/> <p> crevette </p>', 20 );
+     ( NULL, 'pizzaKebab' '21 rue Louis Blanc' '0615703453', './public/resto-I.jpeg', '75010', '<h3> Entrée <h3/> <p> tacos - kebab </p>', 11 ),
+     ( NULL, 'TheKebab', 'Drancy', '0675704453', './public/resto-II.jpeg', '75001', '<h3> Entrée <h3/> <p> variétés </p>', 12 ),
+     ( NULL, 'Snack ', 'Oparinor', '0675714453', './public/resto-III.jpeg', '75002', '<h3> Entrée <h3/> <p> tacos </p>', 13 ),
+     ( NULL, 'Chicken Frieds', 'Le Bourget', '0775704453', './public/resto-IIII.jpeg', '75003', '<h3> Entrée <h3/> <p> crêpe </p>', 14 ),
+     ( NULL, 'Tacos', 'La courneuve', '0675794453', './public/resto-v.webp', '75004', '<h3> Entrée <h3/> <p> sandwich </p>', 15 ),
+     ( NULL, 'Crepeway', 'MontCornet', '0625704453', './public/resto-I.jpeg', '75005', '<h3> Entrée <h3/> <p> assiette kebab </p>', 16 ),
+     ( NULL, 'minifour', 'Sarcelle', '0675574453', './public/resto-II.jpeg', '75006', '<h3> Entrée <h3/> <p> burger </p>', 17 ),
+     ( NULL, 'Brochette', 'Villepinte', '0615104453', './public/resto-III.jpeg', '75007', '<h3> Entrée <h3/> <p> soupe </p>', 18 ),
+     ( NULL, 'Point B', 'Vert Galant', '0699747453', './public/resto-IIII.jpeg', '75008', '<h3> Entrée <h3/> <p> pasta </p>', 19 ),
+     ( NULL, 'Le Cap dix', 'Sevran', '0694747453', './public/resto-v.web', '75009', '<h3> Entrée <h3/> <p> crevette </p>', 20 );
 
 -- ==========================================================================================================================================================
 

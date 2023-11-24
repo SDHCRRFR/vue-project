@@ -42,7 +42,7 @@
 
 <script>
 export default {
-  name: 'RestaurantId',
+  name: 'RestaurantIdUser',
   props: ['id'],
   data() {
     return {

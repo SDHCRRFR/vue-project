@@ -17,7 +17,9 @@
               @blur="v$.nom.$touch"
             />
 
-            <span v-for="error of v$.nom.$errors" :key="error.$uid"> {{ error.$message }} </span>
+            <span v-for="error of v$.nom.$errors" :key="error.$uid">
+              {{ error.$message }}
+            </span>
 
             <input
               type="email"

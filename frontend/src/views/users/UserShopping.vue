@@ -1,6 +1,6 @@
 <template>
   <div class="user_shop">
-    <h1>Sélection table de coeur</h1>
+    <h1>{{ title }}</h1>
     <div class="container">
       <div class="container_card">
         <div class="container_box"></div>
@@ -31,6 +31,7 @@
     </div>
     <hr />
     <TheWelcome />
+    <hr />
   </div>
 </template>
 
@@ -40,7 +41,9 @@ export default {
   name: 'UserShopping',
   components: { TheWelcome },
   data() {
-    return {}
+    return {
+      title: 'La selection Table de coeur'
+    }
   }
 }
 </script>
@@ -126,5 +129,12 @@ h3 {
 img {
   width: 100%;
   border-radius: 5px;
+}
+
+/* media query */
+@media screen and (max-width: 1460px) {
+  .user_shop {
+    width: 90%;
+  }
 }
 </style>

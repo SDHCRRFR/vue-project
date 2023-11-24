@@ -1,3 +1,44 @@
+<script>
+export default {
+  name: 'TheWelcome',
+  data: () => {
+    return {
+      data: [],
+      searchKey: ''
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      fetch('http://localhost:3000/api/restaurant')
+        .then((response) => {
+          console.log(response)
+          if (!response.ok) {
+            throw new Error('Erreur lors de la récupération des données')
+          }
+          return response.json()
+        })
+        .then((data) => {
+          this.data = data.data
+          console.log(data)
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+    }
+  },
+  computed: {
+    filteredList() {
+      return this.data.filter((product) => {
+        return product.nom.toLowerCase().includes(this.searchKey.toLowerCase())
+      })
+    }
+  }
+}
+</script>
+
 <template>
   <div class="home-container" id="home">
     <!-- search display -->
@@ -18,95 +59,30 @@
     <!-- cards display -->
     <div class="card-cart-container">
       <div class="card-container">
-        <!-- <router-link to="/restaurant/12"> -->
-        <div v-for="product in data" class="card" v-bind:key="product.id">
-          <div class="image-container">
-            <img v-bind:src="product.logo_url" alt="" v-bind:id="data" />
-          </div>
-
-          <div class="card-text">
-            <h3>{{ product.nom }}</h3>
-            <span>{{ product.telephone }}€</span>
-          </div>
-          <p>{{ product.adresse }}</p>
-          <div class="card-icons">
-            <div class="like-container">
-              <input
-                type="checkbox"
-                name="checkbox"
-                v-bind:id="product.id"
-                :value="product.id"
-                v-model="liked"
-                @click="setLikeCookie()"
-              />
-
-              <label v-bind:for="product.id">
-                <!-- <i class="fas fa-heart"></i> -->
-                <router-link to="/restaurant/12">
-                  <i class="fa-solid fa-eye"></i>
-                </router-link>
-              </label>
+        <div v-for="product in filteredList" class="card" v-bind:key="product.id">
+          <router-link :to="{ name: 'restaurants', params: { id: product.id } }">
+            <div class="image-container">
+              <img v-bind:src="product.img" alt="" v-bind:id="data" />
             </div>
 
-            <div class="add-to-cart">
-              <button v-on:click="addToCart(product)">
-                <i class="fas fa-shopping-cart"></i>
-              </button>
+            <div class="card-text">
+              <h3>{{ product.nom }}</h3>
+              <span>{{ product.code_postale }}</span>
             </div>
-          </div>
+            <p>{{ product.address }}</p>
+            <div class="card-icons">
+              <div class="like-container">
+                <p>{{ product.adresse }}</p>
+              </div>
+            </div>
+          </router-link>
         </div>
-        <!-- </router-link> -->
-
         <!-- no result message -->
         <div v-if="filteredList.length == []" class="no-result">
           <h3>Désolé</h3>
           <p>Aucun résultat trouvé</p>
         </div>
       </div>
-
-      <!-- cart display -->
-
-      <transition-group name="cart-anim">
-        <div v-if="cart.length > 0" class="shopping-cart" id="shopping-cart">
-          <h2>Panier</h2>
-
-          <div class="item-group">
-            <div v-for="product in cart" :key="product.id" class="item">
-              <div class="img-container">
-                <img v-bind:src="product.img" alt="" />
-              </div>
-
-              <div class="item-description">
-                <h4>{{ product.telephone }}</h4>
-                <p>{{ product.adresse }}$</p>
-              </div>
-
-              <div class="item-quantity">
-                <h6>quantité : {{ product.localisation }}</h6>
-
-                <div class="cart-icons">
-                  <button v-on:click="cartPlusOne(product)">
-                    <i class="fa fa-plus"></i>
-                  </button>
-                  <button @:click="cartMinusOne(product)">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button @click="cartRemoveItem(product.id)">
-                    <i class="fa fa-trash"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="grand-total">
-            <div class="total">
-              <h2>Total</h2>
-              <h2>{{ cartTotalAmount }}€</h2>
-            </div>
-            <h6>Total articles : {{ itemTotalAmount }}</h6>
-          </div>
-        </div>
-      </transition-group>
     </div>
     <transition name="cart-anim"></transition>
     <div class="management">
@@ -138,101 +114,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'TheWelcome',
-  data: () => {
-    return {
-      data: [],
-      searchKey: '',
-      liked: [],
-      cart: []
-    }
-  },
-  created() {
-    this.fetchData()
-  },
-  methods: {
-    fetchData() {
-      fetch('http://localhost:3000/api/restaurant')
-        .then((response) => {
-          console.log(response)
-          if (!response.ok) {
-            throw new Error('Erreur lors de la récupération des données')
-          }
-          return response.json()
-        })
-        .then((data) => {
-          this.data = data.data
-          console.log(data)
-        })
-        .catch((error) => {
-          console.error(error)
-        })
-    },
-    addToCart(product) {
-      // si il est déja dans le tableau
-      for (let i = 0; i < this.cart.length; i++) {
-        if (this.cart[i].id === product.id) {
-          return this.cart[i].quantity++
-        }
-      }
-      this.cart.push({
-        id: product.id,
-        img: product.logo_url,
-        description: product.nom,
-        price: product.localisation,
-        quantity: 1
-      })
-    },
-    cartPlusOne(product) {
-      product.quantity = product.quantity + 1
-    },
-    cartMinusOne(product) {
-      // debugger
-      if (product.quantity == 1) {
-        this.cartRemoveItem(product.id)
-      } else {
-        product.quantity = product.quantity - 1
-      }
-    },
-    cartRemoveItem(id) {
-      const indexOfProductToRemove = this.cart.findIndex((product) => product.id === id)
-      if (indexOfProductToRemove !== -1) {
-        this.cart.splice(indexOfProductToRemove, 1)
-      }
-    }
-  },
-  computed: {
-    filteredList() {
-      return this.data.filter((product) => {
-        return product.nom.toLowerCase().includes(this.searchKey.toLowerCase())
-      })
-    },
-    cartTotalAmount() {
-      let total = 0
-      for (let item in this.cart) {
-        total = total + this.cart[item].quantity * this.cart[item].price
-      }
-      return total
-    },
-    itemTotalAmount() {
-      let itemTotal = 0
-      for (let item in this.cart) {
-        itemTotal = itemTotal + this.cart[item].quantity
-      }
-      return itemTotal
-    }
-  }
-}
-</script>
-
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-
 .home-container {
   max-width: 100%;
   margin: 0 auto;
+  padding-top: 100px;
   padding-left: 2.4rem;
 }
 
@@ -250,6 +136,11 @@ header {
   justify-content: space-between;
   gap: 20px;
   padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 .home-container h1 {
@@ -302,7 +193,7 @@ p {
   position: relative;
   box-shadow: 0 0px 6px rgba(51, 51, 51, 0.15);
   transition: 0.2s ease;
-  width: 202px;
+  width: 250px;
 }
 
 @media screen and (max-width: 600px) {
@@ -358,11 +249,15 @@ p {
   border-radius: 4px;
 }
 
+/* ====================================================================================== */
 .home-container .card-cart-container .card-container .card .card-icons {
   display: flex;
+  width: 100%;
   align-items: center;
-  justify-content: space-around;
-  height: 40px;
+  text-align: center;
+  padding: 15px;
+  justify-content: space-between;
+  height: 10px;
 }
 
 .home-container .card-cart-container .card-container .card .card-icons i {
@@ -390,40 +285,6 @@ img {
 
 .home-container .card-cart-container .card-container .card .card-icons .fa-shopping-cart:hover {
   filter: brightness(125%);
-}
-
-.home-container .card-cart-container .card-container .card .card-icons .like-container input {
-  display: none;
-}
-
-.home-container
-  .card-cart-container
-  .card-container
-  .card
-  .card-icons
-  .like-container
-  input:checked
-  + label
-  i {
-  color: #fb2626;
-  animation: heart 1.3s forwards ease;
-}
-
-@keyframes heart {
-  0% {
-    filter: hue-rotate(0deg);
-    transform: scale(1);
-  }
-
-  50% {
-    filter: hue-rotate(-270deg);
-    transform: scale(1.3);
-  }
-
-  100% {
-    filter: hue-rotate(0deg);
-    transform: scale(1);
-  }
 }
 
 .home-container .card-cart-container .card-container .no-result {
@@ -676,7 +537,7 @@ img {
 }
 
 .management {
-  padding-top: 100px;
+  padding-top: 10px;
   width: 100%;
   min-height: 80vh;
   display: flex;

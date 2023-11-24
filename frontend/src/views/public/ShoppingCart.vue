@@ -4,9 +4,7 @@ export default {
   data: () => {
     return {
       data: [],
-      searchKey: '',
-      liked: [],
-      cart: []
+      searchKey: ''
     }
   },
   created() {
@@ -61,35 +59,30 @@ export default {
     <!-- cards display -->
     <div class="card-cart-container">
       <div class="card-container">
-        <!-- <router-link to="/restaurant/12"> -->
         <div v-for="product in data" class="card" v-bind:key="product.id">
-          <div class="image-container">
-            <img v-bind:src="product.img" alt="" v-bind:id="data" />
-          </div>
-
-          <div class="card-text">
-            <h3>{{ product.nom }}</h3>
-            <span>{{ product.code_postale }}</span>
-          </div>
-          <p>{{ product.address }}</p>
-          <div class="card-icons">
-            <div class="like-container">
-              <label v-bind:for="product.id">
-                <!-- <i class="fas fa-heart"></i> -->
-                <router-link to="/restaurant/12">
-                  <i class="fa-solid fa-eye"></i>
-                </router-link>
-              </label>
+          <router-link :to="{ name: 'restaurant', params: { id: product.id } }">
+            <div class="image-container">
+              <img v-bind:src="product.img" alt="" v-bind:id="data" />
             </div>
-            <div class="add-to-cart"></div>
-          </div>
-        </div>
-        <!-- </router-link> -->
 
+            <div class="card-text">
+              <h3>{{ product.nom }}</h3>
+              <span>{{ product.code_postale }}</span>
+            </div>
+            <p>{{ product.address }}</p>
+            <div class="card-icons">
+              <div class="like-container">
+                <label v-bind:for="product.id">
+                  <p>{{ product.adresse }}</p>
+                </label>
+              </div>
+              <div class="add-to-cart"></div>
+            </div>
+          </router-link>
+        </div>
         <!-- no result message -->
       </div>
     </div>
-    <transition name="cart-anim"></transition>
     <div class="management">
       <div class="management_contain">
         <h5>A propos de Table de Coeur</h5>
@@ -145,6 +138,11 @@ header {
   padding: 20px;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .home-container h1 {
   padding-left: 0;
   padding-top: 100px;
@@ -195,7 +193,7 @@ p {
   position: relative;
   box-shadow: 0 0px 6px rgba(51, 51, 51, 0.15);
   transition: 0.2s ease;
-  width: 202px;
+  width: 250px;
 }
 
 @media screen and (max-width: 600px) {
@@ -569,7 +567,7 @@ img {
 }
 
 .management {
-  padding-top: 100px;
+  padding-top: 10px;
   width: 100%;
   min-height: 80vh;
   display: flex;

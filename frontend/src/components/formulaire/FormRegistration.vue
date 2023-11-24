@@ -1,16 +1,39 @@
 <template>
   <section class="form_registration">
     <h2>Formulaire d'inscription</h2>
-    <form action="#" class="form">
+    <form @submit.prevent="submitForm()" class="form">
       <div class="input_box">
         <label>Nom complet</label>
-        <input type="text" placeholder="Votre nom complet" required />
-      </div>
-      <div class="input_box">
-        <label>Addresse Email</label>
-        <input type="text" placeholder="Entrez votre mail" required />
+        <input
+          type="text"
+          id="nom_complet"
+          placeholder="Votre nom complet"
+          name="nom"
+          v-model="v$.nom.$touch"
+          @blur="v$.nom.$touch"
+        />
+
+        <span v-for="error of v$.nom.$errors" :key="error.$uid">
+          {{ error.$message }}
+        </span>
       </div>
 
+      <div class="input_box">
+        <label>Addresse Email</label>
+        <input
+          type="email"
+          id="client_mail"
+          placeholder="Entrez votre mail"
+          name="email"
+          v-model="v$.contact.email.$model"
+        />
+
+        <span v-for="error of v$.contact.email.$errors" :key="error.$uid">
+          {{ error.$message }}
+        </span>
+      </div>
+
+      <!-- ======================================================================== -->
       <div class="column">
         <div class="input_box">
           <label>Numéro de tél</label>
@@ -65,14 +88,54 @@
 
         <input type="text" placeholder="Entrez votre addresse postal" required />
       </div>
-      <button>Soummetre</button>
+      <!-- ================================================================== -->
+      <button type="submit" class="button">Soummetre</button>
     </form>
   </section>
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required, email, minLength } from '@vuelidate/validators'
+
 export default {
-  name: 'FormRegistration'
+  name: 'FormRegistration',
+  setup() {
+    return { v$: useVuelidate() }
+  },
+  data() {
+    return {
+      nom: '',
+      contact: {
+        email: ''
+      }
+    }
+  },
+  validations() {
+    return {
+      nom: {
+        required,
+        minLengthValue: minLength(10),
+        $autoDirty: true,
+        $lazy: true
+      }, // Matches this.firstName
+      contact: {
+        email: {
+          required,
+          email
+        } // Matches this.contact.email
+      }
+    }
+  },
+  methods: {
+    async submitForm() {
+      const isFormCorrect = await this.v$.$validate()
+
+      if (isFormCorrect) {
+        console.log('mes donnee')
+      }
+    }
+  }
 }
 </script>
 
