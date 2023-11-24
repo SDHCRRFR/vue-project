@@ -107,24 +107,7 @@ export default {
           desc: 'Les équipes de Table de coeur collaborent avec 60000 restaurants depuis plus de 12 ans afin de les aider à développer leur activité via des formations gratuites, des prestations de conseil assurées par des experts, et un support client 7 jours sur 7.'
         }
       ],
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      address: ''
-    }
-  },
-  methods: {
-    submitForm() {
-      // Vous pouvez ici envoyer les données du formulaire à un serveur, les traiter localement, etc.
-      console.log({
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
-        phone: this.phone,
-        address: this.address
-      })
-    }
+      }
   },
   components: {
     FormRegistration

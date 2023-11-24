@@ -71,8 +71,6 @@ span {
   opacity: 0;
 }
 
-/* transition */
-
 h1 {
   font-size: 50px;
   width: 400px;

@@ -57,12 +57,10 @@ export default {
   },
   methods: {
     login() {
-      // ici la logique d'envoi des données au serveur
       const formData = {
         email: this.user.email,
         password: this.user.password
       }
-      // Configuration de la requête Fetch
       const requestInfos = new Request('http://localhost:3000/api/user/login', {
         method: 'POST',
         headers: {
@@ -70,8 +68,6 @@ export default {
         },
         body: JSON.stringify(formData)
       })
-
-      // Envoyez la requête au serveur
       fetch(requestInfos)
         .then((data) => data.json())
         .then((data) => {

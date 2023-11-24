@@ -277,27 +277,6 @@ export default {
           img: '../public/resto-I.jpeg',
           address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
         },
-        {
-          id: 40,
-          description: 'Audemars Piguet',
-          price: 870,
-          img: '../public/resto-II.jpeg',
-          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
-        },
-        {
-          id: 41,
-          description: 'Rolex',
-          price: 660,
-          img: '../public/resto-III.jpeg',
-          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
-        },
-        {
-          id: 42,
-          description: 'Rolex',
-          price: 660,
-          img: '../public/resto-III.jpeg',
-          address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
-        }
       ],
       searchKey: '',
       liked: [],

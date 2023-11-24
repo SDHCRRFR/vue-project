@@ -118,12 +118,12 @@ export default {
         minLengthValue: minLength(10),
         $autoDirty: true,
         $lazy: true
-      }, // Matches this.firstName
+      },
       contact: {
         email: {
           required,
           email
-        } // Matches this.contact.email
+        }
       }
     }
   },

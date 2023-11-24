@@ -85,19 +85,19 @@ export default {
         minLengthValue: minLength(10),
         $autoDirty: true,
         $lazy: true
-      }, // Matches this.firstName
+      },
       contact: {
         email: {
           required,
           email
-        } // Matches this.contact.email
+        }
       },
       password: {
         required,
         minLengthValue: minLength(5),
         $autoDirty: true,
         $lazy: true
-      } // Matches this.lastName
+      }
     }
   },
   methods: {
@@ -114,7 +114,6 @@ export default {
         email: this.contact.email,
         password: this.password
       }
-      // config de la requête fetch
       const requestInfos = new Request('http://localhost:3000/api/user/register', {
         method: 'POST',
         headers: {
@@ -122,11 +121,9 @@ export default {
         },
         body: JSON.stringify(formData)
       })
-      // envoie de la reponse au serveur
       fetch(requestInfos)
         .then((data) => data.json())
         .then((data) => {
-          // console.log(data);
           if (data.status === 200) {
             this.$router.push('user/dashboard')
             console.log(data)

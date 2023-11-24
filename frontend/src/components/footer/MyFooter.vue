@@ -32,8 +32,6 @@
           <li><a href="#">Contact</a></li>
         </router-link>
       </ul>
-      <!-- <p>Vous souhaitez inscrire votre restaurant pour rejoindre notre mouvement ?</p>
-      <button type="submit">inscrire mon resto</button> -->
     </footer>
   </div>
 </template>

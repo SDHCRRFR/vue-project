@@ -3,7 +3,6 @@
     <h1>C'est la défaite</h1>
     <div v-for="restaurant in data" :key="restaurant.id" class="container">
       <img :src="restaurant.logo_url" alt="" />
-      <!-- <h2>{{ restaurant.id }}</h2> -->
       <h3>{{ restaurant.nom }}</h3>
       <p>{{ restaurant.adresse }}</p>
       <p>{{ restaurant.localisation }}</p>

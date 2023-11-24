@@ -13,7 +13,6 @@ export default {
   name: 'UserLogout',
   methods: {
     logout() {
-      // accountService.logout()
       this.$router.push('/')
     }
   }

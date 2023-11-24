@@ -41,7 +41,6 @@ export default {
 
 <template>
   <div class="home-container" id="home">
-    <!-- search display -->
     <header>
       <input
         v-model="searchKey"
@@ -55,8 +54,6 @@ export default {
         <span v-if="filteredList.length >= 2">s</span>
       </span>
     </header>
-
-    <!-- cards display -->
     <div class="card-cart-container">
       <div class="card-container">
         <div v-for="product in filteredList" class="card" v-bind:key="product.id">
@@ -77,7 +74,6 @@ export default {
             </div>
           </router-link>
         </div>
-        <!-- no result message -->
         <div v-if="filteredList.length == []" class="no-result">
           <h3>Désolé</h3>
           <p>Aucun résultat trouvé</p>
