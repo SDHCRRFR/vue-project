@@ -135,8 +135,6 @@ h2 {
   }
 }
 
-
-
 hgroup {
   padding-bottom: 10px;
   padding-left: 40px;

@@ -3,6 +3,7 @@
     <div class="fadeInTop" id="container">
       <h1>Sélection Table de coeur</h1>
       <div class="container_card">
+        <!-- ============================================================================= -->
         <div class="card" v-for="item in items" v-bind:key="item.index">
           <router-link to="/restaurant/12">
             <div class="box_img">
@@ -21,6 +22,7 @@
             </div>
           </router-link>
         </div>
+        <!-- ================================================================================ -->
       </div>
     </div>
   </div>
@@ -36,13 +38,13 @@ export default {
           id: 1,
           img: '../../../public/nourriture_salade.jpeg',
           type: 'Francais . terrasse',
-          name: 'La brochette',
+          name: 'Brochette',
           like: 7.0,
           code: 75015,
           price: 30
         },
         {
-          id: 1,
+          id: 2,
           img: '../../../public/resto-II.jpeg',
           type: 'Chinois . intérieur',
           name: 'Le Bistrot',
@@ -51,7 +53,7 @@ export default {
           price: 50
         },
         {
-          id: 1,
+          id: 3,
           img: '../../../public/resto-III.jpeg',
           type: 'Indien . terrasse',
           name: "O'tacos",
@@ -60,13 +62,13 @@ export default {
           price: 37
         },
         {
-          id: 1,
+          id: 4,
           img: '../../../public/resto-IIII.jpeg',
-          type: 'Francais . terrasse',
-          name: 'Le Baobab',
-          like: 4.5,
-          code: 92300,
-          price: 25
+          type: 'Indien . terrasse',
+          name: 'Nabab',
+          like: 5.5,
+          code: 13014,
+          price: 37
         }
       ]
     }
@@ -80,6 +82,55 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 900px) {
+  h2 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container_card {
+    width: 80vw;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .card {
+    height: 26vmin;
+    width: 20vmin;
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .container_card {
+    width: 80vw;
+    flex-wrap: wrap;
+    gap: 500px;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+  .card {
+    height: 80vmin;
+    width: calc(50% - 40px);
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .container_card {
+    gap: 500px;
+  }
+
+  .card {
+    height: 25vmin;
+  }
+}
+
 .user-settings {
   width: 100%;
   min-height: 70vh;

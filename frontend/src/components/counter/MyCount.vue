@@ -1,5 +1,5 @@
 <template>
-  <div class="count_contain">
+  <div class="count_contain" id="impact">
     <h1>PLUS D’1/3 DE LA NOURRITURE PRODUITE EST GASPILLÉE</h1>
     <div class="story">
       <div class="block_story">
@@ -24,7 +24,7 @@
         <p>Le gaspillage alimentaire coûte 1 200 milliard de $ par an.</p>
       </div>
     </div>
-    <div class="wrapper" id="impact">
+    <div class="wrapper">
       <div class="container">
         <span class="num" data-val="999">000</span>
         <span class="people">M+</span>
@@ -233,11 +233,11 @@ h3 {
   .wrapper {
     width: 90vw;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 35px;
   }
 
   .container {
-    height: 30vmin;
+    height: 35vmin;
     width: calc(50% - 40px);
     font-size: 14px;
   }
@@ -252,6 +252,30 @@ h3 {
     width: 100%;
     height: 25vmin;
     font-size: 8px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .story {
+    width: 85vw;
+  }
+
+  .block_story {
+    height: 50vmin;
+    width: 26vmin;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .story {
+    width: 90vw;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .block_story {
+    height: 80vmin;
+    width: calc(50% - 40px);
+    font-size: 14px;
   }
 }
 

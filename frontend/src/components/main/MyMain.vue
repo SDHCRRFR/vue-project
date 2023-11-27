@@ -1,23 +1,23 @@
 <template>
   <div class="my-main">
-      <div class="animated fadeInLeft">
-        <a href="#impact">
-          <img src="../../../public/resto-I.jpeg" alt="" />
-          <h2>Impact</h2>
-        </a>
-      </div>
-      <div class="animated fadeInTop">
-        <router-link to="/shopping-cart">
-          <img src="../../../public/resto-IIII.jpeg" alt="" />
-          <h2>Nos-Restaurant</h2>
-        </router-link>
-      </div>
-      <div class="animated fadeInRight">
-        <router-link to="/user/don/33">
-          <img src="../../../public/ensemble.jpeg" alt="" />
-          <h2>Don</h2>
-        </router-link>
-      </div>
+    <div class="animated fadeInLeft">
+      <a href="#impact">
+        <img src="../../../public/resto-I.jpeg" alt="" />
+        <h2>Impact</h2>
+      </a>
+    </div>
+    <div class="animated fadeInTop">
+      <router-link to="/shopping-cart">
+        <img src="../../../public/resto-IIII.jpeg" alt="" />
+        <h2>Nos-Restaurant</h2>
+      </router-link>
+    </div>
+    <div class="animated fadeInRight">
+      <router-link to="/user/don/33">
+        <img src="../../../public/ensemble.jpeg" alt="" />
+        <h2>Don</h2>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -40,8 +40,6 @@ a {
 .my-main .my-img {
   flex-direction: row;
 }
-
-
 
 @media screen and (max-width: 1024px) {
   .my-main {
@@ -80,28 +78,6 @@ a {
     font-size: 8px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .my-img {
   width: 100%;

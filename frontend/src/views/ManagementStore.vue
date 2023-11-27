@@ -106,8 +106,8 @@ export default {
           title: 'Faites appel aux experts du secteur',
           desc: 'Les équipes de Table de coeur collaborent avec 60000 restaurants depuis plus de 12 ans afin de les aider à développer leur activité via des formations gratuites, des prestations de conseil assurées par des experts, et un support client 7 jours sur 7.'
         }
-      ],
-      }
+      ]
+    }
   },
   components: {
     FormRegistration

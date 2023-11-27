@@ -276,7 +276,7 @@ export default {
           price: 29,
           img: '../public/resto-I.jpeg',
           address: '1 Rue auguste Renoir Aulnay Sous Bois 93600'
-        },
+        }
       ],
       searchKey: '',
       liked: [],

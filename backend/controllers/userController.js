@@ -5,13 +5,12 @@ import argon2 from "argon2";
 
 const register = async (req, res) => {
 
-    // console.log(req.body);
     const bodyHashed = {
       ...req.body,
       password: await argon2.hash(req.body.password),
     };
     
-    // Insérez les données de l'utilisateur dans la base de données
+    // Insértion des données de l'utilisateur dans la base de données
     const insertionResult = await createRegister(bodyHashed);
 
     if(!insertionResult.succes){
