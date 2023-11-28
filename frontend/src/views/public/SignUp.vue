@@ -42,12 +42,12 @@
             <span v-for="error of v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
           </div>
           <button type="submit" class="button">S'inscrire</button>
-          <div class="icon">
+          <!-- <div class="icon">
             <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
             <a href="#"><ion-icon name="logo-snapchat" size="large"></ion-icon></a>
             <a href="#"><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
             <a href="#"><i class="fa-brands fa-square-instagram fa-2xl"></i></a>
-          </div>
+          </div> -->
           <div class="register_link">
             <p>
               Vous avez dêja un compte ?
@@ -164,18 +164,6 @@ h1 {
   gap: 7px;
 }
 
-.icon {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.icon a {
-  text-decoration: none;
-  color: white;
-}
-
 .user_login {
   display: flex;
   justify-content: center;
@@ -220,15 +208,11 @@ form {
 }
 
 span {
-  width: 90%;
-  border-radius: 10px;
-  background: crimson;
-  font-weight: 500;
+  width: 100%;
+  font-weight: 500 bold;
   display: flex;
   justify-content: center;
-  padding: 10px;
   color: white;
-  height: 2vh;
 }
 
 .input_box input::placeholder {

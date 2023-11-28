@@ -31,8 +31,8 @@ export default {
   },
   computed: {
     filteredList() {
-      return this.products.filter((product) => {
-        return product.description.toLowerCase().includes(this.searchKey.toLowerCase())
+      return this.data.filter((product) => {
+        return product.nom.toLowerCase().includes(this.searchKey.toLowerCase())
       })
     }
   }
@@ -56,7 +56,7 @@ export default {
     </header>
     <div class="card-cart-container">
       <div class="card-container">
-        <div v-for="product in data" class="card" v-bind:key="product.id">
+        <div v-for="product in filteredList" class="card" v-bind:key="product.id">
           <router-link :to="{ name: 'restaurant', params: { id: product.id } }">
             <div class="image-container">
               <img v-bind:src="product.img" alt="" v-bind:id="data" />

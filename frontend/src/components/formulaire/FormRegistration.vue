@@ -3,13 +3,13 @@
     <h2>Formulaire d'inscription</h2>
     <form @submit.prevent="submitForm()" class="form">
       <div class="input_box">
-        <label>Nom complet</label>
+        <!-- <label>Nom complet</label> -->
         <input
           type="text"
           id="nom_complet"
-          placeholder="Votre nom complet"
+          placeholder="Votre nom"
+          v-model="v$.nom.$model"
           name="nom"
-          v-model="v$.nom.$touch"
           @blur="v$.nom.$touch"
         />
 
@@ -19,28 +19,34 @@
       </div>
 
       <div class="input_box">
-        <label>Addresse Email</label>
+        <!-- <label>Addresse Email</label> -->
         <input
           type="email"
           id="client_mail"
           placeholder="Entrez votre mail"
           name="email"
           v-model="v$.contact.email.$model"
+          @blur="v$.contact.email.$touch"
         />
-
         <span v-for="error of v$.contact.email.$errors" :key="error.$uid">
           {{ error.$message }}
         </span>
       </div>
 
-      <!-- ======================================================================== -->
       <div class="column">
         <div class="input_box">
-          <label>Numéro de tél</label>
-          <input type="text" placeholder="Entrez votre numéro" required />
+          <!-- <label>Numéro de tél</label> -->
+          <input 
+            type="number"
+            id="number_client"
+            placeholder="Entrez votre numéro" 
+            name="number"
+            v-model="v$.number.$model"
+            />
+
         </div>
         <div class="input_box">
-          <label>Date de naissance</label>
+          <!-- <label>Date de naissance</label> -->
           <input type="text" placeholder="Indiquez votre date de naissance" required />
         </div>
       </div>
@@ -63,7 +69,7 @@
       </div>
 
       <div class="input_box addres">
-        <label>Adresse</label>
+        <!-- <label>Adresse</label> -->
         <div class="column">
           <input type="text" placeholder="Veuillez indiquez votre addresse" required />
           <input type="text" placeholder="Veuillez indiquez votre addresse line 2" required />
@@ -96,7 +102,7 @@
 
 <script>
 import { useVuelidate } from '@vuelidate/core'
-import { required, email, minLength } from '@vuelidate/validators'
+import { required, email, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
   name: 'FormRegistration',
@@ -108,7 +114,8 @@ export default {
       nom: '',
       contact: {
         email: ''
-      }
+      },
+      number: '',
     }
   },
   validations() {
@@ -124,7 +131,14 @@ export default {
           required,
           email
         }
-      }
+      },
+      number: {
+        required,
+        minLengthValue: minLength(10),
+        maxLengthValue: maxLength(10),
+        $autoDirty: true,
+        $lazy: true
+      },
     }
   },
   methods: {
