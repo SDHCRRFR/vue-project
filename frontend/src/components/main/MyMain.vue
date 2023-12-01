@@ -2,13 +2,13 @@
   <div class="my-main">
     <div class="animated fadeInLeft">
       <a href="#impact">
-        <img src="../../../public/resto-I.jpeg" alt="" />
+        <img src="../../../public/nourriture_salade.jpeg" alt="" />
         <h2>Impact</h2>
       </a>
     </div>
     <div class="animated fadeInTop">
       <router-link to="/shopping-cart">
-        <img src="../../../public/resto-IIII.jpeg" alt="" />
+        <img src="../../../public/photo-ethnique.jpg" alt="" />
         <h2>Nos-Restaurant</h2>
       </router-link>
     </div>
