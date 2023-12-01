@@ -11,4 +11,15 @@ const getAllRestaurant = async () => {
     }
 };
 
-export {getAllRestaurant};
+const getOneRestaurantById = async (id) => {
+    const myrequete = `
+    select restaurant.* from tabledecoeur.restaurant WHERE restaurant.id = :id;`;
+    try {
+        const [result] = await connect.query(myrequete, { id: id});
+        return result;
+    } catch (error) {
+        return error;
+    }
+};
+
+export {getAllRestaurant, getOneRestaurantById};

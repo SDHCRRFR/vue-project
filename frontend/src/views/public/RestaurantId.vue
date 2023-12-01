@@ -5,7 +5,7 @@
     <div class="container_block">
       <div class="container_txt">
         <!-- <h1>{{ item.restaurantDetails }}</h1> -->
-        <h2>détails du restaurant {{ id }}</h2>
+        <h2>{{ restaurantDetails.nom }}</h2>
         <hr />
         <div class="block">
           <i class="fa-solid fa-location-crosshairs"></i>
@@ -46,7 +46,7 @@ export default {
   props: ['id'],
   data() {
     return {
-      restaurantDetails: []
+      restaurantDetails: {}
     }
   },
   created() {
