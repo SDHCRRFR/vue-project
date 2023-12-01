@@ -17,7 +17,8 @@ const login = async (req, res) => {
     return res.status(401).json({ message: 'Mot de passe incorrect', status: 401 });
   }
   // Si
-  res.status(200).json({ message: 'Connexion réussie', status: 200 });
+  
+  res.status(200).json({ message: 'Connexion réussie', status: 200, data: user});
 };
 
 

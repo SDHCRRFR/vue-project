@@ -7,6 +7,7 @@ import * as User from '@/views/users'
 // ===========================================================)->
 
 import UserLogin from '@/views/public/UserLogin.vue'
+import UserLogout from '@/views/UserLogout.vue'
 import SignUp from '@/views/public/SignUp.vue'
 import ManagementStore from '@/views/ManagementStore.vue'
 import ManagementHelp from '@/views/public/ManagementHelp.vue'
@@ -28,12 +29,7 @@ const router = createRouter({
       children: [
         { path: '/', name: 'home', component: Public.HomeView },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
-        {
-          path: '/restaurant/:id',
-          name: 'restaurant',
-          component: Public.RestaurantId,
-          props: true
-        },
+        { path: '/restaurant/:id', name: 'restaurant', component: Public.RestaurantId, props: true },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },
@@ -43,7 +39,8 @@ const router = createRouter({
       beforeEnter: authGuard,
       path: '/admin/dashboard',
       name: 'AdminDashboard',
-      component: AdminDashboard
+      component: AdminDashboard,
+      props: true
     },
     {
       path: '/user',
@@ -61,9 +58,9 @@ const router = createRouter({
         },
         { path: 'index/:id(\\d+)', name: 'user-index', component: User.UserIndex, props: true },
         { path: 'don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true },
-        { path: 'logout', name: 'UserLogout', component: User.UserLogout }
       ]
     },
+    { path: '/logout', name: 'UserLogout', component: UserLogout },
     { path: '/management', name: 'ManagementStore', component: ManagementStore },
     { path: '/management/help', name: 'ManagementHelp', component: ManagementHelp },
     { path: '/:pathMatch(.*)*', component: NotFound }

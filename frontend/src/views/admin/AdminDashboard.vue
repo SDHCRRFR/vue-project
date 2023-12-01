@@ -7,13 +7,7 @@
         </div>
         <ul id="icons">
           <li>
-            <router-link to="/user/shop/13"> </router-link>
-          </li>
-          <li>
-            <router-link to="/user/shop/13"> </router-link>
-          </li>
-          <li>
-            <router-link to="/user/logout">
+            <router-link to="/logout">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </router-link>
           </li>
@@ -22,7 +16,7 @@
     </nav>
     <div class="container">
       <h4>
-        Administration <span><i class="fa-solid fa-gear"></i> </span>
+        Bienvenue ! <span><i class="fa-solid fa-gear"></i> </span>
       </h4>
       <hr />
       <div class="container_block">
@@ -44,12 +38,12 @@
 <script>
 export default {
   name: 'AdminDashboard',
+  props: ['name'],
   data() {
     return {}
   },
-
   mounted() {
-    this.changeNavigationState('home')
+    console.log('Je suis monté sur le dom');
   },
 
   methods: {}

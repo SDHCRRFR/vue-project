@@ -21,7 +21,7 @@
           <router-link to="/user/index/13"><i class="fa-solid fa-gear"></i> </router-link>
         </li>
         <li>
-          <router-link to="/user/logout">
+          <router-link to="/logout">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </router-link>
         </li>

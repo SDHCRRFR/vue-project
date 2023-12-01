@@ -1,6 +1,6 @@
 <template>
   <div class="logout">
-    <img src="../../assets/logosaid.svg" class="image" />
+    <img src="../assets/logosaid.svg" class="image" />
     <div class="block_logout">
       <h1>Are you sure you want to sign out?</h1>
       <button type="submit" @click="logout()">Sign Out</button>
@@ -9,10 +9,18 @@
 </template>
 
 <script>
+import { useUserStore } from '@/stores/counter'
+
 export default {
   name: 'UserLogout',
+  data() {
+    return {
+      userStore: useUserStore()
+    }
+  },
   methods: {
     logout() {
+      this.userStore.setUser(null)
       this.$router.push('/')
     }
   }

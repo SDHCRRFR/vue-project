@@ -36,14 +36,13 @@
       <div class="column">
         <div class="input_box">
           <!-- <label>Numéro de tél</label> -->
-          <input 
+          <input
             type="number"
             id="number_client"
-            placeholder="Entrez votre numéro" 
+            placeholder="Entrez votre numéro"
             name="number"
             v-model="v$.number.$model"
-            />
-
+          />
         </div>
         <div class="input_box">
           <!-- <label>Date de naissance</label> -->
@@ -102,6 +101,7 @@
 
 <script>
 import { useVuelidate } from '@vuelidate/core'
+// import parsePhoneNumber from 'libphonenumber-js'
 import { required, email, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
@@ -115,7 +115,7 @@ export default {
       contact: {
         email: ''
       },
-      number: '',
+      number: ''
     }
   },
   validations() {
@@ -138,7 +138,7 @@ export default {
         maxLengthValue: maxLength(10),
         $autoDirty: true,
         $lazy: true
-      },
+      }
     }
   },
   methods: {

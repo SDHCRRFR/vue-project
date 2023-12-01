@@ -59,7 +59,7 @@ export default {
         <div v-for="product in filteredList" class="card" v-bind:key="product.id">
           <router-link :to="{ name: 'restaurant', params: { id: product.id } }">
             <div class="image-container">
-              <img v-bind:src="product.img" alt="" v-bind:id="data" />
+              <img v-bind:src="`http://localhost:3000/${product.img}`" alt="" v-bind:id="product.id" />
             </div>
 
             <div class="card-text">

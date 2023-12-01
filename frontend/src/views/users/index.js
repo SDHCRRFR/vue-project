@@ -5,7 +5,6 @@ import FaireUnDon from './FaireUnDon.vue'
 import UserShopping from './UserShopping.vue'
 import RestaurantIdUser from './RestaurantIdUser.vue'
 import UserIndex from './UserIndex.vue'
-import UserLogout from './UserLogout.vue'
 
 export {
   UserLayout,
@@ -14,5 +13,4 @@ export {
   UserIndex,
   UserShopping,
   RestaurantIdUser,
-  UserLogout
 }

@@ -1,5 +1,14 @@
 <template>
   <div class="container_sign">
+    <nav>
+      <div class="nav-container">
+        <div id="logo">
+          <router-link to="/">
+            <img class="logo" src="../../assets/logosaid.svg" alt="logo" />
+          </router-link>
+        </div>
+      </div>
+    </nav>
     <div class="user_login">
       <div class="wrapper">
         <form @submit.prevent="submitForm()" name="submitForm">
@@ -42,12 +51,6 @@
             <span v-for="error of v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
           </div>
           <button type="submit" class="button">S'inscrire</button>
-          <!-- <div class="icon">
-            <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
-            <a href="#"><ion-icon name="logo-snapchat" size="large"></ion-icon></a>
-            <a href="#"><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
-            <a href="#"><i class="fa-brands fa-square-instagram fa-2xl"></i></a>
-          </div> -->
           <div class="register_link">
             <p>
               Vous avez dêja un compte ?
@@ -142,6 +145,23 @@ h1 {
   color: white;
 }
 
+nav {
+  padding: 0rem 2.4rem;
+  background: transparent;
+  border: 2px solid gainsboro;
+  position: fixed;
+  width: 95%;
+  z-index: 1;
+  box-shadow: 0 2px 4px -3px rgba(51, 51, 51, 0.2);
+}
+
+nav .nav-container {
+  display: flex;
+  align-items: center;
+  max-width: 1450px;
+  height: 10vh;
+}
+
 .pics {
   width: 100px;
 }
@@ -162,6 +182,11 @@ h1 {
   min-height: 20vh;
   padding: 0px;
   gap: 7px;
+}
+
+.logo {
+  height: 50px;
+  align-items: flex-start;
 }
 
 .user_login {

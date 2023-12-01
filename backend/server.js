@@ -15,7 +15,7 @@ const port = 3000;
 const router = express.Router();
 app.use(router);
 router.use(express.json());
-
+router.use(express.static('public'));
 
 // CORS
 router.use(

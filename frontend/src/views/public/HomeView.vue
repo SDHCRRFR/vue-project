@@ -1,5 +1,6 @@
 <script setup>
 import MyHeader from '@/components/header/MyHeader.vue'
+// import Pinia from '@/components/Pinia.vue'
 import MyMain from '@/components/main/MyMain.vue'
 import { ref } from 'vue'
 import MyProduct from '@/components/products/MyProduct.vue'
@@ -13,6 +14,7 @@ const show = ref(true)
 <template>
   <div class="home-view">
     <MyHeader />
+    <!-- <Pinia/> -->
     <hr class="transition_hr" @mouseover="show = !show" />
     <Transition name="slide-fade">
       <div v-if="show" class="home">

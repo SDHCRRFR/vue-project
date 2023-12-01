@@ -1,7 +1,17 @@
 <template>
   <div class="connect_">
+    <nav>
+      <div class="nav-container">
+        <div id="logo">
+          <router-link to="/">
+            <img class="logo" src="../../assets/logosaid.svg" alt="logo" />
+          </router-link>
+        </div>
+      </div>
+    </nav>
     <div class="user_login">
       <div class="wrapper">
+        {{ connect }}
         <form @submit.prevent="login()">
           <div class="box_logo">
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
@@ -45,14 +55,18 @@
 </template>
 
 <script>
+import { useUserStore } from '@/stores/counter'
+
 export default {
   name: 'UserLogin',
   data() {
     return {
+      userStore: useUserStore(),
       user: {
         email: '',
         password: ''
-      }
+      },
+      connect: '',
     }
   },
   methods: {
@@ -73,10 +87,16 @@ export default {
         .then((data) => {
           console.log(data.status)
           if (data.status === 200) {
-            this.$router.push('user/dashboard')
-            console.log(data)
+            // userStore.setUser({id: 1, nom: 'cmoicool'})
+            this.userStore.setUser(data.data)
+            if(this.userStore.user.role_id === 2) {
+              this.$router.push('admin/dashboard')
+            }else {
+              this.$router.push('user/dashboard')
+              console.log(data)
+            }
           } else {
-            console.log(data)
+            this.connect = 'identifiant incorrect';
           }
         })
         .catch((error) => console.error(error))
@@ -105,6 +125,28 @@ a:visited {
 
 .link {
   color: white;
+}
+
+nav {
+  padding: 0rem 2.4rem;
+  background: transparent;
+  border: 2px solid gainsboro;
+  position: fixed;
+  width: 95%;
+  z-index: 1;
+  box-shadow: 0 2px 4px -3px rgba(51, 51, 51, 0.2);
+}
+
+nav .nav-container {
+  display: flex;
+  align-items: center;
+  max-width: 1450px;
+  height: 10vh;
+}
+
+.logo {
+  height: 50px;
+  align-items: flex-start;
 }
 
 .box_logo {

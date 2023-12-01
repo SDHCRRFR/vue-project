@@ -125,7 +125,6 @@ export default {
   .container_card {
     gap: 500px;
   }
-
   .card {
     height: 25vmin;
   }
@@ -143,6 +142,7 @@ export default {
   width: 80%;
   display: flex;
   text-align: left;
+  padding: 20px;
   gap: 30px;
   flex-direction: column;
 }
@@ -208,6 +208,10 @@ span {
   display: flex;
   justify-content: space-between;
   gap: 4px;
+}
+
+#container {
+  border: 1px solid black;
 }
 
 .fadeInTop {
