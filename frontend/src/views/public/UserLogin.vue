@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { useUserStore } from '@/stores/counter'
+import { useUserStore } from '@/stores/connexion/user'
 
 export default {
   name: 'UserLogin',
@@ -66,7 +66,7 @@ export default {
         email: '',
         password: ''
       },
-      connect: '',
+      connect: ''
     }
   },
   methods: {
@@ -89,14 +89,14 @@ export default {
           if (data.status === 200) {
             // userStore.setUser({id: 1, nom: 'cmoicool'})
             this.userStore.setUser(data.data)
-            if(this.userStore.user.role_id === 2) {
+            if (this.userStore.user.role_id === 2) {
               this.$router.push('admin/dashboard')
-            }else {
+            } else {
               this.$router.push('user/dashboard')
               console.log(data)
             }
           } else {
-            this.connect = 'identifiant incorrect';
+            this.connect = 'identifiant incorrect'
           }
         })
         .catch((error) => console.error(error))
@@ -256,3 +256,4 @@ nav .nav-container {
   text-decoration: underline;
 }
 </style>
+@/stores/connexion/counter

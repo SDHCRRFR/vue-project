@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { useUserStore } from '@/stores/counter'
+import { useUserStore } from '@/stores/connexion/user'
 
 export default {
   name: 'UserLogout',
@@ -72,3 +72,4 @@ button:hover {
   border: 1px solid black;
 }
 </style>
+@/stores/connexion/counter

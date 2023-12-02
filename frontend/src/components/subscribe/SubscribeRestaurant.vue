@@ -4,7 +4,7 @@
       <h1>Êtes-vous un restaurateur ?</h1>
       <div class="subscribe_block">
         <div class="subscribe_img">
-          <img src="../../../public/resto-I.jpeg" alt="" />
+          <img src="../../../public/nourriture_salade.jpeg" alt="" />
         </div>
         <div class="subscribe_txt">
           <h2>Inscrivez votre restaurant</h2>

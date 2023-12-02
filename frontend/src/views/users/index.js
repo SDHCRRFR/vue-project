@@ -6,11 +6,4 @@ import UserShopping from './UserShopping.vue'
 import RestaurantIdUser from './RestaurantIdUser.vue'
 import UserIndex from './UserIndex.vue'
 
-export {
-  UserLayout,
-  UserDashboard,
-  FaireUnDon,
-  UserIndex,
-  UserShopping,
-  RestaurantIdUser,
-}
+export { UserLayout, UserDashboard, FaireUnDon, UserIndex, UserShopping, RestaurantIdUser }

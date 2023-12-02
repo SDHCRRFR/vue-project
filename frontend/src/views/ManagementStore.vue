@@ -24,7 +24,7 @@
             les commissions sont basées sur le nombre de couverts réservés et honorés.
           </p>
 
-          <img src="../../public/resto-II.jpeg" class="images" alt="" />
+          <img src="../../public/background-crimson.jpeg" class="images" alt="" />
         </div>
         <div class="block_II">
           <FormRegistration />

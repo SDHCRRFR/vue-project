@@ -17,7 +17,7 @@
         <hr />
         <div class="block">
           <i class="fa-solid fa-utensils"></i>
-          <p>Français - Terrasse</p>
+          <p>{{ restaurantDetails.type_restaurant_id }} - Terrasse</p>
         </div>
         <hr />
         <div class="block">

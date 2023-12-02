@@ -43,7 +43,7 @@ export default {
     return {}
   },
   mounted() {
-    console.log('Je suis monté sur le dom');
+    console.log('Je suis monté sur le dom')
   },
 
   methods: {}
