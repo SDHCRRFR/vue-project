@@ -77,10 +77,15 @@ export default {
                   <p>{{ product.adresse }}</p>
                 </label>
               </div>
-              <div class="add-to-cart"></div>
             </div>
           </router-link>
         </div>
+
+        <div v-if="filteredList.length == []" class="no-result">
+          <h3>Désolé</h3>
+          <p>Aucun résultat trouvé</p>
+        </div>
+        
       </div>
     </div>
     <div class="management">

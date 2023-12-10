@@ -1,6 +1,6 @@
 <template>
   <div class="formulaire_info">
-    <form action="#" class="form" @submit.prevent="submit">
+    <form class="form" @submit.prevent="submitForm()">
       <h1>On en discute ?</h1>
       <p>
         Vous êtes un restaurateur et souhaitez en savoir plus sur Table de coeur ? Remplissez vos
@@ -8,22 +8,61 @@
       </p>
       <div class="column">
         <div class="input_box">
-          <input type="text" placeholder="Votre Prénom" required />
+          <input
+            type="text"
+            id="nom"
+            placeholder="Votre nom complet"
+            v-model="v$.nom.$model"
+            name="nom"
+            @blur="v$.nom.$touch"
+          />
+          <span v-for="error of v$.nom.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
         </div>
         <div class="input_box">
-          <input type="text" placeholder="Votre Prénom" required />
+          <input
+            type="text"
+            id="prenom"
+            placeholder="Votre Prénom"
+            v-model="v$.prenom.$model"
+            name="prenom"
+            @blur="v$.prenom.$touch"
+          />
+          <span v-for="error of v$.prenom.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
         </div>
       </div>
       <div class="input_box">
-        <input type="text" placeholder="Entrez votre mail" required />
+        <input
+          type="email"
+          id="client_mail"
+          placeholder="Entrez votre mail"
+          name="email"
+          v-model="v$.email.$model"
+          @blur="v$.email.$touch"
+        />
+        <span v-for="error of v$.email.$errors" :key="error.$uid">
+          {{ error.$message }}
+        </span>
       </div>
       <div class="column">
         <div class="input_box">
-          <input type="text" placeholder="Entrez votre numéro" required />
+          <input
+            type="text"
+            id="number"
+            placeholder="Entrez votre numéro"
+            name="number"
+            v-model="v$.number.$model"
+          />
+          <span v-for="error of v$.number.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
         </div>
       </div>
       <div class="remember_forgot">
-        <label><input type="checkbox" /></label>
+        <input type="checkbox" name="picked" />
         <p>En cliquant sur "Suivant" j'accepte la Politique de confidentialité de TheFork.</p>
       </div>
       <button type="submit">Envoyez</button>
@@ -33,8 +72,60 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required, email, minLength, maxLength } from '@vuelidate/validators'
+
 export default {
-  name: 'FormulaireInfo'
+  name: 'FormulaireInfo',
+  setup() {
+    return { v$: useVuelidate() }
+  },
+  data() {
+    return {
+      nom: '',
+      prenom: '',
+      email: '',
+      number: ''
+    }
+  },
+  validations() {
+    return {
+      nom: {
+        required,
+        $message: 'veuillez indiquez votre nom complet !',
+        minLengthValue: minLength(10),
+        $autoDirty: true,
+        $lazy: true
+      },
+      prenom: {
+        required,
+        $message: 'veuillez indiquez votre prénom !',
+        minLengthValue: minLength(10),
+        $autoDirty: true,
+        $lazy: true
+      },
+      email: {
+        required,
+        email
+      },
+      number: {
+        required,
+        minLengthValue: minLength(10),
+        maxLength: maxLength(10),
+        $autoDirty: true,
+        $lazy: true
+      }
+    }
+  },
+  methods: {
+    async submitForm() {
+      const isFormCorrect = await this.v$.$validate()
+
+      if (isFormCorrect) {
+        console.log('mes donnee' + isFormCorrect)
+      }
+    }
+  }
 }
 </script>
 
@@ -95,7 +186,7 @@ img {
 .remember_forgot {
   display: flex;
   width: 90%;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   font-size: 20px;
 }

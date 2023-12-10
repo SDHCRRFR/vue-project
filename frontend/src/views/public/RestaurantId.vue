@@ -4,16 +4,11 @@
     <h1>RESTAURANT</h1>
     <div class="container_block">
       <div class="container_txt">
-        <!-- <h1>{{ item.restaurantDetails }}</h1> -->
         <h2>{{ restaurantDetails.nom }}</h2>
         <hr />
         <div class="block">
           <i class="fa-solid fa-location-crosshairs"></i>
-          <!-- <a
-            href="https://www.google.com/maps/place/Quai+Gallieni,+92150+Suresnes/@48.8704791,2.2319365,17z/data=!3m1!4b1!4m6!3m5!1s0x47e664d868b02a05:0x764ae9196d83627a!8m2!3d48.8704791!4d2.2319365!16s%2Fg%2F1tqf_n0g?entry=ttu"
-            >Quai Gallieni, 92150 Suresnes - <strong>Métro 5 et 6</strong></a
-          > -->
-          <a href="googlemaps.com">{{ restaurantDetails.adresse }} {{ restaurantDetails.code_postale }}</a>
+          <a>{{ restaurantDetails.adresse }} {{ restaurantDetails.code_postale }}</a>
         </div>
         <hr />
         <div class="block">
@@ -38,10 +33,10 @@
       </div>
       <div class="caroussel">
         <img
-           v-bind:src="`http://localhost:3000/${restaurantDetails.img}`"
-           alt=""
-           v-bind:id="restaurantDetails.id"
-         />
+          v-bind:src="`http://localhost:3000/${restaurantDetails.img}`"
+          alt=""
+          v-bind:id="restaurantDetails.id"
+        />
       </div>
     </div>
   </div>

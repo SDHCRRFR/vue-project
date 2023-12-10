@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useUserStore } from '@/stores/connexion/user';
 // ==========================================================)->
 import AdminDashboard from '@/views/admin/AdminDashboard.vue'
 import * as Public from '@/views/public'
@@ -13,11 +14,7 @@ import ManagementStore from '@/views/ManagementStore.vue'
 import ManagementHelp from '@/views/public/ManagementHelp.vue'
 import NotFound from '@/views/NotFound.vue'
 
-// ===============================================)->
-
-import { authGuard } from '@/_helpers/auth-guard'
-localStorage.setItem('token', 'marcel')
-// =======================================================
+// ============================================================)->
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,38 +26,28 @@ const router = createRouter({
       children: [
         { path: '/', name: 'home', component: Public.HomeView },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
-        {
-          path: '/restaurant/:id',
-          name: 'restaurant',
-          component: Public.RestaurantId,
-          props: true
-        },
+        { path: '/restaurant/:id', name: 'restaurant', component: Public.RestaurantId, props: true },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },
     { path: '/login', name: 'user-login', component: UserLogin },
     { path: '/signup', name: 'SignUp', component: SignUp },
-    {
-      beforeEnter: authGuard,
-      path: '/admin/dashboard',
-      name: 'AdminDashboard',
-      component: AdminDashboard,
-      props: true
+    { 
+      path: '/admin/dashboard', 
+      name: 'AdminDashboard', 
+      component: AdminDashboard, 
+      props: true,
+      meta: { requiresAuth: true } 
     },
     {
       path: '/user',
       name: 'user',
-      beforeEnter: authGuard,
       component: User.UserLayout,
+      meta: { requiresAuth: true } ,
       children: [
         { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
-        { path: 'shop/', name: 'user-shopping', component: User.UserShopping },
-        {
-          path: 'restaurants/:id',
-          name: 'restaurants',
-          component: User.RestaurantIdUser,
-          props: true
-        },
+        { path: 'shop', name: 'user-shopping', component: User.UserShopping },
+        { path: 'restaurants/:id', name: 'restaurants', component: User.RestaurantIdUser, props: true },
         { path: 'index/:id(\\d+)', name: 'user-index', component: User.UserIndex, props: true },
         { path: 'don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true }
       ]
@@ -72,18 +59,18 @@ const router = createRouter({
   ]
 })
 
-// vérouillage de la partie admin (tooken)
-router.beforeEach((to, from, next) => {
-  if (to.matched[0].name == 'user') {
-    authGuard()
-  }
-  next()
-})
+router.beforeEach(async (to, from, next) => {
 
-router.beforeEach((to, from, next) => {
-  // Défilement de la page vers le haut à chaque changement de route
-  window.scrollTo(0, 0)
-  next()
-})
+  window.scrollTo(0, 0);
+
+  const userStore = useUserStore();
+  const isAuthenticated = userStore.isAuthenticated();
+
+  if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
+    next({ name: 'user-login' });
+  } else {
+    next();
+  }
+});
 
 export default router

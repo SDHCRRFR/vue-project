@@ -2,67 +2,67 @@
 /***Import des modules nécessaires */
 import express from "express";
 import typeRestaurantRouter from "./routes/typeRestaurant.js";
-// import nodemailer from 'nodemailer';
 import restaurantRouter from "./routes/restaurant.js";
+import { transporter } from "./nodemailer-config.js";
 import userRouter from "./routes/user.js";
-import cors from 'cors';
+import cors from "cors";
 
 /*****************************/
 /*** Initialisation de l'API */
 const app = express();
 const port = 3000;
-
-
 const router = express.Router();
+
 app.use(router);
 router.use(express.json());
-router.use(express.static('public'));
+router.use(express.static("public"));
 
 // CORS
 router.use(
-    cors({
-        origin: [ 'http://localhost:5173', 'http://127.0.0.1:5173' ]
-}),
+  cors({
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+  })
 );
-
-// app.post('/send-email', (req, res) => {
-//     const { nom, contact, number, birthdate, gender, address } = req.body;
-
-//   // Configuration du transporteur pour l'envoi d'e-mails (utilisez vos propres informations)
-//   const transporter = nodemailer.createTransport({
-//     service: 'gmail',
-//     auth: {
-//       user: 'votre_email@gmail.com',
-//       pass: 'votre_mot_de_passe'
-//     }
-//   });
-//   // Corps de l'e-mail
-//   const mailOptions = {
-//     from: 'votre_email@gmail.com',
-//     to: 'destinataire@example.com',
-//     subject: 'Nouvelle inscription',
-//     html: `
-//       <p>Nom: ${nom}</p>
-//       <p>Email: ${contact.email}</p>
-//       <p>Numéro: ${number}</p>
-//       <p>Date de naissance: ${birthdate}</p>
-//       <p>Genre: ${gender}</p>
-//       <p>Adresse: ${address.line1}, ${address.line2}, ${address.city}, ${address.postalCode}</p>
-//     `
-//   };
-
-//   // Envoi de l'e-mail
-//   transporter.sendMail(mailOptions, (error, info) => {
-//     if (error) {
-//       return res.status(500).send(error.toString());
-//     }
-//     res.status(200).send('E-mail envoyé : ' + info.response);
-//   });
-// });
-
 
 router.use("/api/restaurant", restaurantRouter);
 router.use("/api/restaurant/type", typeRestaurantRouter);
 router.use("/api/user", userRouter);
+
+router.post("/send-email", async (req, res) => {
+  const { nom, email, number, birthdate, picked, address } = req.body;
+
+  // Créer le corps du courriel
+  const message = `
+      Nom: ${nom}
+      Email: ${email}
+      Numéro: ${number}
+      Date de naissance: ${birthdate}
+      Genre: ${picked}
+      Adresse:
+        Ligne 1: ${address.line1}
+        Ligne 2: ${address.line2}
+        Ville: ${address.ville}
+        Code postal: ${address.code_postale}
+    `;
+
+  // Paramètres du courriel
+  const mailOptions = {
+    from: "sdhoudjadji.docs@gmail.com",
+    to: "houdjadji_said@carrefour.com",
+    subject: "Nouveau formulaire d'inscription",
+    text: message,
+  };
+
+  try {
+    // Envoie du courriel
+    await transporter.sendMail(mailOptions);
+    console.log("Courriel envoyé avec succès");
+    res.status(200).json({ message: "Courriel envoyé avec succès" });
+  } catch (error) {
+    console.error("Erreur lors de l'envoi du courriel:", error);
+    res.status(500).json({ error: "Erreur lors de l'envoi du courriel" });
+  }
+});
+
 
 app.listen(port, () => console.log("app running baby"));

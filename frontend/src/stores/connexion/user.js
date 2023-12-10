@@ -7,6 +7,9 @@ export const useUserStore = defineStore('user', {
   actions: {
     setUser(user) {
       this.user = user
-    }
-  }
+    },
+    isAuthenticated() {
+      return this.user !== null;
+    },
+  },
 })

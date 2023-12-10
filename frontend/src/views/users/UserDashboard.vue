@@ -1,6 +1,6 @@
 <script setup>
 import HeaderDashboard from '@/components/header/HeaderDashboard.vue'
-import MyMain from '@/components/main/MyMain.vue'
+import UserMain from '@/components/main/UserMain.vue'
 import { ref } from 'vue'
 import MyProduct from '@/components/products/MyProduct.vue'
 import GoogleMaps from '@/components/map/GoogleMaps.vue'
@@ -28,7 +28,7 @@ const show = ref(true)
       </div>
     </Transition>
 
-    <MyMain />
+    <UserMain />
     <div class="component">
       <!--  -->
       <MyProduct />

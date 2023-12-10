@@ -29,7 +29,7 @@ export default {
   height: 86vh;
   padding-top: 100px;
   display: flex;
-  background: url(../../../../public/resto-II.jpeg) 0 0 no-repeat;
+  background: url(../../../../public_hold/resto-II.jpeg) 0 0 no-repeat;
   background-size: cover;
   overflow: hidden;
   flex-direction: column;
@@ -49,7 +49,7 @@ hr {
   text-align: center;
   align-items: center;
   margin-bottom: 30px;
-  background: pink;
+  background: rgb(44, 144, 1);
 }
 
 h1 {

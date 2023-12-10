@@ -35,7 +35,6 @@
 
       <div class="column">
         <div class="input_box">
-          <!-- <label>Numéro de tél</label> -->
           <input
             type="number"
             id="number_client"
@@ -43,55 +42,91 @@
             name="number"
             v-model="v$.number.$model"
           />
+          <span v-for="error of v$.number.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
         </div>
+
         <div class="input_box">
-          <!-- <label>Date de naissance</label> -->
-          <input type="text" placeholder="Indiquez votre date de naissance" required />
+          <input
+            type="text"
+            placeholder="Indiquez votre date de naissance"
+            v-model="v$.birthdate.$model"
+            name="birthdate"
+            @blur="v$.birthdate.$touch"
+          />
+          <span v-for="error of v$.birthdate.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
         </div>
       </div>
       <div class="gender_box">
-        <h3>Gender</h3>
+        <h3>Genre {{ picked }}</h3>
         <div class="gender_option">
           <div class="gender">
-            <input type="radio" id="check" name="gender" />
-            <label for="check-male">Homme</label>
+            <input type="radio" id="Homme" name="genre" value="Homme" v-model="v$.picked.$model" />
+            <label for="Homme">Homme</label>
           </div>
           <div class="gender">
-            <input type="radio" id="check" name="gender" />
-            <label for="check-femal">Femme</label>
+            <input type="radio" id="Femme" name="genre" value="Femme" v-model="v$.picked.$model" />
+            <label for="Femme">Femme</label>
           </div>
           <div class="gender">
-            <input type="radio" id="check" name="gender" />
-            <label for="check-other">Autre</label>
+            <input type="radio" id="Autre" name="autre" value="Autre" v-model="v$.picked.$model" />
+            <label for="Autre">Autre</label>
           </div>
+          <span v-for="error of v$.picked.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
         </div>
       </div>
 
       <div class="input_box addres">
         <!-- <label>Adresse</label> -->
         <div class="column">
-          <input type="text" placeholder="Veuillez indiquez votre addresse" required />
-          <input type="text" placeholder="Veuillez indiquez votre addresse line 2" required />
+          <input
+            type="text"
+            placeholder="Veuillez indiquer votre adresse"
+            v-model="v$.address.line1.$model"
+            @blur="v$.address.line1.$touch"
+            required
+          />
+          <span v-for="error of v$.address.line1.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
+
+          <input
+            type="text"
+            placeholder="Veuillez indiquer votre adresse line 2"
+            v-model="v$.address.line2.$model"
+            @blur="v$.address.line2.$touch"
+            required
+          />
+          <span v-for="error of v$.address.line2.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
         </div>
 
         <div class="column">
-          <div class="select_box">
-            <select>
-              <option hidden>Ville</option>
-              <option>Paris</option>
-              <option>Marseille</option>
-              <option>Lyon</option>
-              <option>Nice</option>
-              <option>Laon</option>
-              <option>Lille</option>
-              <option>Monaco</option>
-              <option>Montpellier</option>
-            </select>
-          </div>
-          <input type="text" placeholder="Entrez votre ville" required />
+          <input
+            type="text"
+            placeholder="Entrez votre ville"
+            v-model="v$.address.ville.$model"
+            @blur="v$.address.ville.$touch"
+            required
+          />
+          <span v-for="error of v$.address.ville.$errors" :key="error.$uid">
+            {{ error.$message }}
+          </span>
         </div>
 
-        <input type="text" placeholder="Entrez votre addresse postal" required />
+        <input
+          type="text"
+          placeholder="Entrez votre addresse postal"
+          v-model="v$.address.code_postale.$model"
+          @blur="v$.address.code_postale.$touch"
+          required
+        />
       </div>
       <!-- ================================================================== -->
       <button type="submit" class="button">Soummetre</button>
@@ -101,7 +136,6 @@
 
 <script>
 import { useVuelidate } from '@vuelidate/core'
-// import parsePhoneNumber from 'libphonenumber-js'
 import { required, email, minLength, maxLength } from '@vuelidate/validators'
 
 export default {
@@ -115,7 +149,15 @@ export default {
       contact: {
         email: ''
       },
-      number: ''
+      number: '',
+      birthdate: '',
+      picked: '',
+      address: {
+        line1: '',
+        line2: '',
+        ville: '',
+        code_postale: ''
+      }
     }
   },
   validations() {
@@ -135,21 +177,59 @@ export default {
       number: {
         required,
         minLengthValue: minLength(10),
-        maxLengthValue: maxLength(10),
+        maxLength: maxLength(10),
         $autoDirty: true,
         $lazy: true
+      },
+      birthdate: { required },
+      picked: { required },
+      address: {
+        line1: { required },
+        line2: { minLengthValue: minLength(10) },
+        ville: { required, minLengthValue: minLength(10) },
+        code_postale: { required, maxLength: maxLength(5) }
       }
     }
   },
   methods: {
     async submitForm() {
-      const isFormCorrect = await this.v$.$validate()
-
-      if (isFormCorrect) {
-        console.log('mes donnee')
+    const isFormCorrect = await this.v$.$validate();
+  
+    if (isFormCorrect) {
+      try {
+        // Envoyer les données du formulaire au backend
+        const response = await fetch('http://localhost:3000/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            nom: this.nom,
+            email: this.contact.email,
+            number: this.number,
+            birthdate: this.birthdate,
+            picked: this.picked,
+            address: this.address,
+          }),
+        });
+  
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Erreur lors de l\'envoi des données au backend:', error);
       }
     }
   }
+
+  }
+  // methods: {
+  //   async submitForm() {
+  //     const isFormCorrect = await this.v$.$validate()
+  //     if (isFormCorrect) {
+  //       console.log('mes donnee' + isFormCorrect)
+  //     }
+  //   }
+  // }
 }
 </script>
 
@@ -269,6 +349,7 @@ export default {
   .form .column {
     flex-wrap: wrap;
   }
+
   .form :where(.gender_option, .gender) {
     row-gap: 15px;
   }

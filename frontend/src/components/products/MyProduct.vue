@@ -45,7 +45,7 @@ export default {
         },
         {
           id: 2,
-          img: '../../../public/resto-II.jpeg',
+          img: '../../../public/nourriture_salade.jpeg',
           type: 'Chinois . intérieur',
           name: 'Le Bistrot',
           like: 9.8,
@@ -54,7 +54,7 @@ export default {
         },
         {
           id: 3,
-          img: '../../../public/resto-III.jpeg',
+          img: '../../../public/nourriture_salade.jpeg',
           type: 'Indien . terrasse',
           name: "O'tacos",
           like: 5.5,
@@ -63,7 +63,7 @@ export default {
         },
         {
           id: 4,
-          img: '../../../public/resto-IIII.jpeg',
+          img: '../../../public/nourriture_salade.jpeg',
           type: 'Indien . terrasse',
           name: 'Nabab',
           like: 5.5,

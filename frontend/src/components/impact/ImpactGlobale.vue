@@ -83,7 +83,7 @@ iframe {
 }
 
 .vid_impact {
-  background: url(../../public/resto-v.webp);
+  background: url(../../../public_hold/resto-v.webp);
   height: 315px;
   background-repeat: no-repeat;
   background-size: cover;

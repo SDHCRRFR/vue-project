@@ -1,23 +1,21 @@
 <template>
   <div class="container">
     <hr />
-    <h1>RESTAURANT</h1>
+    <router-link to="/user/shop/">
+      <h1>RESTAURANT</h1>
+    </router-link>
     <div class="container_block">
       <div class="container_txt">
-        <!-- <h1>{{ item.restaurantDetails }}</h1> -->
-        <h2>détails du restaurant {{ id }}</h2>
+        <h2>{{ restaurantDetails.nom }}</h2>
         <hr />
         <div class="block">
           <i class="fa-solid fa-location-crosshairs"></i>
-          <a
-            href="https://www.google.com/maps/place/Quai+Gallieni,+92150+Suresnes/@48.8704791,2.2319365,17z/data=!3m1!4b1!4m6!3m5!1s0x47e664d868b02a05:0x764ae9196d83627a!8m2!3d48.8704791!4d2.2319365!16s%2Fg%2F1tqf_n0g?entry=ttu"
-            >Quai Gallieni, 92150 Suresnes - <strong>Métro 5 et 6</strong></a
-          >
+          <a>{{ restaurantDetails.adresse }} {{ restaurantDetails.code_postale }}</a>
         </div>
         <hr />
         <div class="block">
           <i class="fa-solid fa-utensils"></i>
-          <p>Français - Terrasse</p>
+          <p>Français {{ restaurantDetails.type_restaurant_id }} - Terrasse</p>
         </div>
         <hr />
         <div class="block">
@@ -31,11 +29,17 @@
         </div>
         <hr />
         <div class="block">
-          <i class="fa-solid fa-phone"></i>
-          <a href="0605702732">0606767899</a>
+        <i class="fa-solid fa-phone"></i>
+        <p>{{ restaurantDetails.telephone }}</p>    
         </div>
       </div>
-      <div class="caroussel"></div>
+      <div class="caroussel">
+        <img
+          v-bind:src="`http://localhost:3000/${restaurantDetails.img}`"
+          alt=""
+          v-bind:id="restaurantDetails.id"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -100,6 +104,11 @@ h2 {
   font-size: 33px;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
 .container_block {
   gap: 25px;
   width: 85%;
@@ -124,6 +133,10 @@ h2 {
 a {
   text-decoration: none;
   color: black;
+}
+
+h2 {
+  text-decoration: none;
 }
 
 a:hover {
