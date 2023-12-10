@@ -17,28 +17,18 @@
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
           </div>
           <div class="input_box">
-            <input
-              type="email"
-              id="user_email"
-              placeholder="Votre email"
-              v-model="user.email"
-              required
-            />
+            <input type="email" id="user_email" placeholder="Votre email" v-model="user.email" required />
             <i class="fa-solid fa-user"></i>
           </div>
 
           <div class="input_box">
-            <input
-              type="password"
-              id="user_password"
-              placeholder="Mot de passe"
-              v-model="user.password"
-              required
-            />
+            <input type="password" id="user_password" placeholder="Mot de passe" v-model="user.password" required />
             <i class="fa-solid fa-lock"></i>
           </div>
           <div class="remember_forgot">
-            <label><input type="checkbox" />Remember me</label>
+            <label>
+              <input type="checkbox" name="remember" id="rememberMe" v-model="rememberMe" />Remember me
+            </label>
             <a href="#">Forgot password</a>
           </div>
           <button type="submit" class="button">Connexion</button>
@@ -66,14 +56,21 @@ export default {
         email: '',
         password: ''
       },
+      rememberMe: false,
       connect: ''
     }
   },
   methods: {
     login() {
+      
       const formData = {
         email: this.user.email,
         password: this.user.password
+      }
+      if (this.rememberMe) {
+        localStorage.setItem('rememberedUser', JSON.stringify(formData));
+      } else {
+        localStorage.removeItem('rememberedUser');
       }
       const requestInfos = new Request('http://localhost:3000/api/user/login', {
         method: 'POST',
@@ -100,8 +97,16 @@ export default {
           }
         })
         .catch((error) => console.error(error))
+      },
+    },
+    created() {
+      const rememberedUser = localStorage.getItem('rememberedUser');
+      
+      if (rememberedUser) {
+        this.user = JSON.parse(rememberedUser);
+        this.rememberMe = true;
+      }
     }
-  }
 }
 </script>
 
@@ -119,6 +124,7 @@ a,
 a:visited {
   color: #333;
 }
+
 .pics {
   width: 100px;
 }
