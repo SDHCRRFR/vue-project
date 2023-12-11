@@ -193,34 +193,33 @@ export default {
   },
   methods: {
     async submitForm() {
-    const isFormCorrect = await this.v$.$validate();
-  
-    if (isFormCorrect) {
-      try {
-        // Envoyer les données du formulaire au backend
-        const response = await fetch('http://localhost:3000/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            nom: this.nom,
-            email: this.contact.email,
-            number: this.number,
-            birthdate: this.birthdate,
-            picked: this.picked,
-            address: this.address,
-          }),
-        });
-  
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.error('Erreur lors de l\'envoi des données au backend:', error);
+      const isFormCorrect = await this.v$.$validate()
+
+      if (isFormCorrect) {
+        try {
+          // Envoyer les données du formulaire au backend
+          const response = await fetch('http://localhost:3000/send-email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              nom: this.nom,
+              email: this.contact.email,
+              number: this.number,
+              birthdate: this.birthdate,
+              picked: this.picked,
+              address: this.address
+            })
+          })
+
+          const data = await response.json()
+          console.log(data)
+        } catch (error) {
+          console.error("Erreur lors de l'envoi des données au backend:", error)
+        }
       }
     }
-  }
-
   }
   // methods: {
   //   async submitForm() {

@@ -46,7 +46,8 @@ export default {
           <div class="container_box"></div>
           <h2>profitez de 15% de réduction</h2>
           <p>
-            Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur pay
+            Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur
+            pay
           </p>
           <h3>j'utilise le code</h3>
         </div>
@@ -55,7 +56,8 @@ export default {
           <div class="container_box"></div>
           <h2>profitez de 15% de réduction</h2>
           <p>
-            Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur pay
+            Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur
+            pay
           </p>
           <h3>j'utilise le code</h3>
         </div>
@@ -64,7 +66,8 @@ export default {
           <div class="container_box"></div>
           <h2>profitez de 15% de réduction</h2>
           <p>
-            Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur pay
+            Sur votre première réservation parmis les 8.0000 restaurant partenaires table de coeur
+            pay
           </p>
           <h3>j'utilise le code</h3>
         </div>
@@ -74,7 +77,13 @@ export default {
       <hr />
     </div>
     <header>
-      <input v-model="searchKey" type="search" id="search" placeholder="Recherchez..." autocomplete="off" />
+      <input
+        v-model="searchKey"
+        type="search"
+        id="search"
+        placeholder="Recherchez..."
+        autocomplete="off"
+      />
       <span v-if="searchKey && filteredList.length >= 1">
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
@@ -85,7 +94,11 @@ export default {
         <div v-for="product in filteredList" class="card" v-bind:key="product.id">
           <router-link :to="{ name: 'restaurants', params: { id: product.id } }">
             <div class="image-container">
-              <img v-bind:src="`http://localhost:3000/${product.img}`" alt="" v-bind:id="product.id" />
+              <img
+                v-bind:src="`http://localhost:3000/${product.img}`"
+                alt=""
+                v-bind:id="product.id"
+              />
             </div>
 
             <div class="card-text">
@@ -107,7 +120,6 @@ export default {
           <h3>Désolé</h3>
           <p>Aucun résultat trouvé</p>
         </div>
-
       </div>
     </div>
     <!-- <transition name="cart-anim"></transition> -->
@@ -139,7 +151,6 @@ export default {
     </div>
   </div>
 </template>
-
 
 <style scoped lang="css">
 .user_shop {

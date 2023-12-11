@@ -9,7 +9,7 @@ export const useUserStore = defineStore('user', {
       this.user = user
     },
     isAuthenticated() {
-      return this.user !== null;
-    },
-  },
+      return this.user !== null
+    }
+  }
 })

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useUserStore } from '@/stores/connexion/user';
+import { useUserStore } from '@/stores/connexion/user'
 // ==========================================================)->
 import AdminDashboard from '@/views/admin/AdminDashboard.vue'
 import * as Public from '@/views/public'
@@ -32,18 +32,18 @@ const router = createRouter({
     },
     { path: '/login', name: 'user-login', component: UserLogin },
     { path: '/signup', name: 'SignUp', component: SignUp },
-    { 
-      path: '/admin/dashboard', 
-      name: 'AdminDashboard', 
-      component: AdminDashboard, 
+    {
+      path: '/admin/dashboard',
+      name: 'AdminDashboard',
+      component: AdminDashboard,
       props: true,
-      meta: { requiresAuth: true } 
+      meta: { requiresAuth: true }
     },
     {
       path: '/user',
       name: 'user',
       component: User.UserLayout,
-      meta: { requiresAuth: true } ,
+      meta: { requiresAuth: true },
       children: [
         { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
         { path: 'shop', name: 'user-shopping', component: User.UserShopping },
@@ -60,17 +60,16 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+  window.scrollTo(0, 0)
 
-  window.scrollTo(0, 0);
+  const userStore = useUserStore()
+  const isAuthenticated = userStore.isAuthenticated()
 
-  const userStore = useUserStore();
-  const isAuthenticated = userStore.isAuthenticated();
-
-  if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
-    next({ name: 'user-login' });
+  if (to.matched.some((record) => record.meta.requiresAuth) && !isAuthenticated) {
+    next({ name: 'user-login' })
   } else {
-    next();
+    next()
   }
-});
+})
 
 export default router

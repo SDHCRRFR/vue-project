@@ -29,8 +29,8 @@
         </div>
         <hr />
         <div class="block">
-        <i class="fa-solid fa-phone"></i>
-        <p>{{ restaurantDetails.telephone }}</p>    
+          <i class="fa-solid fa-phone"></i>
+          <p>{{ restaurantDetails.telephone }}</p>
         </div>
       </div>
       <div class="caroussel">

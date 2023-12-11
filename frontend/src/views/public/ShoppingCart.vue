@@ -85,7 +85,6 @@ export default {
           <h3>Désolé</h3>
           <p>Aucun résultat trouvé</p>
         </div>
-        
       </div>
     </div>
     <div class="management">
