@@ -4,16 +4,13 @@ import { useUserStore } from '@/stores/connexion/user'
 import AdminDashboard from '@/views/admin/AdminDashboard.vue'
 import * as Public from '@/views/public'
 import * as User from '@/views/users'
-
 // ===========================================================)->
-
 import UserLogin from '@/views/public/UserLogin.vue'
 import UserLogout from '@/views/UserLogout.vue'
 import SignUp from '@/views/public/SignUp.vue'
 import ManagementStore from '@/views/ManagementStore.vue'
 import ManagementHelp from '@/views/public/ManagementHelp.vue'
 import NotFound from '@/views/NotFound.vue'
-
 // ============================================================)->
 
 const router = createRouter({
@@ -61,10 +58,8 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   window.scrollTo(0, 0)
-
   const userStore = useUserStore()
   const isAuthenticated = userStore.isAuthenticated()
-
   if (to.matched.some((record) => record.meta.requiresAuth) && !isAuthenticated) {
     next({ name: 'user-login' })
   } else {

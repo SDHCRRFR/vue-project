@@ -42,10 +42,6 @@ export default {
   data() {
     return {}
   },
-  mounted() {
-    console.log('Je suis monté sur le dom')
-  },
-
   methods: {}
 }
 </script>
