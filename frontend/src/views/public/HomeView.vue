@@ -3,7 +3,7 @@ import MyHeader from '@/components/header/MyHeader.vue'
 import MyMain from '@/components/main/MyMain.vue'
 import { ref } from 'vue'
 import MyProduct from '@/components/products/MyProduct.vue'
-import GoogleMaps from '@/components/map/GoogleMaps.vue'
+// import GoogleMaps from '@/components/map/GoogleMaps.vue'
 import MyCount from '@/components/counter/MyCount.vue'
 import Impact from '@/components/impact/ImpactGlobale.vue'
 
@@ -27,7 +27,8 @@ const show = ref(true)
     <MyMain />
     <div class="component">
       <MyProduct />
-      <GoogleMaps />
+      <div class="maps"></div>
+      <!-- <GoogleMaps /> -->
       <MyCount />
       <Impact />
     </div>
@@ -47,6 +48,12 @@ span {
   background: goldenrod;
   border: none;
   border-radius: 2px;
+}
+
+.maps {
+  width: 80%;
+  min-height: 80vh;
+  background: crimson;
 }
 .home-view {
   width: 100%;

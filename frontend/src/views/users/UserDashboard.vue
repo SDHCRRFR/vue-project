@@ -56,7 +56,6 @@ const show = ref(true)
   display: flex;
   align-items: center;
   padding-top: 79px;
-  /* margin: 0; */
   flex-direction: column;
   justify-content: center;
   min-height: 80vh;

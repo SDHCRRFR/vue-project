@@ -61,7 +61,7 @@
         </div>
       </div>
       <div class="gender_box">
-        <h3>Genre {{ picked }}</h3>
+        <h3>Vous êtes un/une/ou : {{ picked }}</h3>
         <div class="gender_option">
           <div class="gender">
             <input type="radio" id="Homme" name="genre" value="Homme" v-model="v$.picked.$model" />

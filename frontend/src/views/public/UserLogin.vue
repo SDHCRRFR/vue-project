@@ -11,7 +11,6 @@
     </nav>
     <div class="user_login">
       <div class="wrapper">
-        {{ connect }}
         <form @submit.prevent="login()">
           <div class="box_logo">
             <img src="../../assets/logosaid.svg" alt="logo" class="pics" />
@@ -46,6 +45,7 @@
           </div>
           <button type="submit" class="button">Connexion</button>
           <div class="register_link">
+            <p>{{ connect }}</p>
             <p>
               Vous avez pas encore de compte ?
               <router-link to="/signup"><a class="link">s'inscrire</a></router-link>
@@ -105,7 +105,7 @@ export default {
               console.log(data)
             }
           } else {
-            this.connect = 'identifiant incorrect'
+            this.connect = 'Aucun identifiant ne correspond étes vous sur davoir de compte ?'
           }
         })
         .catch((error) => console.error(error))
@@ -148,10 +148,11 @@ a:visited {
 nav {
   padding: 0rem 2.4rem;
   background: transparent;
-  border: 2px solid gainsboro;
+  border-bottom: 2px solid gainsboro;
   position: fixed;
-  width: 95%;
+  width: 4%;
   z-index: 1;
+  margin: 10px;
   box-shadow: 0 2px 4px -3px rgba(51, 51, 51, 0.2);
 }
 
@@ -174,14 +175,21 @@ nav .nav-container {
   justify-content: center;
 }
 
+.connect_ {
+  background: url(../../../public/nourriture_salade.jpeg) 0 0 no-repeat;
+  background-size: cover;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  height: 100%;
+}
+
 .user_login {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   min-height: 100vh;
-  background: url(../../../public/nourriture_salade.jpeg) 0 0 no-repeat;
-  background-size: cover;
-  overflow: hidden;
 }
 
 .wrapper {
@@ -274,4 +282,3 @@ nav .nav-container {
   text-decoration: underline;
 }
 </style>
-@/stores/connexion/counter

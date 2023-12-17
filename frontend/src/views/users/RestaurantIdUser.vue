@@ -10,7 +10,14 @@
         <hr />
         <div class="block">
           <i class="fa-solid fa-location-crosshairs"></i>
-          <a>{{ restaurantDetails.adresse }} {{ restaurantDetails.code_postale }}</a>
+          <a
+            :href="
+              'https://www.google.com/maps/search/' +
+              encodeURIComponent(restaurantDetails.adresse + ' ' + restaurantDetails.code_postale)
+            "
+            target="_blank"
+            >{{ restaurantDetails.adresse }} {{ restaurantDetails.code_postale }}</a
+          >
         </div>
         <hr />
         <div class="block">
@@ -30,7 +37,11 @@
         <hr />
         <div class="block">
           <i class="fa-solid fa-phone"></i>
-          <p>{{ restaurantDetails.telephone }}</p>
+          <p>
+            <a :href="'tel:' + restaurantDetails.telephone">
+              {{ restaurantDetails.telephone }}
+            </a>
+          </p>
         </div>
       </div>
       <div class="caroussel">

@@ -169,7 +169,7 @@ h1 {
 }
 
 img {
-  width: 100%;
+  width: 50%;
 }
 
 .form .column {

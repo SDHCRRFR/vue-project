@@ -4,6 +4,14 @@
       <h1>Faire un don</h1>
       <p>Cliquez ici si vous êtes une entreprise || Cliquez ici si vous êtes une association</p>
     </div>
+    <div class="don_button">
+      <h3>Vous êtes le n°{{ id }} aujourd'hui</h3>
+      <hr />
+      <div class="txt"></div>
+      <a href="#" class="donate-button"
+        >Faire un don <i class="fa-solid fa-right-from-bracket"></i
+      ></a>
+    </div>
   </div>
 </template>
 
@@ -14,12 +22,6 @@ export default {
   data() {
     return {}
   }
-  // mounted() {
-  //   console.log(this.$route.params.id)
-  // },
-  // updated() {
-  //   console.log(this.$route.params.id)
-  // }
 }
 </script>
 
@@ -38,8 +40,13 @@ export default {
 }
 
 hr {
-  border: 1px solid gainsboro;
-  height: 75px;
+  border: 1px solid rgb(13, 4, 4);
+  width: 80%;
+}
+
+a {
+  display: flex;
+  justify-content: space-between;
 }
 
 .don_txt {
@@ -49,7 +56,7 @@ hr {
   text-align: center;
   align-items: center;
   margin-bottom: 30px;
-  background: rgb(44, 144, 1);
+  background: pink;
 }
 
 h1 {
@@ -63,5 +70,37 @@ p {
 img {
   height: 250px;
   width: 100%;
+}
+
+.don_button {
+  width: 23%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex-direction: column;
+  border-radius: 20px;
+  background: gainsboro;
+}
+
+.donate-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #3498db;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.txt {
+  width: 90%;
+  height: 70%;
+  margin: 10px;
+  background: black;
+}
+
+.donate-button:hover {
+  background-color: #2980b9;
 }
 </style>

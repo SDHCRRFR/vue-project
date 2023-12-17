@@ -59,13 +59,8 @@ export default {
         <div v-for="product in filteredList" class="card" v-bind:key="product.id">
           <router-link :to="{ name: 'restaurant', params: { id: product.id } }">
             <div class="image-container">
-              <img
-                v-bind:src="`http://localhost:3000/${product.img}`"
-                alt=""
-                v-bind:id="product.id"
-              />
+              <img v-bind:src="`http://localhost:3000/${product.img}`" v-bind:id="product.id" />
             </div>
-
             <div class="card-text">
               <h3>{{ product.nom }}</h3>
               <span>{{ product.code_postale }}</span>
@@ -74,7 +69,7 @@ export default {
             <div class="card-icons">
               <div class="like-container">
                 <label v-bind:for="product.id">
-                  <p>{{ product.adresse }}</p>
+                  <p class="plus">Cliquez ici pour en savoir plus +</p>
                 </label>
               </div>
             </div>
@@ -219,6 +214,11 @@ p {
   bottom: 2.3rem;
 }
 
+.plus {
+  /* font-size: x-small; */
+  font-weight: 200;
+}
+
 .home-container .card-cart-container .card-container .card .img-container {
   overflow: hidden;
 }
@@ -291,35 +291,11 @@ img {
   display: none;
 }
 
-.home-container
-  .card-cart-container
-  .card-container
-  .card
-  .card-icons
-  .like-container
-  input:checked
-  + label
-  i {
-  color: #fb2626;
-  animation: heart 1.3s forwards ease;
-}
-
-@keyframes heart {
-  0% {
-    filter: hue-rotate(0deg);
-    transform: scale(1);
-  }
-
-  50% {
-    filter: hue-rotate(-270deg);
-    transform: scale(1.3);
-  }
-
-  100% {
-    filter: hue-rotate(0deg);
-    transform: scale(1);
-  }
-}
+/* .home-container .card-cart-container .card-container .card .card-icons .like-container>label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+} */
 
 .home-container .card-cart-container .card-container .no-result {
   margin: 0 4rem 0 0.4rem;

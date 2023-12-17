@@ -3,26 +3,24 @@
     <div class="fadeInTop" id="container">
       <h1>Sélection Table de coeur</h1>
       <div class="container_card">
-        <!-- ============================================================================= -->
-        <div class="card" v-for="item in items" v-bind:key="item.index">
-          <router-link to="/restaurant/12">
+        <div class="card" v-for="item in data" v-bind:key="item.id">
+          <router-link :to="{ name: 'restaurant', params: { id: item.id } }">
             <div class="box_img">
-              <img v-bind:src="item.img" />
+              <img v-bind:src="`http://localhost:3000/${item.img}`" v-bind:id="item.id" />
             </div>
             <div class="box_txt">
               <p>{{ item.type }}</p>
               <div class="notation">
-                <h2>{{ item.name }}</h2>
-                <span>{{ item.like }} <i class="fa-solid fa-star" style="color: #ffff00"></i></span>
+                <h2>{{ item.nom }}</h2>
+                <span>{{ like }} <i class="fa-solid fa-star" style="color: #ffff00"></i></span>
               </div>
-              <p>{{ item.code }}</p>
+              <p>{{ item.code_postale }}</p>
               <div class="price_block">
-                <p>prix moyen: {{ item.price }} €</p>
+                <p>prix moyen: {{ price }} €</p>
               </div>
             </div>
           </router-link>
         </div>
-        <!-- ================================================================================ -->
       </div>
     </div>
   </div>
@@ -33,44 +31,33 @@ export default {
   name: 'MyProduct',
   data: () => {
     return {
-      items: [
-        {
-          id: 1,
-          img: '../../../public/nourriture_salade.jpeg',
-          type: 'Francais . terrasse',
-          name: 'Brochette',
-          like: 7.0,
-          code: 75015,
-          price: 30
-        },
-        {
-          id: 2,
-          img: '../../../public/nourriture_salade.jpeg',
-          type: 'Chinois . intérieur',
-          name: 'Le Bistrot',
-          like: 9.8,
-          code: 75018,
-          price: 50
-        },
-        {
-          id: 3,
-          img: '../../../public/nourriture_salade.jpeg',
-          type: 'Indien . terrasse',
-          name: "O'tacos",
-          like: 5.5,
-          code: 13014,
-          price: 37
-        },
-        {
-          id: 4,
-          img: '../../../public/nourriture_salade.jpeg',
-          type: 'Indien . terrasse',
-          name: 'Nabab',
-          like: 5.5,
-          code: 13014,
-          price: 37
-        }
-      ]
+      data: [],
+      like: 9.9,
+      price: 5.5,
+      type: 'Français'
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  methods: {
+    fetchData() {
+      fetch('http://localhost:3000/api/restaurant')
+        .then((response) => {
+          console.log(response)
+          if (!response.ok) {
+            throw new Error('Erreur lors de la récupération des données')
+          }
+          return response.json()
+        })
+        .then((data) => {
+          this.data = data.data.slice(0, 4)
+          // this.data = this.data.slice(0, 4)
+          console.log(data)
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     }
   }
 }

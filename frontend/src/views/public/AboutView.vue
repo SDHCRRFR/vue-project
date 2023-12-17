@@ -19,7 +19,7 @@ import Subscribe from '@/components/subscribe/SubscribeRestaurant.vue'
       </div>
       <p class="contact_paragraphe">
         Vous ne trouvez pas ce que vous cherchez ? Vous pouvez nous envoyer un e-mail. <br /><a
-          href="#"
+          href="mailto:houdjadji_said@carrefour.com"
           >houdjadji_said@carrefour.com</a
         >
       </p>

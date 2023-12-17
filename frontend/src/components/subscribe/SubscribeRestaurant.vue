@@ -32,7 +32,7 @@ export default {
   name: 'SubscribeRestaurant',
   methods: {
     Subscribe() {
-      this.$router.push('/management')
+      this.$router.push('/store-management')
     }
   }
 }
