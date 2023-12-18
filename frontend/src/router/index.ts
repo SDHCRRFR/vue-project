@@ -21,12 +21,7 @@ const router = createRouter({
       children: [
         { path: '/', name: 'home', component: Public.HomeView },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
-        {
-          path: '/restaurant/:id',
-          name: 'restaurant',
-          component: Public.RestaurantId,
-          props: true
-        },
+        { path: '/restaurant/:id', name: 'restaurant', component: Public.RestaurantId, props: true },
         { path: '/store-management', name: 'StoreManagement', component: Public.StoreManagement },
         { path: '/help-management', name: 'HelpManagement', component: Public.HelpManagement },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
@@ -49,12 +44,7 @@ const router = createRouter({
       children: [
         { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
         { path: 'shop', name: 'user-shopping', component: User.UserShopping },
-        {
-          path: 'restaurants/:id',
-          name: 'restaurants',
-          component: User.RestaurantIdUser,
-          props: true
-        },
+        { path: 'restaurants/:id', name: 'restaurants', component: User.RestaurantIdUser, props: true },
         { path: 'index/:id(\\d+)', name: 'user-index', component: User.UserIndex, props: true },
         { path: 'don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true },
         { path: '/user-management', name: 'ManagementStore', component: User.ManagementStore },

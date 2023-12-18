@@ -8,7 +8,7 @@
       <h3>Vous êtes le n°{{ id }} aujourd'hui</h3>
       <hr />
       <div class="txt"></div>
-      <a href="#" class="donate-button"
+      <a href="https://www.leetchi.com/fr/money-pot/create/private" class="donate-button"
         >Faire un don <i class="fa-solid fa-right-from-bracket"></i
       ></a>
     </div>
@@ -31,7 +31,7 @@ export default {
   height: 86vh;
   padding-top: 100px;
   display: flex;
-  background: url(../../../../public_hold/resto-II.jpeg) 0 0 no-repeat;
+  background: url(../../../public_hold/resto-IIII.jpeg) 0 0 no-repeat;
   background-size: cover;
   overflow: hidden;
   flex-direction: column;
@@ -56,7 +56,7 @@ a {
   text-align: center;
   align-items: center;
   margin-bottom: 30px;
-  background: pink;
+  background: gainsboro;
 }
 
 h1 {

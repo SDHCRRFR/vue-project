@@ -1,67 +1,134 @@
+<script >
+import UserSubscribeRestaurant from '@/components/subscribe/UserSubscribeRestaurant.vue'
+
+  export default {
+    name: 'UserIndex',
+    components: {
+      UserSubscribeRestaurant
+    }
+  }
+
+</script>
+
 <template>
-  <div class="user_index">
-    <h1>C'est la défaite</h1>
-    <!-- <div v-for="restaurant in data" :key="restaurant.id" class="container">
-      <img :src="restaurant.logo_url" alt="" />
-      <h3>{{ restaurant.nom }}</h3>
-      <p>{{ restaurant.adresse }}</p>
-      <p>{{ restaurant.localisation }}</p>
-      <p>{{ restaurant.telephone }}</p>
-      <a>{{ restaurant.adresse }}</a>
-      <a>{{ restaurant.type_restaurant }}</a>
-    </div> -->
+  <div class="about">
+    <h1>Nous sommes là pour vous aider !</h1>
+    <div class="contact_container">
+      <h2>Contactez-nous</h2>
+      <div class="faq">
+        <div class="ic">
+          <i class="fas fa-comments"></i>
+        </div>
+        <div class="afq">
+          <h3>Foire aux questions</h3>
+          <p>Réponses rapides aux questions les plus fréquentes (Mon compte, Mes réservations…)</p>
+          <button type="button">Accéder à la FAQ</button>
+        </div>
+      </div>
+      <p class="contact_paragraphe">
+        Vous ne trouvez pas ce que vous cherchez ? Vous pouvez nous envoyer un e-mail. <br /><a
+          href="mailto:houdjadji_said@carrefour.com"
+          >houdjadji_said@carrefour.com</a
+        >
+      </p>
+    </div>
+    <UserSubscribeRestaurant/>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'UserIndex',
-  data() {
-    return {
-      // data: []
-    }
-  }
-  // created() {
-  //   this.fetchData()
-  // },
-  // methods: {
-  //   fetchData() {
-  //     fetch('http://localhost:3000/api/restaurant')
-  //       .then((response) => {
-  //         console.log(response)
-  //         if (!response.ok) {
-  //           throw new Error('Erreur lors de la récupération des données')
-  //         }
-  //         return response.json()
-  //       })
-  //       .then((data) => {
-  //         this.data = data.data
-  //         console.log(data)
-  //       })
-  //       .catch((error) => {
-  //         console.error(error)
-  //       })
-  //   }
-  // }
-}
-</script>
-
 <style scoped>
-.user_index {
-  width: 100%;
-  min-height: 100vh;
+.about {
   display: flex;
   flex-direction: column;
+  padding-top: 100px;
+  width: 100%;
+  text-align: left;
+  min-height: 100vh;
+  justify-content: center;
   align-items: center;
+}
+
+.contact_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 70vh;
+  background: url(../../public/nourriture_salade.jpeg) 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+h2 {
+  justify-content: flex-start;
+  text-align: start;
+  margin-right: 50%;
+}
+
+.faq {
+  width: 40%;
+  margin-right: 20%;
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  border-radius: 20px;
+  min-height: 25vh;
+  background: white;
   justify-content: center;
 }
 
-.container {
-  width: 100%;
-  height: 100%;
+p {
+  font-size: 18px;
+}
+
+h1 {
+  margin-right: 500px;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+h2 {
+  color: white;
+}
+
+.contact_paragraphe {
+  color: white;
+  margin-right: 20%;
+}
+
+a {
+  text-decoration: none;
+  color: goldenrod;
+}
+
+button {
+  width: 200px;
+  height: 5vh;
+  border: 1px solid black;
+  background: white;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+button:hover {
+  background: black;
+  color: white;
+}
+
+.ic {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 60px;
+  border-radius: 50%;
+  background: gainsboro;
+  height: 50px;
 }
 </style>

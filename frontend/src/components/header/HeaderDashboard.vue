@@ -7,7 +7,7 @@
           <i class="fa-solid fa-heart-pulse fa-beat" style="color: #ff0000"></i>
         </span>
       </h1>
-      <h2 class="content"></h2>
+      <h2 class="content">Lorem Ipsum blablabla</h2>
     </hgroup>
   </div>
 </template>
@@ -60,7 +60,7 @@ h2::after {
   animation: slide 3s linear infinite;
 }
 
-@keyframes slide {
+/* @keyframes slide {
   0% {
     content: 'T|';
   }
@@ -120,7 +120,7 @@ h2::after {
   100% {
     content: 'Table de coeur |';
   }
-}
+} */
 
 h2 {
   font-size: 90px;

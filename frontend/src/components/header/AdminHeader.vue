@@ -14,11 +14,13 @@
         </li>
         <li>
           <router-link to="/user/don/12">
-            <i class="fas fa-address-card"></i>
+            <i class="fa-solid fa-heart"></i>
           </router-link>
         </li>
         <li>
-          <router-link to="/user/index/13"><i class="fa-solid fa-gear"></i> </router-link>
+          <router-link to="/user/index/13">
+            <i class="fas fa-address-card"></i>
+          </router-link>
         </li>
         <li>
           <router-link to="/logout">
