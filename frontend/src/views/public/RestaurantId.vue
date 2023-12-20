@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <hr />
-    <router-link to="shopping-cart">
+    <router-link to="/shopping-cart">
       <h1>RESTAURANT</h1>
     </router-link>
     <div class="container_block">

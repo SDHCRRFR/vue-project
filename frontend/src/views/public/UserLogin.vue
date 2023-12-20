@@ -22,19 +22,21 @@
               placeholder="Votre email"
               v-model="user.email"
               required
+              @keydown.enter.prevent="submitForm"
             />
             <i class="fa-solid fa-user"></i>
           </div>
 
           <div class="input_box">
             <input
-              type="password"
+              :type="showPassword ? 'text' : 'password'"
               id="user_password"
               placeholder="Mot de passe"
               v-model="user.password"
               required
+              @keydown.enter.prevent="submitForm"
             />
-            <i class="fa-solid fa-lock"></i>
+            <i class="fa-solid fa-eye fa-lg" @click="togglePasswordVisibility"></i>
           </div>
           <div class="remember_forgot">
             <label>
@@ -43,7 +45,9 @@
             </label>
             <a href="#">Forgot password</a>
           </div>
-          <button type="submit" class="button">Connexion</button>
+          <button type="submit" @keydown.enter.prevent="submitForm" class="button">
+            Connexion
+          </button>
           <div class="register_link">
             <p>{{ connect }}</p>
             <p>
@@ -70,10 +74,14 @@ export default {
         password: ''
       },
       rememberMe: false,
+      showPassword: false,
       connect: ''
     }
   },
   methods: {
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword
+    },
     login() {
       const formData = {
         email: this.user.email,
@@ -101,7 +109,7 @@ export default {
             if (this.userStore.user.role_id === 2) {
               this.$router.push('admin/dashboard')
             } else {
-              this.$router.push('user/dashboard')
+              this.$router.push('restaurateur/dashboard')
               console.log(data)
             }
           } else {
@@ -227,7 +235,7 @@ nav .nav-container {
 .input_box i {
   position: absolute;
   right: 20px;
-  top: 80%;
+  top: 85%;
   transform: translateY(-50%);
   font-size: 20px;
 }

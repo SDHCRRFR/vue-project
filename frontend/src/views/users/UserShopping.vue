@@ -4,7 +4,8 @@ export default {
   data: () => {
     return {
       data: [],
-      searchKey: ''
+      searchKey: '',
+      isPopupOpen: false
     }
   },
   created() {
@@ -27,6 +28,12 @@ export default {
         .catch((error) => {
           console.error(error)
         })
+    },
+    openPopup() {
+      this.isPopupOpen = true
+    },
+    closePopup() {
+      this.isPopupOpen = false
     }
   },
   computed: {
@@ -48,35 +55,49 @@ export default {
         placeholder="Recherchez..."
         autocomplete="off"
       />
-      <span v-if="searchKey && filteredList.length >= 1">
+      <span 
+        v-if="searchKey && filteredList.length >= 1">
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
       </span>
+      <i class="fa-solid fa-plus pop_up" @click="openPopup"></i>
     </header>
+
+    <div class="popup-overlay" v-if="isPopupOpen">
+      <div class="popup">
+        <h3>Formulaire/Crud</h3>
+        <i class="fa-solid fa-xmark fa-xs pop_up" @click="closePopup"></i>
+      </div>
+    </div>
+
     <div class="card-cart-container">
       <div class="card-container">
-        <div v-for="product in filteredList" class="card" v-bind:key="product.id">
-          <router-link :to="{ name: 'restaurants', params: { id: product.id } }">
-            <div class="image-container">
-              <img
-                v-bind:src="`http://localhost:3000/${product.img}`"
-                alt=""
-                v-bind:id="product.id"
-              />
-            </div>
+        <div 
+           v-for="product in filteredList" 
+           class="card" 
+           v-bind:key="product.id"
+          >
+          <router-link :to="{ name: 'restaurant-edit', params: { id: product.id } }">
+          <div class="image-container">
+            <img
+              v-bind:src="`http://localhost:3000/${product.img}`"
+              alt=""
+              v-bind:id="product.id"
+            />
+          </div>
 
-            <div class="card-text">
-              <h3>{{ product.nom }}</h3>
-              <span>{{ product.code_postale }}</span>
+          <div class="card-text">
+            <h3>{{ product.nom }}</h3>
+            <span>{{ product.code_postale }}</span>
+          </div>
+          <p>{{ product.address }}</p>
+          <div class="card-icons">
+            <div class="like-container">
+              <label v-bind:for="product.id">
+                <p>{{ product.adresse }}</p>
+              </label>
             </div>
-            <p>{{ product.address }}</p>
-            <div class="card-icons">
-              <div class="like-container">
-                <label v-bind:for="product.id">
-                  <p>{{ product.adresse }}</p>
-                </label>
-              </div>
-            </div>
+          </div>
           </router-link>
         </div>
 
@@ -162,7 +183,7 @@ img {
 }
 
 header {
-  width: 28vw;
+  width: 94%;
   flex-direction: row;
   display: flex;
   align-items: center;
@@ -170,6 +191,51 @@ header {
   gap: 20px;
   padding: 20px;
 }
+
+/* POP UP */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour l'effet de superposition */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Assurez-vous que le popup est au-dessus de tout le reste */
+}
+
+.popup {
+  /* background: white; */
+  display: flex;
+  width: 450px;
+  align-items: center;
+  min-height: 500px;
+  background: gainsboro;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Assurez-vous que le popup est au-dessus de l'overlay */
+  animation: slideIn 0.3s ease-out; /* Ajoutez une animation pour le glissement */
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.pop_up {
+  cursor: pointer;
+}
+
+/* ================================================================================================ */
 
 a {
   text-decoration: none;

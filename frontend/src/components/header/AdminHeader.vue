@@ -2,24 +2,19 @@
   <nav>
     <div class="nav-container">
       <div id="logo">
-        <router-link to="/user/dashboard">
+        <router-link to="/restaurateur/dashboard">
           <img src="../../assets/logosaid.svg" alt="logo" />
         </router-link>
       </div>
       <ul id="icons">
         <li>
-          <router-link to="/user/shop">
+          <router-link to="/restaurateur/shop">
             <i class="fa-solid fa-utensils"></i>
           </router-link>
         </li>
         <li>
-          <router-link to="/user/don/12">
+          <router-link to="/restaurateur/don/12">
             <i class="fa-solid fa-heart"></i>
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/user/index/13">
-            <i class="fas fa-address-card"></i>
           </router-link>
         </li>
         <li>

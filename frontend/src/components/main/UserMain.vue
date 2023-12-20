@@ -2,19 +2,19 @@
   <div class="user-main">
     <div class="animated fadeInLeft">
       <a href="#impact">
-        <img src="../../../public/nourriture_salade.jpeg" alt="" />
+        <img src="../../../public/nourriture_salade.jpeg" />
         <h2>Impact</h2>
       </a>
     </div>
     <div class="animated fadeInTop">
       <router-link to="/user/shop">
-        <img src="../../../public/photo-ethnique.jpg" alt="" />
+        <img src="../../../public/photo-ethnique.jpg" />
         <h2>Nos-Restaurant</h2>
       </router-link>
     </div>
     <div class="animated fadeInRight">
-      <router-link to="/user/don/33">
-        <img src="../../../public/ensemble.jpeg" alt="" />
+      <router-link to="/restaurant/edit/">
+        <img src="../../../public/ensemble.jpeg" />
         <h2>Don</h2>
       </router-link>
     </div>

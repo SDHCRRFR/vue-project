@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <hr />
-    <router-link to="/user/shop/">
+    <router-link to="/restaurateur/shop">
       <h1>RESTAURANT</h1>
     </router-link>
     <div class="container_block">
@@ -57,7 +57,7 @@
 
 <script>
 export default {
-  name: 'RestaurantIdUser',
+  name: 'RestaurantEdit',
   props: ['id'],
   data() {
     return {

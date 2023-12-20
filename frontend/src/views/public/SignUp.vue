@@ -24,6 +24,7 @@
               v-model="v$.nom.$model"
               name="nom"
               @blur="v$.nom.$touch"
+              @keydown.enter.prevent="submitForm"
             />
 
             <span v-for="error of v$.nom.$errors" :key="error.$uid">
@@ -37,20 +38,29 @@
               v-model="v$.contact.email.$model"
               name="email"
             />
-            <span v-for="error of v$.contact.email.$errors" :key="error.$uid">
+            <span
+              v-for="error of v$.contact.email.$errors"
+              :key="error.$uid"
+              @keydown.enter.prevent="submitForm"
+            >
               {{ error.$message }}
             </span>
-
-            <input
-              type="password"
-              id="user_password"
-              placeholder="Veuillez saisir un mot de passe"
-              v-model="v$.password.$model"
-              name="password"
-            />
+            <div class="input_boxii">
+              <input
+                :type="showPassword ? 'text' : 'password'"
+                id="user_password"
+                placeholder="Veuillez saisir un mot de passe"
+                v-model="v$.password.$model"
+                @keydown.enter.prevent="submitForm"
+                name="password"
+              />
+              <i class="fa-solid fa-eye fa-lg" @click="togglePasswordVisibility"></i>
+            </div>
             <span v-for="error of v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
           </div>
-          <button type="submit" class="button">S'inscrire</button>
+          <button type="submit" class="button" @keydown.enter.prevent="submitForm">
+            S'inscrire
+          </button>
           <div class="register_link">
             <p>
               Vous avez dêja un compte ?
@@ -78,7 +88,8 @@ export default {
       contact: {
         email: ''
       },
-      password: ''
+      password: '',
+      showPassword: false
     }
   },
   validations() {
@@ -104,8 +115,11 @@ export default {
     }
   },
   methods: {
-    async submitForm() {
-      const isFormCorrect = await this.v$.$validate()
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword
+    },
+    submitForm() {
+      const isFormCorrect = this.v$.$pending ? false : (this.v$.$pending = true)
 
       if (isFormCorrect) {
         this.register()
@@ -128,7 +142,7 @@ export default {
         .then((data) => data.json())
         .then((data) => {
           if (data.status === 200) {
-            this.$router.push('user/dashboard')
+            this.$router.push('restaurateur/dashboard')
             console.log(data)
           } else {
             console.log('ca a merdé' + data)
@@ -184,6 +198,13 @@ nav .nav-container {
   gap: 7px;
 }
 
+.input_box i {
+  position: absolute;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
 .logo {
   height: 50px;
   align-items: flex-start;
@@ -214,7 +235,7 @@ nav .nav-container {
 }
 
 .input_box input {
-  width: 96%;
+  width: 93%;
   height: 100%;
   background: transparent;
   border: none;
@@ -244,12 +265,12 @@ span {
   color: #fff;
 }
 
-.wrapper .remember_forgot {
+/* .wrapper .remember_forgot {
   display: flex;
   justify-content: space-between;
   font-size: 14.5px;
   margin: 0px 0 15px;
-}
+} */
 
 .wrapper .button {
   width: 100%;
@@ -263,6 +284,14 @@ span {
   font-size: 16px;
   color: #333;
   font-weight: 600;
+}
+
+.input_boxii {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
 }
 
 .button:hover {

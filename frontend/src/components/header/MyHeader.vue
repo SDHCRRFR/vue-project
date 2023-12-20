@@ -7,7 +7,7 @@
           <i class="fa-solid fa-heart-pulse fa-beat" style="color: #ff0000"></i>
         </span>
       </h1>
-      <h2 class="content">Lorem Ipsum blablabla</h2>
+      <h2 class="content"></h2>
     </hgroup>
   </div>
 </template>
@@ -52,10 +52,11 @@ export default {
 
 h2::after {
   content: '';
-  animation: slide 1s linear infinite;
+  animation: slide 3s linear;
+  content: 'Table de coeur';
 }
 
-/* @keyframes slide {
+@keyframes slide {
   0% {
     content: 'T|';
   }
@@ -115,7 +116,8 @@ h2::after {
   100% {
     content: 'Table de coeur |';
   }
-} */
+}
+
 h2 {
   font-size: 90px;
   color: white;

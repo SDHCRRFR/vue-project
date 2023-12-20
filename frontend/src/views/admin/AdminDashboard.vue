@@ -7,6 +7,16 @@
         </div>
         <ul id="icons">
           <li>
+            <router-link to="/edit/user">
+              <i class="fa-regular fa-user"></i>
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/edit/restaurant">
+              <i class="fa-solid fa-utensils"></i>
+            </router-link>
+          </li>
+          <li>
             <router-link to="/logout">
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </router-link>
@@ -15,19 +25,38 @@
       </div>
     </nav>
     <div class="container">
-      <h4>
-        Bienvenue ! <span><i class="fa-solid fa-gear"></i> </span>
-      </h4>
+      <h3>
+        CRUD Manager <span><i class="fa-solid fa-gear"></i> </span>
+      </h3>
       <hr />
       <div class="container_block">
         <main class="container">
-          <div class="">
-            <h1>CRUD Manager</h1>
-            <p class="lead">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo explicabo quidem et
-              reiciendis quis quasi consectetur est officiis! Ea error quo soluta in tempora
-              laudantium nesciunt quibusdam atque unde veniam.
-            </p>
+          <div class="management">
+            <div class="management_contain">
+              <h5>A propos de Table de Coeur</h5>
+              <p class="pp">
+                Vous adorez dénicher de nouveaux restaurants tendance à Paris, mais vous appréciez
+                aussi les brunchs entre amis le dimanche à Bordeaux ou les dîners en amoureux à
+                Lille ? Vous pensez que rien ne vaut un bon resto italien mais vous aimez sortir de
+                la routine avec un restaurant japonais ou indien ? Alors, venez découvrir les
+                meilleures tables du moment sur Table de coeur, parmi une sélection de plus de 60
+                000 adresses dans le monde entier.
+              </p>
+
+              <p class="pp">
+                Tous les jours, retrouvez des promotions allant jusqu’à -50% sur la carte. De quoi
+                se faire plaisir sans se ruiner ! Table de coeur est le moyen le plus rapide,
+                disponible 24h/24, pour trouver un bon plan resto près de chez vous, ou une
+                expérience culinaire partout ailleurs. Laissez-vous guider par plus de 20 millions
+                d’avis vérifiés de notre communauté et partagez les vôtres. Seuls les clients ayant
+                honoré leur réservation peuvent déposer un avis et poster leurs photos de plats.
+              </p>
+
+              <p class="pp">
+                Pour toutes les envies et toutes les occasions, réservez votre restaurant
+                gratuitement en 3 clics avec confirmation immédiate.
+              </p>
+            </div>
           </div>
         </main>
       </div>
@@ -57,7 +86,7 @@ export default {
 
 .container {
   width: 80%;
-  height: 87vh;
+  min-height: 50vh;
   padding-top: 80px;
   display: flex;
   flex-direction: column;
@@ -65,10 +94,10 @@ export default {
 }
 
 .container_block {
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
 }
 
 ul,
@@ -79,36 +108,6 @@ li {
 a,
 a:visited {
   color: #333;
-}
-
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-body {
-  min-height: 75rem;
-  padding-top: 4.5rem;
-}
-
-.bg-purple {
-  background-color: #7367f0;
-}
-
-.bg-purple-light {
-  background: #e6e4ff !important;
-}
-
-[v-cloak] {
-  display: none;
 }
 
 nav {
@@ -179,5 +178,32 @@ nav .nav-container #icons i:hover {
 hr {
   border: 1px solid black;
   width: 100%;
+}
+
+.management {
+  /* padding-top: 10px; */
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.management_contain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  float: left;
+  width: 80%;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+.pp {
+  font-size: 18px;
 }
 </style>

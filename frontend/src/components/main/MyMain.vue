@@ -13,7 +13,7 @@
       </router-link>
     </div>
     <div class="animated fadeInRight">
-      <router-link to="/user/don/33">
+      <router-link to="/restaurant/edit/33">
         <img src="../../../public/ensemble.jpeg" alt="" />
         <h2>Don</h2>
       </router-link>

@@ -18,7 +18,7 @@ const register = async (req, res) => {
        status: 400,
        message: "Erreur mon pote",
     });
-  }else {
+  } else {
     return res.status(200).json({
       status: 200,
       message: "Ok user create",

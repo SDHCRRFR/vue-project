@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/stores/connexion/user'
 // ==========================================================)->
-import AdminDashboard from '@/views/admin/AdminDashboard.vue'
+import * as Admin from '@/views/admin'
 import * as Public from '@/views/public'
 import * as User from '@/views/users'
 // ===========================================================)->
@@ -30,25 +30,26 @@ const router = createRouter({
     { path: '/login', name: 'user-login', component: UserLogin },
     { path: '/signup', name: 'SignUp', component: SignUp },
     {
-      path: '/admin/dashboard',
-      name: 'AdminDashboard',
-      component: AdminDashboard,
-      props: true,
-      meta: { requiresAuth: true }
+      path: '/admin',
+      name: 'Admin',
+      component: Admin.AdminLayout,
+      meta: { requiresAuth: true },
+      children: [
+        { path: 'dashboard', name: 'AdminDashboard', component: Admin.AdminDashboard },
+        { path: 'edit/user', name: 'EditUser', component: Admin.EditUser },
+        { path: 'edit/restaurant', name: 'EditRestaurant', component: Admin.EditRestaurant }
+      ]
     },
     {
-      path: '/user',
-      name: 'user',
+      path: '/restaurateur',
+      name: 'restaurateur',
       component: User.UserLayout,
       meta: { requiresAuth: true },
       children: [
         { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
         { path: 'shop', name: 'user-shopping', component: User.UserShopping },
-        { path: 'restaurants/:id', name: 'restaurants', component: User.RestaurantIdUser, props: true },
-        { path: 'index/:id(\\d+)', name: 'user-index', component: User.UserIndex, props: true },
-        { path: 'don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true },
-        { path: '/user-management', name: 'ManagementStore', component: User.ManagementStore },
-        { path: '/management/help', name: 'ManagementHelp', component: User.ManagementHelp }
+        { path: 'edit', name: 'restaurant-edit', component: User.RestaurantEdit, props: true },
+        { path: 'don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true }
       ]
     },
     { path: '/logout', name: 'UserLogout', component: UserLogout },
