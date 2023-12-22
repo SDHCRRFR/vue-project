@@ -76,6 +76,7 @@
 <script>
 import { useVuelidate } from '@vuelidate/core'
 import { required, email, minLength } from '@vuelidate/validators'
+const API_URL = import.meta.env.VITE_API_URL
 
 export default {
   name: 'SignUp',
@@ -131,7 +132,7 @@ export default {
         email: this.contact.email,
         password: this.password
       }
-      const requestInfos = new Request('http://localhost:3000/api/user/register', {
+      const requestInfos = new Request(`${API_URL}/user/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

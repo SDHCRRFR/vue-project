@@ -1,11 +1,22 @@
 <script>
+const API_URL = import.meta.env.VITE_API_URL
+
 export default {
   name: 'UserShopping',
   data: () => {
     return {
       data: [],
       searchKey: '',
-      isPopupOpen: false
+      isPopupOpen: false,
+      newRestaurantData: {
+        nom: '',
+        adresse: '',
+        telephone: '',
+        img: '',
+        imageUrl: '',
+        code_postale: '',
+        menu: ''
+      }
     }
   },
   created() {
@@ -13,7 +24,7 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch('http://localhost:3000/api/restaurant')
+      fetch(`${API_URL}/restaurant`)
         .then((response) => {
           console.log(response)
           if (!response.ok) {
@@ -29,11 +40,44 @@ export default {
           console.error(error)
         })
     },
+    async createRestaurant(restaurantData) {
+      try {
+        const response = await fetch(`${API_URL}/restaurant`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(restaurantData)
+        })
+
+        const data = await response.json()
+        this.fetchData()
+        this.closePopup()
+      } catch (error) {
+        console.error('Erreur lors de la création du restaurant', error)
+      }
+    },
     openPopup() {
       this.isPopupOpen = true
     },
     closePopup() {
       this.isPopupOpen = false
+    },
+    insertImage() {
+      this.$refs.imageInput.click()
+    },
+    handleImageChange(event) {
+      const file = event.target.files[0]
+
+      if (file) {
+        const reader = new FileReader()
+
+        reader.onload = () => {
+          this.imageUrl = reader.result
+        }
+
+        reader.readAsDataURL(file)
+      }
     }
   },
   computed: {
@@ -55,8 +99,7 @@ export default {
         placeholder="Recherchez..."
         autocomplete="off"
       />
-      <span 
-        v-if="searchKey && filteredList.length >= 1">
+      <span v-if="searchKey && filteredList.length >= 1">
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
       </span>
@@ -65,39 +108,60 @@ export default {
 
     <div class="popup-overlay" v-if="isPopupOpen">
       <div class="popup">
-        <h3>Formulaire/Crud</h3>
+        <h2>Ajouter un nouveau restaurant</h2>
+        <form @submit.prevent="createRestaurant(newRestaurantData)">
+          <label for="nom">Nom:</label>
+          <input type="text" id="nom" v-model="newRestaurantData.nom" required />
+
+          <label for="address">Adresse:</label>
+          <input type="text" id="address" v-model="newRestaurantData.adresse" required />
+
+          <label for="telephone">telephone:</label>
+          <input type="number" id="nom" v-model="newRestaurantData.telephone" required />
+
+          <label for="img">Image:</label>
+          <div>
+            <button @click="insertImage">Insérer une image</button>
+            <input type="file" ref="imageInput" @change="handleImageChange" />
+          </div>
+
+          <label for="code_postale">Code Postal:</label>
+          <input type="text" id="code_postale" v-model="newRestaurantData.code_postale" required />
+
+          <label for="menu">menu:</label>
+          <input type="text" id="menu" v-model="newRestaurantData.menu" required />
+
+          <!-- Ajoutez les champs du formulaire pour les détails du restaurant -->
+          <button type="submit">Ajouter</button>
+        </form>
         <i class="fa-solid fa-xmark fa-xs pop_up" @click="closePopup"></i>
       </div>
     </div>
 
     <div class="card-cart-container">
       <div class="card-container">
-        <div 
-           v-for="product in filteredList" 
-           class="card" 
-           v-bind:key="product.id"
-          >
+        <div v-for="product in filteredList" class="card" v-bind:key="product.id">
           <router-link :to="{ name: 'restaurant-edit', params: { id: product.id } }">
-          <div class="image-container">
-            <img
-              v-bind:src="`http://localhost:3000/${product.img}`"
-              alt=""
-              v-bind:id="product.id"
-            />
-          </div>
-
-          <div class="card-text">
-            <h3>{{ product.nom }}</h3>
-            <span>{{ product.code_postale }}</span>
-          </div>
-          <p>{{ product.address }}</p>
-          <div class="card-icons">
-            <div class="like-container">
-              <label v-bind:for="product.id">
-                <p>{{ product.adresse }}</p>
-              </label>
+            <div class="image-container">
+              <img
+                v-bind:src="`http://localhost:3000/${product.img}`"
+                alt=""
+                v-bind:id="product.id"
+              />
             </div>
-          </div>
+
+            <div class="card-text">
+              <h3>{{ product.nom }}</h3>
+              <span>{{ product.code_postale }}</span>
+            </div>
+            <p>{{ product.address }}</p>
+            <div class="card-icons">
+              <div class="like-container">
+                <label v-bind:for="product.id">
+                  <p>{{ product.adresse }}</p>
+                </label>
+              </div>
+            </div>
           </router-link>
         </div>
 
@@ -107,7 +171,6 @@ export default {
         </div>
       </div>
     </div>
-    <!-- <transition name="cart-anim"></transition> -->
     <div class="management">
       <div class="management_contain">
         <h5>A propos de Table de Coeur</h5>
@@ -199,11 +262,13 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent pour l'effet de superposition */
+  background: rgba(0, 0, 0, 0.5);
+  /* Fond semi-transparent pour l'effet de superposition */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Assurez-vous que le popup est au-dessus de tout le reste */
+  z-index: 1000;
+  /* Assurez-vous que le popup est au-dessus de tout le reste */
 }
 
 .popup {
@@ -211,13 +276,16 @@ header {
   display: flex;
   width: 450px;
   align-items: center;
+  flex-direction: column;
   min-height: 500px;
   background: gainsboro;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1001; /* Assurez-vous que le popup est au-dessus de l'overlay */
-  animation: slideIn 0.3s ease-out; /* Ajoutez une animation pour le glissement */
+  z-index: 1001;
+  /* Assurez-vous que le popup est au-dessus de l'overlay */
+  animation: slideIn 0.3s ease-out;
+  /* Ajoutez une animation pour le glissement */
 }
 
 @keyframes slideIn {
@@ -225,6 +293,7 @@ header {
     transform: translateY(-50px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;

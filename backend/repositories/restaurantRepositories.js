@@ -22,4 +22,6 @@ const getOneRestaurantById = async (id) => {
     }
 };
 
-export {getAllRestaurant, getOneRestaurantById};
+
+
+export { getAllRestaurant, getOneRestaurantById };

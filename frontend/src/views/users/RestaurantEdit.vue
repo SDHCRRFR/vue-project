@@ -56,6 +56,8 @@
 </template>
 
 <script>
+const API_URL = import.meta.env.VITE_API_URL
+
 export default {
   name: 'RestaurantEdit',
   props: ['id'],
@@ -69,7 +71,7 @@ export default {
   },
   methods: {
     fetchRestaurantDetails() {
-      fetch(`http://localhost:3000/api/restaurant/${this.id}`)
+      fetch(`${API_URL}/restaurant/${this.id}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error('Erreur lors de la récupération des détails du restaurant')

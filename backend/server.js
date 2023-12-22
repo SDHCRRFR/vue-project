@@ -26,6 +26,9 @@ router.use(
 
 router.use("/api/restaurant", restaurantRouter);
 router.use("/api/restaurant/type", typeRestaurantRouter);
+// ==============================================================================
+
+// ================================================================================
 router.use("/api/user", userRouter);
 
 router.post("/send-email", async (req, res) => {

@@ -1,21 +1,21 @@
 <template>
   <div class="my-main">
     <div class="animated fadeInLeft">
-      <a href="#impact">
+      <router-link to="/about">
         <img src="../../../public/nourriture_salade.jpeg" alt="" />
-        <h2>Impact</h2>
-      </a>
+        <h2>A propos</h2>
+      </router-link>
     </div>
     <div class="animated fadeInTop">
       <router-link to="/shopping-cart">
-        <img src="../../../public/photo-ethnique.jpg" alt="" />
-        <h2>Nos-Restaurant</h2>
+        <img src="../../../public/nourriture_salade.jpeg" alt="" />
+        <h2>Restaurants</h2>
       </router-link>
     </div>
     <div class="animated fadeInRight">
-      <router-link to="/restaurant/edit/33">
-        <img src="../../../public/ensemble.jpeg" alt="" />
-        <h2>Don</h2>
+      <router-link to="/restaurant/don/33">
+        <img src="../../../public/nourriture_salade.jpeg" alt="" />
+        <h2>Ajoutez mon restaurant</h2>
       </router-link>
     </div>
   </div>

@@ -3,22 +3,22 @@
     <div class="nav-container">
       <div id="logo">
         <router-link to="/">
-          <img src="../../assets/logosaid.svg" alt="logo" />
+          <img src="../../assets/logosaid.svg" alt="logo" title="accueil" />
         </router-link>
       </div>
       <ul id="icons">
         <li>
           <router-link to="/shopping-cart">
-            <i class="fa-solid fa-utensils"></i>
+            <i class="fa-solid fa-utensils" title="restos"></i>
           </router-link>
         </li>
         <li>
           <router-link to="/about">
-            <i class="fas fa-address-card"></i>
+            <i class="fas fa-address-card" title="à propos"></i>
           </router-link>
         </li>
         <li>
-          <router-link to="/login">
+          <router-link to="/login" title="connexion">
             <i class="far fa-user"></i>
           </router-link>
         </li>

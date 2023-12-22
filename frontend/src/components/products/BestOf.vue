@@ -1,7 +1,8 @@
 <template>
   <div class="user-settings">
     <div class="fadeInTop" id="container">
-      <h1>Sélection des restaurants les plus visités cette semaine</h1>
+      <h1>Tout Nouveau Tout Bon !</h1>
+      <p>Les Derniers Restos Inscrits</p>
       <div class="container_card">
         <div class="card" v-for="item in data" v-bind:key="item.id">
           <router-link :to="{ name: 'restaurant', params: { id: item.id } }">
@@ -30,13 +31,13 @@
 const API_URL = import.meta.env.VITE_API_URL
 
 export default {
-  name: 'MyProduct',
+  name: 'BestOf',
   data: () => {
     return {
       data: [],
-      like: 9.9,
-      price: 5.5,
-      type: 'Français'
+      like: 7.9,
+      price: 6.5,
+      type: 'Asiatiques'
     }
   },
   created() {
@@ -53,8 +54,7 @@ export default {
           return response.json()
         })
         .then((data) => {
-          this.data = data.data.slice(0, 4)
-          // this.data = this.data.slice(0, 4)
+          this.data = data.data.slice(1, 5)
           console.log(data)
         })
         .catch((error) => {
@@ -128,11 +128,11 @@ export default {
 }
 
 #container {
-  width: 80%;
+  width: 95%;
   display: flex;
   text-align: left;
-  padding: 20px;
-  gap: 30px;
+  padding: 10px;
+  gap: 10px;
   flex-direction: column;
 }
 

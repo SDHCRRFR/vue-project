@@ -1,12 +1,13 @@
 <script setup>
+import { ref } from 'vue'
 import HeaderDashboard from '@/components/header/HeaderDashboard.vue'
 import UserMain from '@/components/main/UserMain.vue'
-import { ref } from 'vue'
 import MyProduct from '@/components/products/MyProduct.vue'
-import GoogleMaps from '@/components/map/GoogleMaps.vue'
-import MyCount from '@/components/counter/MyCount.vue'
-import Impact from '@/components/impact/ImpactGlobale.vue'
-import SubscribeRestaurant from '@/components/subscribe/SubscribeRestaurant.vue'
+import BestOf from '@/components/products/BestOf.vue'
+import SocialMedia from '@/components/products/SocialMedia.vue'
+import TypeRestaurant from '@/components/products/TypeRestaurant.vue'
+import LocRestaurant from '@/components/products/LocRestaurant.vue'
+
 import MyFooter from '@/components/footer/MyFooter.vue'
 
 const check = "Et si c'était vous ?"
@@ -27,16 +28,12 @@ const show = ref(true)
         </span>
       </div>
     </Transition>
-
     <UserMain />
-    <div class="component">
-      <!--  -->
-      <MyProduct />
-      <!--  -->
-      <GoogleMaps />
-      <MyCount />
-      <Impact />
-    </div>
+    <MyProduct />
+    <BestOf />
+    <SocialMedia />
+    <TypeRestaurant />
+    <LocRestaurant />
     <SubscribeRestaurant />
     <MyFooter />
   </div>

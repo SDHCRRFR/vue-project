@@ -17,7 +17,7 @@ export default {
   data: function () {
     return {
       accroche: 'Ayez du coeur',
-      title: 'Table de Coeur',
+      // title: 'Table de Coeur',
       searchKey: '',
       products: []
     }
@@ -53,68 +53,69 @@ export default {
 h2::after {
   content: '';
   animation: slide 3s linear;
-  content: 'Table de coeur';
+  content: 'Table coup de coeur';
 }
 
 @keyframes slide {
   0% {
     content: 'T|';
   }
-
   5% {
     content: 'Ta|';
   }
-
   10% {
     content: 'Tab|';
   }
-
   15% {
     content: 'Tabl|';
   }
-
   20% {
     content: 'Table|';
   }
-
   25% {
     content: 'Table |';
   }
-
   30% {
-    content: 'Table d|';
+    content: 'Table c|';
   }
-
   35% {
-    content: 'Table de|';
+    content: 'Table co|';
   }
-
   40% {
-    content: 'Table de |';
+    content: 'Table cou|';
   }
-
   45% {
-    content: 'Table de c|';
+    content: 'Table coup|';
   }
-
   50% {
-    content: 'Table de co|';
+    content: 'Table coup |';
   }
-
   55% {
-    content: 'Table de coe|';
+    content: 'Table coup d|';
   }
-
   55% {
-    content: 'Table de coeu|';
+    content: 'Table coup de|';
   }
-
   60% {
-    content: 'Table de coeur|';
+    content: 'Table coup de |';
   }
-
+  65% {
+    content: 'Table coup de c|';
+  }
+  70% {
+    content: 'Table coup de co|';
+  }
+  75% {
+    content: 'Table coup de coe|';
+  }
+  80% {
+    content: 'Table coup de coeu|';
+  }
+  85% {
+    content: 'Table coup de coeur|';
+  }
   100% {
-    content: 'Table de coeur |';
+    content: 'Table coup de coeur |';
   }
 }
 

@@ -3,23 +3,23 @@
     <div class="nav-container">
       <div id="logo">
         <router-link to="/restaurateur/dashboard">
-          <img src="../../assets/logosaid.svg" alt="logo" />
+          <img src="../../assets/logosaid.svg" alt="logo" title="accueil" />
         </router-link>
       </div>
       <ul id="icons">
         <li>
           <router-link to="/restaurateur/shop">
-            <i class="fa-solid fa-utensils"></i>
+            <i class="fa-solid fa-utensils" title="restos"></i>
           </router-link>
         </li>
         <li>
-          <router-link to="/restaurateur/don/12">
-            <i class="fa-solid fa-heart"></i>
+          <router-link to="/restaurateur/info-management">
+            <i class="fas fa-address-card" title="à propos"></i>
           </router-link>
         </li>
         <li>
           <router-link to="/logout">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <i class="fa-solid fa-arrow-right-from-bracket" title="déconnexion"></i>
           </router-link>
         </li>
       </ul>

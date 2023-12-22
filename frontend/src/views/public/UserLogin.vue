@@ -63,6 +63,7 @@
 
 <script>
 import { useUserStore } from '@/stores/connexion/user'
+const API_URL = import.meta.env.VITE_API_URL
 
 export default {
   name: 'UserLogin',
@@ -82,6 +83,9 @@ export default {
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword
     },
+    submitForm() {
+      this.login()
+    },
     login() {
       const formData = {
         email: this.user.email,
@@ -92,7 +96,7 @@ export default {
       } else {
         localStorage.removeItem('rememberedUser')
       }
-      const requestInfos = new Request('http://localhost:3000/api/user/login', {
+      const requestInfos = new Request(`${API_URL}/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

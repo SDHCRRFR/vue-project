@@ -1,4 +1,6 @@
 <script>
+const API_URL = import.meta.env.VITE_API_URL
+
 export default {
   name: 'PublicShp',
   data: () => {
@@ -12,7 +14,7 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch('http://localhost:3000/api/restaurant')
+      fetch(`${API_URL}/restaurant`)
         .then((response) => {
           console.log(response)
           if (!response.ok) {
@@ -32,7 +34,10 @@ export default {
   computed: {
     filteredList() {
       return this.data.filter((product) => {
-        return product.nom.toLowerCase().includes(this.searchKey.toLowerCase())
+        return (
+          product.code_postale.toLowerCase().includes(this.searchKey.toLowerCase()) +
+          product.nom.toLowerCase().includes(this.searchKey.toLowerCase())
+        )
       })
     }
   }
@@ -42,17 +47,20 @@ export default {
 <template>
   <div class="home-container" id="home">
     <header>
-      <input
-        v-model="searchKey"
-        type="search"
-        id="search"
-        placeholder="Recherchez..."
-        autocomplete="off"
-      />
-      <span v-if="searchKey && filteredList.length >= 1">
-        {{ filteredList.length }} résultat
-        <span v-if="filteredList.length >= 2">s</span>
-      </span>
+      <h1>Recherchez parmis nos restaurants</h1>
+      <div class="search">
+        <input
+          v-model="searchKey"
+          type="search"
+          id="search"
+          placeholder="Recherchez..."
+          autocomplete="off"
+        />
+        <span v-if="searchKey && filteredList.length >= 1" class="search_span">
+          {{ filteredList.length }} résultat
+          <span v-if="filteredList.length >= 2">s</span>
+        </span>
+      </div>
     </header>
     <div class="card-cart-container">
       <div class="card-container">
@@ -117,7 +125,7 @@ export default {
 .home-container {
   max-width: 100%;
   margin: 0 auto;
-  padding-top: 100px;
+  padding-top: 70px;
   padding-left: 2.4rem;
 }
 
@@ -128,13 +136,17 @@ export default {
 }
 
 header {
-  width: 28vw;
-  flex-direction: row;
+  background: url(../../../public/background-crimson.jpeg);
+  background-size: cover;
+  overflow: hidden;
+  width: 100%;
+  flex-direction: column;
   display: flex;
+  height: 20vh;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
 }
 
 a {
@@ -142,9 +154,19 @@ a {
   color: black;
 }
 
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search_span {
+  color: white;
+}
+
 .home-container h1 {
-  padding-left: 0;
-  padding-top: 100px;
+  color: white;
 }
 
 .home-container #search {
@@ -156,7 +178,7 @@ a {
 }
 
 #search {
-  width: 300px;
+  width: 500px;
 }
 
 button {
@@ -176,6 +198,7 @@ p {
 }
 
 .home-container .card-cart-container {
+  padding-top: 20px;
   display: flex;
 }
 

@@ -1,13 +1,14 @@
 <script setup>
+import { ref } from 'vue'
 import MyHeader from '@/components/header/MyHeader.vue'
 import MyMain from '@/components/main/MyMain.vue'
-import { ref } from 'vue'
 import MyProduct from '@/components/products/MyProduct.vue'
-// import GoogleMaps from '@/components/map/GoogleMaps.vue'
-import MyCount from '@/components/counter/MyCount.vue'
-import Impact from '@/components/impact/ImpactGlobale.vue'
+import BestOf from '@/components/products/BestOf.vue'
+import SocialMedia from '@/components/products/SocialMedia.vue'
+import TypeRestaurant from '@/components/products/TypeRestaurant.vue'
+import LocRestaurant from '@/components/products/LocRestaurant.vue'
 
-const check = "Et si c'était vous ?"
+const check = 'Découvrer notre annuaire des plus beaux restaurants '
 const show = ref(true)
 </script>
 <template>
@@ -25,13 +26,11 @@ const show = ref(true)
       </div>
     </Transition>
     <MyMain />
-    <div class="component">
-      <MyProduct />
-      <div class="maps"></div>
-      <!-- <GoogleMaps /> -->
-      <MyCount />
-      <Impact />
-    </div>
+    <MyProduct />
+    <BestOf />
+    <SocialMedia />
+    <TypeRestaurant />
+    <LocRestaurant />
   </div>
 </template>
 
@@ -80,8 +79,8 @@ span {
 }
 
 h1 {
-  font-size: 50px;
-  width: 400px;
+  font-size: 30px;
+  width: 800px;
 }
 
 h3 {
@@ -134,18 +133,5 @@ img {
   width: 100%;
   height: 300px;
   border-radius: 20px;
-}
-
-.component {
-  width: 100%;
-  min-height: 70vh;
-  padding: 0;
-  margin: 0;
-  gap: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 </style>

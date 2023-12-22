@@ -23,7 +23,6 @@ const router = createRouter({
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
         { path: '/restaurant/:id', name: 'restaurant', component: Public.RestaurantId, props: true },
         { path: '/store-management', name: 'StoreManagement', component: Public.StoreManagement },
-        { path: '/help-management', name: 'HelpManagement', component: Public.HelpManagement },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },
@@ -47,9 +46,9 @@ const router = createRouter({
       meta: { requiresAuth: true },
       children: [
         { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
+        { path: 'info-management', name: 'StoreManagement', component: User.StoreManagement },
         { path: 'shop', name: 'user-shopping', component: User.UserShopping },
-        { path: 'edit', name: 'restaurant-edit', component: User.RestaurantEdit, props: true },
-        { path: 'don/:id(\\d+)', name: 'user-don', component: User.FaireUnDon, props: true }
+        { path: 'edit', name: 'restaurant-edit', component: User.RestaurantEdit, props: true }
       ]
     },
     { path: '/logout', name: 'UserLogout', component: UserLogout },

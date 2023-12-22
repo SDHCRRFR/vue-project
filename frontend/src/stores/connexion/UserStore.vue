@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { useUserStore } from '@/stores/counter'
 
 const userStore = useUserStore()
@@ -6,4 +6,4 @@ const userStore = useUserStore()
 
 <template>
   <div>Current Count: {{ userStore.user?.nom }}</div>
-</template>
+</template> -->
