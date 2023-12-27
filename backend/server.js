@@ -3,6 +3,10 @@
 import express from "express";
 import typeRestaurantRouter from "./routes/typeRestaurant.js";
 import restaurantRouter from "./routes/restaurant.js";
+import getRestaurantById from "./routes/restaurant.js";
+import createRestaurant from "./routes/restaurant.js";
+import updateRestaurant from "./routes/restaurant.js";
+import deleteRestaurant from "./routes/restaurant.js";
 import { transporter } from "./nodemailer-config.js";
 import userRouter from "./routes/user.js";
 import cors from "cors";
@@ -25,9 +29,13 @@ router.use(
 );
 
 router.use("/api/restaurant", restaurantRouter);
+router.use("/api/sortedRestaurant", restaurantRouter);
 router.use("/api/restaurant/type", typeRestaurantRouter);
 // ==============================================================================
-
+restaurantRouter.use('/:id', getRestaurantById);
+restaurantRouter.use('/restaurants', createRestaurant);
+restaurantRouter.use('/restaurants/:id', updateRestaurant);
+restaurantRouter.use('/restaurants/:id', deleteRestaurant);
 // ================================================================================
 router.use("/api/user", userRouter);
 

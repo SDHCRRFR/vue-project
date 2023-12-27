@@ -26,8 +26,6 @@ const router = createRouter({
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },
-    { path: '/login', name: 'user-login', component: UserLogin },
-    { path: '/signup', name: 'SignUp', component: SignUp },
     {
       path: '/admin',
       name: 'Admin',
@@ -35,8 +33,6 @@ const router = createRouter({
       meta: { requiresAuth: true },
       children: [
         { path: 'dashboard', name: 'AdminDashboard', component: Admin.AdminDashboard },
-        { path: 'edit/user', name: 'EditUser', component: Admin.EditUser },
-        { path: 'edit/restaurant', name: 'EditRestaurant', component: Admin.EditRestaurant }
       ]
     },
     {
@@ -46,11 +42,13 @@ const router = createRouter({
       meta: { requiresAuth: true },
       children: [
         { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
-        { path: 'info-management', name: 'StoreManagement', component: User.StoreManagement },
+        { path: 'info/management', name: 'StoreManagement', component: User.StoreManagement },
         { path: 'shop', name: 'user-shopping', component: User.UserShopping },
         { path: 'edit', name: 'restaurant-edit', component: User.RestaurantEdit, props: true }
       ]
     },
+    { path: '/login', name: 'user-login', component: UserLogin },
+    { path: '/signup', name: 'SignUp', component: SignUp },
     { path: '/logout', name: 'UserLogout', component: UserLogout },
     { path: '/:pathMatch(.*)*', component: NotFound }
   ]

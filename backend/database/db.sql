@@ -37,6 +37,8 @@ CREATE TABLE tabledecoeur.restaurant (
     code_postale VARCHAR(50) NOT NULL,
     menu TEXT,
     type_restaurant_id INT UNSIGNED,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY(type_restaurant_id) REFERENCES tabledecoeur.type_restaurant(id)
 );
 
@@ -121,5 +123,6 @@ INSERT INTO tabledecoeur.restaurant VALUES
      ( NULL, 'Pasta Perfection', '324 Boulevard des Pâtes', '0654321098', 'resto-IIII.jpeg', '75018', '<h3> Menu <h3/> <p> Pesto Pasta </p>', 9 ),
      ( NULL, 'Wok Wonders', '341 Avenue du Wok', '0612345678', 'resto-v.web', '75019', '<h3> Menu <h3/> <p> Wok Specialties </p>', 10 ),
      ( NULL, 'Dessert Haven', '358 Rue des Desserts', '0654321098', 'resto-I.jpeg', '75020', '<h3> Menu <h3/> <p> Dessert Platter </p>', 1 );
+
 
 -- ==========================================================================================================================================================

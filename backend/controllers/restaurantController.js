@@ -7,6 +7,15 @@ const index = async (req, res) => {
   });
 };
 
+const getSortedRestaurant = async (req, res) => {
+  const donnee = await getAllRestaurant(true);
+  res.status(200).json({
+    data: donnee,
+  });
+};
+
+
+
 const getRestaurantById = async (req, res) => {
   const { id } = req.params;
 
@@ -53,6 +62,7 @@ const createRestaurant = async (req, res) => {
 
 export {
   index,
+  getSortedRestaurant,
   getRestaurantById,
   createRestaurant,
   updateRestaurant,

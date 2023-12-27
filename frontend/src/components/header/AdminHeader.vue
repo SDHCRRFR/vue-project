@@ -13,7 +13,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/restaurateur/info-management">
+          <router-link to="/restaurateur/info/management">
             <i class="fas fa-address-card" title="à propos"></i>
           </router-link>
         </li>

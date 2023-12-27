@@ -137,6 +137,7 @@
 <script>
 import { useVuelidate } from '@vuelidate/core'
 import { required, email, minLength, maxLength } from '@vuelidate/validators'
+const API_URL = import.meta.env.VITE_API_URL
 
 export default {
   name: 'FormRegistration',
@@ -198,7 +199,7 @@ export default {
       if (isFormCorrect) {
         try {
           // Envoyer les données du formulaire au backend
-          const response = await fetch('http://localhost:3000/send-email', {
+          const response = await fetch(`${API_URL}/send-email`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

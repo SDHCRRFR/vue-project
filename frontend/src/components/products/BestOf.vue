@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch(`${API_URL}/restaurant`)
+      fetch(`${API_URL}/sortedRestaurant`)
         .then((response) => {
           console.log(response)
           if (!response.ok) {
@@ -54,7 +54,7 @@ export default {
           return response.json()
         })
         .then((data) => {
-          this.data = data.data.slice(1, 5)
+          this.data = data.data
           console.log(data)
         })
         .catch((error) => {
