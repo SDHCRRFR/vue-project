@@ -1,5 +1,6 @@
 <script>
 const API_URL = import.meta.env.VITE_API_URL
+const API_URLII = 'http://localhost:3000'
 
 export default {
   name: 'UserShopping',
@@ -15,7 +16,8 @@ export default {
         img: '',
         imageUrl: '',
         code_postale: '',
-        menu: ''
+        menu: '',
+        type_restaurant_id: ''
       }
     }
   },
@@ -40,9 +42,9 @@ export default {
           console.error(error)
         })
     },
-    async createRestaurant(restaurantData) {
+    createRestaurant(restaurantData) {
       try {
-        const response = await fetch(`${API_URL}/restaurant`, {
+        const response = fetch(`${API_URLII}/restaurantS`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -50,7 +52,7 @@ export default {
           body: JSON.stringify(restaurantData)
         })
 
-        const data = await response.json()
+        const data = response.json()
         this.fetchData()
         this.closePopup()
       } catch (error) {
@@ -92,13 +94,7 @@ export default {
 <template>
   <div class="home-container" id="home">
     <header>
-      <input
-        v-model="searchKey"
-        type="search"
-        id="search"
-        placeholder="Recherchez..."
-        autocomplete="off"
-      />
+      <input v-model="searchKey" type="search" id="search" placeholder="Recherchez..." autocomplete="off" />
       <span v-if="searchKey && filteredList.length >= 1">
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
@@ -109,7 +105,7 @@ export default {
     <div class="popup-overlay" v-if="isPopupOpen">
       <div class="popup">
         <h2>Ajouter un nouveau restaurant</h2>
-        <form @submit.prevent="createRestaurant(newRestaurantData)">
+        <form @submit.prevent="createRestaurant()" method="post">
           <label for="nom">Nom:</label>
           <input type="text" id="nom" v-model="newRestaurantData.nom" required />
 
@@ -121,12 +117,15 @@ export default {
 
           <label for="img">Image:</label>
           <div>
-            <button @click="insertImage">Insérer une image</button>
+            <!-- <button @click="insertImage">Insérer une image</button> -->
             <input type="file" ref="imageInput" @change="handleImageChange" />
           </div>
 
-          <label for="code_postale">Code Postal:</label>
-          <input type="text" id="code_postale" v-model="newRestaurantData.code_postale" required />
+          <label for="type restaurant">Code Postal:</label>
+          <input type="text" id="type_restaurant_id" v-model="newRestaurantData.type_restaurant_id" required />
+
+          <label for="type_restaurant_id">Type restaurant:</label>
+          <input type="text" id="type_restaurant_id" v-model="newRestaurantData.type_restaurant_id" required />
 
           <label for="menu">menu:</label>
           <input type="text" id="menu" v-model="newRestaurantData.menu" required />
@@ -143,11 +142,7 @@ export default {
         <div v-for="product in filteredList" class="card" v-bind:key="product.id">
           <router-link :to="{ name: 'restaurant-edit', params: { id: product.id } }">
             <div class="image-container">
-              <img
-                v-bind:src="`http://localhost:3000/${product.img}`"
-                alt=""
-                v-bind:id="product.id"
-              />
+              <img v-bind:src="`http://localhost:3000/${product.img}`" alt="" v-bind:id="product.id" />
             </div>
 
             <div class="card-text">
@@ -263,29 +258,65 @@ header {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  /* Fond semi-transparent pour l'effet de superposition */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  /* Assurez-vous que le popup est au-dessus de tout le reste */
 }
 
 .popup {
-  /* background: white; */
+  background: white;
   display: flex;
   width: 450px;
-  align-items: center;
   flex-direction: column;
-  min-height: 500px;
-  background: gainsboro;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   z-index: 1001;
-  /* Assurez-vous que le popup est au-dessus de l'overlay */
   animation: slideIn 0.3s ease-out;
-  /* Ajoutez une animation pour le glissement */
+}
+
+.popup h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.popup form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.popup label {
+  font-weight: bold;
+}
+
+.popup input,
+.popup button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.popup button {
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+.popup button:hover {
+  background-color: #45a049;
+}
+
+.popup i {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  color: #555;
 }
 
 @keyframes slideIn {
@@ -298,10 +329,6 @@ header {
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-.pop_up {
-  cursor: pointer;
 }
 
 /* ================================================================================================ */

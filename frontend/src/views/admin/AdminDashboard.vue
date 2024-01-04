@@ -1,56 +1,67 @@
 <template>
   <div class="management_contain">
-  <nav>
-    <div class="nav-container">
-      <ul id="icons">
-        <li>
-          <router-link to="/logout">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          </router-link>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <h5>Liste des Restaurateurs</h5>
-  <table class="user-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Email</th>
-        <th>Date de création</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="restaurateur in data" :key="restaurateur.id">
-        <td>{{ restaurateur.id }}</td>
-        <td>{{ restaurateur.nom }}</td>
-        <td>{{ restaurateur.email }}</td>
-        <td>{{ restaurateur.date_creation }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <nav>
+      <div class="nav-container">
+        <ul id="icons">
+          <li>
+            <router-link to="/logout">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </router-link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="clik"></div>
+    <h5>Liste des Restaurateurs</h5>
+    <!-- ... (votre code existant) -->
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Date de création</th>
+          <th>Role_id</th>
+          <th>modifier/supprimé</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="user in data" :key="user.id">
+          <td>{{ user.id }}</td>
+          <td>{{ user.nom }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.date_creation }}</td>
+          <td>{{ user.role_id }}</td>
+          <td>
+            <!-- Ajoutez ici des boutons pour le CRUD -->
+            <button><i class="fa-solid fa-pen-to-square"></i></button>
+            <button><i class="fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="si" v-if="isRestaurateur">
 
+    </div>
+  </div>
 </template>
 
 <script>
-const API_URL = import.meta.env.VITE_API_URL
-
+const API_URL = 'http://localhost:3000' // Définissez l'URL de base du serveur
 
 export default {
-  name: 'PublicShp',
+  name: 'AdminDashboard',
   data: () => {
     return {
-      data: [],
+      data: [{}]
     }
   },
-  created() {
-    this.fetchData()
+  mounted() {
+    this.fetchData() // Assurez-vous d'appeler fetchData au moment approprié
   },
   methods: {
     fetchData() {
-      fetch(`${API_URL}/api/user`)
+      fetch(`${API_URL}/users`) // Utilisez la route correcte
         .then((response) => {
           console.log(response)
           if (!response.ok) {
@@ -59,47 +70,49 @@ export default {
           return response.json()
         })
         .then((data) => {
+          console.log('Données reçues :', data)
           this.data = data.data
-          console.log(data)
         })
         .catch((error) => {
           console.error(error)
         })
     }
-  },
+  }
 }
 </script>
 
 <style scoped>
 .user-table {
-width: 100%;
-border-collapse: collapse;
-margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
 }
 
-.user-table th, .user-table td {
-border: 1px solid #ddd;
-padding: 8px;
-text-align: left;
+.user-table th,
+.user-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
 .user-table th {
-background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .management_contain {
-display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
-width: 80%;
-margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
 }
 
 h5 {
   margin-top: 100px;
-font-size: 24px;
+  font-size: 24px;
 }
+
 nav {
   padding: 0rem 2.4rem;
   background: #fff;
@@ -143,6 +156,7 @@ a,
 a:visited {
   color: #333;
 }
+
 nav .nav-container #icons i {
   transition: 0.25s;
   cursor: pointer;

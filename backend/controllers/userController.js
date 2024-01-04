@@ -1,6 +1,7 @@
 /******************************* */
 // Import des modules nécessaire
 import { createRegister } from "../repositories/userRepositories.js";
+import { getUsers } from "../repositories/userRepositories.js";
 import argon2 from "argon2";
 
 const register = async (req, res) => {
@@ -24,8 +25,18 @@ const register = async (req, res) => {
       message: "Ok user create",
     });
   }
-
-
 };
 
-export { register };
+const getUsersController = async (req, res) => {
+  try {
+    const users = await getUsers();
+    res.status(200).json({ status: 200, data: users });
+  } catch (error) {
+    console.error('Erreur lors de la récupération des utilisateurs:', error);
+    res.status(500).json({
+       status: 500, 
+       message: "Erreur lors de la récupération des utilisateurs" });
+  }
+};
+
+export { register, getUsersController };

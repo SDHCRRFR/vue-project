@@ -33,10 +33,11 @@ router.use("/api/sortedRestaurant", restaurantRouter);
 router.use("/api/restaurant/type", typeRestaurantRouter);
 // ==============================================================================
 restaurantRouter.use('/:id', getRestaurantById);
-restaurantRouter.use('/restaurants', createRestaurant);
+restaurantRouter.post('/restaurants', createRestaurant);
 restaurantRouter.use('/restaurants/:id', updateRestaurant);
 restaurantRouter.use('/restaurants/:id', deleteRestaurant);
 // ================================================================================
+router.use("/users", userRouter);
 router.use("/api/user", userRouter);
 
 router.post("/send-email", async (req, res) => {

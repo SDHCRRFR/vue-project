@@ -9,7 +9,9 @@
         <div class="subscribe_txt">
           <h2>Inscrivez votre restaurant</h2>
           <p>Donnez-nous plus de détails, et nous vous contacterons le plus rapidement possible.</p>
-          <button type="submit" @click="Subscribe()">Voir plus d'information</button>
+          <router-link to="/store/management">
+            <button type="submit">Voir plus d'information</button>
+          </router-link>
         </div>
       </div>
       <p class="credential">
@@ -30,11 +32,6 @@
 <script>
 export default {
   name: 'SubscribeRestaurant',
-  methods: {
-    Subscribe() {
-      this.$router.push('/store-management')
-    }
-  }
 }
 </script>
 
