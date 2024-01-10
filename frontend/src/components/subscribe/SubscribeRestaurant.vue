@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: 'SubscribeRestaurant',
+  name: 'SubscribeRestaurant'
 }
 </script>
 

@@ -33,35 +33,128 @@
           <td>{{ user.date_creation }}</td>
           <td>{{ user.role_id }}</td>
           <td>
-            <!-- Ajoutez ici des boutons pour le CRUD -->
-            <button><i class="fa-solid fa-pen-to-square"></i></button>
-            <button><i class="fa-solid fa-trash"></i></button>
+            <button @click="trashUser(user.id)"><i class="fa-solid fa-trash"></i></button>
+            <button @click="getUserDetails(user.id)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
           </td>
         </tr>
+        <button @click="openAddUserModal()">Ajouter <i class="fa-solid fa-plus"></i></button>
+        <div v-if="isAddUserModalVisible" class="modal">
+          <div class="modal-content">
+            <form @submit.prevent="addUser()">
+              <label for="nom">Nom:</label>
+              <input type="text" id="nom" v-model="newUser.nom" required />
+              <label for="email">Email:</label>
+              <input type="email" id="email" v-model="newUser.email" required />
+              <label for="password">Password:</label>
+              <input type="password" id="password" v-model="newUser.password" required />
+              <label for="role_id">Role:</label>
+              <input type="text" id="role_id" v-model="newUser.role_id" required />
+              <button type="submit">Ajouter utilisateur</button>
+            </form>
+            <i @click="closeAddUserModal()" class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
       </tbody>
     </table>
-    <div class="si" v-if="isRestaurateur">
-
-    </div>
   </div>
 </template>
 
 <script>
-const API_URL = 'http://localhost:3000' // Définissez l'URL de base du serveur
+const API_URL = 'http://localhost:3000'
 
 export default {
   name: 'AdminDashboard',
   data: () => {
     return {
-      data: [{}]
+      data: [{}],
+      isAddUserModalVisible: false, // Nouvel état
+      newUser: {
+        nom: '',
+        email: '',
+        password: '',
+        role_id: ''
+      }
     }
   },
   mounted() {
-    this.fetchData() // Assurez-vous d'appeler fetchData au moment approprié
+    this.fetchData()
   },
   methods: {
+    openAddUserModal() {
+      this.isAddUserModalVisible = true
+    },
+    closeAddUserModal() {
+      this.isAddUserModalVisible = false
+    },
+    trashUser(userId) {
+      if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')) {
+        fetch(`${API_URL}/users/${userId}`, {
+          method: 'DELETE'
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Erreur lors de la suppression de l'utilisateur")
+            }
+            return response.json()
+          })
+          .then(() => {
+            this.fetchData()
+          })
+          .catch((error) => {
+            console.error(error)
+          })
+      }
+    },
+    addUser() {
+      // Vérifiez si l'utilisateur a un ID (dans ce cas, il s'agit d'une édition)
+      const isEditing = this.newUser.id !== undefined
+      // Utilisez la bonne URL en fonction de l'action (édition ou ajout)
+      const apiUrl = isEditing
+        ? `${API_URL}/user/update/${this.newUser.id}`
+        : `${API_URL}/user/register`
+      // Utilisez la bonne méthode HTTP en fonction de l'action (édition ou ajout)
+      const httpMethod = isEditing ? 'PUT' : 'POST'
+      // Envoyez les données de l'utilisateur au serveur
+      fetch(apiUrl, {
+        method: httpMethod,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.newUser)
+      })
+        .then((response) => response.json())
+        .then(() => {
+          // Mettez à jour votre liste après l'ajout ou la modification
+          this.fetchData()
+          // Fermez le formulaire
+          this.closeAddUserModal()
+        })
+        .catch((error) => {
+          console.error("Erreur lors de l'ajout ou de la modification de l'utilisateur:", error)
+        })
+    },
+    getUserDetails(userId) {
+      fetch(`${API_URL}/users/${userId}`)
+        .then((response) => response.json())
+        .then((data) => {
+          this.newUser = {
+            id: data.id,
+            nom: data.nom,
+            email: data.email,
+            password: data.password,
+            role_id: data.role_id
+            // ... autres champs
+          }
+          this.openAddUserModal()
+        })
+        .catch((error) => {
+          console.error("Erreur lors de la récupération des détails de l'utilisateur:", error)
+        })
+    },
     fetchData() {
-      fetch(`${API_URL}/users`) // Utilisez la route correcte
+      fetch(`${API_URL}/users`)
         .then((response) => {
           console.log(response)
           if (!response.ok) {
@@ -82,6 +175,30 @@ export default {
 </script>
 
 <style scoped>
+/* ========================================================================= */
+/* Ajoutez votre CSS ici */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================================================== */
+
 .user-table {
   width: 100%;
   border-collapse: collapse;

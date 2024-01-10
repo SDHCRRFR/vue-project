@@ -14,6 +14,29 @@ const getAllRestaurant = async (sort = false) => {
     }
 };
 
+
+
+const createOneRestaurant = async (data) => {
+    const myrequete = `
+    INSERT INTO tabledecoeur.restaurant VALUES
+     ( 
+        NULL, 
+        :nom, 
+        :adresse,
+        :telephone,
+        :img, 
+        :code_postale,
+        :menu,
+        :type_restaurant_id
+         );`;
+    try {
+        const [result] = await connect.query(myrequete, data);
+        return result;
+    } catch (error) {
+        return error;
+    }
+};
+
 const getOneRestaurantById = async (id) => {
     const myrequete = `
     select restaurant.* from tabledecoeur.restaurant WHERE restaurant.id = :id;`;
@@ -25,4 +48,4 @@ const getOneRestaurantById = async (id) => {
     }
 };
 
-export { getAllRestaurant, getOneRestaurantById };
+export { getAllRestaurant, getOneRestaurantById, createOneRestaurant };

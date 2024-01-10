@@ -21,7 +21,29 @@ const createRegister = async (data) => {
     console.log("Erreur lors de l'insertion" + error);
     return {error, succes: false};
   }
-  
+};
+
+const getUserDetailsFromDatabase = async (userId) => {
+  const query = 'SELECT id, nom, email, date_creation, role_id FROM tabledecoeur.user WHERE id = ?';
+  try {
+    const [rows] = await connect.query(query, [userId]);
+    return rows[0]; // Retourne le premier utilisateur trouvé (ou undefined si non trouvé)
+  } catch (error) {
+    console.error('Erreur lors de la récupération des détails de l\'utilisateur depuis la base de données:', error);
+    throw error;
+  }
+};
+
+const deleteUser = async (userId) => {
+  const query = "DELETE FROM tabledecoeur.user WHERE id = ?";
+  try {
+    const [result] = await connect.query(query, [userId]);
+    console.log('Utilisateur supprimé avec succès');
+    return { result, success: true };
+  } catch (error) {
+    console.error("Erreur lors de la suppression de l'utilisateur:", error);
+    return { error, success: false };
+  }
 };
 
 const checkLoginCredentials = async (email) => {
@@ -43,5 +65,5 @@ const getUsers = async () => {
   }
 };
 
-export { createRegister, checkLoginCredentials, getUsers };
+export { createRegister, deleteUser, getUserDetailsFromDatabase, checkLoginCredentials, getUsers };
 

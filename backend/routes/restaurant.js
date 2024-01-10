@@ -6,7 +6,7 @@ const restaurantRouter = express.Router();
 restaurantRouter.get('/', index);
 restaurantRouter.get('/sortedRestaurant', getSortedRestaurant);
 restaurantRouter.get('/:id', getRestaurantById);
-restaurantRouter.post('/restaurants', createRestaurant);
+restaurantRouter.post('/', createRestaurant);
 restaurantRouter.put('/restaurants/:id', updateRestaurant);
 restaurantRouter.delete('/restaurants/:id', deleteRestaurant);
 

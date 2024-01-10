@@ -1,6 +1,7 @@
 import {
   getAllRestaurant,
   getOneRestaurantById,
+  createOneRestaurant
 } from "../repositories/restaurantRepositories.js";
 
 import Restaurant from "../services/db.js";
@@ -28,15 +29,10 @@ const getRestaurantById = async (req, res) => {
 };
 
 const createRestaurant = async (req, res) => {
-  try {
-    const newRestaurant = new Restaurant(req.body);
-    const savedRestaurant = await newRestaurant.save();
-    res.json({ data: savedRestaurant });
-    console.log(savedRestaurant);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Erreur lors de la création du restaurant" });
-  }
+  const donnee = await createOneRestaurant(req.body);
+  res.status(200).json({
+    data: donnee,
+  });
 };
 
 const updateRestaurant = async (req, res) => {

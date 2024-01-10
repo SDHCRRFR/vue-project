@@ -3,10 +3,6 @@
 import express from "express";
 import typeRestaurantRouter from "./routes/typeRestaurant.js";
 import restaurantRouter from "./routes/restaurant.js";
-import getRestaurantById from "./routes/restaurant.js";
-import createRestaurant from "./routes/restaurant.js";
-import updateRestaurant from "./routes/restaurant.js";
-import deleteRestaurant from "./routes/restaurant.js";
 import { transporter } from "./nodemailer-config.js";
 import userRouter from "./routes/user.js";
 import cors from "cors";
@@ -28,17 +24,11 @@ router.use(
   })
 );
 
-router.use("/api/restaurant", restaurantRouter);
-router.use("/api/sortedRestaurant", restaurantRouter);
-router.use("/api/restaurant/type", typeRestaurantRouter);
-// ==============================================================================
-restaurantRouter.use('/:id', getRestaurantById);
-restaurantRouter.post('/restaurants', createRestaurant);
-restaurantRouter.use('/restaurants/:id', updateRestaurant);
-restaurantRouter.use('/restaurants/:id', deleteRestaurant);
-// ================================================================================
+router.use("/restaurant", restaurantRouter);
+router.use("/sortedRestaurant", restaurantRouter);
+router.use("/restaurant/type", typeRestaurantRouter);
 router.use("/users", userRouter);
-router.use("/api/user", userRouter);
+router.use("/user", userRouter);
 
 router.post("/send-email", async (req, res) => {
   const { nom, email, number, birthdate, picked, address } = req.body;
