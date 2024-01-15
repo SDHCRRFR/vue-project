@@ -6,15 +6,13 @@ import MyProduct from '@/components/products/MyProduct.vue'
 import BestOf from '@/components/products/BestOf.vue'
 import SocialMedia from '@/components/products/SocialMedia.vue'
 import TypeRestaurant from '@/components/products/TypeRestaurant.vue'
-import LocRestaurant from '@/components/products/LocRestaurant.vue'
 
-const check = 'Découvrer notre annuaire des plus beaux restaurants '
-const show = ref(true)
+const check = 'Découvrer notre annuaire des plus beaux restaurants';
+const show = ref(true);
 </script>
 <template>
   <div class="home-view">
     <MyHeader />
-    <!-- <Pinia/> -->
     <hr class="transition_hr" @mouseover="show = !show" />
     <Transition name="slide-fade">
       <div v-if="show" class="home">
@@ -30,7 +28,6 @@ const show = ref(true)
     <BestOf />
     <SocialMedia />
     <TypeRestaurant />
-    <LocRestaurant />
   </div>
 </template>
 

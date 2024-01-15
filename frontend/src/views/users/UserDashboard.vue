@@ -6,12 +6,9 @@ import MyProduct from '@/components/products/MyProduct.vue'
 import BestOf from '@/components/products/BestOf.vue'
 import SocialMedia from '@/components/products/SocialMedia.vue'
 import TypeRestaurant from '@/components/products/TypeRestaurant.vue'
-import LocRestaurant from '@/components/products/LocRestaurant.vue'
 
-import MyFooter from '@/components/footer/MyFooter.vue'
-
-const check = "Et si c'était vous ?"
-const show = ref(true)
+const check = "Découvrer notre annuaire des plus beaux restaurants";
+const show = ref(true);
 </script>
 
 <template>
@@ -21,7 +18,6 @@ const show = ref(true)
     <Transition name="slide-fade">
       <div v-if="show" class="home">
         <h1 :style="{ color: 'black' }">{{ check }}</h1>
-
         <span>
           <hr class="two_hr" />
           <hr class="one_hr" />
@@ -33,9 +29,7 @@ const show = ref(true)
     <BestOf />
     <SocialMedia />
     <TypeRestaurant />
-    <LocRestaurant />
     <SubscribeRestaurant />
-    <MyFooter />
   </div>
 </template>
 
@@ -56,6 +50,16 @@ const show = ref(true)
   flex-direction: column;
   justify-content: center;
   min-height: 80vh;
+}
+
+img {
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+}
+h1 {
+  font-size: 30px;
+  width: 800px;
 }
 
 .slide-fade-enter-active {
@@ -101,43 +105,10 @@ h3 {
   justify-content: flex-start;
 }
 
-.card_picture {
-  min-height: 70vh;
-  width: 90%;
-  gap: 30px;
-  display: flex;
-  padding: 10px;
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-}
-
 h5 {
   display: flex;
   justify-content: space-between;
 }
 
-img {
-  width: 100%;
-  height: 300px;
-  border-radius: 20px;
-}
-h1 {
-  font-size: 50px;
-  width: 400px;
-}
 
-.component {
-  width: 100%;
-  min-height: 70vh;
-  padding: 0;
-  margin: 0;
-  gap: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 </style>

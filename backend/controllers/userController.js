@@ -1,11 +1,11 @@
 /******************************* */
 // Import des modules nécessaire
-import connect from "../services/db.js";
+// import connect from "../services/db.js";
 import {
   createRegister,
+  updateUserInDatabase,
   getUsers,
   deleteUser,
-  getUserDetailsFromDatabase,
 } from "../repositories/userRepositories.js";
 import argon2 from "argon2";
 
@@ -29,28 +29,6 @@ const register = async (req, res) => {
   }
 };
 
-const getUserDetails = async (req, res) => {
-  const userId = req.params.userId;
-  try {
-    const user = await getUserDetailsFromDatabase(userId);
-    if (user) {
-      res.status(200).json({ status: 200, data: user });
-    } else {
-      res.status(404).json({ status: 404, message: "Utilisateur non trouvé" });
-    }
-  } catch (error) {
-    console.error(
-      "Erreur lors de la récupération des détails de l'utilisateur:",
-      error
-    );
-    res
-      .status(500)
-      .json({
-        status: 500,
-        message: "Erreur lors de la récupération des détails de l'utilisateur",
-      });
-  }
-};
 
 const deleteUserController = async (req, res) => {
   const userId = req.params.userId;
@@ -88,59 +66,49 @@ const getUsersController = async (req, res) => {
   }
 };
 
-const updateUser = async (req, res) => {
-  const userId = req.params.userId;
-  const updatedUserData = req.body; // Données mises à jour de l'utilisateur
-  try {
-    // Ajoutez votre logique pour mettre à jour les détails de l'utilisateur par son ID
-    const success = await updateUserInDatabase(userId, updatedUserData);
-    if (success) {
-      res
-        .status(200)
-        .json({ status: 200, message: "Utilisateur mis à jour avec succès" });
-    } else {
-      res.status(404).json({ status: 404, message: "Utilisateur non trouvé" });
-    }
-  } catch (error) {
-    console.error(
-      "Erreur lors de la mise à jour des détails de l'utilisateur:",
-      error
-    );
-    res
-      .status(500)
-      .json({
-        status: 500,
-        message: "Erreur lors de la mise à jour des détails de l'utilisateur",
-      });
-  }
+const updateUserController = async (req, res) => {
+  const { id } = req.params;
+  const donnee = await getUserById(id);
+  res.status(200).json({
+    data: donnee.shift(),
+  });
 };
 
-const updateUserInDatabase = async (userId, updatedUserData) => {
-  // Ajoutez votre logique pour mettre à jour les détails de l'utilisateur dans la base de données
-  const { nom, email, password, role_id } = updatedUserData;
-  const updateQuery = `
-    UPDATE tabledecoeur.user
-    SET nom = ?, email = ?, password = ?, role_id = ?
-    WHERE id = ?;
-  `;
+// const updateUserController = async (req, res) => {
+//   const userId = req.params.userId;
+//   const updatedUserData = req.body;
 
-  try {
-    const [result] = await connect.query(updateQuery, [
-      nom,
-      email,
-      password,
-      role_id,
-      userId
-    ]);
-    // Vérifiez si la mise à jour a affecté des lignes (utilisateur trouvé)
-    return result.affectedRows > 0;
-  } catch (error) {
-    console.error(
-      "Erreur lors de la mise à jour des détails de l'utilisateur dans la base de données:",
-      error
-    );
-    throw error;
-  }
-};
+//   try {
+//     // Vérifiez d'abord si l'utilisateur existe
+//     const existingUser = await getUserById(userId);
+//     if (!existingUser) {
+//       return res.status(404).json({
+//         status: 404,
+//         message: "Utilisateur non trouvé",
+//       });
+//     }
+//     // Si l'utilisateur existe, effectuez la mise à jour
+//     const success = await updateUserInDatabase(userId, updatedUserData);
 
-export { register, getUserDetails, getUsersController, updateUser, updateUserInDatabase, deleteUserController };
+//     if (success) {
+//       res.status(200).json({
+//         status: 200,
+//         message: "Utilisateur mis à jour avec succès",
+//       });
+//     } else {
+//       res.status(500).json({
+//         status: 500,
+//         message: "Erreur lors de la mise à jour de l'utilisateur",
+//       });
+//     }
+//   } catch (error) {
+//     console.error('Erreur lors de la mise à jour des détails de l\'utilisateur:', error);
+//     res.status(500).json({
+//       status: 500,
+//       message: "Erreur lors de la mise à jour des détails de l'utilisateur",
+//     });
+//   }
+// };
+
+
+export { register, getUsersController, updateUserController, deleteUserController };

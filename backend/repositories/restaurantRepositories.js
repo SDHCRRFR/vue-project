@@ -4,7 +4,7 @@ const getAllRestaurant = async (sort = false) => {
     const myrequete = `
     select restaurant.* from tabledecoeur.restaurant;`;
     if(sort) {
-        myrequete += 'order by created_at desc'
+        myrequete += 'order by created_at desc';
     }
     try {
         const [result] = await connect.query(myrequete);

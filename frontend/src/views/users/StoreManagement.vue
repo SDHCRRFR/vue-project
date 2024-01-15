@@ -157,7 +157,6 @@ p {
 
 .mypics {
   height: 100px;
-  /* width: 250px; */
 }
 
 input {

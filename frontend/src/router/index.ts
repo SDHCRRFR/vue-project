@@ -27,7 +27,6 @@ const router = createRouter({
           component: Public.RestaurantId,
           props: true
         },
-        { path: '/store/management', name: 'StoreManagement', component: Public.StoreManagement },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },

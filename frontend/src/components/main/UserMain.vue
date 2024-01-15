@@ -2,20 +2,20 @@
   <div class="user-main">
     <div class="animated fadeInLeft">
       <a href="#impact">
-        <img src="../../../public/nourriture_salade.jpeg" />
-        <h2>Impact</h2>
+        <img src="../../../public/background-resto.png" />
+        <h2>A propos de nous</h2>
       </a>
     </div>
     <div class="animated fadeInTop">
       <router-link to="/user/shop">
-        <img src="../../../public/nourriture_salade.jpeg" />
+        <img src="../../../public/pexelsI.jpeg" />
         <h2>Restaurants</h2>
       </router-link>
     </div>
     <div class="animated fadeInRight">
       <router-link to="/">
-        <img src="../../../public/nourriture_salade.jpeg" />
-        <h2>Don</h2>
+        <img src="../../../public/pexel.webp" />
+        <h2>Ajoutez mon restaurant</h2>
       </router-link>
     </div>
   </div>

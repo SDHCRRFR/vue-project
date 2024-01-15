@@ -1,12 +1,6 @@
 <template>
   <div class="container_img">
     <hgroup>
-      <h1>
-        {{ accroche }}
-        <span>
-          <i class="fa-solid fa-heart-pulse fa-beat" style="color: #ff0000"></i>
-        </span>
-      </h1>
       <h2 class="content"></h2>
     </hgroup>
   </div>
@@ -16,8 +10,6 @@
 export default {
   data: function () {
     return {
-      accroche: 'Ayez du coeur',
-      // title: 'Table de Coeur',
       searchKey: '',
       products: []
     }

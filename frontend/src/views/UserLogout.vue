@@ -29,7 +29,8 @@ export default {
 
 <style scoped>
 .image {
-  width: 100px;
+  width: 100%;
+  max-width: 100px;
 }
 
 .logout {
@@ -42,7 +43,8 @@ export default {
 }
 
 button {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   font-size: 15px;
   border-radius: 10px;
   padding: 10px;
@@ -59,8 +61,9 @@ button:hover {
 }
 
 .block_logout {
-  width: 25%;
-  height: 25vh;
+  width: 80%;
+  max-width: 400px;
+  height: auto;
   display: flex;
   text-align: center;
   padding: 20px;
@@ -72,4 +75,3 @@ button:hover {
   border: 1px solid black;
 }
 </style>
-@/stores/connexion/counter

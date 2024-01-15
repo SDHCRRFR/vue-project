@@ -1,6 +1,6 @@
 <template>
   <section class="form_registration">
-    <h2>Formulaire d'inscription</h2>
+    <h2>Pour plus d'info contactez nous</h2>
     <form @submit.prevent="submitForm()" class="form">
       <div class="input_box">
         <!-- <label>Nom complet</label> -->
@@ -19,7 +19,6 @@
       </div>
 
       <div class="input_box">
-        <!-- <label>Addresse Email</label> -->
         <input
           type="email"
           id="client_mail"
@@ -82,7 +81,6 @@
       </div>
 
       <div class="input_box addres">
-        <!-- <label>Adresse</label> -->
         <div class="column">
           <input
             type="text"
@@ -128,7 +126,6 @@
           required
         />
       </div>
-      <!-- ================================================================== -->
       <button type="submit" class="button">Soummetre</button>
     </form>
   </section>
@@ -222,14 +219,6 @@ export default {
       }
     }
   }
-  // methods: {
-  //   async submitForm() {
-  //     const isFormCorrect = await this.v$.$validate()
-  //     if (isFormCorrect) {
-  //       console.log('mes donnee' + isFormCorrect)
-  //     }
-  //   }
-  // }
 }
 </script>
 
@@ -344,7 +333,6 @@ export default {
   background-color: rgb(255, 50, 50);
 }
 
-/* Responsive */
 @media screen and (max-width: 500px) {
   .form .column {
     flex-wrap: wrap;

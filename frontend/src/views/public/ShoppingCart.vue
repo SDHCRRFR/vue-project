@@ -314,11 +314,6 @@ img {
   display: none;
 }
 
-/* .home-container .card-cart-container .card-container .card .card-icons .like-container>label {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-} */
 
 .home-container .card-cart-container .card-container .no-result {
   margin: 0 4rem 0 0.4rem;

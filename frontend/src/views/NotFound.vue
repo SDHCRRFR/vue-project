@@ -1,7 +1,7 @@
 <template>
   <div class="error">
-    <h1>ERROR 404 page Not Found !!</h1>
-    <p>vérifier votre connexion internet</p>
+    <h1>ERROR 404 :(</h1>
+    <p>Désolé, la page que vous cherchez peut-être indisponible ou n'existe pas.</p>
   </div>
 </template>
 
@@ -20,13 +20,21 @@ export default {
   background: black;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 p {
+  color: white;
+  font-size: 16px;
+}
+
+span {
   color: white;
 }
 
 h1 {
   color: crimson;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 </style>

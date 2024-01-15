@@ -4,16 +4,15 @@
       <h1>A chacun son style culinaire !</h1>
       <p>Découvrez les spécialités du moment</p>
       <div class="container_card">
-        <div class="card" v-for="item in data" v-bind:key="item.id">
+        <div class="card" v-for="item in data" :key="item.id">
           <router-link :to="{ name: 'restaurant', params: { id: item.id } }">
             <div class="box_img">
-              <img v-bind:src="`http://localhost:3000/${item.img}`" v-bind:id="item.id" />
+              <img :src="`http://localhost:3000/${item.img}`" :id="item.id" />
             </div>
             <div class="box_txt">
               <p>{{ item.type }}</p>
               <div class="notation">
                 <h2>{{ item.nom }}</h2>
-                <span>{{ like }} <i class="fa-solid fa-star" style="color: #ffff00"></i></span>
               </div>
               <p>{{ item.code_postale }}</p>
               <div class="price_block">
@@ -28,42 +27,38 @@
 </template>
 
 <script>
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default {
   name: 'TypeRestaurant',
-  data: () => {
+  data() {
     return {
       data: [],
-      like: 7.9,
-      price: 6.5,
+      price: 17.99,
       type: 'Asiatiques'
-    }
+    };
   },
   created() {
-    this.fetchData()
+    this.fetchData();
   },
   methods: {
     fetchData() {
       fetch(`${API_URL}/restaurant`)
         .then((response) => {
-          console.log(response)
           if (!response.ok) {
-            throw new Error('Erreur lors de la récupération des données')
+            throw new Error('Erreur lors de la récupération des données');
           }
-          return response.json()
+          return response.json();
         })
         .then((data) => {
-          this.data = data.data.slice(1, 5)
-          // this.data = this.data.slice(0, 4)
-          console.log(data)
+          this.data = data.data.slice(1, 5);
         })
         .catch((error) => {
-          console.error(error)
-        })
+          console.error(error);
+        });
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -71,53 +66,6 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-@media screen and (max-width: 900px) {
-  h2 {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 750px) {
-  .container_card {
-    width: 80vw;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  .card {
-    height: 26vmin;
-    width: 20vmin;
-    font-size: 22px;
-  }
-}
-
-@media screen and (max-width: 580px) {
-  .container_card {
-    width: 80vw;
-    flex-wrap: wrap;
-    gap: 500px;
-  }
-
-  h2 {
-    font-size: 15px;
-  }
-  .card {
-    height: 80vmin;
-    width: calc(50% - 40px);
-    font-size: 15px;
-  }
-}
-@media screen and (max-width: 380px) {
-  .container_card {
-    gap: 500px;
-  }
-  .card {
-    height: 25vmin;
-  }
 }
 
 .user-settings {
@@ -137,18 +85,28 @@ export default {
   flex-direction: column;
 }
 
+h1 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+}
+
 .container_card {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: space-around;
 }
 
 .card {
-  width: 100%;
-  display: flex;
+  flex: 1 1 calc(25% - 20px);
   padding: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  display: flex;
   flex-direction: column;
 }
 
@@ -195,9 +153,9 @@ span {
 
 .notation {
   width: 100%;
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  gap: 4px;
+  gap: 4px; */
 }
 
 #container {
@@ -205,9 +163,6 @@ span {
 }
 
 .fadeInTop {
-  -webkit-animation: fadeInTop 10.2s both;
-  -moz-animation: fadeInTop 10.2s both;
-  -o-animation: fadeInTop 10.2s both;
   animation: fadeInTop 10.2s both;
 }
 
@@ -219,6 +174,45 @@ span {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .card {
+    flex: 1 1 calc(33.33% - 20px);
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container_card {
+    gap: 10px;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 20px);
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .card {
+    flex: 1 1 calc(100% - 20px);
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .card {
+    margin-bottom: 10px;
   }
 }
 </style>

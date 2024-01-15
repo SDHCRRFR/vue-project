@@ -34,7 +34,7 @@
           <td>{{ user.role_id }}</td>
           <td>
             <button @click="trashUser(user.id)"><i class="fa-solid fa-trash"></i></button>
-            <button @click="getUserDetails(user.id)">
+            <button @click="updateUser(user.id)">
               <i class="fa-solid fa-pen-to-square"></i>
             </button>
           </td>
@@ -49,8 +49,6 @@
               <input type="email" id="email" v-model="newUser.email" required />
               <label for="password">Password:</label>
               <input type="password" id="password" v-model="newUser.password" required />
-              <label for="role_id">Role:</label>
-              <input type="text" id="role_id" v-model="newUser.role_id" required />
               <button type="submit">Ajouter utilisateur</button>
             </form>
             <i @click="closeAddUserModal()" class="fa-solid fa-xmark"></i>
@@ -73,8 +71,7 @@ export default {
       newUser: {
         nom: '',
         email: '',
-        password: '',
-        role_id: ''
+        password: ''
       }
     }
   },
@@ -108,17 +105,8 @@ export default {
       }
     },
     addUser() {
-      // Vérifiez si l'utilisateur a un ID (dans ce cas, il s'agit d'une édition)
-      const isEditing = this.newUser.id !== undefined
-      // Utilisez la bonne URL en fonction de l'action (édition ou ajout)
-      const apiUrl = isEditing
-        ? `${API_URL}/user/update/${this.newUser.id}`
-        : `${API_URL}/user/register`
-      // Utilisez la bonne méthode HTTP en fonction de l'action (édition ou ajout)
-      const httpMethod = isEditing ? 'PUT' : 'POST'
-      // Envoyez les données de l'utilisateur au serveur
-      fetch(apiUrl, {
-        method: httpMethod,
+      fetch(`${API_URL}/user/register`, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -126,27 +114,37 @@ export default {
       })
         .then((response) => response.json())
         .then(() => {
-          // Mettez à jour votre liste après l'ajout ou la modification
           this.fetchData()
-          // Fermez le formulaire
           this.closeAddUserModal()
         })
         .catch((error) => {
-          console.error("Erreur lors de l'ajout ou de la modification de l'utilisateur:", error)
+          console.error("Erreur lors de l'ajout de l'utilisateur:", error)
         })
     },
-    getUserDetails(userId) {
+    updateUser(userId) {
       fetch(`${API_URL}/users/${userId}`)
-        .then((response) => response.json())
+        .then((response) => {
+          console.log('server response:', response)
+          if (!response.ok) {
+            if (response.status === 404) {
+              throw new Error(`Utilisateur non trouvé`)
+            } else {
+              throw new Error(
+                `Erreur de récupération des détails de l'utilisateur: ${response.statusText}`
+              )
+            }
+          }
+          return response.json();
+        })
         .then((data) => {
+          console.log('Data from server:', data)
           this.newUser = {
             id: data.id,
             nom: data.nom,
             email: data.email,
-            password: data.password,
-            role_id: data.role_id
-            // ... autres champs
+            password: data.password 
           }
+          // Ouvrez le formulaire de modification
           this.openAddUserModal()
         })
         .catch((error) => {
@@ -175,8 +173,6 @@ export default {
 </script>
 
 <style scoped>
-/* ========================================================================= */
-/* Ajoutez votre CSS ici */
 .modal {
   position: fixed;
   top: 0;
@@ -196,8 +192,6 @@ export default {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
-/* ========================================================================== */
 
 .user-table {
   width: 100%;

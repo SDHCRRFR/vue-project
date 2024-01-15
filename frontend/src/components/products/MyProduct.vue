@@ -3,16 +3,15 @@
     <div class="fadeInTop" id="container">
       <h1>Sélection des restaurants les plus visités cette semaine</h1>
       <div class="container_card">
-        <div class="card" v-for="item in data" v-bind:key="item.id">
+        <div class="card" v-for="item in data" :key="item.id">
           <router-link :to="{ name: 'restaurant', params: { id: item.id } }">
             <div class="box_img">
-              <img v-bind:src="`http://localhost:3000/${item.img}`" v-bind:id="item.id" />
+              <img :src="`http://localhost:3000/${item.img}`" :id="item.id" />
             </div>
             <div class="box_txt">
               <p>{{ item.type }}</p>
               <div class="notation">
                 <h2>{{ item.nom }}</h2>
-                <span>{{ like }} <i class="fa-solid fa-star" style="color: #ffff00"></i></span>
               </div>
               <p>{{ item.code_postale }}</p>
               <div class="price_block">
@@ -34,7 +33,6 @@ export default {
   data: () => {
     return {
       data: [],
-      like: 9.9,
       price: 5.5,
       type: 'Français'
     }
@@ -46,7 +44,6 @@ export default {
     fetchData() {
       fetch(`${API_URL}/restaurant`)
         .then((response) => {
-          console.log(response)
           if (!response.ok) {
             throw new Error('Erreur lors de la récupération des données')
           }
@@ -54,8 +51,6 @@ export default {
         })
         .then((data) => {
           this.data = data.data.slice(0, 4)
-          // this.data = this.data.slice(0, 4)
-          console.log(data)
         })
         .catch((error) => {
           console.error(error)
@@ -66,59 +61,7 @@ export default {
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-@media screen and (max-width: 900px) {
-  h2 {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 750px) {
-  .container_card {
-    width: 80vw;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  .card {
-    height: 26vmin;
-    width: 20vmin;
-    font-size: 22px;
-  }
-}
-
-@media screen and (max-width: 580px) {
-  .container_card {
-    width: 80vw;
-    flex-wrap: wrap;
-    gap: 500px;
-  }
-
-  h2 {
-    font-size: 15px;
-  }
-  .card {
-    height: 80vmin;
-    width: calc(50% - 40px);
-    font-size: 15px;
-  }
-}
-@media screen and (max-width: 380px) {
-  .container_card {
-    gap: 500px;
-  }
-  .card {
-    height: 25vmin;
-  }
-}
-
+/* Styles communs à toutes les tailles d'écrans */
 .user-settings {
   width: 100%;
   min-height: 70vh;
@@ -136,21 +79,56 @@ export default {
   flex-direction: column;
 }
 
+h1 {
+  font-size: 24px;
+}
+
 .container_card {
   width: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: space-around;
 }
 
 .card {
-  width: 100%;
-  display: flex;
+  flex: 1 1 calc(25% - 20px);
   padding: 20px;
-  flex-direction: column;
+  box-sizing: border-box;
 }
 
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .container_card {
+    gap: 10px;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 20px);
+    font-size: 18px;
+  }
+}
+
+/* Styles spécifiques aux écrans de largeur maximale de 580px */
+@media screen and (max-width: 580px) {
+  .card {
+    flex: 1 1 calc(100% - 20px);
+  }
+}
+
+/* Styles spécifiques aux écrans de largeur maximale de 380px */
+@media screen and (max-width: 380px) {
+  .card {
+    margin-bottom: 10px;
+  }
+}
+
+/* Reste des styles inchangés */
 .price_block {
   display: flex;
   width: 100%;
@@ -179,11 +157,6 @@ img {
 
 .box_txt {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  text-align: left;
-  gap: 10px;
 }
 
 span {
@@ -204,9 +177,6 @@ span {
 }
 
 .fadeInTop {
-  -webkit-animation: fadeInTop 10.2s both;
-  -moz-animation: fadeInTop 10.2s both;
-  -o-animation: fadeInTop 10.2s both;
   animation: fadeInTop 10.2s both;
 }
 

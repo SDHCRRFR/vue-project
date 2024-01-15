@@ -266,13 +266,6 @@ span {
   color: #fff;
 }
 
-/* .wrapper .remember_forgot {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14.5px;
-  margin: 0px 0 15px;
-} */
-
 .wrapper .button {
   width: 100%;
   height: 45px;

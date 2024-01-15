@@ -15,22 +15,57 @@ const createRegister = async (data) => {
     `;
   try {
     const [result] = await connect.query(myrequete, data);
-    console.log('inscription réussi');
-    return {result, succes: true};
+    console.log("inscription réussi");
+    return { result, succes: true };
   } catch (error) {
     console.log("Erreur lors de l'insertion" + error);
-    return {error, succes: false};
+    return { error, succes: false };
   }
 };
 
-const getUserDetailsFromDatabase = async (userId) => {
-  const query = 'SELECT id, nom, email, date_creation, role_id FROM tabledecoeur.user WHERE id = ?';
+const updateUserInDatabase = async (userId, updatedUserData) => {
+  const { nom, email, password, role_id } = updatedUserData;
+
+  const updateQuery = `
+    UPDATE tabledecoeur.user
+    SET nom = ?, email = ?, password = ?, role_id = ?
+    WHERE id = ?;
+  `;
   try {
-    const [rows] = await connect.query(query, [userId]);
-    return rows[0]; // Retourne le premier utilisateur trouvé (ou undefined si non trouvé)
+    const [result] = await connect.query(updateQuery, [
+      nom,
+      email,
+      password,
+      role_id,
+      userId,
+    ]);
+    return result.affectedRows > 0;
   } catch (error) {
-    console.error('Erreur lors de la récupération des détails de l\'utilisateur depuis la base de données:', error);
+    console.error(
+      "Erreur lors de la mise à jour des détails de l'utilisateur dans la base de données:",
+      error
+    );
     throw error;
+  }
+};
+
+// const getUserById = async (userId) => {
+//   // Convertir l'ID en nombre si c'est une chaîne de caractères
+//   userId = parseInt(userId);
+//   console.log("Fetching user details for ID:", userId);
+//   const query = `SELECT user.* FROM tabledecoeur.user WHERE user.id = :id;`;
+//   const [rows] = await connect.query(query, [userId]);
+//   console.log("User details:", rows);
+//   return rows.length > 0 ? rows[0] : null;
+// };
+
+const getUserById = async (id) => {
+  const myrequete = `select restaurant.* from tabledecoeur.user WHERE user.id = :id;`;
+  try {
+      const [result] = await connect.query(myrequete, { id: id});
+      return result;
+  } catch (error) {
+      return error;
   }
 };
 
@@ -38,7 +73,7 @@ const deleteUser = async (userId) => {
   const query = "DELETE FROM tabledecoeur.user WHERE id = ?";
   try {
     const [result] = await connect.query(query, [userId]);
-    console.log('Utilisateur supprimé avec succès');
+    console.log("Utilisateur supprimé avec succès");
     return { result, success: true };
   } catch (error) {
     console.error("Erreur lors de la suppression de l'utilisateur:", error);
@@ -55,7 +90,8 @@ const checkLoginCredentials = async (email) => {
 };
 
 const getUsers = async () => {
-  const query = "SELECT id, nom, email, date_creation, role_id FROM tabledecoeur.user";
+  const query =
+    "SELECT id, nom, email, date_creation, role_id FROM tabledecoeur.user";
   try {
     const [rows] = await connect.query(query);
     return rows;
@@ -65,5 +101,11 @@ const getUsers = async () => {
   }
 };
 
-export { createRegister, deleteUser, getUserDetailsFromDatabase, checkLoginCredentials, getUsers };
-
+export {
+  createRegister,
+  deleteUser,
+  updateUserInDatabase,
+  getUserById,
+  checkLoginCredentials,
+  getUsers,
+};

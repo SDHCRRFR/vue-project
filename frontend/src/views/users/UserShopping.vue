@@ -1,6 +1,5 @@
 <script>
 const API_URL = import.meta.env.VITE_API_URL
-// const API_URLII = 'http://localhost:3000'
 
 export default {
   name: 'UserShopping',
@@ -14,7 +13,6 @@ export default {
         adresse: '',
         telephone: '',
         img: '',
-        // imageUrl: '',
         code_postale: '',
         menu: '',
         type_restaurant_id: ''
@@ -96,7 +94,10 @@ export default {
   computed: {
     filteredList() {
       return this.data.filter((product) => {
-        return product.nom.toLowerCase().includes(this.searchKey.toLowerCase())
+        return (
+          product.code_postale.toLowerCase().includes(this.searchKey.toLowerCase()) +
+          product.nom.toLowerCase().includes(this.searchKey.toLowerCase())
+        )
       })
     }
   }
