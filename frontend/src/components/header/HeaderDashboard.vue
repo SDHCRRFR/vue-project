@@ -10,8 +10,7 @@
 export default {
   name: 'HeaderDashboard',
   data: function () {
-    return {
-    }
+    return {}
   },
   beforeCreate() {
     console.log('Je ne suis pas encore  créé')

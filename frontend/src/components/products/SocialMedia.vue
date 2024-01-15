@@ -3,16 +3,17 @@
     <div class="container">
       <h2>Table coup de coeur sur Instagram !</h2>
       <div class="my_img">
-        <img src="../../../pexelsI.jpeg" alt="" />
-        <img src="../../../pexelsI.jpeg" alt="" />
-        <img src="../../../pexelsI.jpeg" alt="" />
-        <img src="../../../pexelsI.jpeg" alt="" />
+        <img src="../../../pexelsI.webp" alt="" />
+        <img src="../../../pexelsI.webp" alt="" />
+        <img src="../../../pexelsI.webp" alt="" />
+        <img src="../../../pexelsI.webp" alt="" />
+        <img src="../../../public/background-resto.png" alt="">
       </div>
       <div class="my_img">
-        <img src="../../../pexelsI.jpeg" alt="" />
-        <img src="../../../pexelsI.jpeg" alt="" />
-        <img src="../../../pexelsI.jpeg" alt="" />
-        <img src="../../../pexelsI.jpeg" alt="" />
+        <img src="../../../pexelsI.webp" alt="" />
+        <img src="../../../pexelsI.webp" alt="" />
+        <img src="../../../pexelsI.webp" alt="" />
+        <img src="../../../pexelsI.webp" alt="" />
       </div>
       <button type="submit">
         <a href="#">Instagram</a>

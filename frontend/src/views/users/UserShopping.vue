@@ -95,7 +95,7 @@ export default {
     filteredList() {
       return this.data.filter((product) => {
         return (
-          product.code_postale.toLowerCase().includes(this.searchKey.toLowerCase()) +
+          product.code_postale.toLowerCase().includes(this.searchKey.toLowerCase()) ||
           product.nom.toLowerCase().includes(this.searchKey.toLowerCase())
         )
       })

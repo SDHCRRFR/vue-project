@@ -27,7 +27,7 @@
 </template>
 
 <script>
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL
 
 export default {
   name: 'TypeRestaurant',
@@ -36,29 +36,29 @@ export default {
       data: [],
       price: 17.99,
       type: 'Asiatiques'
-    };
+    }
   },
   created() {
-    this.fetchData();
+    this.fetchData()
   },
   methods: {
     fetchData() {
       fetch(`${API_URL}/restaurant`)
         .then((response) => {
           if (!response.ok) {
-            throw new Error('Erreur lors de la récupération des données');
+            throw new Error('Erreur lors de la récupération des données')
           }
-          return response.json();
+          return response.json()
         })
         .then((data) => {
-          this.data = data.data.slice(1, 5);
+          this.data = data.data.slice(1, 5)
         })
         .catch((error) => {
-          console.error(error);
-        });
+          console.error(error)
+        })
     }
   }
-};
+}
 </script>
 
 <style scoped>

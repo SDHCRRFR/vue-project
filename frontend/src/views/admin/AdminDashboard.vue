@@ -122,7 +122,7 @@ export default {
         })
     },
     updateUser(userId) {
-      fetch(`${API_URL}/users/${userId}`)
+      fetch(`${API_URL}/user/${userId}`)
         .then((response) => {
           console.log('server response:', response)
           if (!response.ok) {
@@ -134,7 +134,7 @@ export default {
               )
             }
           }
-          return response.json();
+          return response.json()
         })
         .then((data) => {
           console.log('Data from server:', data)
@@ -142,7 +142,7 @@ export default {
             id: data.id,
             nom: data.nom,
             email: data.email,
-            password: data.password 
+            password: data.password
           }
           // Ouvrez le formulaire de modification
           this.openAddUserModal()

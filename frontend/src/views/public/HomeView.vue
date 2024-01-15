@@ -7,8 +7,8 @@ import BestOf from '@/components/products/BestOf.vue'
 import SocialMedia from '@/components/products/SocialMedia.vue'
 import TypeRestaurant from '@/components/products/TypeRestaurant.vue'
 
-const check = 'Découvrer notre annuaire des plus beaux restaurants';
-const show = ref(true);
+const check = 'Découvrer notre annuaire des plus beaux restaurants'
+const show = ref(true)
 </script>
 <template>
   <div class="home-view">

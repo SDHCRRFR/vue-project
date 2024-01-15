@@ -3,12 +3,10 @@ const API_URL = import.meta.env.VITE_API_URL
 
 export default {
   name: 'PublicShp',
-  data: () => {
-    return {
-      data: [],
-      searchKey: ''
-    }
-  },
+  data: () => ({
+    data: [],
+    searchKey: ''
+  }),
   created() {
     this.fetchData()
   },
@@ -16,7 +14,6 @@ export default {
     fetchData() {
       fetch(`${API_URL}/restaurant`)
         .then((response) => {
-          console.log(response)
           if (!response.ok) {
             throw new Error('Erreur lors de la récupération des données')
           }
@@ -24,7 +21,6 @@ export default {
         })
         .then((data) => {
           this.data = data.data
-          console.log(data)
         })
         .catch((error) => {
           console.error(error)
@@ -33,12 +29,11 @@ export default {
   },
   computed: {
     filteredList() {
-      return this.data.filter((product) => {
-        return (
-          product.code_postale.toLowerCase().includes(this.searchKey.toLowerCase()) +
-          product.nom.toLowerCase().includes(this.searchKey.toLowerCase())
-        )
-      })
+      const key = this.searchKey.toLowerCase()
+      return this.data.filter((product) => 
+        product.code_postale.toLowerCase().includes(key) ||
+        product.nom.toLowerCase().includes(key)
+      )
     }
   }
 }
@@ -46,8 +41,8 @@ export default {
 
 <template>
   <div class="home-container" id="home">
-    <header>
-      <h1>Recherchez parmis nos restaurants</h1>
+    <header class="header-content">
+      <h1>Recherchez parmi nos restaurants</h1>
       <div class="search">
         <input
           v-model="searchKey"
@@ -56,18 +51,17 @@ export default {
           placeholder="Recherchez..."
           autocomplete="off"
         />
-        <span v-if="searchKey && filteredList.length >= 1" class="search_span">
-          {{ filteredList.length }} résultat
-          <span v-if="filteredList.length >= 2">s</span>
+        <span v-if="searchKey && filteredList.length >= 1" class="search-span">
+          {{ filteredList.length }} résultat<span v-if="filteredList.length > 1">s</span>
         </span>
       </div>
     </header>
     <div class="card-cart-container">
       <div class="card-container">
-        <div v-for="product in filteredList" class="card" v-bind:key="product.id">
+        <div v-for="product in filteredList" :key="product.id" class="card">
           <router-link :to="{ name: 'restaurant', params: { id: product.id } }">
             <div class="image-container">
-              <img v-bind:src="`http://localhost:3000/${product.img}`" v-bind:id="product.id" />
+              <img :src="`http://localhost:3000/${product.img}`" :id="product.id" />
             </div>
             <div class="card-text">
               <h3>{{ product.nom }}</h3>
@@ -76,7 +70,7 @@ export default {
             <p>{{ product.address }}</p>
             <div class="card-icons">
               <div class="like-container">
-                <label v-bind:for="product.id">
+                <label :for="product.id">
                   <p class="plus">Cliquez ici pour en savoir plus +</p>
                 </label>
               </div>
@@ -84,14 +78,14 @@ export default {
           </router-link>
         </div>
 
-        <div v-if="filteredList.length == []" class="no-result">
+        <div v-if="filteredList.length === 0" class="no-result">
           <h3>Désolé</h3>
           <p>Aucun résultat trouvé</p>
         </div>
       </div>
     </div>
     <div class="management">
-      <div class="management_contain">
+      <div class="management-contain">
         <h5>A propos de Table de Coeur</h5>
         <p class="pp">
           Vous adorez dénicher de nouveaux restaurants tendance à Paris, mais vous appréciez aussi
@@ -135,18 +129,37 @@ export default {
   }
 }
 
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 header {
   background: url(../../../public/background-crimson.jpeg);
   background-size: cover;
   overflow: hidden;
   width: 100%;
-  flex-direction: column;
-  display: flex;
   height: 20vh;
-  align-items: center;
+  display: flex;
   justify-content: center;
-  gap: 10px;
+  align-items: center;
   padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+  }
+
+  header {
+    height: auto;
+  }
 }
 
 a {
@@ -161,20 +174,12 @@ a {
   justify-content: center;
 }
 
-.search_span {
+.search-span {
   color: white;
 }
 
 .home-container h1 {
   color: white;
-}
-
-.home-container #search {
-  height: 2.4rem;
-  padding: 0 0.5rem;
-  border-radius: 5px;
-  transition: 0.4s ease;
-  border: 2px solid rgba(51, 51, 51, 0.835);
 }
 
 #search {
@@ -192,22 +197,22 @@ p {
   padding-bottom: 15px;
 }
 
-.home-container #search:focus {
+#search:focus {
   outline: none;
   border: 2px solid #2eb7eb;
 }
 
-.home-container .card-cart-container {
+.card-cart-container {
   padding-top: 20px;
   display: flex;
 }
 
-.home-container .card-cart-container .card-container {
+.card-container {
   display: flex;
   flex-wrap: wrap;
 }
 
-.home-container .card-cart-container .card-container .card {
+.card {
   margin: 0.4rem 1rem 0.4rem 20px;
   background: white;
   border-radius: 4px;
@@ -219,39 +224,38 @@ p {
 }
 
 @media screen and (max-width: 600px) {
-  .home-container .card-cart-container .card-container .card {
+  .card {
     margin-right: 0.2rem;
   }
 }
 
-.home-container .card-cart-container .card-container .card:hover {
+.card:hover {
   transform: scale(1.04);
 }
 
-.home-container .card-cart-container .card-container .card:hover img {
+.card:hover img {
   transform: scale(1.08);
 }
 
-.home-container .card-cart-container .card-container .card:hover .card-text {
+.card:hover .card-text {
   opacity: 1;
   bottom: 2.3rem;
 }
 
 .plus {
-  /* font-size: x-small; */
   font-weight: 200;
 }
 
-.home-container .card-cart-container .card-container .card .img-container {
+.image-container {
   overflow: hidden;
 }
 
-.home-container .card-cart-container .card-container .card .img-container img {
+.image-container img {
   height: 210px;
   transition: 0.4s ease;
 }
 
-.home-container .card-cart-container .card-container .card .card-text {
+.card-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -263,12 +267,12 @@ p {
   background: linear-gradient(0deg, white 40%, transparent 100%);
 }
 
-.home-container .card-cart-container .card-container .card .card-text h3 {
+.card-text h3 {
   font-size: 1.2rem;
   padding-right: 4px;
 }
 
-.home-container .card-cart-container .card-container .card .card-text span {
+.card-text span {
   background: crimson;
   font-weight: bold;
   padding: 4px 6px;
@@ -276,20 +280,20 @@ p {
   border-radius: 4px;
 }
 
-.home-container .card-cart-container .card-container .card .card-icons {
+.card-icons {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 40px;
 }
 
-.home-container .card-cart-container .card-container .card .card-icons i {
+.card-icons i {
   padding: 3px 5px;
   transition: 0.2s;
   cursor: pointer;
 }
 
-.home-container .card-cart-container .card-container .card .card-icons i:hover {
+.card-icons i:hover {
   animation: scaler 0.8s infinite linear;
 }
 
@@ -297,271 +301,25 @@ img {
   height: 250px;
 }
 
-.home-container .card-cart-container .card-container .card .card-icons .fa-heart:hover {
+.card-icons .fa-heart:hover {
   color: rgba(251, 38, 38, 0.5);
 }
 
-.home-container .card-cart-container .card-container .card .card-icons .fa-shopping-cart {
+.card-icons .fa-shopping-cart {
   font-size: 16px;
   color: #2eb7eb;
 }
 
-.home-container .card-cart-container .card-container .card .card-icons .fa-shopping-cart:hover {
+.card-icons .fa-shopping-cart:hover {
   filter: brightness(125%);
 }
 
-.home-container .card-cart-container .card-container .card .card-icons .like-container input {
+.like-container input {
   display: none;
 }
 
-
-.home-container .card-cart-container .card-container .no-result {
+.no-result {
   margin: 0 4rem 0 0.4rem;
-}
-
-.home-container .shopping-cart {
-  transition: 0.4s ease;
-  background: #292b2a;
-  color: white;
-  padding: 1.4rem;
-  border-radius: 4px;
-  min-width: 400px;
-  box-shadow: 0 1px 6px rgba(51, 51, 51, 0.25);
-  height: 100%;
-}
-
-.home-container .shopping-cart h2 {
-  margin-bottom: 1rem;
-  color: white;
-  text-align: center;
-}
-
-.home-container .shopping-cart .item-group {
-  max-height: 400px;
-  overflow-x: hidden;
-  padding-right: 6px;
-}
-
-.home-container .shopping-cart .item-group::-webkit-scrollbar {
-  display: none;
-  overflow-y: hidden;
-}
-
-.home-container .shopping-cart .item-group .item {
-  margin-bottom: 2.4rem;
-  position: relative;
-  display: grid;
-  grid-template-columns: 50px 1fr;
-  grid-template-rows: 60% 40%;
-  grid-template-areas: 'a b' 'a c';
-}
-
-.home-container .shopping-cart .item-group .item:after {
-  content: '';
-  position: absolute;
-  height: 1px;
-  width: 100%;
-  background: rgba(85, 85, 85, 0.2);
-  left: 50%;
-  bottom: -22px;
-  transform: translateX(-50%);
-}
-
-.home-container .shopping-cart .item-group .item .img-container {
-  grid-area: a;
-  display: flex;
-  align-items: center;
-}
-
-.home-container .shopping-cart .item-group .item .img-container img {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  transform: scale(0);
-  animation: img-scale 1s forwards;
-}
-
-@keyframes img-scale {
-  to {
-    transform: scale(1);
-  }
-}
-
-.home-container .shopping-cart .item-group .item .item-description {
-  grid-area: b;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-left: 10px;
-}
-
-.home-container .shopping-cart .item-group .item .item-description h4 {
-  margin: 0 0.9rem 0.9rem 0;
-  background: rgba(51, 51, 51, 0.1);
-  padding: 3px 5px;
-  border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(51, 51, 51, 0.15);
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: img-scale 1s forwards;
-}
-
-@keyframes img-scale {
-  to {
-    transform: scaleX(1);
-  }
-}
-
-.home-container .shopping-cart .item-group .item .item-description p {
-  transform: translateY(3px);
-}
-
-.home-container .shopping-cart .item-group .item .item-quantity {
-  grid-area: c;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 10px;
-}
-
-.home-container .shopping-cart .item-group .item .item-quantity h6 {
-  color: whitesmoke;
-}
-
-.home-container .shopping-cart .item-group .item .item-quantity .cart-icons {
-  display: flex;
-  justify-content: space-between;
-  width: 30%;
-  margin-left: 10px;
-}
-
-.home-container .shopping-cart .item-group .item .item-quantity .cart-icons button {
-  transform: scaleY(0);
-}
-
-.home-container .shopping-cart .item-group .item .item-quantity .cart-icons button:nth-child(1) {
-  animation: icon 0.5s ease forwards;
-  animation-delay: 0.2s;
-}
-
-@keyframes icon {
-  to {
-    transform: scaleY(1);
-  }
-}
-
-.home-container .shopping-cart .item-group .item .item-quantity .cart-icons button:nth-child(2) {
-  animation: icon 0.5s ease forwards;
-  animation-delay: 0.4s;
-}
-
-@keyframes icon {
-  to {
-    transform: scaleY(1);
-  }
-}
-
-.home-container .shopping-cart .item-group .item .item-quantity .cart-icons button:nth-child(3) {
-  animation: icon 0.5s ease forwards;
-  animation-delay: 0.6s;
-}
-
-@keyframes icon {
-  to {
-    transform: scaleY(1);
-  }
-}
-
-.home-container .shopping-cart .item-group .item .item-quantity .cart-icons i {
-  font-size: 0.55rem;
-  padding: 5px;
-  margin: 0 2px;
-  background: white;
-  border-radius: 50%;
-  color: #2eb7eb;
-  transition: 0.3s ease;
-}
-
-.home-container .shopping-cart .item-group .item .item-quantity .cart-icons i:hover {
-  background: #222;
-  color: #2eb7eb;
-}
-
-.home-container .shopping-cart .grand-total h6 {
-  color: white;
-}
-
-.home-container .shopping-cart .grand-total .total {
-  display: flex;
-  justify-content: space-between;
-  margin: 1.4rem 0 0.4rem;
-}
-
-.home-container .shopping-cart .grand-total .total h2 {
-  color: white;
-  margin-bottom: 0;
-}
-
-.home-container .shopping-cart .order-button {
-  margin: 1rem auto 0;
-  width: 100%;
-  text-align: center;
-}
-
-.home-container .shopping-cart .order-button button {
-  background: white;
-  padding: 0.8rem;
-  border-radius: 4px;
-  box-shadow: 0 1px 6px rgba(51, 51, 51, 0.2);
-  transition: all 0.2s ease;
-  letter-spacing: 1px;
-}
-
-.home-container .shopping-cart .order-button button:hover {
-  background: black;
-  color: #2eb7eb;
-  font-weight: bold;
-  letter-spacing: 6px;
-  animation: scaler 1.5s infinite linear;
-}
-
-.home-container .shopping-cart .order-button button:active {
-  transform: scale(0.92);
-}
-
-.home-container .cart-anim-enter-active,
-.home-container .cart-anim-leave-active {
-  transition: 1.3s cubic-bezier(0.23, 0.66, 0.08, 0.93);
-  transform: translateX(0px);
-}
-
-.home-container .cart-anim-enter,
-.home-container .cart-anim-leave-to {
-  opacity: 0;
-  transform: translateX(400px);
-}
-
-.home-container .item-anim-enter-active,
-.home-container .item-anim-leave-active {
-  opacity: 1;
-  transition: 0.8s;
-}
-
-.home-container .item-anim-enter,
-.home-container .item-anim-leave-to {
-  opacity: 0;
-  transform: translateY(100px);
-  transition: 0.7s;
-}
-
-@keyframes scaler {
-  50% {
-    transform: scale(1.1);
-  }
-
-  100% {
-    transform: scale(1);
-  }
 }
 
 .management {
@@ -574,7 +332,7 @@ img {
   justify-content: center;
 }
 
-.management_contain {
+.management-contain {
   display: flex;
   flex-direction: column;
   align-items: flex-start;

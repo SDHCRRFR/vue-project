@@ -5,6 +5,7 @@ import {
   createRegister,
   updateUserInDatabase,
   getUsers,
+  getUserById,
   deleteUser,
 } from "../repositories/userRepositories.js";
 import argon2 from "argon2";
@@ -66,49 +67,42 @@ const getUsersController = async (req, res) => {
   }
 };
 
+
 const updateUserController = async (req, res) => {
-  const { id } = req.params;
-  const donnee = await getUserById(id);
-  res.status(200).json({
-    data: donnee.shift(),
-  });
+  const userId = req.params.userId;
+  const updatedUserData = req.body;
+
+  try {
+    // Vérifiez d'abord si l'utilisateur existe
+    const existingUser = await getUserById(userId);
+    if (!existingUser) {
+      return res.status(404).json({
+        status: 404,
+        message: "Utilisateur non trouvé",
+      });
+    }
+    // Si l'utilisateur existe, effectuez la mise à jour
+    const success = await updateUserInDatabase(userId, updatedUserData);
+
+    if (success) {
+      res.status(200).json({
+        status: 200,
+        message: "Utilisateur mis à jour avec succès",
+      });
+    } else {
+      res.status(500).json({
+        status: 500,
+        message: "Erreur lors de la mise à jour de l'utilisateur",
+      });
+    }
+  } catch (error) {
+    console.error('Erreur lors de la mise à jour des détails de l\'utilisateur:', error);
+    res.status(500).json({
+      status: 500,
+      message: "Erreur lors de la mise à jour des détails de l'utilisateur",
+    });
+  }
 };
-
-// const updateUserController = async (req, res) => {
-//   const userId = req.params.userId;
-//   const updatedUserData = req.body;
-
-//   try {
-//     // Vérifiez d'abord si l'utilisateur existe
-//     const existingUser = await getUserById(userId);
-//     if (!existingUser) {
-//       return res.status(404).json({
-//         status: 404,
-//         message: "Utilisateur non trouvé",
-//       });
-//     }
-//     // Si l'utilisateur existe, effectuez la mise à jour
-//     const success = await updateUserInDatabase(userId, updatedUserData);
-
-//     if (success) {
-//       res.status(200).json({
-//         status: 200,
-//         message: "Utilisateur mis à jour avec succès",
-//       });
-//     } else {
-//       res.status(500).json({
-//         status: 500,
-//         message: "Erreur lors de la mise à jour de l'utilisateur",
-//       });
-//     }
-//   } catch (error) {
-//     console.error('Erreur lors de la mise à jour des détails de l\'utilisateur:', error);
-//     res.status(500).json({
-//       status: 500,
-//       message: "Erreur lors de la mise à jour des détails de l'utilisateur",
-//     });
-//   }
-// };
 
 
 export { register, getUsersController, updateUserController, deleteUserController };
