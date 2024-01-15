@@ -30,9 +30,10 @@ export default {
   computed: {
     filteredList() {
       const key = this.searchKey.toLowerCase()
-      return this.data.filter((product) => 
-        product.code_postale.toLowerCase().includes(key) ||
-        product.nom.toLowerCase().includes(key)
+      return this.data.filter(
+        (product) =>
+          product.code_postale.toLowerCase().includes(key) ||
+          product.nom.toLowerCase().includes(key)
       )
     }
   }

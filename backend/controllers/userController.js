@@ -20,7 +20,7 @@ const register = async (req, res) => {
   if (!insertionResult.succes) {
     return res.status(400).json({
       status: 400,
-      message: "Erreur mon pote",
+      message: "Erreur lors de la création de l'utilisateurl'adresse email doit etre associé a un autre compte.",
     });
   } else {
     return res.status(200).json({

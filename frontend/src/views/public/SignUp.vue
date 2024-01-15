@@ -61,6 +61,7 @@
           <button type="submit" class="button" @keydown.enter.prevent="submitForm">
             S'inscrire
           </button>
+          <span>{{ connect }}</span>
           <div class="register_link">
             <p>
               Vous avez dêja un compte ?
@@ -90,7 +91,8 @@ export default {
         email: ''
       },
       password: '',
-      showPassword: false
+      showPassword: false,
+      connect: ''
     }
   },
   validations() {
@@ -145,7 +147,11 @@ export default {
           if (data.status === 200) {
             this.$router.push('restaurateur/dashboard')
             console.log(data)
-          } else {
+          } else if(data.status === 400 ){
+           this.connect = 'le compte existe deja';
+            console.log('ca a merdé' + connect)
+            // return connect;
+          }else {
             console.log('ca a merdé' + data)
           }
         })

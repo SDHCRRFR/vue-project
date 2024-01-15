@@ -3,17 +3,17 @@
     <div class="container">
       <h2>Table coup de coeur sur Instagram !</h2>
       <div class="my_img">
-        <img src="../../../pexelsI.webp" alt="" />
-        <img src="../../../pexelsI.webp" alt="" />
-        <img src="../../../pexelsI.webp" alt="" />
-        <img src="../../../pexelsI.webp" alt="" />
-        <img src="../../../public/background-resto.png" alt="">
+        <img src="../../../background-resto.png" alt="" />
+        <img src="../../../background-resto.png" alt="" />
+        <img src="../../../background-resto.png" alt="" />
+        <img src="../../../background-resto.png" alt="" />
+        <!-- <img src="../../../public/background-resto.png" alt=""> -->
       </div>
       <div class="my_img">
-        <img src="../../../pexelsI.webp" alt="" />
-        <img src="../../../pexelsI.webp" alt="" />
-        <img src="../../../pexelsI.webp" alt="" />
-        <img src="../../../pexelsI.webp" alt="" />
+        <img src="../../../background-resto.png" alt="" />
+        <img src="../../../background-resto.png" alt="" />
+        <img src="../../../background-resto.png" alt="" />
+        <img src="../../../background-resto.png" alt="" />
       </div>
       <button type="submit">
         <a href="#">Instagram</a>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'SocialMedia'
+  name: 'SocialMedia',
 }
 </script>
 
