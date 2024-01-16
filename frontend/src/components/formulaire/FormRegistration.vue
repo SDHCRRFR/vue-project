@@ -223,6 +223,62 @@ export default {
 </script>
 
 <style scoped>
+
+.form_registration {
+  position: relative;
+  width: 100%;
+  background: rgb(237, 237, 237);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 4px;
+  box-sizing: border-box; /* Ajout pour garantir que les bordures et les rembourrages n'augmentent pas la largeur totale */
+}
+
+/* ... (les styles restent inchangés) ... */
+
+@media screen and (max-width: 768px) {
+  /* Ajout de règles de style spécifiques pour les écrans jusqu'à 768px de largeur */
+  .form .column {
+    flex-wrap: wrap;
+  }
+
+  .form :where(.gender_option, .gender) {
+    row-gap: 15px;
+  }
+
+  .addres .column {
+    flex-wrap: wrap;
+  }
+  
+  .form :where(.addres input, .addres select) {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* Ajout de règles de style spécifiques pour les écrans jusqu'à 500px de largeur */
+  .form :where(.input_box input, .select_box) {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .form_registration {
   position: relative;
   width: 100%;

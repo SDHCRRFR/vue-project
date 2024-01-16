@@ -14,8 +14,7 @@
             engagement de durée. Visibilité et inscription gratuite. Facturation à l'utilisation :
             les commissions sont basées sur le nombre de couverts réservés et honorés.
           </p>
-
-          <img src="../../../public/background-crimson.jpeg" class="images" alt="" />
+          <img src="../../../public/background-crimson.jpeg" class="images"/>
         </div>
         <div class="block_II">
           <FormRegistration />
@@ -42,29 +41,6 @@
         <button class="my_button">Commencez</button>
       </router-link>
     </div>
-    <footer>
-      <ul class="social_icon">
-        <li>
-          <a href="#"><ion-icon name="logo-facebook" size="large"></ion-icon></a>
-        </li>
-        <li>
-          <a href="#"><ion-icon name="logo-twitter" size="large"></ion-icon></a>
-        </li>
-        <li>
-          <a href="#"><ion-icon name="logo-snapchat" size="large"></ion-icon></a>
-        </li>
-        <li>
-          <a href="#"><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
-        </li>
-      </ul>
-      <ul class="menu">
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Impact</a></li>
-        <li><a href="#">Rejoignez-nous</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <p>ipsum dolor sit amet consectetur || consectetur adipisicing elit.</p>
-    </footer>
   </div>
 </template>
 
@@ -113,93 +89,51 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
 
 .my_button {
-  width: 200px;
+  width: 100%;
   height: 40px;
-}
-
-.my_button:hover {
-  background: rgba(0, 182, 0, 0.947);
+  margin-top: 10px;
 }
 
 .review {
-  width: 80%;
+  width: 100%;
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 20px;
 }
 
 .manage_container {
-  width: 80%;
-  height: 90vh;
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-}
-
-p {
-  font-size: 25px;
-}
-
-.paragraphe {
-  font-size: 20px;
-  font-weight: 300;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .manage_block {
   min-height: 50vh;
   display: flex;
-  flex-direction: row;
-}
-
-.mypics {
-  height: 100px;
-}
-
-input {
-  width: 96%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  border: 2px solid rgba(255, 255, 255, 0.91);
-  outline: none;
-  font-size: 16px;
-  color: #fff;
-  border-radius: 40px;
-  padding: 10px 10px 10px 5px;
-}
-
-.block_I {
-  display: flex;
   flex-direction: column;
-  padding: 10px;
-  width: 100%;
-}
-
-.block_II {
-  width: 100%;
 }
 
 .advantage {
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding-top: 280px;
-}
-
-h2 {
-  font-size: 40px;
+  padding-top: 20px;
+  flex-direction: column;
+  text-align: center;
 }
 
 .box {
   display: flex;
-  width: 80%;
+  width: 100%;
   padding: 10px;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .boxx {
@@ -210,147 +144,27 @@ h2 {
 }
 
 .images {
-  width: 400px;
+  max-width: 100%;
+  height: auto;
 }
 
-.review {
-  width: 90%;
-  min-height: 50vh;
-  align-items: center;
-  justify-content: center;
-  margin: 30px;
-}
-.content_rev {
-  width: 100%;
-  display: flex;
-  padding: 5px;
-  flex-direction: column;
-  align-items: center;
-  height: 40vh;
-  background: gray;
+
+@media screen and (max-width: 1064px) {
+  .advantage {
+    padding-top: 40px;
+  }
+
+  .manage_block {
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+  }
 }
 
-button {
-  width: 150px;
-  height: 30px;
-  padding: 3px;
-  border-radius: 10px;
-  border: none;
-  background: rgb(0, 101, 0);
-  color: white;
-}
-
-.rev_composition {
-  width: 100%;
-  display: flex;
-  padding: 5px;
-  flex-direction: column;
-  align-items: center;
-  height: 40vh;
-  background: gray;
-}
-
-h4 {
-  font-size: 40px;
-}
-
-footer {
-  position: relative;
-  width: 90%;
-  background: black;
-  min-height: 100px;
-  padding: 20px 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-footer .social_icon,
-footer .menu {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
-  flex-wrap: wrap;
-}
-footer .social_icon li,
-footer .menu li {
-  list-style: none;
-}
-
-footer .social_icon li a {
-  font-size: 2em;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.5s;
-}
-footer .social_icon li a:hover {
-  transform: translateY(-10px);
-}
-footer .menu li a {
-  font-size: 1.2em;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  text-decoration: none;
-  opacity: 0.75;
-}
-footer .menu li a:hover {
-  opacity: 1;
-}
-footer p {
-  color: #fff;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-size: 1.1em;
-}
-
-.log {
-  width: 100%;
-  min-height: 100vh;
-  padding-top: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgb(57, 57, 57);
-}
-
-.login {
-  width: 70%;
-  height: 100vh;
-  display: flex;
-  background: url(../../../public/ensemble.jpeg) 0 0 no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  padding-bottom: 100px;
-  margin-bottom: 100px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-position-y: center;
-  overflow: hidden;
-}
-
-h3 {
-  font-size: 30px;
-  text-align: center;
-  font-weight: 600;
-}
-
-.sub {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-hr {
-  width: 100%;
-  border: 2px solid gainsboro;
+@media screen and (max-width: 500px) {
+  .review,
+  .box {
+    flex-direction: column;
+  }
 }
 </style>

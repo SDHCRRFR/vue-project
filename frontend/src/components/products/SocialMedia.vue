@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'SocialMedia',
+  name: 'SocialMedia'
 }
 </script>
 

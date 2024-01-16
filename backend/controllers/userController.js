@@ -3,7 +3,7 @@
 // import connect from "../services/db.js";
 import {
   createRegister,
-  updateUserInDatabase,
+  updateUserEmailInDatabase,
   getUsers,
   getUserById,
   deleteUser,
@@ -68,9 +68,9 @@ const getUsersController = async (req, res) => {
 };
 
 
-const updateUserController = async (req, res) => {
+const updateUserEmailController = async (req, res) => {
   const userId = req.params.userId;
-  const updatedUserData = req.body;
+  const updatedEmail = req.body.email; // Assure-toi que la propriété email est correcte dans le corps de la requête
 
   try {
     // Vérifiez d'abord si l'utilisateur existe
@@ -81,28 +81,29 @@ const updateUserController = async (req, res) => {
         message: "Utilisateur non trouvé",
       });
     }
-    // Si l'utilisateur existe, effectuez la mise à jour
-    const success = await updateUserInDatabase(userId, updatedUserData);
+    // Si l'utilisateur existe, effectuez la mise à jour de l'email
+    const success = await updateUserEmailInDatabase(userId, updatedEmail);
 
     if (success) {
       res.status(200).json({
         status: 200,
-        message: "Utilisateur mis à jour avec succès",
+        message: "Email de l'utilisateur mis à jour avec succès",
       });
     } else {
       res.status(500).json({
         status: 500,
-        message: "Erreur lors de la mise à jour de l'utilisateur",
+        message: "Erreur lors de la mise à jour de l'email de l'utilisateur",
       });
     }
   } catch (error) {
-    console.error('Erreur lors de la mise à jour des détails de l\'utilisateur:', error);
+    console.error('Erreur lors de la mise à jour de l\'email de l\'utilisateur:', error);
     res.status(500).json({
       status: 500,
-      message: "Erreur lors de la mise à jour des détails de l'utilisateur",
+      message: "Erreur lors de la mise à jour de l'email de l'utilisateur",
     });
   }
 };
 
 
-export { register, getUsersController, updateUserController, deleteUserController };
+
+export { register, getUsersController, updateUserEmailController, deleteUserController };

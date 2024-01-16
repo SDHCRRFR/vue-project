@@ -13,7 +13,6 @@
     </nav>
     <div class="clik"></div>
     <h5>Liste des Restaurateurs</h5>
-    <!-- ... (votre code existant) -->
     <table class="user-table">
       <thead>
         <tr>
@@ -34,7 +33,7 @@
           <td>{{ user.role_id }}</td>
           <td>
             <button @click="trashUser(user.id)"><i class="fa-solid fa-trash"></i></button>
-            <button @click="updateUser(user.id)">
+            <button @click="openUpdateUserModal(user.id)">
               <i class="fa-solid fa-pen-to-square"></i>
             </button>
           </td>
@@ -54,6 +53,17 @@
             <i @click="closeAddUserModal()" class="fa-solid fa-xmark"></i>
           </div>
         </div>
+        <div v-if="isUpdateUserModalVisible" class="modal">
+          <div class="modal-content">
+            <form @submit.prevent="updateUser(user)">
+              <label for="nom">modifier l'email de: </label>
+              <label for="email">Email:</label>
+              <input type="email" id="email" v-model="email" required />
+              <button type="submit">Modifier l'adresse email</button>
+            </form>
+            <i @click="closeUpdateUserModal()" class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
       </tbody>
     </table>
   </div>
@@ -68,6 +78,7 @@ export default {
     return {
       data: [{}],
       isAddUserModalVisible: false, // Nouvel état
+      isUpdateUserModalVisible: false,
       newUser: {
         nom: '',
         email: '',
@@ -82,8 +93,14 @@ export default {
     openAddUserModal() {
       this.isAddUserModalVisible = true
     },
+    openUpdateUserModal() {
+      this.isUpdateUserModalVisible = true
+    },
     closeAddUserModal() {
       this.isAddUserModalVisible = false
+    },
+    closeUpdateUserModal() {
+      this.isUpdateUserModalVisible = false
     },
     trashUser(userId) {
       if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')) {
@@ -121,36 +138,25 @@ export default {
           console.error("Erreur lors de l'ajout de l'utilisateur:", error)
         })
     },
-    updateUser(userId) {
-      fetch(`${API_URL}/user/${userId}`)
+    updateUser(user) {
+      fetch(`${API_URL}/user/${user.id}`)
         .then((response) => {
-          console.log('server response:', response)
           if (!response.ok) {
-            if (response.status === 404) {
-              throw new Error(`Utilisateur non trouvé`)
-            } else {
-              throw new Error(
-                `Erreur de récupération des détails de l'utilisateur: ${response.statusText}`
-              )
-            }
+            throw new Error(
+              `Erreur de récupération des détails de l'utilisateur: ${response.statusText}`
+            )
           }
           return response.json()
         })
         .then((data) => {
-          console.log('Data from server:', data)
-          this.newUser = {
-            id: data.id,
-            nom: data.nom,
-            email: data.email,
-            password: data.password
-          }
-          // Ouvrez le formulaire de modification
-          this.openAddUserModal()
+          this.email = data.email // Ajout de la propriété email
+          this.openUpdateUserModal()
         })
         .catch((error) => {
           console.error("Erreur lors de la récupération des détails de l'utilisateur:", error)
         })
     },
+
     fetchData() {
       fetch(`${API_URL}/users`)
         .then((response) => {

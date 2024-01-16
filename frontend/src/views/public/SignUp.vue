@@ -147,11 +147,11 @@ export default {
           if (data.status === 200) {
             this.$router.push('restaurateur/dashboard')
             console.log(data)
-          } else if(data.status === 400 ){
-           this.connect = 'le compte existe deja';
+          } else if (data.status === 400) {
+            this.connect = 'le compte existe deja'
             console.log('ca a merdé' + connect)
             // return connect;
-          }else {
+          } else {
             console.log('ca a merdé' + data)
           }
         })

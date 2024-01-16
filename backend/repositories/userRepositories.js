@@ -23,41 +23,21 @@ const createRegister = async (data) => {
   }
 };
 
-const updateUserInDatabase = async (userId, updatedUserData) => {
-  const { nom, email, password, role_id } = updatedUserData;
-
+const updateUserEmailInDatabase = async (userId, updatedEmail) => {
   const updateQuery = `
     UPDATE tabledecoeur.user
-    SET nom = ?, email = ?, password = ?, role_id = ?
+    SET email = ?
     WHERE id = ?;
   `;
   try {
-    const [result] = await connect.query(updateQuery, [
-      nom,
-      email,
-      password,
-      role_id,
-      userId,
-    ]);
+    const [result] = await connect.query(updateQuery, [updatedEmail, userId]);
     return result.affectedRows > 0;
   } catch (error) {
-    console.error(
-      "Erreur lors de la mise à jour des détails de l'utilisateur dans la base de données:",
-      error
-    );
+    console.error("Erreur lors de la mise à jour de l'email de l'utilisateur dans la base de données:", error);
     throw error;
   }
 };
 
-// const getUserById = async (userId) => {
-//   // Convertir l'ID en nombre si c'est une chaîne de caractères
-//   userId = parseInt(userId);
-//   console.log("Fetching user details for ID:", userId);
-//   const query = `SELECT user.* FROM tabledecoeur.user WHERE user.id = :id;`;
-//   const [rows] = await connect.query(query, [userId]);
-//   console.log("User details:", rows);
-//   return rows.length > 0 ? rows[0] : null;
-// };
 
 const getUserById = async (id) => {
   const myrequete = `select restaurant.* from tabledecoeur.user WHERE user.id = :id;`;
@@ -104,7 +84,7 @@ const getUsers = async () => {
 export {
   createRegister,
   deleteUser,
-  updateUserInDatabase,
+  updateUserEmailInDatabase,
   getUserById,
   checkLoginCredentials,
   getUsers,
