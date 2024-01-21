@@ -1,7 +1,7 @@
 <template>
   <div class="container_img">
     <hgroup>
-      <h2 class="content"></h2>
+      <!-- <h2 class="content"></h2> -->
     </hgroup>
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
 .container_img {
-  background: url(../../public_hold/resto-IIII.jpeg) no-repeat fixed;
+  background: url(../../public/resto-IIII.jpeg) no-repeat fixed;
   width: 90%;
   height: 87vh;
   border-radius: 20px 20px 20px 20px;

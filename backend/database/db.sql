@@ -1,8 +1,7 @@
--- Create the Tabledecoeur database (if it doesn't exist)
+-- Supprime si elle existe
 DROP DATABASE IF EXISTS tabledecoeur;
+-- crée la base
 CREATE DATABASE tabledecoeur;
-
--- Switch to the Tabledecoeur database
 
 -- Table: role
 CREATE TABLE tabledecoeur.role (
@@ -42,16 +41,6 @@ CREATE TABLE tabledecoeur.restaurant (
     FOREIGN KEY(type_restaurant_id) REFERENCES tabledecoeur.type_restaurant(id)
 );
 
--- Table : don
-CREATE TABLE tabledecoeur.don (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    user_id INT UNSIGNED,
-    restaurant_id INT UNSIGNED,
-    montant DECIMAL(5,2) NOT NULL,
-    date DATE NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES tabledecoeur.user(id),
-    FOREIGN KEY (restaurant_id) REFERENCES tabledecoeur.restaurant(id)
-);
 
 -- remplir les tables
 INSERT INTO tabledecoeur.role VALUES
@@ -80,30 +69,38 @@ INSERT INTO tabledecoeur.type_restaurant VALUES
 (NULL, 'mexicain'),
 (NULL, 'indien'),
 (NULL, 'japonais');
+    --  ( NULL, 'O cercle Pizza', '1 Rue auguste Renoir', '0605704453', 'resto-I.jpeg', '93600', `<h3> Entrée <h3/> <p> kebab </p>`, 1 );
 
 
-INSERT INTO tabledecoeur.restaurant VALUES 
-     ( NULL, 'O cercle Pizza', '1 Rue auguste Renoir', '0605704453', 'resto-I.jpeg', '93600', '<h3> Entrée <h3/> <p> kebab </p>', 1 ),
-     ( NULL, 'Kebab', 'Quai Gallieni, Suresnes', '0675708453', 'resto-II.jpeg', '92150', '<h3> Entrée <h3/> <p> pizza </p>', 2 ),
-     ( NULL, 'Le Baobab', '16 Rue Jean paul', '0675764453', 'resto-III.jpeg', '93200', '<h3> Entrée <h3/> <p> tacos </p>', 3 ),
-     ( NULL, 'Chicken Wings', '21 Rue Paul Dukas', '0679704453', 'resto-IIII.jpeg', '91300', '<h3> Entrée <h3/> <p> crêpe </p>', 4 ),
-     ( NULL, 'O Tacos', '21 Traverse des rosier', '0675204453', 'resto-v.webp', '13014', '<h3> Entrée <h3/> <p> sandwich </p>', 5 ),
-     ( NULL, 'Crepeway', '45 Rue du peuple', '0675504453', 'resto-IIII.jpeg', '93270', '<h3> Entrée <h3/> <p> assiette kebab </p>', 6 ),
-     ( NULL, 'O minifour', '31 Rue de Marseille', '0675774453', 'resto-II.jpeg', '95200', '<h3> Entrée <h3/> <p> burger </p>', 7 ),
-     ( NULL, 'O Brochetti', '06 Rue des Egalades', '0615704453', 'resto-III.jpeg', '75018', '<h3> Entrée <h3/> <p> poulet </p>', 8 ),
-     ( NULL, 'Nabab', '66 Rue des combattants', '0699744453', 'resto-IIII.jpeg', '75012', '<h3> Entrée <h3/> <p> pasta </p>', 9 ),
-     ( NULL, 'Le Cap', '34 Rue de Belgique', '0699747453', 'resto-I.jpeg', '02200', '<h3> Entrée <h3/> <p> pasta </p>', 10 ),
-     ( NULL, 'pizzaKebab', '21 rue Louis Blanc', '0615703453', 'resto-I.jpeg', '75010', '<h3> Entrée <h3/> <p> tacos - kebab </p>', 1 ),
-     ( NULL, 'TheKebab', 'Drancy', '0675704453', 'resto-II.jpeg', '75001', '<h3> Entrée <h3/> <p> variétés </p>', 2 ),
-     ( NULL, 'Snack ', 'Oparinor', '0675714453', 'resto-III.jpeg', '75002', '<h3> Entrée <h3/> <p> tacos </p>', 3 ),
-     ( NULL, 'Chicken Frieds', 'Le Bourget', '0775704453', 'resto-IIII.jpeg', '75003', '<h3> Entrée <h3/> <p> crêpe </p>', 4 ),
-     ( NULL, 'Tacos', 'La courneuve', '0675794453', 'resto-v.webp', '75004', '<h3> Entrée <h3/> <p> sandwich </p>', 5 ),
-     ( NULL, 'Crepeway', 'MontCornet', '0625704453', 'resto-I.jpeg', '75005', '<h3> Entrée <h3/> <p> assiette kebab </p>', 6 ),
-     ( NULL, 'minifour', 'Sarcelle', '0675574453', 'resto-II.jpeg', '75006', '<h3> Entrée <h3/> <p> burger </p>', 7 ),
-     ( NULL, 'Brochette', 'Villepinte', '0615104453', 'resto-III.jpeg', '75007', '<h3> Entrée <h3/> <p> soupe </p>', 8 ),
-     ( NULL, 'Point B', 'Vert Galant', '0699747453', 'resto-IIII.jpeg', '75008', '<h3> Entrée <h3/> <p> pasta </p>', 9 ),
-     ( NULL, 'Le Cap dix', 'Sevran', '0694747453', 'resto-v.web', '75009', '<h3> Entrée <h3/> <p> crevette </p>', 10 ),
-     ( NULL, 'La Bella Vita', '123 Avenue des Roses', '0612345678', 'resto-I.jpeg', '75001', '<h3> Menu <h3/> <p> Pasta Carbonara </p>', 1 ),
+INSERT INTO tabledecoeur.restaurant (nom, adresse, telephone, img, code_postale, menu, type_restaurant_id) VALUES 
+( NULL, 'Sweet Temptations', '131 Rue des Délices', '0654321098', 'resto-IIII.jpeg', '75006', '<h3> Menu <h3/> <p> Chocolate Fondue </p>', 6 );
+
+
+
+
+
+
+
+     ( 'Kebab', ' 22 Quai Gallieni, Suresnes', '0675708453', 'resto-II.jpeg', '92150', '<h3> Entrée <h3/> <p> pizza </p>', 2 ),
+     ( 'Le Baobab', '16 Rue Jean paul', '0675764453', 'resto-III.jpeg', '93200', '<h3> Entrée <h3/> <p> tacos </p>', 3 ),
+     ( 'Chicken Wings', '21 Rue Paul Dukas', '0679704453', 'resto-IIII.jpeg', '91300', '<h3> Entrée <h3/> <p> crêpe </p>', 4 ),
+     ( 'O Tacos', '21 Traverse des rosier', '0675204453', 'resto-v.webp', '13014', '<h3> Entrée <h3/> <p> sandwich </p>', 5 ),
+     ( 'Crepeway', '45 Rue du peuple', '0675504453', 'resto-IIII.jpeg', '93270', '<h3> Entrée <h3/> <p> assiette kebab </p>', 6 ),
+     ( 'O minifour', '31 Rue de Marseille', '0675774453', 'resto-II.jpeg', '95200', '<h3> Entrée <h3/> <p> burger </p>', 7 ),
+     ( 'O Brochetti', '06 Rue des Egalades', '0615704453', 'resto-III.jpeg', '75018', '<h3> Entrée <h3/> <p> poulet </p>', 8 ),
+     ( 'Nabab', '66 Rue des combattants', '0699744453', 'resto-IIII.jpeg', '75012', '<h3> Entrée <h3/> <p> pasta </p>', 9 ),
+     ( 'Le Cap', '34 Rue de Belgique', '0699747453', 'resto-I.jpeg', '02200', '<h3> Entrée <h3/> <p> pasta </p>', 10 ),
+     ( 'pizzaKebab', '21 rue Louis Blanc', '0615703453', 'resto-I.jpeg', '75010', '<h3> Entrée <h3/> <p> tacos - kebab </p>', 1 ),
+     ( 'TheKebab', 'Drancy', '0675704453', 'resto-II.jpeg', '75001', '<h3> Entrée <h3/> <p> variétés </p>', 2 ),
+     ( 'Snack ', 'Oparinor', '0675714453', 'resto-III.jpeg', '75002', '<h3> Entrée <h3/> <p> tacos </p>', 3 ),
+     ( 'Chicken Frieds', 'Le Bourget', '0775704453', 'resto-IIII.jpeg', '75003', '<h3> Entrée <h3/> <p> crêpe </p>', 4 ),
+     ( 'Tacos', 'La courneuve', '0675794453', 'resto-v.webp', '75004', '<h3> Entrée <h3/> <p> sandwich </p>', 5 ),
+     ( 'Crepeway', 'MontCornet', '0625704453', 'resto-I.jpeg', '75005', '<h3> Entrée <h3/> <p> assiette kebab </p>', 6 ),
+     ( 'minifour', 'Sarcelle', '0675574453', 'resto-II.jpeg', '75006', '<h3> Entrée <h3/> <p> burger </p>', 7 ),
+     ( 'Brochette', 'Villepinte', '0615104453', 'resto-III.jpeg', '75007', '<h3> Entrée <h3/> <p> soupe </p>', 8 ),
+     ( 'Point B', 'Vert Galant', '0699747453', 'resto-IIII.jpeg', '75008', '<h3> Entrée <h3/> <p> pasta </p>', 9 ),
+     ( 'Le Cap dix', 'Sevran', '0694747453', 'resto-v.web', '75009', '<h3> Entrée <h3/> <p> crevette </p>', 10 ),
+     ( 'La Bella Vita', '123 Avenue des Roses', '0612345678', 'resto-I.jpeg', '75001', '<h3> Menu <h3/> <p> Pasta Carbonara </p>', 1 );
      ( NULL, 'Gastronomique Heights', '456 Rue de la Liberté', '0654321098', 'resto-II.jpeg', '75002', '<h3> Menu <h3/> <p> Filet Mignon </p>', 2 ),
      ( NULL, 'Ocean Delights', '789 Boulevard des Saveurs', '0612345678', 'resto-III.jpeg', '75003', '<h3> Menu <h3/> <p> Seafood Platter </p>', 3 ),
      ( NULL, 'Spicy Bites', '101 Rue du Piment', '0654321098', 'resto-IIII.jpeg', '75004', '<h3> Menu <h3/> <p> Spicy Tacos </p>', 4 ),

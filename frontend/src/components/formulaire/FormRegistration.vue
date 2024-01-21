@@ -223,7 +223,6 @@ export default {
 </script>
 
 <style scoped>
-
 .form_registration {
   position: relative;
   width: 100%;
@@ -249,7 +248,7 @@ export default {
   .addres .column {
     flex-wrap: wrap;
   }
-  
+
   .form :where(.addres input, .addres select) {
     width: 100%;
   }
@@ -261,23 +260,6 @@ export default {
     width: 100%;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .form_registration {
   position: relative;

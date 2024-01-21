@@ -1,10 +1,9 @@
 import {
+  createOneRestaurant,
   getAllRestaurant,
-  getOneRestaurantById,
-  createOneRestaurant
+  deleteOneRestaurant,
+  getOneRestaurantById
 } from "../repositories/restaurantRepositories.js";
-
-import Restaurant from "../services/db.js";
 
 const index = async (req, res) => {
   const donnee = await getAllRestaurant();
@@ -13,6 +12,38 @@ const index = async (req, res) => {
   });
 };
 
+const deleteRestaurant = async (req, res) => {
+  const { id } = req.params;
+  
+  // Vérifie si le restaurant existe
+  const existingRestaurant = await getOneRestaurantById(id);
+  if (!existingRestaurant || existingRestaurant.length === 0) {
+    return res.status(404).json({ error: "Restaurant non trouvé." });
+  }
+
+  // Vérifie si l'utilisateur est le créateur du restaurant
+  // (Tu devras adapter cela en fonction de la manière dont tu gères les utilisateurs)
+  const userIdFromToken = req.user.id; // Supposons que tu récupères l'ID de l'utilisateur à partir du token
+  if (existingRestaurant[0].user_id !== userIdFromToken) {
+    return res.status(403).json({ error: "Vous n'avez pas la permission de supprimer ce restaurant." });
+  }
+
+  // Supprime le restaurant
+  const result = await deleteOneRestaurant(id);
+  if (result.success) {
+    res.status(200).json({ message: "Restaurant supprimé avec succès." });
+  } else {
+    res.status(500).json({ error: "Erreur lors de la suppression du restaurant." });
+  }
+};
+
+
+const createRestaurantController = async (req, res) => {
+  const donnee = await createOneRestaurant(req.body);
+  res.status(200).json({
+    data: donnee,
+  });
+};
 const getSortedRestaurant = async (req, res) => {
   const donnee = await getAllRestaurant(true);
   res.status(200).json({
@@ -28,46 +59,10 @@ const getRestaurantById = async (req, res) => {
   });
 };
 
-const createRestaurant = async (req, res) => {
-  const donnee = await createOneRestaurant(req.body);
-  res.status(200).json({
-    data: donnee,
-  });
-};
-
-const updateRestaurant = async (req, res) => {
-  try {
-    const updatedRestaurant = await Restaurant.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    res.json({ data: updatedRestaurant });
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ error: "Erreur lors de la mise à jour du restaurant" });
-  }
-};
-
-const deleteRestaurant = async (req, res) => {
-  try {
-    const deletedRestaurant = await Restaurant.findByIdAndDelete(req.params.id);
-    res.json({ data: deletedRestaurant });
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ error: "Erreur lors de la suppression du restaurant" });
-  }
-};
-
 export {
   index,
   getSortedRestaurant,
+  createRestaurantController,
   getRestaurantById,
-  createRestaurant,
-  updateRestaurant,
-  deleteRestaurant,
+  deleteRestaurant
 };

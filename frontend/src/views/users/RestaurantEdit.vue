@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <hr />
-    <router-link to="/restaurateur/shop">
+    <router-link to="/edit">
       <h1>RESTAURANT</h1>
     </router-link>
     <div class="container_block">
@@ -22,7 +22,7 @@
         <hr />
         <div class="block">
           <i class="fa-solid fa-utensils"></i>
-          <p>Français {{ restaurantDetails.type_restaurant_id }} - Terrasse</p>
+          <p>{{ restaurantDetails.type_restaurant_id }} - Terrasse</p>
         </div>
         <hr />
         <div class="block">
@@ -59,11 +59,11 @@
 const API_URL = import.meta.env.VITE_API_URL
 
 export default {
-  name: 'RestaurantEdit',
+  name: 'RestaurantId',
   props: ['id'],
   data() {
     return {
-      restaurantDetails: []
+      restaurantDetails: {}
     }
   },
   created() {
@@ -146,10 +146,6 @@ img {
 a {
   text-decoration: none;
   color: black;
-}
-
-h2 {
-  text-decoration: none;
 }
 
 a:hover {

@@ -23,31 +23,6 @@ const createRegister = async (data) => {
   }
 };
 
-const updateUserEmailInDatabase = async (userId, updatedEmail) => {
-  const updateQuery = `
-    UPDATE tabledecoeur.user
-    SET email = ?
-    WHERE id = ?;
-  `;
-  try {
-    const [result] = await connect.query(updateQuery, [updatedEmail, userId]);
-    return result.affectedRows > 0;
-  } catch (error) {
-    console.error("Erreur lors de la mise à jour de l'email de l'utilisateur dans la base de données:", error);
-    throw error;
-  }
-};
-
-
-const getUserById = async (id) => {
-  const myrequete = `select restaurant.* from tabledecoeur.user WHERE user.id = :id;`;
-  try {
-      const [result] = await connect.query(myrequete, { id: id});
-      return result;
-  } catch (error) {
-      return error;
-  }
-};
 
 const deleteUser = async (userId) => {
   const query = "DELETE FROM tabledecoeur.user WHERE id = ?";
@@ -84,8 +59,6 @@ const getUsers = async () => {
 export {
   createRegister,
   deleteUser,
-  updateUserEmailInDatabase,
-  getUserById,
   checkLoginCredentials,
   getUsers,
 };

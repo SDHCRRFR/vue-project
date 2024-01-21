@@ -24,6 +24,16 @@ router.use(
   })
 );
 
+router.use(
+  cors({
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    headers: "Origin, X-Requested-With, Content-Type, Accept",
+  })
+);
+
+
+
 router.use("/restaurant", restaurantRouter);
 router.use("/sortedRestaurant", restaurantRouter);
 router.use("/restaurant/type", typeRestaurantRouter);

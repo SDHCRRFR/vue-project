@@ -1,11 +1,17 @@
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  components: {},
+  data: function () {
+    return {}
+  }
 }
 </script>
 
 <template>
-  <RouterView />
+  <div class="app">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped></style>

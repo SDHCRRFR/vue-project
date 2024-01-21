@@ -64,31 +64,35 @@ export default {
         })
     },
     createRestaurant() {
-      const formData = {
-        nom: this.nom,
-        adresse: this.adresse,
-        telephone: this.telephone,
-        img: this.img,
-        code_postale: this.code_postale,
-        menu: this.menu,
-        type_restaurant_id: this.type_restaurant_id
-      }
-      const requestInfos = new Request(`${API_URL}/restaurant`, {
+      fetch(`${API_URL}/restaurant`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors',
+        body: JSON.stringify(this.newRestaurantData)
       })
-      fetch(requestInfos)
         .then((data) => data.json())
-        .then((data) => {
-          if (data.status === 200) {
-            this.closePopup()
-            console.log(data)
-          } else {
-            console.log('ca a merdé')
-          }
+        .then(() => {
+          this.fetchData()
+          this.closePopup()
         })
         .catch((error) => console.error('Echec de la création du restaurant', error))
+    }
+  },
+  deleteRestaurant(id) {
+    if (window.confirm('Es-tu sûr de vouloir supprimer ce restaurant ?')) {
+      fetch(`${API_URL}/restaurant/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors',
+      })
+        .then(() => {
+          this.fetchData(); // Rafraîchit la liste après la suppression
+        })
+        .catch((error) => console.error('Erreur lors de la suppression du restaurant', error));
     }
   },
   computed: {
@@ -106,18 +110,13 @@ export default {
 <template>
   <div class="home-container" id="home">
     <header>
-      <input
-        v-model="searchKey"
-        type="search"
-        id="search"
-        placeholder="Recherchez..."
-        autocomplete="off"
-      />
+      <input v-model="searchKey" type="search" id="search" placeholder="Recherchez..." autocomplete="off" />
       <span v-if="searchKey && filteredList.length >= 1">
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
       </span>
       <i class="fa-solid fa-plus pop_up" @click="openPopup"></i>
+      <i @click="deleteRestaurant(product.id)" class="fa-solid fa-plus pop_up"></i>
     </header>
 
     <div class="popup-overlay" v-if="isPopupOpen">
@@ -128,22 +127,10 @@ export default {
           <input type="text" id="nom" v-model="newRestaurantData.nom" name="nom" required />
 
           <label for="address">Adresse:</label>
-          <input
-            type="text"
-            name="adresse"
-            id="adresse"
-            v-model="newRestaurantData.adresse"
-            required
-          />
+          <input type="text" name="adresse" id="adresse" v-model="newRestaurantData.adresse" required />
 
           <label for="telephone">telephone:</label>
-          <input
-            type="number"
-            name="telephone"
-            id="telephone"
-            v-model="newRestaurantData.telephone"
-            required
-          />
+          <input type="number" name="telephone" id="telephone" v-model="newRestaurantData.telephone" required />
 
           <label for="img">Image:</label>
           <div>
@@ -151,22 +138,12 @@ export default {
           </div>
 
           <label for="type-restaurant">Code Postal:</label>
-          <input
-            type="text"
-            name="code_postale"
-            id="type_restaurant_id"
-            v-model="newRestaurantData.code_postale"
-            required
-          />
+          <input type="text" name="code_postale" id="type_restaurant_id" v-model="newRestaurantData.code_postale"
+            required />
 
           <label for="type_restaurant_id">Type restaurant:</label>
-          <input
-            type="text"
-            name="type_restaurant_id"
-            id="type_restaurant_id"
-            v-model="newRestaurantData.type_restaurant_id"
-            required
-          />
+          <input type="text" name="type_restaurant_id" id="type_restaurant_id"
+            v-model="newRestaurantData.type_restaurant_id" required />
 
           <label for="menu">menu:</label>
           <input type="text" name="menu" id="menu" v-model="newRestaurantData.menu" required />
@@ -181,11 +158,7 @@ export default {
         <div v-for="product in filteredList" class="card" v-bind:key="product.id">
           <router-link :to="{ name: 'restaurant-edit', params: { id: product.id } }">
             <div class="image-container">
-              <img
-                v-bind:src="`http://localhost:3000/${product.img}`"
-                alt=""
-                v-bind:id="product.id"
-              />
+              <img v-bind:src="`http://localhost:3000/${product.img}`" alt="" v-bind:id="product.id" />
             </div>
 
             <div class="card-text">

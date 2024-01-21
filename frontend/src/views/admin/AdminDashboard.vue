@@ -33,9 +33,6 @@
           <td>{{ user.role_id }}</td>
           <td>
             <button @click="trashUser(user.id)"><i class="fa-solid fa-trash"></i></button>
-            <button @click="openUpdateUserModal(user.id)">
-              <i class="fa-solid fa-pen-to-square"></i>
-            </button>
           </td>
         </tr>
         <button @click="openAddUserModal()">Ajouter <i class="fa-solid fa-plus"></i></button>
@@ -53,17 +50,6 @@
             <i @click="closeAddUserModal()" class="fa-solid fa-xmark"></i>
           </div>
         </div>
-        <div v-if="isUpdateUserModalVisible" class="modal">
-          <div class="modal-content">
-            <form @submit.prevent="updateUser(user)">
-              <label for="nom">modifier l'email de: </label>
-              <label for="email">Email:</label>
-              <input type="email" id="email" v-model="email" required />
-              <button type="submit">Modifier l'adresse email</button>
-            </form>
-            <i @click="closeUpdateUserModal()" class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
       </tbody>
     </table>
   </div>
@@ -78,7 +64,6 @@ export default {
     return {
       data: [{}],
       isAddUserModalVisible: false, // Nouvel état
-      isUpdateUserModalVisible: false,
       newUser: {
         nom: '',
         email: '',
@@ -93,14 +78,8 @@ export default {
     openAddUserModal() {
       this.isAddUserModalVisible = true
     },
-    openUpdateUserModal() {
-      this.isUpdateUserModalVisible = true
-    },
     closeAddUserModal() {
       this.isAddUserModalVisible = false
-    },
-    closeUpdateUserModal() {
-      this.isUpdateUserModalVisible = false
     },
     trashUser(userId) {
       if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')) {
@@ -138,25 +117,6 @@ export default {
           console.error("Erreur lors de l'ajout de l'utilisateur:", error)
         })
     },
-    updateUser(user) {
-      fetch(`${API_URL}/user/${user.id}`)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(
-              `Erreur de récupération des détails de l'utilisateur: ${response.statusText}`
-            )
-          }
-          return response.json()
-        })
-        .then((data) => {
-          this.email = data.email // Ajout de la propriété email
-          this.openUpdateUserModal()
-        })
-        .catch((error) => {
-          console.error("Erreur lors de la récupération des détails de l'utilisateur:", error)
-        })
-    },
-
     fetchData() {
       fetch(`${API_URL}/users`)
         .then((response) => {
