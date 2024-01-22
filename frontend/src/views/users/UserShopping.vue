@@ -36,7 +36,6 @@ export default {
       const file = event.target.files[0]
       if (file) {
         const reader = new FileReader()
-
         reader.onload = () => {
           this.imageUrl = reader.result
         }
@@ -67,7 +66,7 @@ export default {
       fetch(`${API_URL}/restaurant`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         mode: 'cors',
         body: JSON.stringify(this.newRestaurantData)
@@ -80,21 +79,21 @@ export default {
         .catch((error) => console.error('Echec de la création du restaurant', error))
     }
   },
-  deleteRestaurant(id) {
-    if (window.confirm('Es-tu sûr de vouloir supprimer ce restaurant ?')) {
-      fetch(`${API_URL}/restaurant/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        mode: 'cors',
-      })
-        .then(() => {
-          this.fetchData(); // Rafraîchit la liste après la suppression
-        })
-        .catch((error) => console.error('Erreur lors de la suppression du restaurant', error));
-    }
-  },
+  // deleteRestaurant(id) {
+  //   if (window.confirm('Es-tu sûr de vouloir supprimer ce restaurant ?')) {
+  //     fetch(`${API_URL}/restaurant/${id}`, {
+  //       method: 'DELETE',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       mode: 'cors'
+  //     })
+  //       .then(() => {
+  //         this.fetchData() // Rafraîchit la liste après la suppression
+  //       })
+  //       .catch((error) => console.error('Erreur lors de la suppression du restaurant', error))
+  //   }
+  // },
   computed: {
     filteredList() {
       return this.data.filter((product) => {
@@ -110,43 +109,83 @@ export default {
 <template>
   <div class="home-container" id="home">
     <header>
-      <input v-model="searchKey" type="search" id="search" placeholder="Recherchez..." autocomplete="off" />
+      <input
+        v-model="searchKey"
+        type="search"
+        id="search"
+        placeholder="Recherchez..."
+        autocomplete="off"
+      />
       <span v-if="searchKey && filteredList.length >= 1">
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
       </span>
       <i class="fa-solid fa-plus pop_up" @click="openPopup"></i>
-      <i @click="deleteRestaurant(product.id)" class="fa-solid fa-plus pop_up"></i>
+      <!-- <i @click="deleteRestaurant(product.id)" class="fa-solid fa-plus pop_up"></i> -->
     </header>
 
     <div class="popup-overlay" v-if="isPopupOpen">
       <div class="popup">
         <h2>Ajouter un nouveau restaurant</h2>
         <form @submit.prevent="submitForm()" method="post">
-          <label for="nom">Nom:</label>
-          <input type="text" id="nom" v-model="newRestaurantData.nom" name="nom" required />
-
-          <label for="address">Adresse:</label>
-          <input type="text" name="adresse" id="adresse" v-model="newRestaurantData.adresse" required />
-
-          <label for="telephone">telephone:</label>
-          <input type="number" name="telephone" id="telephone" v-model="newRestaurantData.telephone" required />
-
-          <label for="img">Image:</label>
+          <input 
+            placeholder="Nom du restaurant" 
+            type="text" 
+            id="nom" 
+            v-model="newRestaurantData.nom" 
+            name="nom" 
+            required 
+          />
+          <input
+            placeholder="adresse"
+            type="text"
+            name="adresse"
+            id="adresse"
+            v-model="newRestaurantData.adresse"
+            required
+          />
+          <input
+            placeholder="Numéro de tel"
+            type="number"
+            name="telephone"
+            id="telephone"
+            v-model="newRestaurantData.telephone"
+            required
+          />
           <div>
-            <input type="file" id="img" name="img" ref="imageInput" @change="handleImageChange" />
+            <input 
+              placeholder="Insérez votre image ou logo" 
+              type="file" 
+              id="img" 
+              name="img" 
+              ref="imageInput" 
+              @change="handleImageChange" 
+            />
           </div>
-
-          <label for="type-restaurant">Code Postal:</label>
-          <input type="text" name="code_postale" id="type_restaurant_id" v-model="newRestaurantData.code_postale"
-            required />
-
-          <label for="type_restaurant_id">Type restaurant:</label>
-          <input type="text" name="type_restaurant_id" id="type_restaurant_id"
-            v-model="newRestaurantData.type_restaurant_id" required />
-
-          <label for="menu">menu:</label>
-          <input type="text" name="menu" id="menu" v-model="newRestaurantData.menu" required />
+          <input
+            placeholder="Votre code postale"
+            type="text"
+            name="code_postale"
+            id="type_restaurant_id"
+            v-model="newRestaurantData.code_postale"
+            required
+          />
+          <input
+            placeholder="Indiquer le type de restaurant"
+            type="text"
+            name="type_restaurant_id"
+            id="type_restaurant_id"
+            v-model="newRestaurantData.type_restaurant_id"
+            required
+          />
+          <input 
+            type="text" 
+            placeholder="menu"
+            name="menu" 
+            id="menu" 
+            v-model="newRestaurantData.menu"
+            required 
+          />
           <button type="submit">Ajouter</button>
         </form>
         <i class="fa-solid fa-xmark fa-xs pop_up" @click="closePopup"></i>
@@ -158,7 +197,11 @@ export default {
         <div v-for="product in filteredList" class="card" v-bind:key="product.id">
           <router-link :to="{ name: 'restaurant-edit', params: { id: product.id } }">
             <div class="image-container">
-              <img v-bind:src="`http://localhost:3000/${product.img}`" alt="" v-bind:id="product.id" />
+              <img
+                v-bind:src="`http://localhost:3000/${product.img}`"
+                alt=""
+                v-bind:id="product.id"
+              />
             </div>
 
             <div class="card-text">
