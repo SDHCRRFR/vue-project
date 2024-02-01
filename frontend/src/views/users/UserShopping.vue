@@ -1,50 +1,20 @@
 <script>
+import PopUpCreateRestaurant from '../../components/popup/PopUpCreateRestaurant.vue'
 const API_URL = import.meta.env.VITE_API_URL
 
 export default {
   name: 'UserShopping',
+  components: { PopUpCreateRestaurant },
   data: () => {
     return {
       data: [],
-      searchKey: '',
-      isPopupOpen: false,
-      newRestaurantData: {
-        nom: '',
-        adresse: '',
-        telephone: '',
-        img: '',
-        code_postale: '',
-        menu: '',
-        type_restaurant_id: ''
-      }
+      searchKey: ''
     }
   },
   created() {
     this.fetchData()
   },
   methods: {
-    openPopup() {
-      this.isPopupOpen = true
-    },
-    closePopup() {
-      this.isPopupOpen = false
-    },
-    insertImage() {
-      this.$refs.imageInput.click()
-    },
-    handleImageChange(event) {
-      const file = event.target.files[0]
-      if (file) {
-        const reader = new FileReader()
-        reader.onload = () => {
-          this.imageUrl = reader.result
-        }
-        reader.readAsDataURL(file)
-      }
-    },
-    submitForm() {
-      this.createRestaurant()
-    },
     fetchData() {
       fetch(`${API_URL}/restaurant`)
         .then((response) => {
@@ -61,39 +31,8 @@ export default {
         .catch((error) => {
           console.error(error)
         })
-    },
-    createRestaurant() {
-      fetch(`${API_URL}/restaurant`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        mode: 'cors',
-        body: JSON.stringify(this.newRestaurantData)
-      })
-        .then((data) => data.json())
-        .then(() => {
-          this.fetchData()
-          this.closePopup()
-        })
-        .catch((error) => console.error('Echec de la création du restaurant', error))
     }
   },
-  // deleteRestaurant(id) {
-  //   if (window.confirm('Es-tu sûr de vouloir supprimer ce restaurant ?')) {
-  //     fetch(`${API_URL}/restaurant/${id}`, {
-  //       method: 'DELETE',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       mode: 'cors'
-  //     })
-  //       .then(() => {
-  //         this.fetchData() // Rafraîchit la liste après la suppression
-  //       })
-  //       .catch((error) => console.error('Erreur lors de la suppression du restaurant', error))
-  //   }
-  // },
   computed: {
     filteredList() {
       return this.data.filter((product) => {
@@ -120,77 +59,8 @@ export default {
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
       </span>
-      <i class="fa-solid fa-plus pop_up" @click="openPopup"></i>
-      <!-- <i @click="deleteRestaurant(product.id)" class="fa-solid fa-plus pop_up"></i> -->
+      <pop-up-create-restaurant />
     </header>
-
-    <div class="popup-overlay" v-if="isPopupOpen">
-      <div class="popup">
-        <h2>Ajouter un nouveau restaurant</h2>
-        <form @submit.prevent="submitForm()" method="post">
-          <input 
-            placeholder="Nom du restaurant" 
-            type="text" 
-            id="nom" 
-            v-model="newRestaurantData.nom" 
-            name="nom" 
-            required 
-          />
-          <input
-            placeholder="adresse"
-            type="text"
-            name="adresse"
-            id="adresse"
-            v-model="newRestaurantData.adresse"
-            required
-          />
-          <input
-            placeholder="Numéro de tel"
-            type="number"
-            name="telephone"
-            id="telephone"
-            v-model="newRestaurantData.telephone"
-            required
-          />
-          <div>
-            <input 
-              placeholder="Insérez votre image ou logo" 
-              type="file" 
-              id="img" 
-              name="img" 
-              ref="imageInput" 
-              @change="handleImageChange" 
-            />
-          </div>
-          <input
-            placeholder="Votre code postale"
-            type="text"
-            name="code_postale"
-            id="type_restaurant_id"
-            v-model="newRestaurantData.code_postale"
-            required
-          />
-          <input
-            placeholder="Indiquer le type de restaurant"
-            type="text"
-            name="type_restaurant_id"
-            id="type_restaurant_id"
-            v-model="newRestaurantData.type_restaurant_id"
-            required
-          />
-          <input 
-            type="text" 
-            placeholder="menu"
-            name="menu" 
-            id="menu" 
-            v-model="newRestaurantData.menu"
-            required 
-          />
-          <button type="submit">Ajouter</button>
-        </form>
-        <i class="fa-solid fa-xmark fa-xs pop_up" @click="closePopup"></i>
-      </div>
-    </div>
 
     <div class="card-cart-container">
       <div class="card-container">
@@ -211,6 +81,9 @@ export default {
             <p>{{ product.address }}</p>
             <div class="card-icons">
               <div class="like-container">
+                <label v-bind:for="product.id" class="phone">
+                  <i class="fa-solid fa-phone"></i>
+                </label>
                 <label v-bind:for="product.id">
                   <p>{{ product.adresse }}</p>
                 </label>
@@ -219,7 +92,7 @@ export default {
           </router-link>
         </div>
 
-        <div v-if="filteredList.length == []" class="no-result">
+        <div v-if="filteredList.length === 0" class="no-result">
           <h3>Désolé</h3>
           <p>Aucun résultat trouvé</p>
         </div>
@@ -271,6 +144,10 @@ h1 {
 
 /* product */
 
+.phone {
+  padding-bottom: 15px;
+}
+
 #container {
   width: 80%;
   display: flex;
@@ -310,91 +187,19 @@ header {
 }
 
 /* POP UP */
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.popup {
-  background: white;
-  display: flex;
-  width: 450px;
-  flex-direction: column;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1001;
-  animation: slideIn 0.3s ease-out;
-}
-
-.popup h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.popup form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.popup label {
-  font-weight: bold;
-}
-
-.popup input,
-.popup button {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-top: 5px;
-}
-
-.popup button {
-  cursor: pointer;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-}
-
-.popup button:hover {
-  background-color: #45a049;
-}
-
-.popup i {
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5em;
-  color: #555;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateY(-50px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 
 /* ================================================================================================ */
 
 a {
   text-decoration: none;
   color: black;
+}
+
+.like-container {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .home-container h1 {

@@ -49,6 +49,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 30px;
+  padding-bottom: 20%;
 }
 
 .manage_container {

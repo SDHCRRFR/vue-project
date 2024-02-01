@@ -9,6 +9,7 @@ import {
 
 const restaurantRouter = express.Router();
 
+
 restaurantRouter.get('/', index);
 restaurantRouter.get('/sortedRestaurant', getSortedRestaurant);
 restaurantRouter.get('/:id', getRestaurantById);

@@ -47,8 +47,8 @@ footer {
   position: relative;
   width: 100%;
   background: #1d2125;
-  min-height: 100px;
-  padding: 20px 50px;
+  min-height: 200px;
+  /* padding: 20px 50px; */
   display: flex;
   justify-content: center;
   align-items: center;

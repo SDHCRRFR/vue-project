@@ -1,11 +1,12 @@
 /*******************************/
 /***Import des modules nécessaires */
+import { transporter } from "./nodemailer-config.js";
 import express from "express";
+import { uploadConfig } from "./upload-config.js";
+import cors from "cors";
 import typeRestaurantRouter from "./routes/typeRestaurant.js";
 import restaurantRouter from "./routes/restaurant.js";
-import { transporter } from "./nodemailer-config.js";
 import userRouter from "./routes/user.js";
-import cors from "cors";
 
 /*****************************/
 /*** Initialisation de l'API */
@@ -69,6 +70,5 @@ router.post("/send-email", async (req, res) => {
     res.status(500).json({ error: "Erreur lors de l'envoi du courriel" });
   }
 });
-
 
 app.listen(port, () => console.log("app running baby"));

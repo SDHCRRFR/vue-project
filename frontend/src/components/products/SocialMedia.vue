@@ -1,30 +1,44 @@
 <template>
   <div class="animated fadeInLeft">
+    <h2>Table coup de coeur sur Instagram !</h2>
     <div class="container">
-      <h2>Table coup de coeur sur Instagram !</h2>
-      <div class="my_img">
-        <img src="../../../background-resto.png" alt="" />
-        <img src="../../../background-resto.png" alt="" />
-        <img src="../../../background-resto.png" alt="" />
-        <img src="../../../background-resto.png" alt="" />
-        <!-- <img src="../../../public/background-resto.png" alt=""> -->
+      <div v-for="item in items" :key="item.id" class="my_img">
+        <div class="test">
+          <img v-bind:key="item.id" :src="item.img" alt="" />
+        </div>
       </div>
-      <div class="my_img">
-        <img src="../../../background-resto.png" alt="" />
-        <img src="../../../background-resto.png" alt="" />
-        <img src="../../../background-resto.png" alt="" />
-        <img src="../../../background-resto.png" alt="" />
-      </div>
-      <button type="submit">
-        <a href="#">Instagram</a>
-      </button>
     </div>
+    <button type="submit">
+      <a href="#">Instagram</a>
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SocialMedia'
+  name: 'SocialMedia',
+  data: () => {
+    return {
+      items: [
+        {
+          id: 1,
+          img: '../../../pexel.webp'
+        },
+        {
+          id: 2,
+          img: '../../../pexelsI.jpeg'
+        },
+        {
+          id: 3,
+          img: '../../../pexelsI.jpeg'
+        },
+        {
+          id: 4,
+          img: '../../../pexel.webp'
+        }
+      ]
+    }
+  }
 }
 </script>
 
@@ -44,7 +58,6 @@ export default {
   margin: 0 auto;
   align-items: center;
   display: flex;
-  flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -73,7 +86,7 @@ h2 {
 .my_img {
   width: 80%;
   display: flex;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
   gap: 10px;
   padding: 10px;
   align-items: center;
@@ -82,7 +95,6 @@ h2 {
 
 img {
   width: 100%;
-  height: auto;
 }
 
 button {

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <hr />
-    <router-link to="/edit">
+    <router-link to="/restaurateur/shop">
       <h1>RESTAURANT</h1>
     </router-link>
     <div class="container_block">
@@ -59,7 +59,7 @@
 const API_URL = import.meta.env.VITE_API_URL
 
 export default {
-  name: 'RestaurantId',
+  name: 'RestaurantEdit',
   props: ['id'],
   data() {
     return {

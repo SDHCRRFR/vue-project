@@ -32,7 +32,7 @@ CREATE TABLE tabledecoeur.restaurant (
     nom VARCHAR(100) NOT NULL,
     adresse VARCHAR(200) NOT NULL,
     telephone VARCHAR(20) NOT NULL,
-    img VARCHAR(200),
+    img VARCHAR(500),
     code_postale VARCHAR(50) NOT NULL,
     menu TEXT,
     type_restaurant_id INT UNSIGNED,

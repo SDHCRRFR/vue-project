@@ -1,6 +1,5 @@
 /******************************* */
 // Import des modules nécessaire
-// import connect from "../services/db.js";
 import {
   createRegister,
   getUsers,

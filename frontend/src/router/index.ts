@@ -46,7 +46,7 @@ const router = createRouter({
         { path: 'dashboard', name: 'UserDashboard', component: User.UserDashboard },
         { path: 'info/management', name: 'StoreManagement', component: User.StoreManagement },
         { path: 'shop', name: 'user-shopping', component: User.UserShopping },
-        { path: 'edit', name: 'restaurant-edit', component: User.RestaurantEdit, props: true }
+        { path: 'edit/:id', name: 'restaurant-edit', component: User.RestaurantEdit, props: true }
       ]
     },
     { path: '/login', name: 'user-login', component: UserLogin },

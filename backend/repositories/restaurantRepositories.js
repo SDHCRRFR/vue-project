@@ -41,7 +41,7 @@ const createOneRestaurant = async (data) => {
       :nom,
       :adresse,
       :telephone,
-      :img, 
+      :img,
       :code_postale,
       :menu,
       :type_restaurant_id
