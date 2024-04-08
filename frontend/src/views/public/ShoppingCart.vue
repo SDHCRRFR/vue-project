@@ -42,21 +42,16 @@ export default {
 
 <template>
   <div class="home-container" id="home">
-    <header class="header-content">
-      <h1>Recherchez parmi nos restaurants</h1>
-      <div class="search">
-        <input
-          v-model="searchKey"
-          type="search"
-          id="search"
-          placeholder="Recherchez..."
-          autocomplete="off"
-        />
-        <span v-if="searchKey && filteredList.length >= 1" class="search-span">
-          {{ filteredList.length }} résultat<span v-if="filteredList.length > 1">s</span>
-        </span>
-      </div>
-    </header>
+    <input
+      v-model="searchKey"
+      type="search"
+      id="search"
+      placeholder="Recherchez..."
+      autocomplete="off"
+    />
+    <span v-if="searchKey && filteredList.length >= 1" class="search-span">
+      {{ filteredList.length }} résultat<span v-if="filteredList.length > 1">s</span>
+    </span>
     <div class="card-cart-container">
       <div class="card-container">
         <div v-for="product in filteredList" :key="product.id" class="card">
@@ -120,7 +115,7 @@ export default {
 .home-container {
   max-width: 100%;
   margin: 0 auto;
-  padding-top: 70px;
+  padding-top: 100px;
   padding-left: 2.4rem;
 }
 
@@ -128,27 +123,6 @@ export default {
   .home-container {
     padding-left: 0.2rem;
   }
-}
-
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-header {
-  background: url(../../../public/background-crimson.jpeg);
-  background-size: cover;
-  overflow: hidden;
-  width: 100%;
-  height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
 }
 
 @media screen and (max-width: 768px) {
@@ -184,7 +158,11 @@ a {
 }
 
 #search {
-  width: 500px;
+  width: 450px;
+  padding: 5px;
+  margin-left: 15px;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 button {

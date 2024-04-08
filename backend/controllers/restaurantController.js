@@ -20,24 +20,26 @@ const createRestaurantController = async (req, res) => {
 };
 
 const deleteRestaurant = async (req, res) => {
-  const { id } = req.params;
+  const restaurantId = req.params.restaurantId;
   // Vérifie si le restaurant existe
-  const existingRestaurant = await getOneRestaurantById(id);
-  if (!existingRestaurant || existingRestaurant.length === 0) {
-    return res.status(404).json({ error: "Restaurant non trouvé." });
-  }
-  // Vérifie si l'utilisateur est le créateur du restaurant
-  // (Tu devras adapter cela en fonction de la manière dont tu gères les utilisateurs)
-  const userIdFromToken = req.user.id; // Supposons que tu récupères l'ID de l'utilisateur à partir du token
-  if (existingRestaurant[0].user_id !== userIdFromToken) {
-    return res.status(403).json({ error: "Vous n'avez pas la permission de supprimer ce restaurant." });
-  }
-  // Supprime le restaurant
-  const result = await deleteOneRestaurant(id);
-  if (result.success) {
-    res.status(200).json({ message: "Restaurant supprimé avec succès." });
-  } else {
-    res.status(500).json({ error: "Erreur lors de la suppression du restaurant." });
+  try {
+    const result = await deleteOneRestaurant(restaurantId);
+    if (!result.success) {
+      return res.status(500).json({ 
+        status: 500,
+        error: "Erreur lors de la suppression du restaurant.",
+      });
+    }
+      res.status(200).json({ 
+        status: 200,
+        message: "Restaurant supprimé avec succès." 
+      });
+  } catch (error) {
+    console.error("Erreur lors de la récupération des restaurants",
+    error);
+    res.status(500).json({
+      status: 500, message: "Erreur lors de la récupération du restau",
+    });
   }
 };
 

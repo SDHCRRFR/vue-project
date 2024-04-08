@@ -2,7 +2,6 @@
 /***Import des modules nécessaires */
 import { transporter } from "./nodemailer-config.js";
 import express from "express";
-import { uploadConfig } from "./upload-config.js";
 import cors from "cors";
 import typeRestaurantRouter from "./routes/typeRestaurant.js";
 import restaurantRouter from "./routes/restaurant.js";

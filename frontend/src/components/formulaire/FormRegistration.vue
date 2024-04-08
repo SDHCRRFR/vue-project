@@ -3,7 +3,6 @@
     <h2>Pour plus d'info contactez nous</h2>
     <form @submit.prevent="submitForm()" class="form">
       <div class="input_box">
-        <!-- <label>Nom complet</label> -->
         <input
           type="text"
           id="nom_complet"

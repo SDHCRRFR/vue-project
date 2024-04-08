@@ -49,7 +49,6 @@
               size="5"
               button-class="btn"
               :custom-strings="{ upload: '<h1>Bummer!</h1>', drag: 'Insérez votre photos😺' }"
-              @change="onFileChange"
             />
 
             <button class="button" @click="removeImage">Remove image</button>
@@ -114,23 +113,6 @@ export default {
     closePopup() {
       this.isPopupOpen = false
     },
-    onFileChange(e) {
-      let files = e.target.files || e.dataTransfer.files
-      if (!files.length) return
-      this.createImage(files[0])
-    },
-    createImage() {
-      let image = new Image()
-      let reader = new FileReader()
-
-      reader.onload = (e) => {
-        let newRestaurantData = e.target.newRestaurantData.img
-      }
-      reader.readAsDataURL(newRestaurantData)
-    },
-    removeImage: function (e) {
-      this.newRestaurantData.img = ''
-    },
     submitForm() {
       this.createRestaurant()
     },
@@ -145,7 +127,7 @@ export default {
       })
         .then((data) => data.json())
         .then(() => {
-          console.log('Création réussi voici vos données' + data)
+          console.log('Création réussi voici vos données' + newRestaurantData)
           this.closePopup()
         })
         .catch((error) => console.error('Echec de la création du restaurant', error))

@@ -55,6 +55,7 @@ const getUsersController = async (req, res) => {
   try {
     const users = await getUsers();
     res.status(200).json({ status: 200, data: users });
+    console.log("Utilisateurs récuperez avec succès");
   } catch (error) {
     console.error("Erreur lors de la récupération des utilisateurs:", error);
     res.status(500).json({

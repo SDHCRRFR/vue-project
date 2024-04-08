@@ -14,7 +14,6 @@ restaurantRouter.get('/', index);
 restaurantRouter.get('/sortedRestaurant', getSortedRestaurant);
 restaurantRouter.get('/:id', getRestaurantById);
 restaurantRouter.post('/', createRestaurantController);
-restaurantRouter.delete('/:id', deleteRestaurant);
-
+restaurantRouter.delete('/:restaurantId', deleteRestaurant);
 
 export default restaurantRouter;

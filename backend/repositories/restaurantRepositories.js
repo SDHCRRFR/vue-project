@@ -56,11 +56,10 @@ const createOneRestaurant = async (data) => {
   }
 };
 
-const deleteOneRestaurant = async (id) => {
-    const myrequete = `
-      DELETE FROM tabledecoeur.restaurant WHERE restaurant.id = :id`;
+const deleteOneRestaurant = async (restaurantId) => {
+    const myrequete = "DELETE FROM tabledecoeur.restaurant WHERE id = ?";
     try {
-      const [result] = await connect.query(myrequete, { id: id });
+      const [result] = await connect.query(myrequete, {restaurantId});
       console.log("Suppression réussie !");
       return { result, success: true };
     } catch (error) {

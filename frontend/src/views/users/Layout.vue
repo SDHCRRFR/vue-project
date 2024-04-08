@@ -4,12 +4,12 @@
     <div class="admin_display">
       <router-view />
     </div>
-    <MyFooter/>
+    <MyFooter />
   </div>
 </template>
 <script>
 import AdminHeader from '../../components/header/AdminHeader.vue'
-import MyFooter from '@/components/footer/MyFooter.vue';
+import MyFooter from '@/components/footer/MyFooter.vue'
 export default {
   name: 'AdminLayout',
   components: {

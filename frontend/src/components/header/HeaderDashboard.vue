@@ -1,7 +1,7 @@
 <template>
   <div class="container_img">
     <hgroup>
-      <!-- <h2 class="content"></h2> -->
+      <h2 class="content"></h2>
     </hgroup>
   </div>
 </template>
