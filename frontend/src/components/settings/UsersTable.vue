@@ -4,27 +4,21 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>Nom</th>
+          <th>Name</th>
           <th>Email</th>
-          <th>Date de création</th>
+          <th>Date_création</th>
           <th>Role_id</th>
           <th>Supprimé</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="user in data" :key="user.id">
-          <td>
-            <strong>{{ user.id }}</strong>
-          </td>
+          <td><strong>{{ user.id }}</strong></td>
           <td>{{ user.nom }}</td>
-          <td>
-            <a href="email">{{ user.email }}</a>
-          </td>
+          <td><a href="email">{{ user.email }}</a></td>
           <td>{{ user.date_creation }}</td>
           <td>{{ user.role_id }}</td>
-          <td>
-            <button @click="trashUser(user.id)"><i class="fa-solid fa-trash"></i></button>
-          </td>
+          <td><button @click="trashUser(user.id)"><i class="fa-solid fa-trash"></i></button></td>
         </tr>
         <button @click="openAddUserModal()">Ajouter <i class="fa-solid fa-plus"></i></button>
         <div v-if="isAddUserModalVisible" class="modal">

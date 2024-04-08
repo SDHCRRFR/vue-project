@@ -26,6 +26,7 @@ export default {
         })
         .then((data) => {
           this.data = data.data
+          this.fetchData();
           console.log(data)
         })
         .catch((error) => {

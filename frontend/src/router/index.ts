@@ -25,17 +25,17 @@ const router = createRouter({
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },
-    {
-      path: '/admin',
-      name: 'Admin',
-      component: Admin.AdminLayout,
-      meta: { requiresAuth: true },
-      children: [
-        { path: 'dashboard', name: 'AdminDashboard', component: Admin.AdminDashboard },
-        { path: 'restaurants-settings', name: 'RestaurantSettings', component: Admin.RestaurantSettings },
-        { path: 'users-settings', name: 'UserSettings', component: Admin.UserSettings }
-      ]
-    },
+    // {
+    //   path: '/admin',
+    //   name: 'Admin',
+    //   component: Admin.AdminLayout,
+    //   meta: { requiresAuth: true },
+    //   children: [
+    //     { path: 'dashboard', name: 'AdminDashboard', component: Admin.AdminDashboard },
+    //     { path: 'restaurants-settings', name: 'RestaurantSettings', component: Admin.RestaurantSettings },
+    //     { path: 'users-settings', name: 'UserSettings', component: Admin.UserSettings }
+    //   ]
+    // },
     {
       path: '/restaurateur',
       name: 'restaurateur',

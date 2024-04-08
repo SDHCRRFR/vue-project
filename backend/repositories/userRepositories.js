@@ -46,7 +46,7 @@ const checkLoginCredentials = async (email) => {
 
 const getUsers = async () => {
   const query =
-    "SELECT id, nom, email, date_creation, role_id FROM tabledecoeur.user";
+    "SELECT id, nom, email, password, date_creation, role_id FROM tabledecoeur.user";
   try {
     const [rows] = await connect.query(query);
     return rows;
