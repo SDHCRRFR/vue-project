@@ -81,7 +81,7 @@ export default {
             return response.json()
           })
           .then(() => {
-            this.fetchRestaurantData
+            return this.fetchRestaurantData();
           })
           .catch((error) => {
             console.error(error)

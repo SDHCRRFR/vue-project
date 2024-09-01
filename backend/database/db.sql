@@ -1,33 +1,33 @@
 -- Supprime si elle existe
-DROP DATABASE IF EXISTS tabledecoeur;
+DROP DATABASE IF EXISTS products;
 -- crée la base
-CREATE DATABASE tabledecoeur;
+CREATE DATABASE products;
 
 -- Table: role
-CREATE TABLE tabledecoeur.role (
+CREATE TABLE products.role (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100)
 );
 
 -- Table : user
-CREATE TABLE tabledecoeur.user (
+CREATE TABLE products.user (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
     date_creation DATE NOT NULL,
     role_id INT UNSIGNED,
-    FOREIGN KEY(role_id) REFERENCES tabledecoeur.role(id)
+    FOREIGN KEY(role_id) REFERENCES products.role(id)
 );
 
 -- Table : type restaurant
-CREATE TABLE tabledecoeur.type_restaurant (
+CREATE TABLE products.type_restaurant (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL UNIQUE
 );
 
 -- Table : restaurant
-CREATE TABLE tabledecoeur.restaurant (
+CREATE TABLE products.restaurant (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
     adresse VARCHAR(200) NOT NULL,
@@ -38,18 +38,18 @@ CREATE TABLE tabledecoeur.restaurant (
     type_restaurant_id INT UNSIGNED,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY(type_restaurant_id) REFERENCES tabledecoeur.type_restaurant(id)
+    FOREIGN KEY(type_restaurant_id) REFERENCES products.type_restaurant(id)
 );
 
 
 -- remplir les tables
-INSERT INTO tabledecoeur.role VALUES
+INSERT INTO products.role VALUES
 (NULL, 'user'),
 (NULL, 'admin');
 
 
 -- jeSuisCool
-INSERT INTO tabledecoeur.user VALUES (
+INSERT INTO products.user VALUES (
     NULL, 
     'houdjadji said', 
     'houdjadji_said@carrefour.com', 
@@ -59,7 +59,7 @@ INSERT INTO tabledecoeur.user VALUES (
 );
 
 
-INSERT INTO tabledecoeur.type_restaurant VALUES
+INSERT INTO products.type_restaurant VALUES
 (NULL, 'français'),
 (NULL, 'chinois'),
 (NULL, 'Italien'),
@@ -72,7 +72,7 @@ INSERT INTO tabledecoeur.type_restaurant VALUES
 (NULL, 'japonais');
 
 
-INSERT INTO tabledecoeur.restaurant (nom, adresse, telephone, img, code_postale, menu, type_restaurant_id) VALUES 
+INSERT INTO products.restaurant (nom, adresse, telephone, img, code_postale, menu, type_restaurant_id) VALUES 
      ( 'Sweet Temptations', '131 Rue des Délices', '0654321098', 'resto-IIII.jpeg', '75006', '<h3> Menu <h3/> <p> Chocolate Fondue </p>', 6 ),
      ( 'Kebab', ' 22 Quai Gallieni, Suresnes', '0675708453', 'resto-II.jpeg', '92150', '<h3> Entrée <h3/> <p> pizza </p>', 2 ),
      ( 'Le Baobab', '16 Rue Jean paul', '0675764453', 'resto-III.jpeg', '93200', '<h3> Entrée <h3/> <p> tacos </p>', 3 ),

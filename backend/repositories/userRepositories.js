@@ -3,7 +3,7 @@ import connect from "../services/db.js";
 const createRegister = async (data) => {
   const myrequete = `
         INSERT INTO
-            tabledecoeur.user
+            products.user
         VALUE(
             NULL,
             :nom,
@@ -25,7 +25,7 @@ const createRegister = async (data) => {
 
 
 const deleteUser = async (userId) => {
-  const query = "DELETE FROM tabledecoeur.user WHERE id = ?";
+  const query = "DELETE FROM products.user WHERE id = ?";
   try {
     const [result] = await connect.query(query, [userId]);
     console.log("Utilisateur supprimé avec succès");
@@ -37,7 +37,7 @@ const deleteUser = async (userId) => {
 };
 
 const checkLoginCredentials = async (email) => {
-  const query = "SELECT * FROM tabledecoeur.user WHERE email = ?";
+  const query = "SELECT * FROM products.user WHERE email = ?";
   const [rows] = await connect.query(query, [email]);
   if (rows.length > 0) {
     return rows[0];
@@ -46,7 +46,7 @@ const checkLoginCredentials = async (email) => {
 
 const getUsers = async () => {
   const query =
-    "SELECT id, nom, email, password, date_creation, role_id FROM tabledecoeur.user";
+    "SELECT id, nom, email, password, date_creation, role_id FROM products.user";
   try {
     const [rows] = await connect.query(query);
     return rows;

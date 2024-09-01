@@ -2,7 +2,7 @@ import connect from "../services/db.js";
 
 const getAllRestaurant = async (sort = false) => {
   const myrequete = `
-    select restaurant.* from tabledecoeur.restaurant;`;
+    select restaurant.* from products.restaurant;`;
   if (sort) {
     myrequete += "order by created_at desc";
   }
@@ -16,7 +16,7 @@ const getAllRestaurant = async (sort = false) => {
 
 const getOneRestaurantById = async (id) => {
   const myrequete = `
-    select restaurant.* from tabledecoeur.restaurant WHERE restaurant.id = :id;`;
+    select restaurant.* from products.restaurant WHERE restaurant.id = :id;`;
   try {
     const [result] = await connect.query(myrequete, { id: id });
     return result;
@@ -35,7 +35,7 @@ const createOneRestaurant = async (data) => {
 
   const myrequete = `
   INSERT INTO 
-      tabledecoeur.restaurant 
+      products.restaurant 
       (nom, adresse, telephone, img, code_postale, menu, type_restaurant_id)
   VALUES (
       :nom,
@@ -57,7 +57,7 @@ const createOneRestaurant = async (data) => {
 };
 
 const deleteOneRestaurant = async (restaurantId) => {
-    const myrequete = "DELETE FROM tabledecoeur.restaurant WHERE id = ?";
+    const myrequete = "DELETE FROM products.restaurant WHERE id = ?";
     try {
       const [result] = await connect.query(myrequete, {restaurantId});
       console.log("Suppression réussie !");
