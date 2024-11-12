@@ -87,12 +87,10 @@ INSERT INTO products.restaurant (nom, adresse, telephone, img, code_postale, men
      ( 'TheKebab', 'Drancy', '0675704453', 'resto-II.jpeg', '75001', '<h3> Entrée <h3/> <p> variétés </p>', 2 ),
      ( 'Snack ', 'Oparinor', '0675714453', 'resto-III.jpeg', '75002', '<h3> Entrée <h3/> <p> tacos </p>', 3 ),
      ( 'Chicken Frieds', 'Le Bourget', '0775704453', 'resto-IIII.jpeg', '75003', '<h3> Entrée <h3/> <p> crêpe </p>', 4 ),
-     ( 'Tacos', 'La courneuve', '0675794453', 'resto-v.webp', '75004', '<h3> Entrée <h3/> <p> sandwich </p>', 5 ),
      ( 'Crepeway', 'MontCornet', '0625704453', 'resto-I.jpeg', '75005', '<h3> Entrée <h3/> <p> assiette kebab </p>', 6 ),
      ( 'minifour', 'Sarcelle', '0675574453', 'resto-II.jpeg', '75006', '<h3> Entrée <h3/> <p> burger </p>', 7 ),
      ( 'Brochette', 'Villepinte', '0615104453', 'resto-III.jpeg', '75007', '<h3> Entrée <h3/> <p> soupe </p>', 8 ),
      ( 'Point B', 'Vert Galant', '0699747453', 'resto-IIII.jpeg', '75008', '<h3> Entrée <h3/> <p> pasta </p>', 9 ),
-     ( 'Le Cap dix', 'Sevran', '0694747453', 'resto-v.web', '75009', '<h3> Entrée <h3/> <p> crevette </p>', 10 ),
      ( 'La Bella Vita', '123 Avenue des Roses', '0612345678', 'resto-I.jpeg', '75001', '<h3> Menu <h3/> <p> Pasta Carbonara </p>', 1 ),
      ( 'Gastronomique Heights', '456 Rue de la Liberté', '0654321098', 'resto-II.jpeg', '75002', '<h3> Menu <h3/> <p> Filet Mignon </p>', 2 );
--- ==========================================================================================================================================================
+-- =================================================================================================================================

@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 .container_img {
-  background: url(../../public/background-resto.png) no-repeat fixed;
+  background: url(../../public/mercedes-benz.jpg) no-repeat fixed;
   width: 90%;
   height: 87vh;
   border-radius: 20px 20px 20px 20px;
@@ -44,70 +44,43 @@ export default {
 
 h2::after {
   content: '';
-  animation: slide 3s linear;
-  content: 'Table coup de coeur';
+  animation: slide 3s infinite;
+  content: 'AUTO CLEAN |';
 }
 
 @keyframes slide {
-  0% {
-    content: 'T|';
-  }
-  5% {
-    content: 'Ta|';
-  }
   10% {
-    content: 'Tab|';
-  }
-  15% {
-    content: 'Tabl|';
+    content: 'A|';
   }
   20% {
-    content: 'Table|';
-  }
-  25% {
-    content: 'Table |';
+    content: 'AU|';
   }
   30% {
-    content: 'Table c|';
-  }
-  35% {
-    content: 'Table co|';
+    content: 'AUT|';
   }
   40% {
-    content: 'Table cou|';
-  }
-  45% {
-    content: 'Table coup|';
+    content: 'AUTO|';
   }
   50% {
-    content: 'Table coup |';
-  }
-  55% {
-    content: 'Table coup d|';
-  }
-  55% {
-    content: 'Table coup de|';
+    content: 'AUTO |';
   }
   60% {
-    content: 'Table coup de |';
-  }
-  65% {
-    content: 'Table coup de c|';
+    content: 'AUTO C|';
   }
   70% {
-    content: 'Table coup de co|';
-  }
-  75% {
-    content: 'Table coup de coe|';
+    content: 'AUTO CL|';
   }
   80% {
-    content: 'Table coup de coeu|';
+    content: 'AUTO CLE|';
   }
-  85% {
-    content: 'Table coup de coeur|';
+  90% {
+    content: 'AUTO CLEA|';
+  }
+  95% {
+    content: 'AUTO CLEAN|';
   }
   100% {
-    content: 'Table coup de coeur |';
+    content: 'AUTO CLEAN |';
   }
 }
 

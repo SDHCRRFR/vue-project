@@ -2,14 +2,19 @@
   <div class="animated fadeInLeft">
     <h2>Table coup de coeur sur Instagram !</h2>
     <div class="container">
-      <div v-for="item in items" :key="item.id" class="my_img">
-        <div class="test">
-          <img v-bind:key="item.id" :src="item.img" alt="" />
+      <div v-for="item in items" :key="item.id" class="my_media">
+        <div class="media-wrapper">
+          <iframe
+            :src="item.video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </div>
     <button type="submit">
-      <a href="#">Instagram</a>
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
     </button>
   </div>
 </template>
@@ -22,19 +27,33 @@ export default {
       items: [
         {
           id: 1,
-          img: '../../../pexel.webp'
+          video: 'https://www.youtube.com/embed/EthT1wgI4UI?si=-yea7A_x9tvOlHMX', // Remplace par une vraie URL
+          caption: 'Vidéo 1'
         },
         {
           id: 2,
-          img: '../../../pexelsI.jpeg'
+          video: 'https://www.youtube.com/embed/EthT1wgI4UI?si=-yea7A_x9tvOlHMX', // Remplace par une vraie URL
+          caption: 'Vidéo 2'
         },
         {
           id: 3,
-          img: '../../../pexelsI.jpeg'
+          video: 'https://www.youtube.com/embed/EthT1wgI4UI?si=-yea7A_x9tvOlHMX', // Remplace par une vraie URL
+          caption: 'Vidéo 3'
         },
         {
           id: 4,
-          img: '../../../pexel.webp'
+          video: 'https://www.youtube.com/embed/EthT1wgI4UI?si=-yea7A_x9tvOlHMX', // Remplace par une vraie URL
+          caption: 'Vidéo 3'
+        },
+        {
+          id: 5,
+          video: 'https://www.youtube.com/embed/EthT1wgI4UI?si=-yea7A_x9tvOlHMX', // Remplace par une vraie URL
+          caption: 'Vidéo 3'
+        },
+        {
+          id: 6,
+          video: 'https://www.youtube.com/embed/EthT1wgI4UI?si=-yea7A_x9tvOlHMX', // Remplace par une vraie URL
+          caption: 'Vidéo 4'
         }
       ]
     }
@@ -44,57 +63,49 @@ export default {
 
 <style scoped>
 .animated {
-  background: rgba(229, 228, 228, 0.911);
+  background: rgba(247, 227, 227, 0.911);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 90vh;
+  min-height: 80vh;
+  width: 1800px;
+  padding: 20px;
 }
 
 .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   width: 100%;
-  /* max-width: 1200px; */
-  margin: 0 auto;
-  align-items: center;
-  display: flex;
+  max-width: 1200px;
   padding: 20px;
-  box-sizing: border-box;
 }
 
 h2 {
-  color: white;
+  color: black;
   text-align: center;
 }
 
-.fadeInLeft {
-  animation: fadeInLeft 1s both;
-}
-
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.my_img {
-  width: 80%;
+.my_media {
   display: flex;
-  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
-  gap: 10px;
-  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  /* justify-content: center; */
 }
 
-img {
+.media-wrapper {
+  position: relative;
   width: 100%;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 button {

@@ -13,15 +13,31 @@ const index = async (req, res) => {
 };
 
 const createRestaurantController = async (req, res) => {
-  const donnee = await createOneRestaurant(req.body);
+  const restaurantData = {
+    nom: req.body.nom,
+    adresse: req.body.adresse,
+    telephone: req.body.telephone,
+    img: req.file ? req.file.path : 'uploads/',
+    code_postale: req.body.code_postale,
+    menu: req.body.menu,
+    type_restaurant_id: req.body.type_restaurant_id
+  };
+
+  const donnee = await createOneRestaurant(restaurantData);
   res.status(200).json({
     data: donnee,
   });
 };
 
+// const createRestaurantController = async (req, res) => {
+//   const donnee = await createOneRestaurant(req.body);
+//   res.status(200).json({
+//     data: donnee,
+//   });
+// };
+
 const deleteRestaurant = async (req, res) => {
   const restaurantId = req.params.restaurantId;
-  // Vérifie si le restaurant existe
   try {
     const result = await deleteOneRestaurant(restaurantId);
     if (!result.success) {

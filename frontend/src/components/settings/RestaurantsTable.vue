@@ -63,6 +63,7 @@ export default {
           return response.json()
         })
         .then((donnee) => {
+          console.log('Données reçus :', donnee)
           this.donnee = donnee.data
         })
         .catch((error) => {
@@ -76,12 +77,14 @@ export default {
         })
           .then((response) => {
             if (!response.ok) {
-              throw new Error("Erreur lors de la suppression de l'utilisateur")
+              throw new Error('Erreur lors de la suppression du restaurant')
             }
+            console.log('Erreur lors de la suppression du restaurant')
             return response.json()
           })
           .then(() => {
-            return this.fetchRestaurantData();
+            // console.log("je suis supprimé");
+            this.fetchRestaurantData()
           })
           .catch((error) => {
             console.error(error)
