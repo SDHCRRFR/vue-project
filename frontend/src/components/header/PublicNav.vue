@@ -9,12 +9,14 @@
       <ul id="icons">
         <li>
           <router-link to="/shopping-cart">
-            <i class="fa-solid fa-utensils" title="restos"></i>
+            <i class="fas fa-air-freshener" title="prestation"></i>
+            <!-- <i class="fas fa-cog" title="prestation"></i> -->
           </router-link>
         </li>
         <li>
           <router-link to="/about">
-            <i class="fas fa-address-card" title="à propos"></i>
+            <!-- <i class="fas fa-address-card" title="à propos"></i> -->
+            <i class="fas fa-calendar-alt"></i>
           </router-link>
         </li>
         <li>
@@ -48,16 +50,16 @@ nav {
   padding: 0rem 2.4rem;
   background: #fff;
   position: fixed;
-  width: 95%;
+  width: 100%;
   z-index: 2;
   box-shadow: 0 2px 4px -3px rgba(51, 51, 51, 0.2);
 }
 
 nav .nav-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  max-width: 1450px;
+  width: 98%;
 }
 
 nav .nav-container #logo {
@@ -72,28 +74,8 @@ nav .nav-container #logo img {
 nav .nav-container #icons {
   display: flex;
   font-size: 24px;
-  width: 34%;
-  justify-content: flex-end;
-}
-
-nav .nav-container #icons li {
-  margin-left: calc(35% + 8px);
-}
-
-nav .nav-container #icons li a {
-  position: relative;
-}
-
-nav .nav-container #icons #nav-not {
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  background: #ff2929;
-  position: absolute;
-  visibility: hidden;
-  opacity: 1;
-  transition: 0.6s;
-  transform: translate(-4px, -1px);
+  width: 20%;
+  justify-content: space-around;
 }
 
 nav .nav-container #icons i {

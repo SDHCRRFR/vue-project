@@ -19,6 +19,62 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 
 # Customize configuration
 
+2. Pour mettre en place le projet voici ce que nous devons absolument faire messieurs: 
+
+###### ------------------------------------------------------------------------>
+###### ------------------------------------------------------------------->
+
+### 1. Développer la partie front-end d’une application web ou web mobile en intégrant les recommandations de sécurité
+    A. Maquetter une application
+    B. Réaliser une interface utilisateur web statique et adaptable
+    C. Développer une interface utilisateur web dynamique
+    D. Réaliser une interface utilisateur avec une solution de gestion de contenu ou e-commerce
+
+### 2. Développer la partie back-end d’une application web ou web mobile en intégrant les recommandations de sécurité
+    A. Créer une base de données
+    B. Développer les composants d’accès aux données
+    C. Développer la partie back-end d’une application web ou web mobile
+    D. Elaborer et mettre en œuvre des composants dans une application
+    de gestion de contenu ou e-commerce
+
+### 3. RESUME DU PROJECT
+    A. Expression du besoin
+    B. Persona
+    C. User story
+    D. Arborescence
+    E. Conception graphique
+    a. Zoning
+    b. Wireframe
+    c. Mockup
+    d. Logo
+    e. Créations de l’identité visuelle
+    f. Maquette
+5.Technique du projet
+a. Workflow et environnement
+B. Technologie
+#### 6. Modélisation de la base de donnée
+A. Modèle conceptuel des données (MCD)
+B. Modèle Logique de Données (MLD)
+C. Modèle physique de données (MPD)
+
+6. Projet
+   A. Structure du projet
+   B. Développement de la partie back-end
+
+1. Connexion à la base données
+2. CRUD
+3. Connexion
+4. Sécurité
+
+C. Développement de la parti front-end
+
+1. Création de la partie visuel du site web
+2. Requetes vers le back-end
+3. Fonctionnalités
+4. Css
+
+##### --------------------------------------------------------->
+##### ------------------------------------------------------------------->
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup

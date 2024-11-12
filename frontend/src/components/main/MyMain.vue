@@ -2,19 +2,19 @@
   <div class="my-main">
     <div class="animated fadeInLeft">
       <router-link to="/about">
-        <img src="../../../public/background-resto.png" alt="" />
+        <img src="../../../public/aspi.jpg" alt="" />
         <h2>A propos de nous</h2>
       </router-link>
     </div>
     <div class="animated fadeInTop">
       <router-link to="/shopping-cart">
-        <img src="../../../public/pexelsI.jpeg" alt="" />
+        <img src="../../../public/auto.jpg" alt="" />
         <h2>Restaurants</h2>
       </router-link>
     </div>
     <div class="animated fadeInRight">
       <router-link to="/restaurateur/shop">
-        <img src="../../../public/pexel.webp" alt="" />
+        <img src="../../../public/majestic.jpg" alt="" />
         <h2>Ajoutez mon restaurant</h2>
       </router-link>
     </div>

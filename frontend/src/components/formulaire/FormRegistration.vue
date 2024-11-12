@@ -161,7 +161,7 @@ export default {
     return {
       nom: {
         required,
-        minLengthValue: minLength(10),
+        minLengthValue: minLength(5),
         $autoDirty: true,
         $lazy: true
       },
@@ -173,12 +173,16 @@ export default {
       },
       number: {
         required,
-        minLengthValue: minLength(10),
-        maxLength: maxLength(10),
+        minLengthValue: minLength(9),
+        maxLength: maxLength(9),
         $autoDirty: true,
         $lazy: true
       },
-      birthdate: { required },
+      birthdate: { 
+        required,
+        minLengthValue: minLength(8),
+        maxLength: maxLength(8)
+      },
       picked: { required },
       address: {
         line1: { required },

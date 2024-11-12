@@ -3,6 +3,7 @@
 import { transporter } from "./nodemailer-config.js";
 import express from "express";
 import cors from "cors";
+import multer from 'multer';
 import typeRestaurantRouter from "./routes/typeRestaurant.js";
 import restaurantRouter from "./routes/restaurant.js";
 import userRouter from "./routes/user.js";
@@ -16,6 +17,7 @@ const router = express.Router();
 app.use(router);
 router.use(express.json());
 router.use(express.static("public"));
+router.use('/uploads', express.static('uploads'));
 
 // CORS
 router.use(
@@ -25,6 +27,20 @@ router.use(
     headers: "Origin, X-Requested-With, Content-Type, Accept",
   })
 );
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/'); // Dossier de destination
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname); // Nom du fichier
+  }
+});
+
+const upload = multer({ storage: storage });
+
+// Configuration des routes pour utiliser multer
+router.post('/restaurant', upload.single('img'), restaurantRouter);
 
 
 

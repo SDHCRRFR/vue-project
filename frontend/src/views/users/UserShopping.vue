@@ -26,8 +26,6 @@ export default {
         })
         .then((data) => {
           this.data = data.data
-          this.fetchData();
-          console.log(data)
         })
         .catch((error) => {
           console.error(error)
@@ -60,7 +58,7 @@ export default {
         {{ filteredList.length }} résultat
         <span v-if="filteredList.length >= 2">s</span>
       </span>
-      <pop-up-create-restaurant />
+      <pop-up-create-restaurant @restaurant-added="fetchData" />
     </header>
 
     <div class="card-cart-container">
