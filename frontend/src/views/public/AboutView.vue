@@ -1,7 +1,9 @@
 <template>
   <div class="management">
     <div class="manage_container">
-      <h1>Contactez nous</h1>
+      <h1>À propos de TheFork</h1>
+      <hr/>
+      <h2>Contactez nous</h2>
       <div class="manage_block">
         <div class="block_I">
           <p>
@@ -22,6 +24,7 @@
         </div>
       </div>
     </div>
+    <hr/>
   </div>
 </template>
 

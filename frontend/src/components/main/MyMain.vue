@@ -1,25 +1,54 @@
 <template>
   <div class="my-main">
-    <div class="animated fadeInLeft">
+    <div class="animated" ref="fadeInLeft">
       <router-link to="/about">
-        <img src="../../../public/fauxels.jpg" alt="" />
+        <img src="../../../public/pexelsIII.jpeg" alt="About Us" />
         <h2>A propos de nous</h2>
       </router-link>
     </div>
-    <div class="animated fadeInTop">
+    <div class="animated" ref="fadeInTop">
       <router-link to="/shopping-cart">
-        <img src="../../../public/pexelsII.jpeg" alt="" />
+        <img src="../../../public/pexelsII.jpeg" alt="Restaurants" />
         <h2>Restaurants</h2>
       </router-link>
     </div>
-    <div class="animated fadeInRight">
-      <router-link to="/restaurateur/shop">
-        <img src="../../../public/login.jpeg" alt="" />
+    <div class="animated" ref="fadeInRight">
+      <router-link to="/restaurateur/boutique">
+        <img src="../../../public/login.jpeg" alt="Add Restaurant" />
         <h2>Ajoutez mon restaurant</h2>
       </router-link>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.handleScroll();
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const elements = [
+        { ref: this.$refs.fadeInLeft, animationClass: 'fadeInLeft' },
+        { ref: this.$refs.fadeInTop, animationClass: 'fadeInTop' },
+        { ref: this.$refs.fadeInRight, animationClass: 'fadeInRight' },
+      ];
+
+      elements.forEach(element => {
+        const rect = element.ref.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          element.ref.classList.add(element.animationClass);
+        }
+      });
+    },
+  },
+};
+
+</script>
 
 <style scoped>
 .my-main {
@@ -28,6 +57,7 @@
   display: flex;
   font-family: 'Poppins', sans-serif;
   align-items: center;
+  margin-top: 70px;
   flex-direction: row;
   justify-content: center;
   margin-bottom: 50px;
@@ -104,52 +134,28 @@ h2 {
 }
 
 .animated {
+  opacity: 0;
   align-items: center;
   text-align: center;
   flex-direction: columns;
   height: 60vh;
   width: 80%;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
 }
 
 .fadeInLeft {
-  -webkit-animation: fadeInLeft 5.2s both;
-  -moz-animation: fadeInLeft 5.2s both;
-  -o-animation: fadeInLeft 5.2s both;
   animation: fadeInLeft 5.2s both;
 }
 
-@-webkit-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
+.fadeInTop {
+  animation: fadeInTop 5.2s both;
 }
 
-@-moz-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -moz-transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    -moz-transform: translateX(0);
-  }
+.fadeInRight {
+  animation: fadeInRight 5.2s both;
 }
 
-@-o-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -o-transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    -o-transform: translateX(0);
-  }
-}
 
 @keyframes fadeInLeft {
   0% {
@@ -162,12 +168,6 @@ h2 {
   }
 }
 
-.fadeInTop {
-  -webkit-animation: fadeInTop 5.2s both;
-  -moz-animation: fadeInTop 5.2s both;
-  -o-animation: fadeInTop 5.2s both;
-  animation: fadeInTop 5.2s both;
-}
 
 @keyframes fadeInTop {
   0% {
@@ -178,12 +178,6 @@ h2 {
     opacity: 1;
     transform: translateY(0);
   }
-}
-.fadeInRight {
-  -webkit-animation: fadeInRight 5.2s both;
-  -moz-animation: fadeInRight 5.2s both;
-  -o-animation: fadeInRight 5.2s both;
-  animation: fadeInRight 5.2s both;
 }
 
 @keyframes fadeInRight {
@@ -196,4 +190,5 @@ h2 {
     transform: translateX(0);
   }
 }
+
 </style>

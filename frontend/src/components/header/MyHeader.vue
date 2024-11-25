@@ -1,5 +1,5 @@
 <template>
-  <div class="container_img">
+  <div class="container_img fadeInRight">
     <hgroup>
       <h2 class="content"></h2>
     </hgroup>
@@ -30,17 +30,25 @@ export default {
   flex-direction: column;
   justify-content: center;
 }
-#search {
-  width: 600px;
-  font-size: 20px;
-  padding-left: 30px;
-  border: none;
-  height: 6vh;
-  border-radius: 10px;
+
+.fadeInRight {
+  -webkit-animation: fadeInRight 5.2s both;
+  -moz-animation: fadeInRight 5.2s both;
+  -o-animation: fadeInRight 5.2s both;
+  animation: fadeInRight 5.2s both;
 }
-.search {
-  margin-left: 50px;
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
 
 h2::after {
   content: '';

@@ -1,7 +1,7 @@
 xw
 <template>
   <div class="container">
-    <hr />
+    <hr class="navHr"/>
     <router-link to="/shopping-cart">
       <h1>RESTAURANT</h1>
     </router-link>
@@ -102,8 +102,12 @@ export default {
 }
 
 hr {
-  width: 100%;
+  width: 83%;
   border: 1px solid black;
+}
+
+.navHr {
+  width: 100%;
 }
 
 h1 {
@@ -142,6 +146,7 @@ img {
   display: flex;
   align-items: center;
   gap: 50px;
+  height: 50px;
 }
 
 a {

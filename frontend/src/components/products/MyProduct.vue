@@ -64,7 +64,7 @@ export default {
 /* Styles communs à toutes les tailles d'écrans */
 .user-settings {
   width: 100%;
-  min-height: 70vh;
+  min-height: 55vh;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -2,18 +2,18 @@
   <div class="public">
     <PublicNav />
     <router-view />
-    <MyFooter />
+    <!-- <MyFooter /> -->
   </div>
 </template>
 
 <script>
 import PublicNav from '@/components/header/PublicNav.vue'
-import MyFooter from '@/components/footer/MyFooter.vue'
+// import MyFooter from '@/components/footer/MyFooter.vue'
 export default {
   name: 'PublicLayout',
   components: {
     PublicNav,
-    MyFooter
+    // MyFooter
   }
 }
 </script>
