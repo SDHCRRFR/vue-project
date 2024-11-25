@@ -13,7 +13,7 @@
       </router-link>
     </div>
     <div class="animated fadeInRight">
-      <router-link to="/">
+      <router-link to="/restaurateur/shop">
         <img src="../../../public/pexel.webp" />
         <h2>Ajoutez mon restaurant</h2>
       </router-link>

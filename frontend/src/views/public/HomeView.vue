@@ -7,8 +7,7 @@ import BestOf from '@/components/products/BestOf.vue'
 import SocialMedia from '@/components/products/SocialMedia.vue'
 import TypeRestaurant from '@/components/products/TypeRestaurant.vue'
 
-// const check = 'Découvrer notre annuaire des plus beaux restaurants'
-const check = 'Découvrer nos prestations incluants aussi de nombreux package'
+const check = 'Découvrer notre annuaire des plus beaux restaurants'
 const show = ref(true)
 </script>
 <template>

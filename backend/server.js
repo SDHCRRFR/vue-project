@@ -70,7 +70,7 @@ router.post("/send-email", async (req, res) => {
   // Paramètres du courriel
   const mailOptions = {
     from: "sdhoudjadji.docs@gmail.com",
-    to: "houdjadji_said@carrefour.com",
+    to: "powerdigital.fr@gmail.com",
     subject: "Nouveau formulaire d'inscription",
     text: message,
   };

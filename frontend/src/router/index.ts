@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/stores/connexion/user'
+
 // ==========================================================)->
 import * as Admin from '@/views/admin'
 import * as Public from '@/views/public'

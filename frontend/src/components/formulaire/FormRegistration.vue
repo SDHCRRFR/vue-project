@@ -178,7 +178,7 @@ export default {
         $autoDirty: true,
         $lazy: true
       },
-      birthdate: { 
+      birthdate: {
         required,
         minLengthValue: minLength(8),
         maxLength: maxLength(8)
