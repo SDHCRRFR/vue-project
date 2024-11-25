@@ -20,7 +20,7 @@ export const useUserStore = defineStore('user', {
     strategies: [
       {
         key: 'user',
-        storage: sessionStorage // les données stockées dans le localStorage n'ont pas de délai d'expiration, alors que les données stockées dans le sessionStorage sont nettoyées quand la session navigateur prend fin
+        storage: sessionStorage // contrairement au localStorage les sessionStorage sont nettoyées quand la session navigateur prend fin.
       }
     ]
   }

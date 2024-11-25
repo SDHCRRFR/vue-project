@@ -9,14 +9,12 @@
       <ul id="icons">
         <li>
           <router-link to="/shopping-cart">
-            <i class="fas fa-air-freshener" title="prestation"></i>
-            <!-- <i class="fas fa-cog" title="prestation"></i> -->
+            <i class="fa-solid fa-utensils" title="restos"></i>
           </router-link>
         </li>
         <li>
           <router-link to="/about">
-            <!-- <i class="fas fa-address-card" title="à propos"></i> -->
-            <i class="fas fa-calendar-alt"></i>
+            <i class="fas fa-address-card" title="à propos"></i>
           </router-link>
         </li>
         <li>
