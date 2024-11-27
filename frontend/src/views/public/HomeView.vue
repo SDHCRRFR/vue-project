@@ -32,8 +32,6 @@ const show = ref(true)
 </template>
 
 <style scoped>
-h4,
-h5,
 span {
   color: white;
 }
@@ -46,11 +44,6 @@ span {
   border-radius: 2px;
 }
 
-.maps {
-  width: 80%;
-  min-height: 80vh;
-  background: crimson;
-}
 .home-view {
   width: 100%;
   display: flex;
@@ -80,10 +73,6 @@ h1 {
   width: 800px;
 }
 
-h3 {
-  font-size: 30px;
-}
-
 .two_hr {
   width: 80px;
   height: 8px;
@@ -109,26 +98,4 @@ h3 {
   justify-content: flex-start;
 }
 
-.card_picture {
-  min-height: 70vh;
-  width: 90%;
-  gap: 30px;
-  display: flex;
-  padding: 10px;
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
-  flex-direction: row;
-}
-
-h5 {
-  display: flex;
-  justify-content: space-between;
-}
-
-img {
-  width: 100%;
-  height: 300px;
-  border-radius: 20px;
-}
 </style>

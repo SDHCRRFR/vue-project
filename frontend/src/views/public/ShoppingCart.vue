@@ -142,13 +142,6 @@ a {
   color: black;
 }
 
-.search {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .search-span {
   color: white;
 }
@@ -163,13 +156,6 @@ a {
   margin-left: 15px;
   border: 2px solid black;
   border-radius: 5px;
-}
-
-button {
-  border: none;
-  background: none;
-  outline: none;
-  cursor: pointer;
 }
 
 p {

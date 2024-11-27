@@ -3,45 +3,38 @@
     <div class="manage_container">
       <h1>À propos de Table coup de coeur</h1>
       <div class="propos">
-        <p>Vous adorez dénicher de nouveaux restaurants tendance à Paris, mais vous appréciez aussi les brunchs entre
-          amis le dimanche à Bordeaux ou les dîners en amoureux à Lille ? Vous pensez que rien ne vaut un bon resto
-          italien mais vous aimez sortir de la routine avec un restaurant japonais ou indien ? Alors, venez découvrir
-          les meilleures tables du moment sur Table coup de coeur, parmi une sélection de plus de 60 000 adresses dans
-          le monde
-          entier.
-          <br>
-
-          <br>Tous les jours, retrouvez des promotions allant jusqu’à -50% sur la carte. De quoi se faire plaisir sans
-          se
-          ruiner ! Table coup de coeur est le moyen le plus rapide, disponible 24h/24, pour trouver un bon plan resto
-          près de chez
-          vous, ou une expérience culinaire partout ailleurs. Laissez-vous guider par plus de 20 millions d’avis
-          vérifiés de notre communauté et partagez les vôtres. Seuls les clients ayant honoré leur réservation peuvent
-          déposer un avis et poster leurs photos de plats.
+        <p>
+          Vous adorez dénicher de nouveaux restaurants tendance à Paris, mais vous appréciez aussi
+          les brunchs entre amis le dimanche à Bordeaux ou les dîners en amoureux à Lille ? Vous
+          pensez que rien ne vaut un bon resto italien mais vous aimez sortir de la routine avec un
+          restaurant japonais ou indien ? Alors, venez découvrir les meilleures tables du moment sur
+          Table coup de coeur, parmi une sélection de plus de 60 000 adresses dans le monde entier.
+          <br />
+          <br />Tous les jours, retrouvez des promotions allant jusqu’à -50% sur la carte. De quoi
+          se faire plaisir sans se ruiner ! Table coup de coeur est le moyen le plus rapide,
+          disponible 24h/24, pour trouver un bon plan resto près de chez vous, ou une expérience
+          culinaire partout ailleurs. Laissez-vous guider par plus de 20 millions d’avis vérifiés de
+          notre communauté et partagez les vôtres. Seuls les clients ayant honoré leur réservation
+          peuvent déposer un avis et poster leurs photos de plats.
         </p>
-
-        <p>Pour toutes les envies et toutes les occasions, réservez votre restaurant gratuitement en 3 clics avec
-          confirmation immédiate.</p>
-
+        <p>
+          Pour toutes les envies et toutes les occasions, réservez votre restaurant gratuitement en
+          3 clics avec confirmation immédiate.
+        </p>
         <h2>Êtes-vous un restaurateur ?</h2>
-
         <div class="post">
-          <img src="../../../public/nourriture_salade.jpeg" class="myImage" alt="">
+          <img src="../../../public/nourriture_salade.jpeg" class="myImage" alt="" />
           <div class="txt">
             <h4>Inscrivez votre restaurant</h4>
-            <p>Donnez-nous plus de détails, et nous vous contacterons le plus rapidement possible.</p>
+            <p>
+              Donnez-nous plus de détails, et nous vous contacterons le plus rapidement possible.
+            </p>
             <button type="button">inscrivez votre restaurant</button>
-
             <h4>Déjà client</h4>
-
-            <p>Connectez-vous à TheFork Manager et contactez-nous avec le Chat.</p>
-            <button type="button"> Connectez vous a Table coup de coeur </button>
-
+            <p>Connectez-vous à Table coup de coeur et contactez-nous avec le Chat.</p>
+            <button type="button">Connectez vous a Table coup de coeur</button>
           </div>
-
         </div>
-
-
       </div>
       <hr />
       <h2>Contactez nous</h2>
@@ -57,7 +50,6 @@
             engagement de durée. Visibilité et inscription gratuite. Facturation à l'utilisation :
             les commissions sont basées sur le nombre de couverts réservés et honorés.
           </p>
-
           <img src="../../../public/background-crimson.jpeg" class="images" alt="" />
         </div>
         <div class="block_II">
@@ -121,7 +113,6 @@ p {
   flex-direction: row;
   align-items: center;
   border: 1px solid gainsboro;
-  /* padding: 10px; */
   justify-content: space-between;
   height: 48vh;
 }
@@ -137,18 +128,6 @@ button:hover {
   flex-direction: row;
 }
 
-input {
-  width: 96%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  border: 2px solid rgba(255, 255, 255, 0.91);
-  outline: none;
-  font-size: 16px;
-  color: #fff;
-  border-radius: 40px;
-  padding: 10px 10px 10px 5px;
-}
 
 .block_I {
   display: flex;
@@ -166,13 +145,6 @@ input {
   width: 100%;
 }
 
-.advantage {
-  width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding-top: 280px;
-}
 
 h2 {
   font-size: 40px;
@@ -182,17 +154,8 @@ h2 {
   width: 400px;
 }
 
-/* .review {
-  width: 90%;
-  min-height: 50vh;
-  align-items: center;
-  justify-content: center;
-  margin: 30px;
-} */
-
 button {
   width: 263px;
-  /* height: 223px; */
   padding: 16px;
   border-radius: 10px;
   border: none;

@@ -135,17 +135,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  color: white;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-a,
-a:visited {
+a {
   color: #333;
 }
 

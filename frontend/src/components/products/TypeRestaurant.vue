@@ -145,17 +145,8 @@ img {
   gap: 10px;
 }
 
-span {
-  padding: 4px;
-  font-size: large;
-  font-weight: 700;
-}
-
 .notation {
   width: 100%;
-  /* display: flex;
-  justify-content: space-between;
-  gap: 4px; */
 }
 
 #container {
@@ -176,8 +167,6 @@ span {
     transform: translateY(0);
   }
 }
-
-/* Media Queries */
 
 @media screen and (max-width: 900px) {
   h1 {

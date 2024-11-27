@@ -24,30 +24,29 @@
 <script>
 export default {
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
-    this.handleScroll();
+    window.addEventListener('scroll', this.handleScroll)
+    this.handleScroll()
   },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.handleScroll);
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
     handleScroll() {
       const elements = [
         { ref: this.$refs.fadeInLeft, animationClass: 'fadeInLeft' },
         { ref: this.$refs.fadeInTop, animationClass: 'fadeInTop' },
-        { ref: this.$refs.fadeInRight, animationClass: 'fadeInRight' },
-      ];
+        { ref: this.$refs.fadeInRight, animationClass: 'fadeInRight' }
+      ]
 
-      elements.forEach(element => {
-        const rect = element.ref.getBoundingClientRect();
+      elements.forEach((element) => {
+        const rect = element.ref.getBoundingClientRect()
         if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-          element.ref.classList.add(element.animationClass);
+          element.ref.classList.add(element.animationClass)
         }
-      });
-    },
-  },
-};
-
+      })
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -141,7 +140,6 @@ h2 {
   height: 60vh;
   width: 80%;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-
 }
 
 .fadeInLeft {
@@ -156,7 +154,6 @@ h2 {
   animation: fadeInRight 5.2s both;
 }
 
-
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
@@ -167,7 +164,6 @@ h2 {
     transform: translateX(0);
   }
 }
-
 
 @keyframes fadeInTop {
   0% {
@@ -190,5 +186,4 @@ h2 {
     transform: translateX(0);
   }
 }
-
 </style>

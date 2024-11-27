@@ -78,7 +78,7 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1250px;
   padding: 20px;
 }
 

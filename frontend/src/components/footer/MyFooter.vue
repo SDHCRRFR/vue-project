@@ -95,14 +95,6 @@ footer .menu li a:hover {
   opacity: 1;
 }
 
-/* footer p {
-  color: #fff;
-  text-align: center;
-  margin-top: 15px;
-  margin-bottom: 10px;
-  font-size: 1.1em;
-} */
-
 .mon-footer {
   width: 100%;
   align-items: center;

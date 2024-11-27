@@ -12,7 +12,7 @@ import PublicNav from '@/components/header/PublicNav.vue'
 export default {
   name: 'PublicLayout',
   components: {
-    PublicNav,
+    PublicNav
     // MyFooter
   }
 }

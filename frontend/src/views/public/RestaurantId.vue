@@ -1,7 +1,7 @@
 xw
 <template>
   <div class="container">
-    <hr class="navHr"/>
+    <hr class="navHr" />
     <router-link to="/shopping-cart">
       <h1>RESTAURANT</h1>
     </router-link>

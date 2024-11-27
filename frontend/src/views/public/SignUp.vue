@@ -162,9 +162,6 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  color: white;
-}
 
 nav {
   padding: 0rem 2.4rem;

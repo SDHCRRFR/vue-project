@@ -102,7 +102,6 @@ p {
   box-sizing: border-box;
 }
 
-/* Styles spécifiques aux écrans de largeur maximale de 900px */
 @media screen and (max-width: 900px) {
   h1 {
     font-size: 20px;
@@ -117,7 +116,6 @@ p {
   }
 }
 
-/* Styles spécifiques aux écrans de largeur maximale de 750px */
 @media screen and (max-width: 750px) {
   .container_card {
     gap: 10px;
@@ -129,21 +127,18 @@ p {
   }
 }
 
-/* Styles spécifiques aux écrans de largeur maximale de 580px */
 @media screen and (max-width: 580px) {
   .card {
     flex: 1 1 calc(100% - 20px);
   }
 }
 
-/* Styles spécifiques aux écrans de largeur maximale de 380px */
 @media screen and (max-width: 380px) {
   .card {
     margin-bottom: 10px;
   }
 }
 
-/* Reste des styles inchangés */
 .price_block {
   display: flex;
   width: 100%;
@@ -172,11 +167,6 @@ img {
 
 .box_txt {
   width: 100%;
-  /* display: flex;
-  flex-direction: column;
-  padding: 10px;
-  text-align: left;
-  gap: 10px; */
 }
 
 span {

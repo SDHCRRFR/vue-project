@@ -49,7 +49,6 @@ export default {
   }
 }
 
-
 h2::after {
   content: '';
   animation: slide 3s infinite;
