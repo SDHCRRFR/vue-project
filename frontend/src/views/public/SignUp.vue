@@ -162,7 +162,6 @@ export default {
 </script>
 
 <style scoped>
-
 nav {
   padding: 0rem 2.4rem;
   background: transparent;

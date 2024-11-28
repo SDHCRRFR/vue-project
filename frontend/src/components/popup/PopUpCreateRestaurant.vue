@@ -94,10 +94,10 @@ export default {
         menu: '',
         type_restaurant_id: ''
       },
-      imageFile: null 
+      imageFile: null
     }
   },
-  components: { },
+  components: {},
   methods: {
     openPopup() {
       this.isPopupOpen = true
@@ -132,7 +132,7 @@ export default {
         .then(() => {
           console.log('Création réussi' + formData)
           this.closePopup()
-          this.$emit('restaurant-added') 
+          this.$emit('restaurant-added')
         })
         .catch((error) => console.error('Echec de la création du restaurant', error))
     }

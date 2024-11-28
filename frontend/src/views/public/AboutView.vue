@@ -128,7 +128,6 @@ button:hover {
   flex-direction: row;
 }
 
-
 .block_I {
   display: flex;
   flex-direction: column;
@@ -144,7 +143,6 @@ button:hover {
 .block_II {
   width: 100%;
 }
-
 
 h2 {
   font-size: 40px;
