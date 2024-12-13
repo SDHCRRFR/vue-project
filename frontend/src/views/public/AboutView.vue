@@ -1,7 +1,7 @@
 <template>
   <div class="management">
     <div class="manage_container">
-      <h1>À propos de Table coup de coeur</h1>
+      <h1>À propos de Table coup de coeur <i class="fas fa-heart fa-spin" style="color: #ff0000;"></i> </h1>
       <div class="propos">
         <p>
           Vous adorez dénicher de nouveaux restaurants tendance à Paris, mais vous appréciez aussi
@@ -27,12 +27,16 @@
           <div class="txt">
             <h4>Inscrivez votre restaurant</h4>
             <p>
-              Donnez-nous plus de détails, et nous vous contacterons le plus rapidement possible.
+              Connectez-vous à Table coup de coeur et ajoutez votre restaurant le plus vite possible.
             </p>
-            <button type="button">inscrivez votre restaurant</button>
+            <router-link to="/signup">
+              <button type="button" class="myButton">inscrivez votre restaurant</button>
+            </router-link>
             <h4>Déjà client</h4>
             <p>Connectez-vous à Table coup de coeur et contactez-nous avec le Chat.</p>
-            <button type="button">Connectez vous a Table coup de coeur</button>
+            <router-link to="/login">
+              <button type="button" class="myButton">Connectez vous a Table coup de coeur</button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -111,6 +115,7 @@ p {
 .post {
   display: flex;
   flex-direction: row;
+  gap: 15px;
   align-items: center;
   border: 1px solid gainsboro;
   justify-content: space-between;
@@ -120,6 +125,7 @@ p {
 button:hover {
   background-color: rgb(0, 0, 0);
   color: white;
+
 }
 
 .manage_block {
@@ -149,7 +155,7 @@ h2 {
 }
 
 .images {
-  width: 400px;
+  width: 500px;
 }
 
 button {
@@ -160,6 +166,11 @@ button {
   background: rgb(254, 255, 254);
   color: black;
   border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.486) 2px 2px 2px;
+}
+
+.myButton:hover {
+  cursor: pointer;
 }
 
 h4 {
