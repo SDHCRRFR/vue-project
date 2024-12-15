@@ -1,7 +1,9 @@
 <template>
   <div class="management">
     <div class="manage_container">
-      <h1>À propos de Table coup de coeur <i class="fas fa-heart fa-spin" style="color: #ff0000;"></i> </h1>
+      <h1>
+        À propos de Table coup de coeur <i class="fas fa-heart fa-spin" style="color: #ff0000"></i>
+      </h1>
       <div class="propos">
         <p>
           Vous adorez dénicher de nouveaux restaurants tendance à Paris, mais vous appréciez aussi
@@ -27,7 +29,8 @@
           <div class="txt">
             <h4>Inscrivez votre restaurant</h4>
             <p>
-              Connectez-vous à Table coup de coeur et ajoutez votre restaurant le plus vite possible.
+              Connectez-vous à Table coup de coeur et ajoutez votre restaurant le plus vite
+              possible.
             </p>
             <router-link to="/signup">
               <button type="button" class="myButton">inscrivez votre restaurant</button>
@@ -125,7 +128,6 @@ p {
 button:hover {
   background-color: rgb(0, 0, 0);
   color: white;
-
 }
 
 .manage_block {

@@ -24,6 +24,7 @@
           <td>{{ user.role_id }}</td>
           <td>
             <button @click="trashUser(user.id)"><i class="fa-solid fa-trash"></i></button>
+            <button @click="trashUser(user.id)"><i class="fa-solid fa-pen" style="color: #168967;"></i></button>
           </td>
         </tr>
         <button @click="openAddUserModal()">Ajouter <i class="fa-solid fa-plus"></i></button>
