@@ -1,17 +1,23 @@
 import { defineStore } from 'pinia'
 import { useStorage } from '@vueuse/core'
 
+interface User {
+  id: number;
+  nom: string;
+  email: string;
+}
+
 export const useUserStore = defineStore('user', {
-  state: () => {
+  state: (): { user: User | null } => { 
     return {
-      user: useStorage('user', null)
+      user: useStorage<User | null>('user', null),
     }
   },
   actions: {
-    setUser(user) {
+    setUser(user: User | null): void { 
       this.user = user
     },
-    isAuthenticated() {
+    isAuthenticated(): boolean {
       return this.user !== null
     }
   },
@@ -20,7 +26,7 @@ export const useUserStore = defineStore('user', {
     strategies: [
       {
         key: 'user',
-        storage: sessionStorage // contrairement au localStorage les sessionStorage sont nettoyées quand la session navigateur prend fin.
+        storage: sessionStorage
       }
     ]
   }

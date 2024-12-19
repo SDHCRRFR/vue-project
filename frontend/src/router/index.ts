@@ -22,7 +22,12 @@ const router = createRouter({
       children: [
         { path: '/', name: 'home', component: Public.HomeView },
         { path: '/shopping-cart', component: Public.ShoppingCart, name: 'ShoppingCart' },
-        { path: '/restaurant/:id', name: 'restaurant', component: Public.RestaurantId, props: true },
+        {
+          path: '/restaurant/:id',
+          name: 'restaurant',
+          component: Public.RestaurantId,
+          props: true
+        },
         { path: '/about', name: 'about', component: () => import('../views/public/AboutView.vue') }
       ]
     },
@@ -33,7 +38,11 @@ const router = createRouter({
       meta: { requiresAuth: true },
       children: [
         { path: 'dashboard', name: 'AdminDashboard', component: Admin.AdminDashboard },
-        { path: 'restaurants-settings', name: 'RestaurantSettings', component: Admin.RestaurantSettings },
+        {
+          path: 'restaurants-settings',
+          name: 'RestaurantSettings',
+          component: Admin.RestaurantSettings
+        },
         { path: 'users-settings', name: 'UserSettings', component: Admin.UserSettings }
       ]
     },
