@@ -4,6 +4,7 @@ import {
   createRegister,
   getUsers,
   deleteUser,
+  updateUserEmail
 } from "../repositories/userRepositories.js";
 import argon2 from "argon2";
 
@@ -66,4 +67,32 @@ const getUsersController = async (req, res) => {
 };
 
 
-export { register, getUsersController, deleteUserController };
+const updateUserEmailController = async (req, res) => {
+  const { userId } = req.params;
+  const { email } = req.body;
+
+  try {
+    const { success, result } = await updateUserEmail(userId, email);
+
+    if (!success || result.affectedRows === 0) {
+      return res.status(404).json({
+        status: 404,
+        message: "Utilisateur non trouvé",
+      });
+    }
+
+    res.status(200).json({
+      status: 200,
+      message: "Email mis à jour avec succès",
+    });
+  } catch (error) {
+    console.error("Erreur dans le contrôleur lors de la mise à jour de l'email:", error);
+    res.status(500).json({
+      status: 500,
+      message: "Erreur lors de la mise à jour de l'email",
+    });
+  }
+};
+
+
+export { register, getUsersController, deleteUserController, updateUserEmailController };

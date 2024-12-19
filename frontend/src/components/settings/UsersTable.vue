@@ -24,7 +24,17 @@
           <td>{{ user.role_id }}</td>
           <td>
             <button @click="trashUser(user.id)"><i class="fa-solid fa-trash"></i></button>
-            <button @click="trashUser(user.id)"><i class="fa-solid fa-pen" style="color: #168967;"></i></button>
+            <button @click="editUserEmail(user)"><i class="fa-solid fa-pen" style="color: #168967;"></i></button>
+            <div v-if="isEditUserModalVisible" class="modal">
+              <div class="modal-content">
+                <form @submit.prevent="updateUserEmail()">
+                  <label for="email">Nouvel email:</label>
+                  <input type="email" id="email" v-model="editableUser.email" required />
+                  <button type="submit">Mettre à jour</button>
+                </form>
+                <i @click="closeEditUserModal()" class="fa-solid fa-xmark"></i>
+              </div>
+            </div>
           </td>
         </tr>
         <button @click="openAddUserModal()">Ajouter <i class="fa-solid fa-plus"></i></button>
@@ -59,7 +69,9 @@ export default {
         nom: '',
         email: '',
         password: ''
-      }
+      },
+      isEditUserModalVisible: false,
+      editableUser: { id: null, email: '' },
     }
   },
   mounted() {
@@ -124,7 +136,34 @@ export default {
         .catch((error) => {
           console.error("Erreur lors de l'ajout de l'utilisateur:", error)
         })
-    }
+    },
+    editUserEmail(user) {
+      this.editableUser = { id: user.id, email: user.email };
+      this.isEditUserModalVisible = true;
+    },
+    closeEditUserModal() {
+      this.isEditUserModalVisible = false;
+    },
+    updateUserEmail() {
+      fetch(`${API_URL}/users/${this.editableUser.id}/email`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: this.editableUser.email }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Erreur lors de la mise à jour de l'email");
+          }
+          return response.json();
+        })
+        .then(() => {
+          this.fetchData(); // Recharge la liste des utilisateurs
+          this.closeEditUserModal();
+        })
+        .catch((error) => {
+          console.error("Erreur:", error);
+        });
+    },
   }
 
   // ======================================================================

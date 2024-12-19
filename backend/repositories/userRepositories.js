@@ -56,9 +56,22 @@ const getUsers = async () => {
   }
 };
 
+const updateUserEmail = async (userId, email) => {
+  const query = "UPDATE products.user SET email = ? WHERE id = ?";
+  try {
+    const [result] = await connect.query(query, [email, userId]);
+    console.log("Email mis à jour avec succès");
+    return { result, success: true };
+  } catch (error) {
+    console.error("Erreur lors de la mise à jour de l'email:", error);
+    return { error, success: false };
+  }
+};
+
 export {
   createRegister,
   deleteUser,
   checkLoginCredentials,
   getUsers,
+  updateUserEmail
 };
