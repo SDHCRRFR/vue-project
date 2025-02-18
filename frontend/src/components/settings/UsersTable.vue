@@ -24,7 +24,9 @@
           <td>{{ user.role_id }}</td>
           <td>
             <button @click="trashUser(user.id)"><i class="fa-solid fa-trash"></i></button>
-            <button @click="editUserEmail(user)"><i class="fa-solid fa-pen" style="color: #168967;"></i></button>
+            <button @click="editUserEmail(user)">
+              <i class="fa-solid fa-pen" style="color: #168967"></i>
+            </button>
             <div v-if="isEditUserModalVisible" class="modal">
               <div class="modal-content">
                 <form @submit.prevent="updateUserEmail()">
@@ -71,7 +73,7 @@ export default {
         password: ''
       },
       isEditUserModalVisible: false,
-      editableUser: { id: null, email: '' },
+      editableUser: { id: null, email: '' }
     }
   },
   mounted() {
@@ -138,32 +140,32 @@ export default {
         })
     },
     editUserEmail(user) {
-      this.editableUser = { id: user.id, email: user.email };
-      this.isEditUserModalVisible = true;
+      this.editableUser = { id: user.id, email: user.email }
+      this.isEditUserModalVisible = true
     },
     closeEditUserModal() {
-      this.isEditUserModalVisible = false;
+      this.isEditUserModalVisible = false
     },
     updateUserEmail() {
       fetch(`${API_URL}/users/${this.editableUser.id}/email`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: this.editableUser.email }),
+        body: JSON.stringify({ email: this.editableUser.email })
       })
         .then((response) => {
           if (!response.ok) {
-            throw new Error("Erreur lors de la mise à jour de l'email");
+            throw new Error("Erreur lors de la mise à jour de l'email")
           }
-          return response.json();
+          return response.json()
         })
         .then(() => {
-          this.fetchData(); // Recharge la liste des utilisateurs
-          this.closeEditUserModal();
+          this.fetchData() // Recharge la liste des utilisateurs
+          this.closeEditUserModal()
         })
         .catch((error) => {
-          console.error("Erreur:", error);
-        });
-    },
+          console.error('Erreur:', error)
+        })
+    }
   }
 
   // ======================================================================

@@ -1,0 +1,9 @@
+services:
+  - name: products
+    type: web
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: db5017240618.hosting-data.io
+        value: mysql://dbu1360521:101123/m-v@db5017240618.hosting-data.io:3306/products

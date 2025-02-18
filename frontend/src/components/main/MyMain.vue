@@ -12,7 +12,7 @@
         <h2>Restaurants</h2>
       </router-link>
     </div>
-    <div class="animated" ref="fadeInRight">
+    <div class="animated" id="tst" ref="fadeInRight">
       <router-link to="/restaurateur/boutique">
         <img src="../../../public/login.jpeg" alt="Add Restaurant" />
         <h2>Ajoutez mon restaurant</h2>

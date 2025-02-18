@@ -11,7 +11,7 @@ import userRouter from "./routes/user.js";
 /*****************************/
 /*** Initialisation de l'API */
 const app = express();
-const port = 3000;
+const port = 3306;
 const router = express.Router();
 
 app.use(router);
