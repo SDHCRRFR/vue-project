@@ -14,6 +14,14 @@ const app = express();
 const port = 3000;
 const router = express.Router();
 
+const allowedOrigins = ["https://table-coup-de-coeur.fr"]; // Ajoute ton domaine ici
+
+app.use(cors({
+  origin: allowedOrigins, 
+  methods: ["GET", "POST", "PUT", "DELETE", "HEAD", "PATCH" ],
+  credentials: true // Si tu utilises des cookies ou des sessions
+}));
+
 app.use(router);
 router.use(express.json());
 router.use(express.static("public"));
@@ -22,7 +30,7 @@ router.use('/uploads', express.static('uploads'));
 // CORS
 router.use(
   cors({
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173"],
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173", allowedOrigins],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     headers: "Origin, X-Requested-With, Content-Type, Accept",
   })
