@@ -42,16 +42,19 @@ export default {
 
 <template>
   <div class="home-container" id="home">
-    <input
-      v-model="searchKey"
-      type="search"
-      id="search"
-      placeholder="Recherchez..."
-      autocomplete="off"
-    />
-    <span v-if="searchKey && filteredList.length >= 1" class="search-span">
-      {{ filteredList.length }} résultat<span v-if="filteredList.length > 1">s</span>
-    </span>
+    <div class="filter_flex">
+      <input
+        v-model="searchKey"
+        type="search"
+        id="search"
+        placeholder="Recherchez..."
+        autocomplete="off"
+      />
+      <span v-if="searchKey && filteredList.length >= 1" class="search-span">
+        {{ filteredList.length }} résultat<span v-if="filteredList.length > 1">s</span>
+      </span>
+      <i class="fas fa-sort-alpha-down-alt"></i>
+    </div>
     <div class="card-cart-container">
       <div class="card-container">
         <div v-for="product in filteredList" :key="product.id" class="card">
@@ -125,6 +128,11 @@ export default {
   }
 }
 
+i {
+  /* gap: 30px; */
+  padding: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .search {
     width: 100%;
@@ -156,6 +164,10 @@ a {
   margin-left: 15px;
   border: 2px solid black;
   border-radius: 5px;
+}
+
+.search-span {
+  color: black;
 }
 
 p {

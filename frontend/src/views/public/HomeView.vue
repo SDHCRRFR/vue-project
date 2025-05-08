@@ -6,6 +6,7 @@ import MyProduct from '@/components/products/MyProduct.vue'
 import BestOf from '@/components/products/BestOf.vue'
 import SocialMedia from '@/components/products/SocialMedia.vue'
 import TypeRestaurant from '@/components/products/TypeRestaurant.vue'
+import FooterDefault from '@/components/footer/FooterDefault.vue'
 
 const check = 'Découvrer notre annuaire des plus beaux restaurants'
 const show = ref(true)
@@ -28,6 +29,7 @@ const show = ref(true)
     <BestOf />
     <SocialMedia />
     <TypeRestaurant />
+    <FooterDefault/>
   </div>
 </template>
 

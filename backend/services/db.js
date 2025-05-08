@@ -10,8 +10,7 @@ const connect = mysql.createPool({
 	database: process.env.DB_NAME,
 	user: process.env.DB_USER,
 	password: process.env.DB_PASSWORD,
-	namedPlaceholders: true,
-	port: 3306
+	namedPlaceholders: true
 });
 
 console.log("DB_HOST:", process.env.DB_HOST);

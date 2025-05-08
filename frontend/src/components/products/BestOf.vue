@@ -82,6 +82,7 @@ export default {
 
 h1 {
   font-size: 24px;
+  padding-left: 20px;
 }
 
 p {

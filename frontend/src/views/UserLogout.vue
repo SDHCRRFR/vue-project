@@ -5,27 +5,45 @@
       <h1>Are you sure you want to sign out?</h1>
       <button type="submit" @click="logout()">Sign Out</button>
     </div>
+    <div v-if="loading" class="loading-overlay">
+      <div class="spinner"><i class="fas fa-heart fa-spin" style="color: #ff0000"></i></div>
+      <p>Déconnexion en cours...</p>
+    </div>
   </div>
 </template>
 
 <script>
 import { useUserStore } from '@/stores/connexion/user'
+import { toast } from 'vue3-toastify'
 
 export default {
   name: 'UserLogout',
   data() {
     return {
-      userStore: useUserStore()
+      userStore: useUserStore(),
+      loading: false
     }
   },
   methods: {
     logout() {
+      this.loading = true
+
       this.userStore.setUser(null)
-      this.$router.push('/')
+
+      toast.success('Déconnexion réussie ! 🎉', {
+        autoClose: 3000,
+        position: toast.POSITION.BOTTOM_RIGHT
+      })
+
+      setTimeout(() => {
+        this.loading = false
+        this.$router.push('/')
+      }, 5000)
     }
   }
 }
 </script>
+
 
 <style scoped>
 .image {
@@ -74,4 +92,19 @@ button:hover {
   justify-content: center;
   border: 1px solid black;
 }
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 </style>

@@ -69,7 +69,7 @@ export default {
   align-items: center;
   flex-direction: column;
   min-height: 80vh;
-  width: 1800px;
+  width: 100vw;
   padding: 20px;
 }
 
@@ -106,6 +106,7 @@ iframe {
   left: 0;
   width: 100%;
   height: 100%;
+  border-radius: 15px;
 }
 
 button {

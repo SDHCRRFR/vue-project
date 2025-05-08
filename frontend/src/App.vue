@@ -1,17 +1,13 @@
-<script>
-export default {
-  name: 'App',
-  components: {},
-  data: function () {
-    return {}
-  }
-}
-</script>
-
 <template>
-  <div class="app">
-    <RouterView />
-  </div>
+  <RouterView />
 </template>
 
-<style scoped></style>
+<script setup>
+
+</script>
+
+<style>
+.Toastify__toast-container {
+  z-index: 9999 !important;
+}
+</style>

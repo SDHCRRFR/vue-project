@@ -69,6 +69,10 @@
             </p>
           </div>
         </form>
+        <div v-if="loading" class="loading-overlay">
+          <div class="spinner"><i class="fas fa-heart fa-spin" style="color: #ff0000"></i></div>
+          <p style="color: black;">Inscription en cours...</p>
+        </div>
       </div>
     </div>
   </div>
@@ -77,6 +81,7 @@
 <script>
 import { useVuelidate } from '@vuelidate/core'
 import { required, email, minLength } from '@vuelidate/validators'
+import { toast } from 'vue3-toastify'
 const API_URL = import.meta.env.VITE_API_URL
 
 export default {
@@ -92,7 +97,8 @@ export default {
       },
       password: '',
       showPassword: false,
-      connect: ''
+      connect: '',
+      loading: false
     }
   },
   validations() {
@@ -129,6 +135,7 @@ export default {
       }
     },
     register() {
+      this.loading = true;
       const formData = {
         nom: this.nom,
         email: this.contact.email,
@@ -145,7 +152,14 @@ export default {
         .then((data) => data.json())
         .then((data) => {
           if (data.status === 200) {
-            this.$router.push('restaurateur/dashboard')
+            toast.success('Inscription réussie ! 🎉', {
+              autoClose: 5000,
+              position: toast.POSITION.BOTTOM_RIGHT
+            })
+            // this.loading = false;
+            setTimeout(() => {
+              this.$router.push('restaurateur/dashboard')
+            }, 5000)
             console.log(data)
           } else if (data.status === 400) {
             this.connect = 'le compte existe deja'
@@ -155,7 +169,10 @@ export default {
             console.log('ca a merdé' + data)
           }
         })
-        .catch((error) => console.error(error))
+        .catch((error) => {
+      this.loading = false; // Même en cas d'erreur
+      console.error('Erreur lors de l’inscription :', error)
+    })
     }
   }
 }
@@ -302,5 +319,19 @@ span {
 
 .register_link p a:hover {
   text-decoration: underline;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 </style>

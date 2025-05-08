@@ -2,7 +2,7 @@
   <div class="user-settings">
     <div class="fadeInTop" id="container">
       <h1>A chacun son style culinaire !</h1>
-      <p>Découvrez les spécialités du moment</p>
+      <p class="special">Découvrez les spécialités du moment</p>
       <div class="container_card">
         <div class="card" v-for="item in data" :key="item.id">
           <router-link :to="{ name: 'restaurant', params: { id: item.id } }">
@@ -87,10 +87,17 @@ export default {
 
 h1 {
   font-size: 24px;
+  padding-left: 20px;
 }
 
 p {
   font-size: 18px;
+  /* padding-left: 20px; */
+}
+
+
+.special {
+  padding-left: 15px;
 }
 
 .container_card {

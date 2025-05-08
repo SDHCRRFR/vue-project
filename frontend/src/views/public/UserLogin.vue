@@ -56,6 +56,10 @@
             </p>
           </div>
         </form>
+        <div v-if="loading" class="loading-overlay">
+          <div class="spinner"><i class="fas fa-heart fa-spin" style="color: #ff0000"></i></div>
+          <p>Connexion en cours...</p>
+        </div>
       </div>
     </div>
   </div>
@@ -63,6 +67,7 @@
 
 <script>
 import { useUserStore } from '@/stores/connexion/user'
+import { toast } from 'vue3-toastify'
 const API_URL = import.meta.env.VITE_API_URL
 
 export default {
@@ -76,7 +81,8 @@ export default {
       },
       rememberMe: false,
       showPassword: false,
-      connect: ''
+      connect: '',
+      loading: false
     }
   },
   methods: {
@@ -107,17 +113,25 @@ export default {
         .then((data) => data.json())
         .then((data) => {
           console.log(data.status)
+          // userStore.setUser({id: 1, nom: 'cmoicool'})
           if (data.status === 200) {
-            // userStore.setUser({id: 1, nom: 'cmoicool'})
-            this.userStore.setUser(data.data)
-            if (this.userStore.user.role_id === 2) {
-              this.$router.push('admin/dashboard')
-            } else {
-              this.$router.push('restaurateur/dashboard')
-              console.log(data)
-            }
+        this.userStore.setUser(data.data)
+        toast.success('Connexion réussie 🎉')
+
+        this.loading = true 
+        setTimeout(() => {
+          if (this.userStore.user.role_id === 2) {
+            this.$router.push('/admin/dashboard')
           } else {
+            this.$router.push('/restaurateur/dashboard')
+          }
+        }, 2000) // Temps que tu veux attendre avant redirection
+      } else {
             this.connect = 'Aucun identifiant ne correspond étes vous sur davoir de compte ?'
+            toast.error('Erreur de connexion ❌', {
+              autoClose: 3000,
+              position: toast.POSITION.BOTTOM_RIGHT
+            })
           }
         })
         .catch((error) => console.error(error))
@@ -282,5 +296,23 @@ nav .nav-container {
 
 .register_link p a:hover {
   text-decoration: underline;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-overlay p {
+  color: black;
 }
 </style>
