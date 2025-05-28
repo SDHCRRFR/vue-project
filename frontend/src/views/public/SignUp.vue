@@ -71,7 +71,7 @@
         </form>
         <div v-if="loading" class="loading-overlay">
           <div class="spinner"><i class="fas fa-heart fa-spin" style="color: #ff0000"></i></div>
-          <p style="color: black;">Inscription en cours...</p>
+          <p style="color: black">Inscription en cours...</p>
         </div>
       </div>
     </div>
@@ -135,7 +135,7 @@ export default {
       }
     },
     register() {
-      this.loading = true;
+      this.loading = true
       const formData = {
         nom: this.nom,
         email: this.contact.email,
@@ -170,9 +170,9 @@ export default {
           }
         })
         .catch((error) => {
-      this.loading = false; // Même en cas d'erreur
-      console.error('Erreur lors de l’inscription :', error)
-    })
+          this.loading = false // Même en cas d'erreur
+          console.error('Erreur lors de l’inscription :', error)
+        })
     }
   }
 }

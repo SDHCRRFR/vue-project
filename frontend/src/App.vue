@@ -2,9 +2,7 @@
   <RouterView />
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
 
 <style>
 .Toastify__toast-container {

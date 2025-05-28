@@ -115,18 +115,18 @@ export default {
           console.log(data.status)
           // userStore.setUser({id: 1, nom: 'cmoicool'})
           if (data.status === 200) {
-        this.userStore.setUser(data.data)
-        toast.success('Connexion réussie 🎉')
+            this.userStore.setUser(data.data)
+            toast.success('Connexion réussie 🎉')
 
-        this.loading = true 
-        setTimeout(() => {
-          if (this.userStore.user.role_id === 2) {
-            this.$router.push('/admin/dashboard')
+            this.loading = true
+            setTimeout(() => {
+              if (this.userStore.user.role_id === 2) {
+                this.$router.push('/admin/dashboard')
+              } else {
+                this.$router.push('/restaurateur/dashboard')
+              }
+            }, 2000) // Temps que tu veux attendre avant redirection
           } else {
-            this.$router.push('/restaurateur/dashboard')
-          }
-        }, 2000) // Temps que tu veux attendre avant redirection
-      } else {
             this.connect = 'Aucun identifiant ne correspond étes vous sur davoir de compte ?'
             toast.error('Erreur de connexion ❌', {
               autoClose: 3000,

@@ -95,7 +95,6 @@ p {
   /* padding-left: 20px; */
 }
 
-
 .special {
   padding-left: 15px;
 }

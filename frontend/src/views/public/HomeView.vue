@@ -29,7 +29,7 @@ const show = ref(true)
     <BestOf />
     <SocialMedia />
     <TypeRestaurant />
-    <FooterDefault/>
+    <FooterDefault />
   </div>
 </template>
 

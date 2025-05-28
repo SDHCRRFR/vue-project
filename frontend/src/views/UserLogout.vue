@@ -44,7 +44,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .image {
   width: 100%;
@@ -106,5 +105,4 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
-
 </style>

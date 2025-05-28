@@ -5,7 +5,9 @@ export default {
   name: 'PublicShp',
   data: () => ({
     data: [],
-    searchKey: ''
+    searchKey: '',
+    selectedCuisine: '',
+    sortBy: 'recent' // recent ou oldest
   }),
   created() {
     this.fetchData()
@@ -30,11 +32,25 @@ export default {
   computed: {
     filteredList() {
       const key = this.searchKey.toLowerCase()
-      return this.data.filter(
-        (product) =>
-          product.code_postale.toLowerCase().includes(key) ||
-          product.nom.toLowerCase().includes(key)
-      )
+      let list = this.data
+      if (key) {
+        list = list.filter(
+          (product) =>
+            product.code_postale.toLowerCase().includes(key) ||
+            product.nom.toLowerCase().includes(key)
+        )
+      }
+      if (this.selectedCuisine) {
+        list = list.filter(
+          (product) => product.type_restaurant_id === parseInt(this.selectedCuisine)
+        )
+      }
+      list = list.sort((a, b) => {
+        const dateA = new Date(a.created_at)
+        const dateB = new Date(b.created_at)
+        return this.sortBy === 'recent' ? dateB - dateA : dateA - dateB
+      })
+      return list
     }
   }
 }
@@ -53,7 +69,20 @@ export default {
       <span v-if="searchKey && filteredList.length >= 1" class="search-span">
         {{ filteredList.length }} résultat<span v-if="filteredList.length > 1">s</span>
       </span>
-      <i class="fas fa-sort-alpha-down-alt"></i>
+      <div class="filter-options">
+        <select v-model="selectedCuisine">
+          <option value="">Tous les types</option>
+          <option value="1">Français</option>
+          <option value="2">Asiatique</option>
+          <option value="3">Italien</option>
+          <option value="marocain">Marocain</option>
+        </select>
+
+        <select v-model="sortBy">
+          <option value="recent">Plus récent</option>
+          <option value="oldest">Plus ancien</option>
+        </select>
+      </div>
     </div>
     <div class="card-cart-container">
       <div class="card-container">
@@ -162,6 +191,18 @@ a {
   width: 450px;
   padding: 5px;
   margin-left: 15px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.filter-options {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 1rem 15px;
+}
+
+.filter-options select {
+  padding: 5px 10px;
   border: 2px solid black;
   border-radius: 5px;
 }
